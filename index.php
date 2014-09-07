@@ -44,7 +44,7 @@
 	</div>
 	<div data-role="footer">
 		<h4>
-			Visi&oacute;n Mundial Guatemala, <?php echo date("Y"); ?> <img src="img/logo-fit.png" style="width:76px; height:25px; padding-left:10px;"/>
+			Visi&oacute;n Mundial Guatemala GT, <?php echo date("Y"); ?> <img src="img/logo-fit.png" style="width:76px; height:25px; padding-left:10px;"/>
 		</h4>
 	</div>
 
