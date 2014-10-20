@@ -1,0 +1,32 @@
+/*COLORES PARA RIESGOS - VISION MUNDIAL*/
+
+.insignificante{
+	/*color verde*/
+	background-color: green;
+	color: black;	
+}
+
+.bajo{
+	/*color amarillo*/
+	background-color: yellow;
+	color: black;	
+}
+
+.medio{
+	/*color naranja*/
+	background-color: orange;
+	color: black;		
+}
+
+.alto{
+	/*color rojo*/
+	background-color: red;
+	color: black;	
+}
+
+.critico{
+	/*color negro*/
+	background-color: black;
+	color: white;	
+}
+
