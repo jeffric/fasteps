@@ -157,7 +157,9 @@ $c_funciones = new Funciones();
 								<table>
 									<tr>
 										<td>
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoa" value="0" checked="checked"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgof" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: rgb(148, 221, 0);color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Nulo</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgof" value="5" checked="checked"></div>
+
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoa" value="0"></div>
 
 											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgob" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Bajo</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgob" value="1"></div>
 
@@ -555,6 +557,24 @@ $c_funciones = new Funciones();
 					return "";
 			}
 		}
+
+		$(function(){
+			$('input[name=rdbP1_Impacto]').click(function() {
+				var prob = $($('input[name=rdbP1_Probabilidad]:radio:checked')).val();
+				var impact = $(this).val();
+				var stval = getRiskLevelNumber(prob,impact);
+				$('[name=rdbP1_NivelDeRiesgo][value="'+ stval +'"]').prop('checked','checked');
+				$("input[type='radio']").checkboxradio("refresh");
+			});
+
+			$('input[name=rdbP1_Probabilidad]').click(function() {
+				var impact = $($('input[name=rdbP1_Impacto]:radio:checked')).val();
+				var prob = $(this).val();
+				var stval = getRiskLevelNumber(prob,impact);
+				$('[name=rdbP1_NivelDeRiesgo][value="'+ stval +'"]').prop('checked','checked');
+				$("input[type='radio']").checkboxradio("refresh");
+			});
+		});
 
 	</script>
 </body>
