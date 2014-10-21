@@ -100,6 +100,5 @@
 		FUNCIONES PARA USUARIOS
 		*/
 		
-
 	}
 	?>
