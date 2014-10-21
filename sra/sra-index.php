@@ -105,7 +105,7 @@ $c_funciones = new Funciones();
 			</div> 
 			
 			<div class="content">
-				<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
+				<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
 					<thead>
 						<tr>
 							<th >Pregunta</th>
@@ -123,15 +123,15 @@ $c_funciones = new Funciones();
 								<table>
 									<tr>
 										<td>
-											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_Impacto" class="" id="rdbP1_Impactoa" value="on" checked="checked"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_Impacto" class="" id="rdbP1_Impactoa" value="0" checked="checked"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Impactob" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Menor</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactob" value="on" ></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Impactob" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Menor</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactob" value="1" ></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: orange;color: black;text-shadow: none;"style="background-color: orange;color: black;text-shadow: none;">Moderado</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactoc" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: orange;color: black;text-shadow: none;"style="background-color: orange;color: black;text-shadow: none;">Moderado</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactoc" value="2"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Impactod" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: red;color: black;text-shadow: none;"style="background-color: red;color: black;text-shadow: none;">Severo</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactod" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Impactod" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: red;color: black;text-shadow: none;"style="background-color: red;color: black;text-shadow: none;">Severo</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactod" value="3"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoe" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: black;color: white;text-shadow: none;"style="background-color: black;color: white;text-shadow: none;">Cr&iacute;tico</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactoe" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Impactoe" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: black;color: white;text-shadow: none;"style="background-color: black;color: white;text-shadow: none;">Cr&iacute;tico</label><input type="radio" name="rdbP1_Impacto" id="rdbP1_Impactoe" value="4"></div>
 										</td>
 									</tr>
 								</table>
@@ -140,15 +140,15 @@ $c_funciones = new Funciones();
 								<table>
 									<tr>
 										<td>
-											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidada" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidada" value="on" checked="checked"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidada" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Improbable</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidada" value="4" checked="checked"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadb" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Menor</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadb" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadb" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Moderadamente Probable</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadb" value="3"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: orange;color: black;text-shadow: none;">Moderado</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadc" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: orange;color: black;text-shadow: none;">Probable</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadc" value="2"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadd" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: red;color: black;text-shadow: none;">Severo</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadd" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidadd" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: red;color: black;text-shadow: none;">Muy Probable</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidadd" value="1"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidade" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: black;color: white;text-shadow: none;">Cr&iacute;tico</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidade" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_Probabilidade" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: black;color: white;text-shadow: none;">Inminente</label><input type="radio" name="rdbP1_Probabilidad" id="rdbP1_Probabilidade" value="0"></div>
 										</td>
 									</tr>
 								</table>
@@ -157,15 +157,15 @@ $c_funciones = new Funciones();
 								<table>
 									<tr>
 										<td>
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoa" value="on" checked="checked"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoa" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child" style="background-color: green;color: white;text-shadow: none;"style="background-color: green;color: white;text-shadow: none;">Insignificante</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoa" value="0" checked="checked"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgob" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Menor</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgob" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgob" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: rgb(236, 236, 9);color: white;text-shadow: none;">Bajo</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgob" value="1"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: orange;color: black;text-shadow: none;">Moderado</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoc" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoc" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: orange;color: black;text-shadow: none;">Medio</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoc" value="2"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgod" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: red;color: black;text-shadow: none;">Severo</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgod" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgod" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: red;color: black;text-shadow: none;">Alto</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgod" value="3"></div>
 
-											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoe" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: black;color: white;text-shadow: none;">Cr&iacute;tico</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoe" value="on"></div>
+											<div class="ui-radio ui-mini"><label for="rdbP1_NivelDeRiesgoe" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on ui-first-child"style="background-color: black;color: white;text-shadow: none;">Cr&iacute;tico</label><input type="radio" name="rdbP1_NivelDeRiesgo" id="rdbP1_NivelDeRiesgoe" value="4"></div>
 										</td>
 									</tr>
 								</table>
@@ -502,6 +502,60 @@ $c_funciones = new Funciones();
 		</nav>
 	</div>
 	<!-- FOOTER -->
-	<?php $c_funciones->getFooter(); ?>		
+	<?php $c_funciones->getFooter(); ?>
+	<script type="text/javascript">
+
+		//0=Inisignificante, 1=Bajo, 2=Medio, 3=Alto, 4=Critico, 5=nulo
+
+		//								_Insignificante_	_Menor_			_Moderado_		_Severo_		_Critico_
+		// Imninente 		  	  ||	Bajo(0,0)				Medio(0,1)			Alto(0,2)			Critico(0,3)			Critico(0,4)
+		// Muy Probable 		  ||	Bajo(1,0)				Medio(1,1)			Alto(1,2)			Alto(1,3)			Critico(1,4)
+		// Probable  			  ||	Insignificante(2,0)		Bajo(2,1)			Medio(2,2)			Alto(2,3)			Alto(2,4)
+		// Moderadamente Probable || 	Insignificante(3,0)		Bajo(3,1)			Bajo(3,2)			Medio(3,3)			Medio(3,4)
+		// Improbable   		  ||	Nulo(4,0)				Insignificante(4,1)	Insignificante(4,2)	Bajo(4,3)			Bajo(4,4)
+		
+
+		
+		var MatrizSra = [
+		    [1,2,3,4,4],
+		    [1,2,3,3,4],
+		    [0,1,2,3,3],
+		    [0,1,1,2,2],
+		    [5,0,0,1,1]
+		];
+
+		function getRiskLevelNumber(Probabilidad, Impacto){
+			if(parseInt(Probabilidad) > 4 || parseInt(Impacto) > 4){
+				return -1;
+			}
+			return MatrizSra[parseInt(Probabilidad)][parseInt(Impacto)];
+		}
+
+
+		function getRiskLevelString(Probabilidad, Impacto){
+			if(parseInt(Probabilidad) > 4 || parseInt(Impacto) > 4){
+				return "";
+			}
+			var RiskNumber = getRiskLevelNumber(parseInt(Probabilidad), parseInt(Impacto));
+			//0=Inisignificante, 1=Bajo, 2=Medio, 3=Alto, 4=Critico, 5=nulo
+			switch(RiskNumber){
+				case 0:
+					return "Insignificante";
+				case 1:
+					return "Bajo";
+				case 2:
+					return "Medio";
+				case 3:
+					return "Alto";
+				case 4:
+					return "Cr&iacute;tico";
+				case 5:
+					return "Nulo";
+				default:
+					return "";
+			}
+		}
+
+	</script>
 </body>
 </html>
