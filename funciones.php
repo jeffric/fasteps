@@ -17,13 +17,24 @@
 		Constructor
 	*/
 		// constructor
+
+
+// $link = mysql_connect('creativesolitcom.ipagemysql.com', 'vm_user_fast', '*password*'); 
+// if (!$link) { 
+//     die('Could not connect: ' . mysql_error()); 
+// } 
+// echo 'Connected successfully'; 
+// mysql_select_db(dbfast_vm); 
+
 		function __construct(){
 		//$serverName, $port, $db_name, $username, $password
 			$serverName = "localhost";
 			$port = "3306";
-			$db_name = "cdcol";
+			$db_name = "dbfast_vm";
+			// $username = "vm_user_fast";
 			$username = "root";
 			$password = "";
+			// $password = "u$3r_*F@$t";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
