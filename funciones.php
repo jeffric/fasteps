@@ -239,6 +239,30 @@
 		</head>';
 	}
 
+	function getHeaderPage($TituloDePagina = ""){
+		echo '<div class="header">
+			<a href="#menu"></a>
+			<div style="text-align:center;">
+				' . $TituloDePagina . '
+			</div>
+			<div style="position: absolute; right:0; top: 0;">
+				<img src="img/logo-fit.png" alt="logo" width="100px" />
+			</div>
+		</div>';
+	}
+
+	function getHeaderPageNivel2($TituloDePagina = ""){
+		echo '<div class="header">
+			<a href="#menu"></a>
+			<div style="text-align:center;">
+				' . $TituloDePagina . '
+			</div>
+			<div style="position: absolute; right:0; top: 0;">
+				<img src="../img/logo-fit.png" alt="logo" width="100px" />
+			</div>
+		</div>';
+	}
+
 	/**
 		Funcion para construir el footer de cada pagina.
 	 */
@@ -247,6 +271,16 @@
 							<span>Visi&oacute;n Mundial Guatemala,';
 				echo date("Y"); 
 				echo '			<img src="img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
+							</span>
+						</div><!-- /footer -->';
+
+		}
+
+		function getFooterNivel2(){
+				echo '	<div class="footer FixedBottom"  style="z-index: 100;">
+							<span>Visi&oacute;n Mundial Guatemala,';
+				echo date("Y"); 
+				echo '			<img src="../img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
 							</span>
 						</div><!-- /footer -->';
 
