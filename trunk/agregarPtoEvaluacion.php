@@ -6,7 +6,6 @@ $c_funciones = new Funciones();
 ?>
 <!DOCTYPE html>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <?php echo $c_funciones->getHeader("Master page", 
 	'<script type="text/javascript">
 	$(function() {
@@ -16,7 +15,7 @@ $c_funciones = new Funciones();
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPage("F.A.S.T. Home"); ?>
+		<?php $c_funciones->getHeaderPage("F.A.S.T. MAPAS"); ?>
 		<div class="content">
 			<p><strong>CONTENIDO ACA</strong><br />				
 		</div>

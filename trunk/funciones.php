@@ -52,6 +52,7 @@
 			
 			echo '<link rel="stylesheet" href="' . substr(dirname(__FILE__), strlen($_SERVER['DOCUMENT_ROOT'])) . '\css\jquery.mobile-1.4.3.min.css">';
 			echo '<link rel="stylesheet" href="' . substr(dirname(__FILE__), strlen($_SERVER['DOCUMENT_ROOT'])) . '\css\jqm-demos.css">';
+
 		}
 
 	/**
@@ -88,16 +89,16 @@
 					</li>
 					<li><a href="#">Acerca de nosotros</a>
 						<ul>
-							<li><a href="about/mision.php">Misi&oacute;n</a></li>
-							<li><a href="about/vision.php">Visi&oacute;n</a></li>
+							<li><a href="about/mision.php">Misión</a></li>
+							<li><a href="about/vision.php">Visión</a></li>
 							<li><a href="about/valores.php">Valores</a></li>
 							<li><a href="about/historia.php">Historia</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Acerca de F.A.S.T.</a>
 						<ul>
-							<li><a href="aboutfast/mision.php">Misi&oacute;n</a></li>
-							<li><a href="aboutfast/vision.php">Visi&oacute;n</a></li>
+							<li><a href="aboutfast/mision.php">Misión</a></li>
+							<li><a href="aboutfast/vision.php">Visión</a></li>
 							<li><a href="aboutfast/valores.php">Valores</a></li>
 							<li><a href="aboutfast/historia.php">Historia</a></li>
 						</ul>
@@ -110,6 +111,7 @@
 
 		function getHeader($tituloPagina = "", $CodigoDentroDeHeader = ""){
 			echo '<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
 			<title>' . $tituloPagina . '</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=yes">
@@ -126,6 +128,7 @@
 			<script src="js/jquery-2.1.1.js"></script>
 			<script src="js/jquery.mobile-1.4.4.min.js"></script>
 			<script src="js/jquery.mobile-1.4.4.min.map"></script>
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
 
 			<!-- Scripts para menu -->
 			<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
@@ -179,16 +182,16 @@
 					</li>
 					<li><a href="#">Acerca de nosotros</a>
 						<ul>
-							<li><a href="../about/mision.php">Misi&oacute;n</a></li>
-							<li><a href="../about/vision.php">Visi&oacute;n</a></li>
+							<li><a href="../about/mision.php">Misión</a></li>
+							<li><a href="../about/vision.php">Visión</a></li>
 							<li><a href="../about/valores.php">Valores</a></li>
 							<li><a href="../about/historia.php">Historia</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Acerca de F.A.S.T.</a>
 						<ul>
-							<li><a href="../aboutfast/mision.php">Misi&oacute;n</a></li>
-							<li><a href="../aboutfast/vision.php">Visi&oacute;n</a></li>
+							<li><a href="../aboutfast/mision.php">Misión</a></li>
+							<li><a href="../aboutfast/vision.php">Visión</a></li>
 							<li><a href="../aboutfast/valores.php">Valores</a></li>
 							<li><a href="../aboutfast/historia.php">Historia</a></li>
 						</ul>
@@ -201,6 +204,7 @@
 
 		function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 			echo '<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 			<title>' . $tituloPagina . '</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=yes">
@@ -217,7 +221,8 @@
 			<script src="../js/jquery-2.1.1.js"></script>
 			<script src="../js/jquery.mobile-1.4.4.min.js"></script>
 			<script src="../js/jquery.mobile-1.4.4.min.map"></script>
-
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
+			
 			<!-- Scripts para menu -->
 			<script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>
 			<!-- for the fixed header -->
