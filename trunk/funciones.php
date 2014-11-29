@@ -30,7 +30,7 @@
 		//$serverName, $port, $db_name, $username, $password
 			$serverName = "localhost";
 			$port = "3306";
-			$db_name = "fastdbvm";
+			$db_name = "dbfast_vm";
 			// $username = "vm_user_fast";
 			$username = "root";
 			$password = "admin";
@@ -249,7 +249,7 @@
 	}
 
 	function getHeaderPage($TituloDePagina = ""){
-		echo '<div class="header">
+		echo '<div class="header" style="z-index: 100;>
 			<a href="#menu"></a>
 			<div style="text-align:center;">
 				' . $TituloDePagina . '
@@ -261,7 +261,7 @@
 	}
 
 	function getHeaderPageNivel2($TituloDePagina = ""){
-		echo '<div class="header">
+		echo '<div class="header" style="z-index: 100;>
 			<a href="#menu"></a>
 			<div style="text-align:center;">
 				' . $TituloDePagina . '
