@@ -30,7 +30,7 @@
 		//$serverName, $port, $db_name, $username, $password
 			$serverName = "localhost";
 			$port = "3306";
-			$db_name = "dbfast_vm";
+			$db_name = "fastdbvm";
 			// $username = "vm_user_fast";
 			$username = "root";
 			$password = "admin";
@@ -115,7 +115,7 @@
 			<title>' . $tituloPagina . '</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=yes">
-
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<!-- Estilos -->
 			<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 
@@ -123,12 +123,14 @@
 			<link type="text/css" rel="stylesheet" href="css/menu/demo.css" />
 
 			<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" />
+			
+			<!-- scripts para mapas -->
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
 
 			<!-- Scripts -->
 			<script src="js/jquery-2.1.1.js"></script>
 			<script src="js/jquery.mobile-1.4.4.min.js"></script>
 			<script src="js/jquery.mobile-1.4.4.min.map"></script>
-			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
 
 			<!-- Scripts para menu -->
 			<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
@@ -208,7 +210,7 @@
 			<title>' . $tituloPagina . '</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=yes">
-
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<!-- Estilos -->
 			<link rel="stylesheet" href="../css/jquery.mobile-1.4.4.min.css" />
 
@@ -221,8 +223,10 @@
 			<script src="../js/jquery-2.1.1.js"></script>
 			<script src="../js/jquery.mobile-1.4.4.min.js"></script>
 			<script src="../js/jquery.mobile-1.4.4.min.map"></script>
-			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
-			
+
+			<!-- scripts para mapas -->
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>						
+
 			<!-- Scripts para menu -->
 			<script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>
 			<!-- for the fixed header -->
@@ -295,5 +299,14 @@
 		FUNCIONES PARA USUARIOS
 		*/
 		
+		function getTipoUsuarios(){
+			//tablas,campos,restricciones,agrupacion, ordenamiento
+			try {
+				$result = $this->db->Consultar("tipo_usuario", " * ", "","","");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
 	}
 	?>
