@@ -309,9 +309,11 @@
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
-	}
 
-			function getListatPaises(){
+		/**
+		FUNCIONES PARA PAISES
+		*/
+			function getListaPaises(){
 			//carga en un select, el id y nombre de todos los paises
 			try {
 				$result = $this->db->Consultar("pais", " * ");
@@ -320,5 +322,6 @@
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+	}
 	
 	?>
