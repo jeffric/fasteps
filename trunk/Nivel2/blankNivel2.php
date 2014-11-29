@@ -6,7 +6,7 @@ $c_funciones = new Funciones();
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Master page", 
+<?php echo $c_funciones->getHeaderNivel2("Master page Nivel 2", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
