@@ -95,7 +95,7 @@ $c_funciones = new Funciones();
 		<?php $c_funciones->getHeaderPage("F.A.S.T. MAPAS"); ?>
 		<div class="content">
 			<p><strong>CONTENIDO ACA</strong><br />	
-        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0;">                
+        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0; z-index: -0.5;">                
         </div>  
 
 		</div>
