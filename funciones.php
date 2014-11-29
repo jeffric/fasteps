@@ -60,7 +60,7 @@
 	*/
 		function getMenu(){
 			echo '	<!-- Menu -->
-			<nav id="menu">
+			<nav id="menu" >
 				<ul>
 					<li><a href="home.php">Home</a></li>
 					<li><a href="home.php">CRR</a>
@@ -141,6 +141,7 @@
 				{
 					position: fixed;
 					width: 100%;
+					z-index: 100;
 
 					box-sizing: border-box;
 				}
@@ -236,7 +237,7 @@
 				{
 					position: fixed;
 					width: 100%;
-
+					z-index: 100;
 					box-sizing: border-box;
 				}
 				.footer
@@ -249,7 +250,7 @@
 	}
 
 	function getHeaderPage($TituloDePagina = ""){
-		echo '<div class="header" style="z-index: 100;>
+		echo '<div class="header" >
 			<a href="#menu"></a>
 			<div style="text-align:center; ">
 				' . $TituloDePagina . '
@@ -261,7 +262,7 @@
 	}
 
 	function getHeaderPageNivel2($TituloDePagina = ""){
-		echo '<div class="header" style="z-index: 100;>
+		echo '<div class="header">
 			<a href="#menu"></a>
 			<div style="text-align:center; ">
 				' . $TituloDePagina . '
@@ -309,4 +310,15 @@
 			}
 		}
 	}
+
+			function getListatPaises(){
+			//carga en un select, el id y nombre de todos los paises
+			try {
+				$result = $this->db->Consultar("pais", " * ");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+	
 	?>
