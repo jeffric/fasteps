@@ -93,10 +93,23 @@ $c_funciones = new Funciones();
 
 	<div id="page">
 		<?php $c_funciones->getHeaderPage("F.A.S.T. MAPAS"); ?>
-		<div class="content">
-			<p><strong>CONTENIDO ACA</strong><br />	
-        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0; z-index: -0.5;">                
-        </div>  
+		<div class="content" >
+			<p><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
+	        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0;">                
+	        </div> 
+	        <p><strong>Seleccione el Pais, al cual pertenecerá dicho Punto de Evaluación</strong><br /> 
+            <select name="selectPais" id="selectPais">     
+             <?php
+					$result = $c_funciones->getListaPaises();					
+					while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+					}
+             ?>       
+
+            </select> 	        	
+
+
+
 
 		</div>
 			<?php echo $c_funciones->getMenu(); ?>
