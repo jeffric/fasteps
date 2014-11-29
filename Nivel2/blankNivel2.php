@@ -11,6 +11,11 @@ $c_funciones = new Funciones();
 	$(function() {
 		$("nav#menu").mmenu();
 	});
+$(document).bind("mobileinit", function () {
+
+            $.mobile.ajaxEnabled = false;
+
+      });
 </script>'); ?>
 <body>
 
