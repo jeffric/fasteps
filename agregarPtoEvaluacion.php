@@ -99,14 +99,25 @@ $c_funciones = new Funciones();
 	        </div> 
 	        <p><strong>Seleccione el Pais, al cual pertenecerá dicho Punto de Evaluación</strong><br /> 
             <select name="selectPais" id="selectPais">     
-             <?php
-					$result = $c_funciones->getListaPaises();					
-					while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-					echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-					}
-             ?>       
+				<?php 				
+				$result = $c_funciones->getListaPaises();					
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+				}					
+				?>
+            </select> 
 
-            </select> 	        	
+            <label for="nombrePuntoDeEvaluacion">Nombre Punto De Evaluación:</label> 
+            <input type="text" name="namePuntoDeEvaluacion" id="textPtoDeEval" style="font-weight:Bold; font-size:20;"> 
+
+            <label for="name">Latitud:</label> 
+            <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20;"> 
+
+            <label for="direccion">Longitud:</label> 
+            <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20;"> 
+
+            <center><a href="#"  data-role="button" id="botonGuardar">Guardar nuevo PDA</a></center> 
+
 
 
 
