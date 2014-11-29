@@ -22,6 +22,7 @@
 		$this->password = $password;
 		$this->connectionInfo = array("UID"=>$this->username, "PWD"=>$this->password, "Database"=>$this->db_name);		
 		$conexion = mysqli_connect($serverName, $username, $password);
+		$link = $conexion;
 		
 		if (!$conexion) { 
 			die('<strong>Ha ocurrido un error al conectar al servidor de base de datos en: ' . $this->serverName . '.</strong> ' . mysqli_error()); 
@@ -31,86 +32,92 @@
 		$this->link = $conexion;
 	}
 
-		//Funcion para ejecutar cualquier query
-	function ExecutePersonalizado($sql){		
-		$result = $this->link->mysqli_query($sql);			
-		if( $result === false) {
-			die(print_r(mysqli_error($this->link), true));
+	//Funcion para ejecutar cualquier query
+		function ExecutePersonalizado($sql){		
+			$result = $this->link->mysqli_query($sql);			
+			if( $result === false) {
+				die(print_r(mysqli_error($this->link), true));
+			}
+			return $result;
 		}
-		return $result;
-	}
 
 		//--> SELECT (Consultar)
-	function Consultar($strTablas, $strCampos, $strRestricciones, $strAgrupacion, $strOrdenamiento){
-		$strSql = "";
-		$result;
+		function Consultar($strTablas, $strCampos, $strRestricciones = "", $strAgrupacion = "", $strOrdenamiento = ""){
+			$strSql = "";
+			$result;
 				//Se arma la consultar
-		$strSql = " SELECT " . $strCampos . " FROM " . $strTablas . " ";
+			$strSql = " SELECT " . $strCampos . " FROM " . $strTablas . " ";
 
-		($strRestricciones != "") ? $strSql += " WHERE " . $strRestricciones . " " : $strSql = $strSql;
-		($strAgrupacion != "") ? $strSql += " GROUP BY " . $strAgrupacion . " " : $strSql = $strSql;
-		($strOrdenamiento != "") ? $strSql += " ORDER BY " . $strOrdenamiento . " " : $strSql = $strSql;
+			($strRestricciones != "") ? $strSql = $strSql. " WHERE " . $strRestricciones . " " : $strSql = $strSql;
+			($strAgrupacion != "") ? $strSql = $strSql. " GROUP BY " . $strAgrupacion . " " : $strSql = $strSql;
+			($strOrdenamiento != "") ? $strSql = $strSql. " ORDER BY " . $strOrdenamiento . " " : $strSql = $strSql;
 
 			//se ejecuta la consulta
-		try {
-			$result = ExecutePersonalizado($strSql);
-			return $result;				
-		}catch(Exception $e) {
-			echo 'Error: ' .$e->getMessage();
-		}			
-	}
+			try {				
+				$result = mysqli_query($this->link,$strSql) or die(mysql_error());
+
+				return $result;				
+			}catch(Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}			
+		}
 
 		//--> INSERT (Insertar)
-	function Insertar($strTabla, $strCampos, $strValores){
-		$strSql = "";			
-		$strSql = " INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
+		function Insertar($strTabla, $strCampos, $strValores){
+			$strSql = "";			
+			$strSql = " INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 			//se ejecuta la consulta
-		try {
-			$result = ExecutePersonalizado($strSql);
-			if($result){
-				return 1;
-			}else{
-				return -1;
-			}				
-		}catch(Exception $e) {
-			return -1;
+			try {
+				$result = mysql_query($strSql);
+				if($result){
+					return 1;
+				}else{
+					return -1;
+				}				
+			}catch(Exception $e) {
+				return $e;
+			}
 		}
-	}
 
 		//--> DELETE (Eliminar)
-	function Eliminar($strTabla, $strRestricciones){
-		$strSql = "";
-		$strSql = " DELETE FROM " . $strTabla . " ";
-		if($strRestricciones != ""){
-			$strSql += " WHERE " . $strRestricciones . " ";
-		}
-		try {
-			$result = ExecutePersonalizado($strSql);
-			if($result){
-				return 1;
-			}else{
-				return -1;
-			}				
-		}catch(Exception $e) {
-			return -1;
-		}
-	}
-
-		//--> UPDATE (Modificar)
-	function Modificar($strTabla, $strValores ,$strRestricciones){
-		$strSql = "";
-		$strSql = " UPDATE " . $strTabla . " SET " . $strValores . " ";
-		($strRestricciones != "") ? $strSql += " WHERE " . $strRestricciones . " " : $strSql = $strSql;
-		try {
-			$result = ExecutePersonalizado($strSql);
-			if($result){
-				return 1;
-			}else{
+		function Eliminar($strTabla, $strRestricciones){
+			$strSql = "";
+			$strSql = " DELETE FROM " . $strTabla . " ";
+			if($strRestricciones != ""){
+				$strSql = $strSql . " WHERE " . $strRestricciones . " ";
+			}
+			try {
+				$result = mysql_query($strSql);
+				if($result){
+					return 1;
+				}else{
+					return -1;
+				}				
+			}catch(Exception $e) {
 				return -1;
 			}
-		}catch(Exception $e) {
-			return -1;
 		}
-	}
+
+		//--> UPDATE (Modificar)
+		function Modificar($strTabla, $strValores ,$strRestricciones){
+			$strSql = "";
+			$strSql = " UPDATE " . $strTabla . " SET " . $strValores . " ";
+			if ($strRestricciones != "") {
+				$strSql = $strSql. " WHERE " . $strRestricciones . " ";
+		
+			}
+			try {
+				$result = mysql_query($strSql);
+				if($result){
+					return 1;
+				
+				}else{
+					return -1;
+				}
+			}catch(Exception $e) {
+				return -1;
+			}
+		}
+
 }
 ?>

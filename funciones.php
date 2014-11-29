@@ -30,7 +30,7 @@
 		//$serverName, $port, $db_name, $username, $password
 			$serverName = "localhost";
 			$port = "3306";
-			$db_name = "dbfast_vm";
+			$db_name = "fastdbvm";
 			// $username = "vm_user_fast";
 			$username = "root";
 			$password = "admin";
@@ -251,10 +251,10 @@
 	function getHeaderPage($TituloDePagina = ""){
 		echo '<div class="header" style="z-index: 100;>
 			<a href="#menu"></a>
-			<div style="text-align:center;">
+			<div style="text-align:center; ">
 				' . $TituloDePagina . '
 			</div>
-			<div style="position: absolute; right:0; top: 0;">
+			<div style="position: absolute; right:0; top: 0; z-index:-2;">
 				<img src="img/logo-fit.png" alt="logo" width="100px" />
 			</div>
 		</div>';
@@ -263,10 +263,10 @@
 	function getHeaderPageNivel2($TituloDePagina = ""){
 		echo '<div class="header" style="z-index: 100;>
 			<a href="#menu"></a>
-			<div style="text-align:center;">
+			<div style="text-align:center; ">
 				' . $TituloDePagina . '
 			</div>
-			<div style="position: absolute; right:0; top: 0;">
+			<div style="position: absolute; right:0; top: 0; z-index:-2;">
 				<img src="../img/logo-fit.png" alt="logo" width="100px" />
 			</div>
 		</div>';
@@ -302,7 +302,7 @@
 		function getTipoUsuarios(){
 			//tablas,campos,restricciones,agrupacion, ordenamiento
 			try {
-				$result = $this->db->Consultar("tipo_usuario", " * ", "","","");
+				$result = $this->db->Consultar("tipo_usuario", " * ");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
