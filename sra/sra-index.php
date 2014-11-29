@@ -31,6 +31,7 @@ $c_funciones = new Funciones();
 	<script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			$('nav#menu').unbind("mmenu");
 			$('nav#menu').mmenu();
 		});
 	</script>
