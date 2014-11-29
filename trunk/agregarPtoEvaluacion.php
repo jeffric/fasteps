@@ -91,7 +91,7 @@ $c_funciones = new Funciones();
          </script>
 <body>
 
-	<div id="page">
+	<div id="page" data-role="page">
 		<?php $c_funciones->getHeaderPage("F.A.S.T. MAPAS"); ?>
 		<div class="content" >
 			<p><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
@@ -111,20 +111,21 @@ $c_funciones = new Funciones();
             <input type="text" name="namePuntoDeEvaluacion" id="textPtoDeEval" style="font-weight:Bold; font-size:20;"> 
 
             <label for="name">Latitud:</label> 
-            <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20;"> 
+            <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
 
             <label for="direccion">Longitud:</label> 
-            <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20;"> 
-
-            <center><a href="#"  data-role="button" id="botonGuardar">Guardar nuevo PDA</a></center> 
-
-
+            <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+			<a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
 
 
 
 		</div>
+
 			<?php echo $c_funciones->getMenu(); ?>
-	</div>		
+	</div>	
+
+
+		
 		<?php echo $c_funciones->getFooter(); ?>		
 		<!-- FOOTER -->
 	</body>
