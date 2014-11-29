@@ -33,7 +33,7 @@
 			$db_name = "dbfast_vm";
 			// $username = "vm_user_fast";
 			$username = "root";
-			$password = "";
+			$password = "admin";
 			// $password = "u$3r_*F@$t";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
@@ -57,30 +57,107 @@
 	/**
 		Funcion para construir el menu superior y lateral
 	*/
-		function getMenu($TituloHeader,$carpeta){
+		function getMenu(){
 			echo '	<!-- Menu -->
-			<div data-role="header" data-theme="b" style="position:fixed; width:100%;">
-				<h1>F.A.S.T. ' . $TituloHeader . '</h1>
-				<a href="#left-panel" data-theme="d" data-icon="arrow-r" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>						
-			</div>
-
-			<div data-role="panel" id="left-panel" data-theme="b">
-				<ul data-role="listview">
-					<li data-icon="back"><a href="#" data-rel="close">Close</a></li>
-					<li> External panel</li>
-					<li><a href="' . substr(dirname(__FILE__), strlen($_SERVER['DOCUMENT_ROOT'])) . "\\" . $carpeta .'\home.php" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-star">Home</a></li>
-					<li><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-star">Favoritos</a></li>
-					<li> <a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">PDA\'s</a> 
-						<ul data-role="listview">
-							<li> External panel</li>
-							<li> External panel</li>
-							<li> External panel</li>
+			<nav id="menu">
+				<ul>
+					<li><a href="home.php">Home</a></li>
+					<li><a href="home.php">CRR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CRR</a></li>
+							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
 						</ul>
 					</li>
-				</ul>			
-			</div><!-- /Menu -->';
-					// echo $_SERVER['DOCUMENT_ROOT'];
+					<li><a href="home.php">SRA</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar SRA</a></li>
+							<li><a href="crr/reportes.php">Reportes SRA</a></li>						
+						</ul>
+					</li>
+					<li><a href="home.php">CSR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CSR</a></li>
+							<li><a href="crr/reportes.php">Reportes CSR</a></li>						
+						</ul>
+					</li>
+					<li><a href="home.php">CRR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CRR</a></li>
+							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
+						</ul>
+					</li>
+					<li><a href="#">Acerca de nosotros</a>
+						<ul>
+							<li><a href="about/mision.php">Misi&oacute;n</a></li>
+							<li><a href="about/vision.php">Visi&oacute;n</a></li>
+							<li><a href="about/valores.php">Valores</a></li>
+							<li><a href="about/historia.php">Historia</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Acerca de F.A.S.T.</a>
+						<ul>
+							<li><a href="aboutfast/mision.php">Misi&oacute;n</a></li>
+							<li><a href="aboutfast/vision.php">Visi&oacute;n</a></li>
+							<li><a href="aboutfast/valores.php">Valores</a></li>
+							<li><a href="aboutfast/historia.php">Historia</a></li>
+						</ul>
+					</li>
+					<li><a href="contacto.php">Contacto</a></li>
+				</ul>
+			</nav>
+			<!-- /Menu -->';					
+		}
 
+
+		function getMenuNivel2(){
+			echo '	<!-- Menu -->
+			<nav id="menu">
+				<ul>
+					<li><a href="home.php">Home</a></li>
+					<li><a href="home.php">CRR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CRR</a></li>
+							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
+						</ul>
+					</li>
+					<li><a href="home.php">SRA</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar SRA</a></li>
+							<li><a href="crr/reportes.php">Reportes SRA</a></li>						
+						</ul>
+					</li>
+					<li><a href="home.php">CSR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CSR</a></li>
+							<li><a href="crr/reportes.php">Reportes CSR</a></li>						
+						</ul>
+					</li>
+					<li><a href="home.php">CRR</a>
+						<ul>
+							<li><a href="crr/index.php">Evaluar CRR</a></li>
+							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
+						</ul>
+					</li>
+					<li><a href="#">Acerca de nosotros</a>
+						<ul>
+							<li><a href="about/mision.php">Misi&oacute;n</a></li>
+							<li><a href="about/vision.php">Visi&oacute;n</a></li>
+							<li><a href="about/valores.php">Valores</a></li>
+							<li><a href="about/historia.php">Historia</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Acerca de F.A.S.T.</a>
+						<ul>
+							<li><a href="aboutfast/mision.php">Misi&oacute;n</a></li>
+							<li><a href="aboutfast/vision.php">Visi&oacute;n</a></li>
+							<li><a href="aboutfast/valores.php">Valores</a></li>
+							<li><a href="aboutfast/historia.php">Historia</a></li>
+						</ul>
+					</li>
+					<li><a href="contacto.php">Contacto</a></li>
+				</ul>
+			</nav>
+			<!-- /Menu -->';	
 		}
 
 	/**

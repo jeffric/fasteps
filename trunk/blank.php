@@ -65,52 +65,7 @@ $c_funciones = new Funciones();
 		<div class="content">
 			<p><strong>CONTENIDO ACA</strong><br />				
 			</div>
-			<nav id="menu">
-				<ul>
-					<li><a href="home.php">Home</a></li>
-					<li><a href="home.php">CRR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CRR</a></li>
-							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">SRA</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar SRA</a></li>
-							<li><a href="crr/reportes.php">Reportes SRA</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">CSR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CSR</a></li>
-							<li><a href="crr/reportes.php">Reportes CSR</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">CRR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CRR</a></li>
-							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">Acerca de nosotros</a>
-						<ul>
-							<li><a href="about/mision.php">Misi&oacute;n</a></li>
-							<li><a href="about/vision.php">Visi&oacute;n</a></li>
-							<li><a href="about/valores.php">Valores</a></li>
-							<li><a href="about/historia.php">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Acerca de F.A.S.T.</a>
-						<ul>
-							<li><a href="aboutfast/mision.php">Misi&oacute;n</a></li>
-							<li><a href="aboutfast/vision.php">Visi&oacute;n</a></li>
-							<li><a href="aboutfast/valores.php">Valores</a></li>
-							<li><a href="aboutfast/historia.php">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="contacto.php">Contacto</a></li>
-				</ul>
-			</nav>
+			<?php $c_funciones->getMenu(); ?>
 		</div>
 		<!-- FOOTER -->
 		<?php $c_funciones->getFooter(); ?>		
