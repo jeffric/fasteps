@@ -6,7 +6,7 @@ $c_funciones = new Funciones();
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeader("Master page", 
+<?php echo $c_funciones->getHeader("Agregar Pais", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -15,9 +15,25 @@ $c_funciones = new Funciones();
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPage("F.A.S.T. Home"); ?>
+		<?php $c_funciones->getHeaderPage("F.A.S.T. Paises"); ?>
 		<div class="content">
-			<p><strong>CONTENIDO ACA</strong><br />				
+			<p><strong>Ingrese la informacion requerida:</strong><br />	
+			
+			<label >Nombre de País:</label> 
+            <input type="text" name="namelatitud" id="textNombrePais"  style="text-align:center; font-weight:Bold; color:black; font-size:20;"> 
+			<p><strong>Elige la Región a la que pertenecerá el nuevo País:</strong><br />	            
+
+            <select name="selectRegion" id="selectRegion" >   
+				<?php 				
+				$result = $c_funciones->getListaRegiones();					
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+				}					
+				?>             
+            </select> 	
+
+            <a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar País</a></center> 
+
 		</div>
 			<?php echo $c_funciones->getMenu(); ?>
 	</div>		

@@ -322,6 +322,19 @@
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		/**
+		FUNCIONES PARA REGIONES
+		*/
+			function getListaRegiones(){
+			//carga en un select, el id y nombre de todas las regiones
+			try {
+				$result = $this->db->Consultar("region", " * ");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 	}
-	
+
 	?>
