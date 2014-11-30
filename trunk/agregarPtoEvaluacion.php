@@ -115,7 +115,7 @@ $c_funciones = new Funciones();
 
             <label for="direccion">Longitud:</label> 
             <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
-			<a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
+			     <a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
 
 
 
