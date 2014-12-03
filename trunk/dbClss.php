@@ -34,11 +34,14 @@
 
 	//Funcion para ejecutar cualquier query
 		function ExecutePersonalizado($sql){		
-			$result = $this->link->mysqli_query($sql);			
-			if( $result === false) {
-				die(print_r(mysqli_error($this->link), true));
-			}
-			return $result;
+			//se ejecuta la consulta
+			try {				
+				$result = mysqli_query($this->link,$sql) or die(mysql_error());
+
+				return $result;				
+			}catch(Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}	
 		}
 
 		//--> SELECT (Consultar)

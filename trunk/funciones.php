@@ -323,6 +323,16 @@
 			}
 		}
 
+			function getNombrePais($idPais){
+			//devuelve el nombre de un pais especifico
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE idPAIS='1'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
 		/**
 		FUNCIONES PARA REGIONES
 		*/
