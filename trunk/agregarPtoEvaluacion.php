@@ -116,7 +116,9 @@ $c_funciones = new Funciones();
             <label for="direccion">Longitud:</label> 
             <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
 			     <a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
-
+            
+            <div id="resultado">
+            </div> 
 
 
 		</div>
@@ -128,5 +130,37 @@ $c_funciones = new Funciones();
 		
 		<?php echo $c_funciones->getFooter(); ?>		
 		<!-- FOOTER -->
+
+    <script>
+      $(document).ready(function(){
+            $('#botonAgregar').click(function(){
+
+                
+                $.ajax({
+                  type: "POST",
+                  url: "funcionesAjax.php",
+                  data: {nombreMetodo: "agregar"},
+                  contentType: "application/x-www-form-urlencoded",
+                  beforeSend: function(){
+                  //  $('#loader_gif').fadeIn("slow");
+                  
+
+                  },
+                  dataType: "html",
+                  success: function(msg){
+                    //  $("#loader_gif").fadeOut("slow");                    
+                      $('#resultado').html(msg);
+             
+
+                  }              
+
+
+                });
+
+                      
+
+            });
+      });      
+    </script>
 	</body>
 	</html>
