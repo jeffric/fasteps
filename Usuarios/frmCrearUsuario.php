@@ -32,7 +32,14 @@ $c_funciones = new Funciones();
 						<label for="txtCorreo" title="Este será el campo con el que se ingresará en el login de la aplicación.">Correo de usuario</label>
 						<input type="text" name="txtCorreo" id="txtCorreo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
-					<!-- nombre, apellido, correo, password -->
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+						<label for="txtPassword">Password</label>
+						<input type="password" name="txtPassword" id="txtPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+					</div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+						<label for="txtConfPassword">Confirmar password</label>
+						<input type="password" name="txtConfPassword" id="txtConfPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="slcTipoUsuarios" >Tipo de usuario</label>
 						<select name="tipoUsuarios" id="slcTipoUsuarios">
@@ -44,14 +51,110 @@ $c_funciones = new Funciones();
 							?>
 						</select>	
 					</div>
-					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<button type="submit" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">Agregar usuario</button>
-					</div>
-				</div>						
+				</div>					
+				<!-- nombre, apellido, correo, password -->					
+				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+					<p id="respuesta"></p>
+				</div>
+				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+					<button id="btnCrearUsuario" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">Agregar usuario</button>
+				</div>
 			</div>
-			<?php echo $c_funciones->getMenuNivel2(); ?>						
+		</div>
+		<?php echo $c_funciones->getMenuNivel2(); ?>						
 	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
-	</body>
-	</html>
+
+	<script type="text/javascript">
+
+	//on page load = document ready
+	$(function(){
+		//clic para crear usuarios
+		$("#btnCrearUsuario").click(function(){
+			CUsr();
+		});
+	});
+
+
+	function CUsr(){
+		var strNmUsr;
+		var strApllUsr;
+		var strCorrUsr;
+		var strPssUsr;
+		var strCnfPssUsr;
+		var strTpoUsr;
+
+		strNmUsr = $("#txtNombre").val();
+		strApllUsr = $("#txtApellido").val();
+		strCorrUsr = $("#txtCorreo").val();
+		strPssUsr = $("#txtPassword").val();
+		strCnfPssUsr = $("#txtConfPassword").val();
+		strTpoUsr = $("#slcTipoUsuarios option:selected").val();
+
+		if(strNmUsr == ""){
+			alert("No debe dejar el nombre vacío.");
+			return false;
+		}
+
+		if(strApllUsr == ""){
+			alert("No debe dejar el apellido vacío.");
+			return false;
+		}
+
+
+		if(strCorrUsr == ""){
+			alert("No debe dejar el correo vacío.");
+			return false;
+		}
+
+
+		if(strPssUsr == ""){
+			alert("No debe dejar el password vacío.");
+			return false;
+		}
+
+		if(strCnfPssUsr == ""){
+			alert("No debe dejar la confirmación de password vacío.");
+			return false;
+		}
+
+		if(strPssUsr != strCnfPssUsr){
+			alert("Los passwords no coinciden.");
+			return false;
+		}
+
+
+		$.ajax({
+			type: "POST",
+			url: "../funcionesAjax.php",
+			data: {
+				nombreMetodo: "CUsr",
+				AjxPNombre: strNmUsr,
+				AjxPApellido: strApllUsr,
+				AjxPCorreo: strCorrUsr,
+				AjxPPassword: strPssUsr,
+				AjxPTipoUser: strTpoUsr
+			},
+			beforeSend: function () {
+					//$("#modalCargando").modal("show");
+					$("#respuesta").text("Creando usuario...");
+				},
+				success: function (datos) {
+					//$("#modalCargando").modal("hide");
+					// $("#target-modal-mod-user").html("");
+					// $("#target-modal-mod-user").html(datos);
+					// $("#modal-mod-usuarios").modal("show");
+					$("#respuesta").text("");					
+					swal(datos);
+//					$("#respuesta").text(datos);
+				},
+				error: function (objeto, error, objeto2) {
+					//$("#modalCargando").modal("hide");
+					alert(error);
+				}
+			});
+	}
+</script>
+<?php echo $c_funciones->getFooterNivel2(); ?>		
+<!-- FOOTER -->
+</body>
+</html>
