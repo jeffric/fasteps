@@ -71,7 +71,7 @@
 			$strSql = " INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 			//se ejecuta la consulta
 			try {
-				$result = mysql_query($strSql);
+				$result = mysqli_query($this->link,$strSql);
 				if($result){
 					return 1;
 				}else{
@@ -90,7 +90,7 @@
 				$strSql = $strSql . " WHERE " . $strRestricciones . " ";
 			}
 			try {
-				$result = mysql_query($strSql);
+				$result = mysqli_query($this->link,$strSql);
 				if($result){
 					return 1;
 				}else{
@@ -110,7 +110,7 @@
 		
 			}
 			try {
-				$result = mysql_query($strSql);
+				$result = mysqli_query($this->link,$strSql);
 				if($result){
 					return 1;
 				
