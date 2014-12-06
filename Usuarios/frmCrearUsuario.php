@@ -91,34 +91,34 @@ $c_funciones = new Funciones();
 		strTpoUsr = $("#slcTipoUsuarios option:selected").val();
 
 		if(strNmUsr == ""){
-			alert("No debe dejar el nombre vacío.");
+			swal("Error", "No debe dejar el nombre vacío.", "error");			
 			return false;
 		}
 
 		if(strApllUsr == ""){
-			alert("No debe dejar el apellido vacío.");
+			swal("Error", "No debe dejar el apellido vacío.", "error");			
 			return false;
 		}
 
 
 		if(strCorrUsr == ""){
-			alert("No debe dejar el correo vacío.");
+			swal("Error", "No debe dejar el correo vacío.", "error");
 			return false;
 		}
 
 
 		if(strPssUsr == ""){
-			alert("No debe dejar el password vacío.");
+			swal("Error", "No debe dejar el password vacío.", "error");
 			return false;
 		}
 
 		if(strCnfPssUsr == ""){
-			alert("No debe dejar la confirmación de password vacío.");
+			swal("Error", "No debe dejar la confirmación de password vacío.", "error");			
 			return false;
 		}
 
 		if(strPssUsr != strCnfPssUsr){
-			alert("Los passwords no coinciden.");
+			swal("Error", "Los passwords no coinciden.", "error");			
 			return false;
 		}
 
