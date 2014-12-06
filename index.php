@@ -5,8 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 	<script src="js/jquery-2.1.1.js"></script>
-	<script src="js/jquery.mobile-1.4.4.min.js"></script>
-	<script src="js/jquery.mobile-1.4.4.min.map"></script>
+	<script src="js/jquery.mobile-1.4.4.min.js"></script>	
 </head>
 <body>
 	<div data-role="page">
