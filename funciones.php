@@ -132,8 +132,8 @@
 			<script src="js/jquery.mobile-1.4.4.min.js"></script>
 
 			<!-- libreria para alertas -->
-			<script src="../js/sweet-alert.js"></script>
-  			<link rel="stylesheet" href="../css/sweet-alert.css">
+			<script src="js/sweet-alert.js"></script>
+  			<link rel="stylesheet" href="css/sweet-alert.css">
 			
 
 			<!-- Scripts para menu -->
