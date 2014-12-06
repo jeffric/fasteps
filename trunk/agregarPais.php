@@ -40,4 +40,18 @@ $c_funciones = new Funciones();
 		<?php echo $c_funciones->getFooter(); ?>		
 		<!-- FOOTER -->
 	</body>
+
+	<script>
+       $(document).ready(function(){
+
+            $('#botonAgregar').click(function(){
+
+swal("Error", "No debe dejar el apellido vacío.", "error");	
+                
+           });
+
+
+
+       	  });
+       	</script>
 	</html>
