@@ -23,7 +23,6 @@ $c_funciones = new Funciones();
 	<!-- Scripts -->
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/jquery.mobile-1.4.4.min.js"></script>
-	<script src="js/jquery.mobile-1.4.4.min.map"></script>
 
 	<!-- Scripts para menu -->
 	<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
