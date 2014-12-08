@@ -82,6 +82,19 @@
 			}
 		}
 
+		function InsertarIdentity($strTabla, $strCampos, $strValores){			
+			$strSql = "";			
+			$strSql = " INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ");";
+			//se ejecuta la consulta
+			try {
+				$result = mysqli_query($this->link,$strSql) or die(mysql_error());
+				$id = mysqli_insert_id($this->link);
+				return $id;
+			}catch(Exception $e) {
+				return $e;
+			}
+		}
+
 		//--> DELETE (Eliminar)
 		function Eliminar($strTabla, $strRestricciones){
 			$strSql = "";

@@ -154,7 +154,16 @@
 					bottom: 0;
 				}
 			</style>
-			' . $CodigoDentroDeHeader . '
+			' . $CodigoDentroDeHeader . 
+
+
+			'
+
+			<script type="text/javascript">
+			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+			}
+		</script>
 		</head>';
 	}
 
@@ -254,6 +263,15 @@
 			}
 		</style>
 		' . $CodigoDentroDeHeader . '
+
+
+		<script type="text/javascript">
+			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+			}
+		</script>
+
+
 	</head>';
 }
 
@@ -290,7 +308,14 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				echo date("Y"); 
 				echo '			<img src="img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
 			</span>
-		</div><!-- /footer -->';
+		</div><!-- /footer -->
+
+		<script type="text/javascript">
+			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+			}
+		</script>
+		';
 
 	}
 
@@ -300,7 +325,10 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			echo date("Y"); 
 			echo '			<img src="../img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
 		</span>
-	</div><!-- /footer -->';
+	</div><!-- /footer -->
+
+	
+	';
 
 }
 
@@ -318,7 +346,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
-		function InsertarUsuario($strNombreUsuario, $strApellidoUsuario, $strCorreoUsuario, $strPassword, $intTipoUsuario){
+		function InsertarUsuario($strNombreUsuario, $strApellidoUsuario, $strCorreoUsuario, $strPassword, $intTipoUsuario, $strPaisUsuario){
 			//validaciones 
 			
 			//nombre no vacio
@@ -348,6 +376,11 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				return;
 			}
 
+			if($strPaisUsuario == null || $strPaisUsuario == ""){
+				echo 'Debe elegir un país para el usuario.';
+				return;
+			}
+
 			//validaciones han pasado
 			//inicia la insercion
 			try {
@@ -355,27 +388,43 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$strCampos = " nombre, apellido, correo, password, fk_idTIPO_USUARIO "; 
 				$strValores = " '" . $strNombreUsuario . "', '" . $strApellidoUsuario . "', '" . $strCorreoUsuario . "', " ; 
 				$strValores .= " '" . $this->getMD5($strPassword) . "', " . $intTipoUsuario . " " ;
-				$result = $this->db->Insertar($strTabla, $strCampos, $strValores);
-				if($result == 1){
-					echo '1|Usuario insertado exitosamente.';
+				$idInsertado = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);				
+				//se inserta el pais con el usuario  en la tabla asignacion_usuario_pais				
+				$strTablaPais = " asignacion_usuario_pais ";
+				$strCamposPais = " fk_idPAIS,fk_idUSUARIO ";
+				$strValoresPais = $strPaisUsuario . "," . $idInsertado . " ";
+				$result2 = $this->db->Insertar($strTablaPais, $strCamposPais, $strValoresPais);
+				if($result2){
+					return 1;
 				}else{
-					echo '-1|El usuario no se ha podido insertar.';
+					return -2;
 				}
 			} catch (Exception $e) {
 				//no se pudo realizar la insercion
 				echo 'Error al insertar el nuevo usuario: ' . $e->getMessage();
 				return;
 			}
-
 		}
 
 		/**
 		FUNCIONES PARA PAISES
 		*/
-		function getListaPaises(){
+		function getListaPaises($idUsuarioLogeado = ""){
 			//carga en un select, el id y nombre de todos los paises
 			try {
-				$result = $this->db->Consultar("pais", " * ");
+				$strTabla = "";				
+				$strCampos = "";
+				$strRestricciones = "";
+				if($idUsuarioLogeado != ""){
+					$strTabla = " pais p, asignacion_usuario_pais aup ";
+					$strCampos = " p.* ";
+					$strRestricciones = " p.idPAIS = aup.fk_idPAIS AND aup.fk_idUSUARIO = " . $idUsuarioLogeado . " ";
+				}else{
+					$strTabla = " pais ";
+					$strCampos = " * ";
+					$strRestricciones = "";
+				}
+				$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones);
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
@@ -403,7 +452,27 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}		
+		}	
+
+
+
+
+		/**
+		FUNCIONES PARA AMENAZAS
+		*/	
+
+		function getAmenazas(){
+			$strHtml = "";
+			$strTabla = " amenaza ";
+			$strCampos = " * ";
+			$strRestricciones = "";
+			try {
+				$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
 
 	/**
 		FUNCIONES VARIAS

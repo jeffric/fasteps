@@ -43,10 +43,20 @@ function CrearUsuario(){
 	$strCorreo = $_POST["AjxPCorreo"];
 	$strPassword = $_POST["AjxPPassword"];
 	$strTipoUsuario = $_POST["AjxPTipoUser"];
+	$strPaisUsuario = $_POST["AjxPPais"];
 
 	try {
-		$result = $db_funciones->InsertarUsuario($strNombre, $strApellido,$strCorreo, $strPassword,$strTipoUsuario);
-		echo $result;
+		$result = $db_funciones->InsertarUsuario($strNombre, 
+												$strApellido,
+												$strCorreo, 
+												$strPassword,
+												$strTipoUsuario,
+												$strPaisUsuario);
+		if($result == 1){
+			echo "Usuario agregado exitosamente.";
+		}else{
+			echo $result;
+		}
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}
