@@ -31,14 +31,17 @@ $c_funciones = new Funciones();
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtCorreo" title="Este será el campo con el que se ingresará en el login de la aplicación.">Correo de usuario</label>
 						<input type="text" name="txtCorreo" id="txtCorreo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-					</div>
+					</div>					
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtPassword">Password</label>
-						<input type="password" name="txtPassword" id="txtPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-					</div>
-					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtConfPassword">Confirmar password</label>
-						<input type="password" name="txtConfPassword" id="txtConfPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+						<label for="lstPais" >País del usuario</label>
+						<select name="lstPais" id="lstPais">
+							<?php 				
+							$result = $c_funciones->getListaPaises();					
+							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+							}
+							?>
+						</select>	
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="slcTipoUsuarios" >Tipo de usuario</label>
@@ -50,6 +53,14 @@ $c_funciones = new Funciones();
 							}					
 							?>
 						</select>	
+					</div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+						<label for="txtPassword">Password</label>
+						<input type="password" name="txtPassword" id="txtPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+					</div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+						<label for="txtConfPassword">Confirmar password</label>
+						<input type="password" name="txtConfPassword" id="txtConfPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
 				</div>					
 				<!-- nombre, apellido, correo, password -->					
@@ -82,6 +93,7 @@ $c_funciones = new Funciones();
 		var strPssUsr;
 		var strCnfPssUsr;
 		var strTpoUsr;
+		var strPais;
 
 		strNmUsr = $("#txtNombre").val();
 		strApllUsr = $("#txtApellido").val();
@@ -89,6 +101,7 @@ $c_funciones = new Funciones();
 		strPssUsr = $("#txtPassword").val();
 		strCnfPssUsr = $("#txtConfPassword").val();
 		strTpoUsr = $("#slcTipoUsuarios option:selected").val();
+		strPais = $("#lstPais option:selected").val();
 
 		if(strNmUsr == ""){
 			swal("Error", "No debe dejar el nombre vacío.", "error");			
@@ -132,7 +145,8 @@ $c_funciones = new Funciones();
 				AjxPApellido: strApllUsr,
 				AjxPCorreo: strCorrUsr,
 				AjxPPassword: strPssUsr,
-				AjxPTipoUser: strTpoUsr
+				AjxPTipoUser: strTpoUsr,
+				AjxPPais: strPais
 			},
 			beforeSend: function () {
 					//$("#modalCargando").modal("show");
@@ -146,8 +160,8 @@ $c_funciones = new Funciones();
 					$("#respuesta").text("");					
 					swal(datos);
 //					$("#respuesta").text(datos);
-				},
-				error: function (objeto, error, objeto2) {
+},
+error: function (objeto, error, objeto2) {
 					//$("#modalCargando").modal("hide");
 					alert(error);
 				}
