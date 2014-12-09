@@ -63,7 +63,7 @@ function CrearUsuario(){
 }
 
 //Agregar Pais
-if($strMetodo = "agregarPais")
+if($strMetodo == "agregarPais")
 	agregarPais();
 
 function agregarPais(){
@@ -83,7 +83,42 @@ function agregarPais(){
 				else{
 				$result = $db_funciones->insertarPais($nombrePais, $idRegion);
 
-				echo "Pais: ".$nombrePais." guardado existosamente";
+				echo "Pais: <b>".$nombrePais."</b> guardado existosamente";
+
+				}
+		}
+		else{
+				echo "No debes dejar campos vacios";
+		}
+
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Agregar Region
+if($strMetodo == "agregarRegion")
+	agregarRegion();
+
+function agregarRegion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombreRegion = $_POST["region"];	
+
+
+
+	try {
+		if(validarVacio($nombreRegion)==false){
+		$bandera=$db_funciones->verificarExistenciaRegion($nombreRegion);
+				if($bandera==true){
+
+					echo "Esta Region ya se encuentra registrada en el sistema";
+				}
+				else{
+				$result = $db_funciones->insertarRegion($nombreRegion);
+
+				echo "Region: <b>".$nombreRegion."</b> guardado existosamente";
 
 				}
 		}
