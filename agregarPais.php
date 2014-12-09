@@ -32,6 +32,10 @@ $c_funciones = new Funciones();
 				?>             
             </select> 	
 
+            <div id="ajax_loader" align="center">
+            <img id="loader_gif" src="css/images/ajax-loader.gif" style=" display:none;"/>
+            </div>
+
             <a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar País</a></center> 
 
 		</div>
@@ -52,14 +56,14 @@ $c_funciones = new Funciones();
                   data: {nombreMetodo: "agregarPais", pais:$('#textNombrePais').val(), region:$('#selectRegion option:selected').val() },
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
-
+                  $('#loader_gif').fadeIn("slow");
 
                   },
                   dataType: "html",
                   success: function(msg){
                   	swal(msg);
                     $('#textNombrePais').val('');  
-                 
+                    $("#loader_gif").fadeOut("slow");                 
 
                   }              
 
