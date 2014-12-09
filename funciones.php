@@ -460,45 +460,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				echo 'Error: ' .$e->getMessage();
 			}
 		}	
-
-		function verificarExistenciaRegion($variable){
-			//verifica si ya existe un pais con dicho nombre
-			try {
-				$nombreRegion=trim($variable," \t\n\r\0\x0B");
-				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'");
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								if(strcasecmp($row[0],$nombreRegion)==0){
-
-									return true;
-								}
-								else{
-									return false;
-								}
-
-							}
-			} catch (Exception $e) {
-				echo 'Error: ' .$e->getMessage();
-			}
-		}	
-
-		function verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais){
-			//verifica si ya existe un pais con dicho nombre
-			try {
-				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND fk_idPAIS='$idPais'");
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0){
-
-									return true;
-								}
-								else{
-									return false;
-								}
-
-							}
-			} catch (Exception $e) {
-				echo 'Error: ' .$e->getMessage();
-			}
-		}					
+			
 
 		function insertarPais($nombrePais, $idRegion){
 			//agrega un nuevo pais al sistema
@@ -523,8 +485,68 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}	
 
+		function verificarExistenciaRegion($variable){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$nombreRegion=trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombreRegion)==0){
 
+									return true;
+								}
+								else{
+									return false;
+								}
 
+							}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function insertarRegion($nombreRegion){
+			//agrega una nueva region al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO REGION (nombre) VALUES('$nombreRegion')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		/**
+		 FUNCIONES PARA PUNTOS DE EVALUACION
+		 */
+		function verificarExistenciaPtoEvaluacion($variable, $idPais){
+			//verifica si ya existe un Punto de Evaluacion con dicho nombre
+			try {
+				$nombrePtoEvaluacion = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND PAIS_idPAIS='$idPais'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0 AND strcasecmp($row[1],$idPais)==0 ){
+
+									return true;
+								}
+								else{
+									return false;
+								}
+
+							}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function insertarPtoEvaluacion($nombrePtoEvaluacion, $latitud, $longitud, $descripcion, $idPais){
+			//agrega un  Punto de Evaluacion al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO PUNTO_EVALUACION (nombre, latitud, longitud, descripcion, PAIS_idPAIS) VALUES ('$nombrePtoEvaluacion', '$latitud','$longitud', '$descripcion', '$idPais')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}				
 
 		/**
 		FUNCIONES PARA AMENAZAS
