@@ -441,9 +441,10 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
-		function verificarExistenciaPais($nombrePais){
+		function verificarExistenciaPais($variable){
 			//verifica si ya existe un pais con dicho nombre
 			try {
+				$nombrePais=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE nombre='$nombrePais'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								if(strcasecmp($row[0],$nombrePais)==0){
@@ -460,9 +461,10 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}	
 
-		function verificarExistenciaRegion($nombreRegion){
+		function verificarExistenciaRegion($variable){
 			//verifica si ya existe un pais con dicho nombre
 			try {
+				$nombreRegion=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								if(strcasecmp($row[0],$nombreRegion)==0){
