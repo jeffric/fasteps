@@ -46,12 +46,30 @@ $c_funciones = new Funciones();
 
             $('#botonAgregar').click(function(){
 
-swal("Error", "No debe dejar el apellido vacío.", "error");	
-                
-           });
+                $.ajax({
+                  type: "POST",
+                  url: "funcionesAjax.php",
+                  data: {nombreMetodo: "agregarPais", pais:$('#textNombrePais').val(), region:$('#selectRegion option:selected').val() },
+                  contentType: "application/x-www-form-urlencoded",
+                  beforeSend: function(){
+
+
+                  },
+                  dataType: "html",
+                  success: function(msg){
+                  	swal(msg);
+                    $('#textNombrePais').val('');  
+                 
+
+                  }              
+
+
+                });
 
 
 
        	  });
-       	</script>
+
+            });
+     </script>
 	</html>
