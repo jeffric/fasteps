@@ -522,7 +522,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			//verifica si ya existe un Punto de Evaluacion con dicho nombre
 			try {
 				$nombrePtoEvaluacion = trim($variable," \t\n\r\0\x0B");
-				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND PAIS_idPAIS='$idPais'");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre, PAIS_idPAIS FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND PAIS_idPAIS='$idPais'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0 AND strcasecmp($row[1],$idPais)==0 ){
 
