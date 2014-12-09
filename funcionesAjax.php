@@ -62,4 +62,51 @@ function CrearUsuario(){
 	}
 }
 
+//Agregar Pais
+if($strMetodo = "agregarPais")
+	agregarPais();
+
+function agregarPais(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePais = $_POST["pais"];	
+	$idRegion = $_POST["region"];	
+
+
+	try {
+		if(validarVacio($nombrePais)==false){
+		$bandera=$db_funciones->verificarExistenciaPais($nombrePais);
+				if($bandera==true){
+
+					echo "Este Pais ya se encuentra registrado en el sistema";
+				}
+				else{
+				$result = $db_funciones->insertarPais($nombrePais, $idRegion);
+
+				echo "Pais: ".$nombrePais." guardado existosamente";
+
+				}
+		}
+		else{
+				echo "No debes dejar campos vacios";
+		}
+
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+function validarVacio($variable){
+trim($variable," \t\n\r\0\x0B");
+		if(strcasecmp($variable, "")!=0){	
+			return false;
+		}
+		else{
+			return true;
+
+		}
+}	
+
+
 ?>
