@@ -434,12 +434,79 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		function getNombrePais($idPais){
 			//devuelve el nombre de un pais especifico
 			try {
-				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE idPAIS='1'");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE idPAIS='$idPais'");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}		
+		}
+
+		function verificarExistenciaPais($nombrePais){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE nombre='$nombrePais'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePais)==0){
+
+									return true;
+								}
+								else{
+									return false;
+								}
+
+							}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function verificarExistenciaRegion($nombreRegion){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombreRegion)==0){
+
+									return true;
+								}
+								else{
+									return false;
+								}
+
+							}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND fk_idPAIS='$idPais'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0){
+
+									return true;
+								}
+								else{
+									return false;
+								}
+
+							}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}					
+
+		function insertarPais($nombrePais, $idRegion){
+			//agrega un nuevo pais al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO PAIS (nombre, fk_idREGION) VALUES('$nombrePais', $idRegion)");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}			
 
 		/**
 		FUNCIONES PARA REGIONES
