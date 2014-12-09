@@ -21,7 +21,7 @@ $c_funciones = new Funciones();
 	<div id="page">
 		<?php $c_funciones->getHeaderPage("F.A.S.T. Ptos de Evaluación"); ?>
 		<div class="content">
-			<p><strong><?php echo $idPais ?></strong><br />	
+			<p><strong></strong><br />	
 				<?php 				
 				$result = $c_funciones->getNombrePais($idPais);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
