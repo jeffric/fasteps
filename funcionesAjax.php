@@ -83,7 +83,7 @@ function agregarPais(){
 				else{
 				$result = $db_funciones->insertarPais($nombrePais, $idRegion);
 
-				echo "Pais: <b>".$nombrePais."</b> guardado existosamente";
+				echo "Pais: ".$nombrePais." guardado existosamente";
 
 				}
 		}
@@ -118,7 +118,7 @@ function agregarRegion(){
 				else{
 				$result = $db_funciones->insertarRegion($nombreRegion);
 
-				echo "Region: <b>".$nombreRegion."</b> guardado existosamente";
+				echo "Region: ".$nombreRegion." guardada existosamente";
 
 				}
 		}
@@ -132,6 +132,46 @@ function agregarRegion(){
 	}
 }
 
+
+//Agregar Punto de Evaluacion
+if($strMetodo == "agregarPtoEvaluacion")
+	agregarPtoEvaluacion();
+
+function agregarPtoEvaluacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePtoEvaluacion = $_POST["nombrePtoEvaluacion"];	
+	$latitud = $_POST["latitud"];	
+	$longitud = $_POST["longitud"];	
+	$descripcion = $_POST["descripcion"];	
+	$idPais = $_POST["pais"];
+
+
+
+
+	try {
+		if(validarVacio($nombrePtoEvaluacion)==false AND validarVacio($descripcion)==false){
+		$bandera=$db_funciones->verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais);
+				if($bandera==true){
+
+					echo "Este Punto de Evaluación ya se encuentra registrado en el sistema";
+				}
+				else{
+				$result = $db_funciones->insertarPtoEvaluacion($nombrePtoEvaluacion, $latitud, $longitud, $descripcion, $idPais );
+
+				echo "Punto de Evaluación: ".$nombrePtoEvaluacion." guardado existosamente";
+
+				}
+		}
+		else{
+				echo "No debes dejar campos vacios";
+		}
+
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
 function validarVacio($variable){
 trim($variable," \t\n\r\0\x0B");
 		if(strcasecmp($variable, "")!=0){	
