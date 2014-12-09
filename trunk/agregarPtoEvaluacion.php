@@ -110,15 +110,22 @@ $c_funciones = new Funciones();
             <label for="nombrePuntoDeEvaluacion">Nombre Punto De Evaluación:</label> 
             <input type="text" name="namePuntoDeEvaluacion" id="textPtoDeEval" style="font-weight:Bold; font-size:20;"> 
 
+            <label for="descripcionPuntoDeEvaluacion">Descripcion:</label> 
+            <input type="text" name="nameDescripcion" id="textDescripcion" style="font-weight:Bold; font-size:20;"> 
+
             <label for="name">Latitud:</label> 
             <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
 
             <label for="direccion">Longitud:</label> 
             <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
-			     <a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
-            
-            <div id="resultado">
+			      
+            <div id="ajax_loader">
+            <img id="loader_gif" src="css/images/ajax-loader.gif" style=" display:none;"/>
             </div> 
+
+            <a href="#"  data-role="button" id="botonAgregar" data-theme="b">Agregar Punto de Evaluación</a></center> 
+            
+
 
 
 		</div>
@@ -130,37 +137,37 @@ $c_funciones = new Funciones();
 		
 		<?php echo $c_funciones->getFooter(); ?>		
 		<!-- FOOTER -->
-
-    <script>
-      $(document).ready(function(){
+	</body>
+      <script>
+       $(document).ready(function(){
+            
             $('#botonAgregar').click(function(){
-
                 
                 $.ajax({
                   type: "POST",
                   url: "funcionesAjax.php",
-                  data: {nombreMetodo: "agregar"},
+                  data: {nombreMetodo: "agregarPtoEvaluacion", nombrePtoEvaluacion: $('#textPtoDeEval').val(), latitud:$('#textLatitud').val(), longitud:$('#textLongitud').val(), descripcion:$('#textDescripcion').val(), pais:$('#selectPais').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
-                  //  $('#loader_gif').fadeIn("slow");
-                  
+                    $('#loader_gif').fadeIn("slow");
 
                   },
                   dataType: "html",
                   success: function(msg){
-                    //  $("#loader_gif").fadeOut("slow");                    
-                      $('#resultado').html(msg);
-             
+                     swal(msg);
+                    $("#loader_gif").fadeOut("slow");
+                    $('#textPtoDeEval').val(''); 
+                    $('#textDescripcion').val(''); 
+
 
                   }              
 
 
                 });
 
-                      
 
             });
-      });      
+                    
+        });
     </script>
-	</body>
 	</html>
