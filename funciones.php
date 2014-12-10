@@ -470,7 +470,17 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}			
+		}	
+
+		function eliminarPais($pais){
+			//elimina pais del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM PAIS WHERE idPais='$pais'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}				
 
 		/**
 		FUNCIONES PARA REGIONES
@@ -515,6 +525,15 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
+		function eliminarRegion($region){
+			//elimina region del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM REGION WHERE idRegion='$region'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
 		/**
 		 FUNCIONES PARA PUNTOS DE EVALUACION
 		 */
