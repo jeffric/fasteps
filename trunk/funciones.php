@@ -565,7 +565,27 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}				
+		}
+
+		function getListaPtosEvaluacion($pais){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT idPUNTO_EVALUACION, nombre FROM PUNTO_EVALUACION WHERE PAIS_idPAIS='$pais'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+		function eliminarPtoEvaluacion($ptoEvaluacion){
+			//elimina un Punto de Evaluacion del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM PUNTO_EVALUACION WHERE idPUNTO_EVALUACION='$ptoEvaluacion'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}						
 
 		/**
 		FUNCIONES PARA AMENAZAS
