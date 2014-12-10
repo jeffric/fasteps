@@ -172,6 +172,48 @@ function agregarPtoEvaluacion(){
 		echo $e->getMessage();
 	}
 }
+
+
+//Eliminar Region
+if($strMetodo == "eliminarRegion")
+	eliminarRegion();
+
+function eliminarRegion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$region = $_POST["region"];	
+
+
+
+	try {
+
+				$result = $db_funciones->eliminarRegion($region);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Eliminar Pais
+if($strMetodo == "eliminarPais")
+	eliminarPais();
+
+function eliminarPais(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$pais = $_POST["pais"];	
+
+
+
+	try {
+
+				$result = $db_funciones->eliminarPais($pais);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
 function validarVacio($variable){
 trim($variable," \t\n\r\0\x0B");
 		if(strcasecmp($variable, "")!=0){	
