@@ -3,6 +3,22 @@ session_start();
 ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
+
+
+//recogemos datos de la pagina anterior: Pais, Punto de evaluacion, fecha, y elaborado por.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$idPais = $_POST["lstPais"];
+	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
+	$FechaElaboracino = $_POST["txtFecha"];
+	$strElaboradoPor = $_POST["txtCreador"];
+echo 'ID PAIS: ' . $idPais . "<br>";
+echo 'ID PUNTO EVALUACION: ' . $idPuntoEvaluacion . "<br>";
+echo 'FECHA: ' . $FechaElaboracino . "<br>";
+echo 'ELABORADO POR : ' . $strElaboradoPor . "<br>";
+
+$_POST["lstPuntoEvaluacion"] = $idPuntoEvaluacion;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,7 +150,7 @@ $c_funciones = new Funciones();
 	<div id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenazas"); ?>
 		<div class="content">	
-			
+			<form action="frmEvaluarAmenazas.php" method="POST" data-ajax="false">
 			<table data-role="table"id="movie-table-custom" data-mode="reflow" class="movie-list table-stripe">
 				<thead>
 					<tr>
@@ -167,8 +183,9 @@ $c_funciones = new Funciones();
 				</tbody>
 			</table>	
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-					<button id="btnAgregarAmenazas" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">Siguiente (evaluación)</button>
+					<input type="submit" id="btnAgregarAmenazas" data-theme="a" name="submit" value="Evaluar" class="ui-btn-hidden" aria-disabled="false"/>
 				</div>	
+			</form>
 		</div>
 		<?php echo $c_funciones->getMenuNivel2(); ?>
 	</div>		

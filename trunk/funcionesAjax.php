@@ -47,11 +47,11 @@ function CrearUsuario(){
 
 	try {
 		$result = $db_funciones->InsertarUsuario($strNombre, 
-												$strApellido,
-												$strCorreo, 
-												$strPassword,
-												$strTipoUsuario,
-												$strPaisUsuario);
+			$strApellido,
+			$strCorreo, 
+			$strPassword,
+			$strTipoUsuario,
+			$strPaisUsuario);
 		if($result == 1){
 			echo "Usuario agregado exitosamente.";
 		}else{
@@ -62,6 +62,21 @@ function CrearUsuario(){
 	}
 }
 
+//get puntos de evaluacion por pais
+if($strMetodo == "getPtosEval")
+	getPuntosEvaluacionxPais();
+
+function getPuntosEvaluacionxPais(){
+	$strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluación</option>";
+	$intIdPais = $_POST["AjxPPais"];
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$result = $db_funciones->ConsultarPuntosEvaluacion($intIdPais);
+	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+		$strHtml .= "<option value='" . $row[0] . "'>" . $row[1] . "</option>";		
+	}
+	echo $strHtml;
+}
 //Agregar Pais
 if($strMetodo == "agregarPais")
 	agregarPais();
@@ -75,20 +90,20 @@ function agregarPais(){
 
 	try {
 		if(validarVacio($nombrePais)==false){
-		$bandera=$db_funciones->verificarExistenciaPais($nombrePais);
-				if($bandera==true){
+			$bandera=$db_funciones->verificarExistenciaPais($nombrePais);
+			if($bandera==true){
 
-					echo "Este Pais ya se encuentra registrado en el sistema";
-				}
-				else{
+				echo "Este Pais ya se encuentra registrado en el sistema";
+			}
+			else{
 				$result = $db_funciones->insertarPais($nombrePais, $idRegion);
 
 				echo "Pais: ".$nombrePais." guardado existosamente";
 
-				}
+			}
 		}
 		else{
-				echo "No debes dejar campos vacios";
+			echo "No debes dejar campos vacios";
 		}
 
 		
@@ -110,20 +125,20 @@ function agregarRegion(){
 
 	try {
 		if(validarVacio($nombreRegion)==false){
-		$bandera=$db_funciones->verificarExistenciaRegion($nombreRegion);
-				if($bandera==true){
+			$bandera=$db_funciones->verificarExistenciaRegion($nombreRegion);
+			if($bandera==true){
 
-					echo "Esta Region ya se encuentra registrada en el sistema";
-				}
-				else{
+				echo "Esta Region ya se encuentra registrada en el sistema";
+			}
+			else{
 				$result = $db_funciones->insertarRegion($nombreRegion);
 
 				echo "Region: ".$nombreRegion." guardada existosamente";
 
-				}
+			}
 		}
 		else{
-				echo "No debes dejar campos vacios";
+			echo "No debes dejar campos vacios";
 		}
 
 		
@@ -233,14 +248,14 @@ function eliminarPtoEvaluacion(){
 }
 
 function validarVacio($variable){
-trim($variable," \t\n\r\0\x0B");
-		if(strcasecmp($variable, "")!=0){	
-			return false;
-		}
-		else{
-			return true;
+	trim($variable," \t\n\r\0\x0B");
+	if(strcasecmp($variable, "")!=0){	
+		return false;
+	}
+	else{
+		return true;
 
-		}
+	}
 }	
 
 
