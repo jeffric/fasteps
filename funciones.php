@@ -9,10 +9,8 @@
 	DE LAS DISTINTAS SECCIONES DE LAS PAGINAS
 
 */
-
 	include_once("dbMng.php");
 	class Funciones extends DataBaseManager{
-
 	/**
 		Constructor
 	*/
@@ -133,7 +131,7 @@
 
 			<!-- libreria para alertas -->
 			<script src="js/sweet-alert.js"></script>
-  			<link rel="stylesheet" href="css/sweet-alert.css">
+			<link rel="stylesheet" href="css/sweet-alert.css">
 			
 
 			<!-- Scripts para menu -->
@@ -160,10 +158,10 @@
 			'
 
 			<script type="text/javascript">
-			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
-				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
-			}
-		</script>
+				function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+					swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+				}
+			</script>
 		</head>';
 	}
 
@@ -239,7 +237,7 @@
 
 		<!-- libreria para alertas -->
 		<script src="../js/sweet-alert.js"></script>
-  		<link rel="stylesheet" href="../css/sweet-alert.css">
+		<link rel="stylesheet" href="../css/sweet-alert.css">
 		
 
 		<!-- scripts para mapas -->
@@ -447,15 +445,15 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombrePais=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE nombre='$nombrePais'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								if(strcasecmp($row[0],$nombrePais)==0){
+					if(strcasecmp($row[0],$nombrePais)==0){
 
-									return true;
-								}
-								else{
-									return false;
-								}
+						echo true;
+					}
+					else{
+						echo false;
+					}
 
-							}
+				}
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
@@ -501,15 +499,15 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombreRegion=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								if(strcasecmp($row[0],$nombreRegion)==0){
+					if(strcasecmp($row[0],$nombreRegion)==0){
 
-									return true;
-								}
-								else{
-									return false;
-								}
+						return true;
+					}
+					else{
+						return false;
+					}
 
-							}
+				}
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
@@ -545,13 +543,13 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0 AND strcasecmp($row[1],$idPais)==0 ){
 
-									return true;
-								}
-								else{
-									return false;
-								}
+						return true;
+					}
+					else{
+						return false;
+					}
 
-							}
+				}
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
@@ -604,6 +602,25 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
+
+/**
+	FUNCIONES PARA PUNTOS DE EVALUACION
+*/
+	function ConsultarPuntosEvaluacion($intIdPais = -1){		
+		$strTabla = " punto_evaluacion ";
+		$strCampos = " * ";
+		$strRestricciones = "";
+		if($intIdPais != -1){
+			$strRestricciones = " PAIS_idPAIS = " . $intIdPais . " ";
+		}
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
+
 	/**
 		FUNCIONES VARIAS
 	*/
@@ -611,6 +628,60 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			return md5($strPassword);
 		}
 
+
+
+/**
+	FUNCIONES PARA EVALUACION SRA
+*/
+	//insertamos una nueva evaluacion 
+	function CrearEvaluacionSra($intIdUsuario, $strFecha, $intIdPuntoEvaluacion = -1, $intIdEvento = -1){
+		try {
+			$strTabla = " evaluacion ";
+			$strCampos = " fk_idUSUARIO, Fecha "; 
+			$fecha = explode("/",$strFecha);
+			$NuevaFecha = $fecha[2] . "-" . $fecha[1] . "-" . $fecha[0];
+			$strValores = " " . $intIdUsuario . ", '" . $NuevaFecha . "' ";
+
+			if($intIdPuntoEvaluacion != -1){
+				$strCampos .= ", fk_idPUNTO_EVALUACION ";
+				$strValores .= ", " . $intIdPuntoEvaluacion . " ";
+			}else{
+				$strCampos .= ", fk_idEVENTO ";
+				$strValores .= ", " . $intIdEvento . " ";
+			}
+
+			$idInsertado = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);				
+			return $idInsertado;
+		} catch (Exception $e) {
+				//no se pudo realizar la insercion
+			echo 'Error al crear la evaluacion. ' . $e->getMessage();
+			return;
+		}
+	}
+
+
+	function ValidarLogin($strUsuario, $strPassword, $strTipoUsuario){
+		//funcion para validar que el usuario exista y setear la variable del id del usuario si es que existe
+		$strTabla = " usuario ";
+		$strCampos = " * ";
+		$strRestricciones = " correo = '" . $strUsuario . "' AND password = '" . $this->getMD5($strPassword) . "' AND fk_idTIPO_USUARIO = " . $strTipoUsuario . " ";		
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			 $rowcount=mysqli_num_rows($result);
+			// $cont = 0;
+			while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {					
+				$_SESSION["idUsuario"] = $row[0];				
+			}			
+			if($rowcount > 0){
+				return true;
+			}else{
+				$_SESSION["idUsuario"] = "";
+				return false;
+			}			
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
 
 	} // FIN DE CLASE
 	?>
