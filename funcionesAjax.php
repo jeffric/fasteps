@@ -214,6 +214,24 @@ function eliminarPais(){
 	}
 }
 
+//Eliminar Punto de Evaluacion
+if($strMetodo == "eliminarPtoEvaluacion")
+	eliminarPtoEvaluacion();
+
+function eliminarPtoEvaluacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$ptoEvaluacion = $_POST["ptoEvaluacion"];	
+
+	try {
+
+				$result = $db_funciones->eliminarPtoEvaluacion($ptoEvaluacion);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
 function validarVacio($variable){
 trim($variable," \t\n\r\0\x0B");
 		if(strcasecmp($variable, "")!=0){	
