@@ -32,7 +32,7 @@ $c_funciones = new Funciones();
 				<form action="home.php" method="post" data-ajax="false">
 
 					<div data-role="fieldcontain">
-						<label for="username">Username:</label>
+						<label for="username">Correo:</label>
 						<input type="text" name="username" id="username"  />
 					</div>	
 
@@ -55,12 +55,20 @@ $c_funciones = new Funciones();
 				</form>
 				<?php 
 
-				if(isset($_GET["errLog"])){					
-					echo '<script type="text/javascript">								
+				if(isset($_GET["errLog"])){
+					if($_GET["errLog"] == "true02"){
+						echo '<script type="text/javascript">								
+					$(function(){
+						setTimeout(function() {
+							mostrarMensaje("Error","Debe iniciar sesion.","warning");
+						}, 100);});</script>';
+					}else{
+						echo '<script type="text/javascript">								
 					$(function(){
 						setTimeout(function() {
 							mostrarMensaje("Error en login","El password, usuario o tipo de usuario son incorrectos.","error");
 						}, 100);});</script>';
+					}					
 				}
 				?>
 </p>		

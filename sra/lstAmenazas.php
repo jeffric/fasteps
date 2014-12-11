@@ -7,16 +7,15 @@ $c_funciones = new Funciones();
 
 //recogemos datos de la pagina anterior: Pais, Punto de evaluacion, fecha, y elaborado por.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$idUsuario = $_SESSION["idUsuario"];
 	$idPais = $_POST["lstPais"];
 	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
-	$FechaElaboracino = $_POST["txtFecha"];
+	$FechaElaboracion = $_POST["txtFecha"];
 	$strElaboradoPor = $_POST["txtCreador"];
-echo 'ID PAIS: ' . $idPais . "<br>";
-echo 'ID PUNTO EVALUACION: ' . $idPuntoEvaluacion . "<br>";
-echo 'FECHA: ' . $FechaElaboracino . "<br>";
-echo 'ELABORADO POR : ' . $strElaboradoPor . "<br>";
 
-$_POST["lstPuntoEvaluacion"] = $idPuntoEvaluacion;
+	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);
+
+	echo "ID EVALUACION CREADA: " . $idEvaluacion;
 }
 
 ?>
@@ -175,7 +174,7 @@ $_POST["lstPuntoEvaluacion"] = $idPuntoEvaluacion;
 					while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 						echo '<tr>';
 						echo '	<td><label for="chk'. $row[0] . '">'. $row[1] . '</label>';
-						echo '	<input type="checkbox" id="chk'. $row[0] . '" cod="' . $row[0] . '"/></td>';
+						echo '	<input type="checkbox" name="chkAmenazas[]" id="chk'. $row[0] . '" value="j_' . $row[0] . '"/></td>';
 						echo '	<td style="vertical-align: middle;"><label>'. $row[2] . '</label></td>';
 						echo '</tr>';
 					}					
@@ -189,6 +188,7 @@ $_POST["lstPuntoEvaluacion"] = $idPuntoEvaluacion;
 		</div>
 		<?php echo $c_funciones->getMenuNivel2(); ?>
 	</div>		
+
 	<?php echo $c_funciones->getFooterNivel2(); ?>		
 	<!-- FOOTER -->
 
