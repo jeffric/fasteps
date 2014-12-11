@@ -20,6 +20,7 @@ $c_funciones = new Funciones();
 	<div id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Home"); ?>
 		<div class="content">
+		<form action="frmPlanesMitigacion.php" method="POST" data-ajax="false">
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
 				<thead>
 					<tr>
@@ -343,7 +344,8 @@ $c_funciones = new Funciones();
 					// }					
 					?>
 				</tbody>
-			</table>			
+			</table>
+		</form>			
 		</div>
 		<?php echo $c_funciones->getMenuNivel2(); ?>
 	</div>		
