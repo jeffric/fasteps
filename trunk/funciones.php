@@ -591,11 +591,14 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		FUNCIONES PARA AMENAZAS
 		*/	
 
-		function getAmenazas(){
+		function getAmenazas($idAmenaza = -1){
 			$strHtml = "";
 			$strTabla = " amenaza ";
 			$strCampos = " * ";
 			$strRestricciones = "";
+			if($idAmenaza != -1){
+				$strRestricciones .= " idAMENAZA = " . $idAmenaza . " ";
+			}			
 			try {
 				$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
 				return $result;
@@ -681,6 +684,19 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$_SESSION["idUsuario"] = "";
 				return false;
 			}			
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
+
+
+	function ConsultarNivelesDeRiesgo(){
+		$strTabla = " nivel_riesgo ";
+		$strCampos = " * ";
+		$strRestricciones = "";		
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
 		} catch (Exception $e) {
 			echo 'Error: ' .$e->getMessage();
 		}
