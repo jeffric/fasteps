@@ -13,9 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$FechaElaboracion = $_POST["txtFecha"];
 	$strElaboradoPor = $_POST["txtCreador"];
 
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);
-
-	echo "ID EVALUACION CREADA: " . $idEvaluacion;
+	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
+	$_SESSION["idEvalSraActual"] = $idEvaluacion;
 }
 
 ?>
@@ -145,15 +144,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 '); ?>
 <body>
-
-	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenazas"); ?>
-		<div class="content">	
-			<form action="frmEvaluarAmenazas.php" method="POST" data-ajax="false">
+	<?php 
+	if(isset($_SESSION["idEvalSraActual"])){
+		if(is_numeric($_SESSION["idEvalSraActual"])){
+			//$_SESSION["idEvalSraActual"] = $idEvaluacion;
+		}else{
+			echo '
+			<script type="text/javascript">
+				$(function(){
+					setTimeout(function() {
+						swal({   
+							title: "Advertencia",   
+							text: "La evaluacion SRA no se ha podido crear. Se le redireccionara para crear una nueva evaluacion SRA.",   
+							type: "warning",   
+							showCancelButton: false,   
+							confirmButtonColor: "#DD6B55",   
+							confirmButtonText: "Aceptar",   
+							cancelButtonText: "",   
+							closeOnConfirm: false,   
+							closeOnCancel: false 
+						}, 
+						function(isConfirm){   
+							if (isConfirm) {     
+								window.location = "index.php";
+							} 
+							else {     
+								window.location = "index.php";
+							} 
+						});
+					}, 100);
+				});	
+			</script>
+				';
+		}
+	}else{
+		echo '
+			<script type="text/javascript">
+				$(function(){
+					setTimeout(function() {
+						swal({   
+							title: "Advertencia",   
+							text: "La evaluacion SRA no se ha podido crear. Se le redireccionara para crear una nueva evaluacion SRA.",   
+							type: "warning",   
+							showCancelButton: false,   
+							confirmButtonColor: "#DD6B55",   
+							confirmButtonText: "Aceptar",   
+							cancelButtonText: "",   
+							closeOnConfirm: false,   
+							closeOnCancel: false 
+						}, 
+						function(isConfirm){   
+							if (isConfirm) {     
+								window.location = "index.php";
+							} 
+							else {     
+								window.location = "index.php";
+							} 
+						});
+					}, 100);
+				});	
+			</script>
+				';
+	}	
+?>
+<div id="page">
+	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenazas"); ?>
+	<div class="content">	
+		<form action="frmEvaluarAmenazas.php" method="POST" data-ajax="false">
 			<table data-role="table"id="movie-table-custom" data-mode="reflow" class="movie-list table-stripe">
 				<thead>
 					<tr>
-						
+
 						<th style="width:10%">Amenaza</th>	
 						<th style="width:90%">Descripción</th>	
 					</tr>
@@ -166,47 +227,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						echo '<script type="text/javascript">								
 						$(function(){
 							setTimeout(function() {
-						      mostrarMensaje("Advertencia","No existen amenazas por mostrar.","warning");
-						}, 100);
-						});
-						</script>';
-					}
-					while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-						echo '<tr>';
-						echo '	<td><label for="chk'. $row[0] . '">'. $row[1] . '</label>';
-						echo '	<input type="checkbox" name="chkAmenazas[]" id="chk'. $row[0] . '" value="j_' . $row[0] . '"/></td>';
-						echo '	<td style="vertical-align: middle;"><label>'. $row[2] . '</label></td>';
-						echo '</tr>';
-					}					
-					?>					
-				</tbody>
-			</table>	
-			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-					<input type="submit" id="btnAgregarAmenazas" data-theme="a" name="submit" value="Evaluar" class="ui-btn-hidden" aria-disabled="false"/>
-				</div>	
-			</form>
-		</div>
-		<?php echo $c_funciones->getMenuNivel2(); ?>
-	</div>		
+								mostrarMensaje("Advertencia","No existen amenazas por mostrar.","warning");
+							}, 100);
+});
+</script>';
+}
+while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+	echo '<tr>';
+	echo '	<td><label for="chk'. $row[0] . '">'. $row[1] . '</label>';
+	echo '	<input type="checkbox" name="chkAmenazas[]" id="chk'. $row[0] . '" value="' . $row[0] . '"/></td>';
+	echo '	<td style="vertical-align: middle;"><label>'. $row[2] . '</label></td>';
+	echo '</tr>';
+}					
+?>					
+</tbody>
+</table>	
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+	<input type="submit" id="btnAgregarAmenazas" data-theme="a" name="submit" value="Evaluar" class="ui-btn-hidden" aria-disabled="false"/>
+</div>	
+</form>
+</div>
+<?php echo $c_funciones->getMenuNivel2(); ?>
+</div>		
 
-	<?php echo $c_funciones->getFooterNivel2(); ?>		
-	<!-- FOOTER -->
+<?php echo $c_funciones->getFooterNivel2(); ?>		
+<!-- FOOTER -->
 
-	<script type="text/javascript">
-		$("#btnAgregarAmenazas").click(function(){
-			swal({   
-				title: "Amenazas",   
-				text: "Amenazas agregadas exitosamente.",
-				type: "success",
-				showCancelButton: false,
-				confirmButtonColor: "#DD6B55",   
-				confirmButtonText: "Aceptar",
-				closeOnConfirm: false
-			}, 
-			function(){   
-				window.location= "www.google.com";
-			});
+<script type="text/javascript">
+	$("#btnAgregarAmenazas").click(function(){
+		swal({   
+			title: "Amenazas",   
+			text: "Amenazas agregadas exitosamente.",
+			type: "success",
+			showCancelButton: false,
+			confirmButtonColor: "#DD6B55",   
+			confirmButtonText: "Aceptar",
+			closeOnConfirm: false
+		}, 
+		function(){   
+			window.location= "www.google.com";
 		});
-	</script>
+	});
+</script>
 </body>
 </html>

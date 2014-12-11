@@ -58,19 +58,19 @@ $c_funciones = new Funciones();
 				if(isset($_GET["errLog"])){
 					if($_GET["errLog"] == "true02"){
 						echo '<script type="text/javascript">								
-					$(function(){
-						setTimeout(function() {
-							mostrarMensaje("Error","Debe iniciar sesion.","warning");
-						}, 100);});</script>';
-					}else{
-						echo '<script type="text/javascript">								
-					$(function(){
-						setTimeout(function() {
-							mostrarMensaje("Error en login","El password, usuario o tipo de usuario son incorrectos.","error");
-						}, 100);});</script>';
-					}					
-				}
-				?>
+						$(function(){
+							setTimeout(function() {
+								mostrarMensaje("Error","Debe iniciar sesion.","warning");
+							}, 100);});</script>';
+}else{
+	echo '<script type="text/javascript">								
+	$(function(){
+		setTimeout(function() {
+			mostrarMensaje("Error en login","El password, usuario o tipo de usuario son incorrectos.","error");
+		}, 100);});</script>';
+}					
+}
+?>
 </p>		
 </div>
 <div data-role="footer">

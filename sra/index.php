@@ -35,8 +35,8 @@ $(document).bind("mobileinit", function () {
 						<select name="lstPais" id="lstPais">
 							<option value="-2">Elegir un país</option>
 							<?php 				
-						//$result = $c_funciones->getListaPaises($_SESSION["IdUsrLog"]);
-							$result = $c_funciones->getListaPaises(19);
+						$result = $c_funciones->getListaPaises($_SESSION["idUsuario"]);
+						//	$result = $c_funciones->getListaPaises(19);
 							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
 							}					
