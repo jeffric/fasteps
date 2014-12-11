@@ -58,7 +58,7 @@ $(document).bind("mobileinit", function () {
 					</div>
 				</div>
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-				<input type="submit" id="btnCrearEval" data-theme="a" name="btnCrearEval" value="submit-value" class="ui-btn-hidden" aria-disabled="false">Crear evaluación</input>
+				<input type="submit" id="btnCrearEval" data-theme="a" name="btnCrearEval" value="Crear evaluación" class="ui-btn-hidden" aria-disabled="false"/>
 				</div>
 			</form>			
 		</div>

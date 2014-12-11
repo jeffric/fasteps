@@ -102,6 +102,7 @@
 						</ul>
 					</li>
 					<li><a href="contacto.php">Contacto</a></li>
+					<li><a href="logOut.php">Log Out</a></li>
 				</ul>
 			</nav>
 			<!-- /Menu -->';					
@@ -211,6 +212,7 @@
 					</ul>
 				</li>
 				<li><a href="../contacto.php">Contacto</a></li>
+				<li><a href="../logOut.php">Log Out</a></li>
 			</ul>
 		</nav>
 		<!-- /Menu -->';	
@@ -634,13 +636,14 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 	FUNCIONES PARA EVALUACION SRA
 */
 	//insertamos una nueva evaluacion 
-	function CrearEvaluacionSra($intIdUsuario, $strFecha, $intIdPuntoEvaluacion = -1, $intIdEvento = -1){
+	function CrearEvaluacionSra($intIdUsuario, $strFecha, $strElaboradoPor, $intIdPuntoEvaluacion = -1, $intIdEvento = -1){
+		//CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);
 		try {
 			$strTabla = " evaluacion ";
-			$strCampos = " fk_idUSUARIO, Fecha "; 
+			$strCampos = " fk_idUSUARIO, Fecha, Creador";
 			$fecha = explode("/",$strFecha);
 			$NuevaFecha = $fecha[2] . "-" . $fecha[1] . "-" . $fecha[0];
-			$strValores = " " . $intIdUsuario . ", '" . $NuevaFecha . "' ";
+			$strValores = " " . $intIdUsuario . ", '" . $NuevaFecha . "', '" . $strElaboradoPor . "' ";
 
 			if($intIdPuntoEvaluacion != -1){
 				$strCampos .= ", fk_idPUNTO_EVALUACION ";

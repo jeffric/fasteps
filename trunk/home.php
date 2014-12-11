@@ -32,6 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$(function() {
 		$("nav#menu").mmenu();
 	});
+$(document).bind("mobileinit", function () {
+
+	$.mobile.ajaxEnabled = false;
+
+});
 </script>'); ?>
 <body>
 
@@ -46,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</a>
 				</div>
 				<div class="ui-block-b" style="text-align: center;">
-					<a href="sra/">
-						<img src="img/sra-logo.png" alt="crr-section">
+					<a href="sra/index.php" data-ajax="false">
+						<img src="img/sra-logo.png" alt="sra-section">
 						<h2>SRA</h2>
 					</a>
 				</div>
