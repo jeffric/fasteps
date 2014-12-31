@@ -56,57 +56,289 @@
 	/**
 		Funcion para construir el menu superior y lateral
 	*/
-		function getMenu(){
-			echo '	<!-- Menu -->
-			<nav id="menu" >
-				<ul>
-					<li><a href="home.php">Home</a></li>
-					<li><a href="home.php">CRR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CRR</a></li>
-							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">SRA</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar SRA</a></li>
-							<li><a href="crr/reportes.php">Reportes SRA</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">CSR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CSR</a></li>
-							<li><a href="crr/reportes.php">Reportes CSR</a></li>						
-						</ul>
-					</li>
-					<li><a href="home.php">CRR</a>
-						<ul>
-							<li><a href="crr/index.php">Evaluar CRR</a></li>
-							<li><a href="crr/reportes.php">Reportes CRR</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">Acerca de nosotros</a>
-						<ul>
-							<li><a href="about/mision.php">Misión</a></li>
-							<li><a href="about/vision.php">Visión</a></li>
-							<li><a href="about/valores.php">Valores</a></li>
-							<li><a href="about/historia.php">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Acerca de F.A.S.T.</a>
-						<ul>
-							<li><a href="aboutfast/mision.php">Misión</a></li>
-							<li><a href="aboutfast/vision.php">Visión</a></li>
-							<li><a href="aboutfast/valores.php">Valores</a></li>
-							<li><a href="aboutfast/historia.php">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="contacto.php">Contacto</a></li>
-					<li><a href="logOut.php">Log Out</a></li>
-				</ul>
-			</nav>
-			<!-- /Menu -->';					
+		function getMenu($strTipoUsuario){
+			if($strTipoUsuario==1)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>	
+									<li><a href="home.php">USUARIOS</a>
+										<ul>
+											<li><a href=Usuarios/blank.php?TipoUsuario='.md5($strTipoUsuario).' data-ajax="false">CREAR USUARIO</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+										</ul>									
+									</li>	
+									<li><a href="home.php">AGREGAR INFORMACION A FAST</a>
+										<ul>
+											<li><a href="home.php">AGREGAR PAIS</a></li>
+											<li><a href="home.php">AGREGAR REGION</a></li>	
+											<li><a href="home.php">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="home.php">AGREGAR EVENTO</a></li>																												
+										</ul>
+									</li>	
+									<li><a href="home.php">MODIFICAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="home.php">MODIFICAR PAIS</a></li>
+											<li><a href="home.php">MODIFICAR REGION</a></li>			
+											<li><a href="home.php">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php">MODIFICAR EVENTO</a></li>																											
+										</ul>
+									</li>									
+									<li><a href="home.php">ELIMINAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="home.php">ELIMINAR PAIS</a></li>
+											<li><a href="home.php">ELIMINAR REGION</a></li>			
+											<li><a href="home.php">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php">ELIMINAR EVENTO</a></li>																											
+										</ul>
+									</li>																																																						
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="sra/index.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';					
+			}
+			else if($strTipoUsuario==2)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>		
+									<li><a href="home.php">USUARIOS</a>
+										<ul>
+											<li><a href="Usuarios/frmCrearUsuario.php">CREAR USUARIO</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>												
+											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>	
+											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																							
+											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+										</ul>									
+									</li>																	
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}
+			else if($strTipoUsuario==3)
+			{							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>										
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}
+			else if($strTipoUsuario==4)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>										
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}
 		}
+
 
 		function getHeader($tituloPagina = "", $CodigoDentroDeHeader = ""){
 			echo '<head>
@@ -167,55 +399,286 @@
 	}
 
 	function getMenuNivel2(){
-		echo '	<!-- Menu -->
-		<nav id="menu">
-			<ul>
-				<li><a href="../home.php">Home</a></li>
-				<li><a href="../home.php">CRR</a>
-					<ul>
-						<li><a href="../crr/index.php">Evaluar CRR</a></li>
-						<li><a href="../crr/reportes.php">Reportes CRR</a></li>						
-					</ul>
-				</li>
-				<li><a href="../home.php">SRA</a>
-					<ul>
-						<li><a href="../crr/index.php">Evaluar SRA</a></li>
-						<li><a href="../crr/reportes.php">Reportes SRA</a></li>						
-					</ul>
-				</li>
-				<li><a href="../home.php">CSR</a>
-					<ul>
-						<li><a href="../crr/index.php">Evaluar CSR</a></li>
-						<li><a href="../crr/reportes.php">Reportes CSR</a></li>						
-					</ul>
-				</li>
-				<li><a href="../home.php">CRR</a>
-					<ul>
-						<li><a href="../crr/index.php">Evaluar CRR</a></li>
-						<li><a href="../crr/reportes.php">Reportes CRR</a></li>						
-					</ul>
-				</li>
-				<li><a href="#">Acerca de nosotros</a>
-					<ul>
-						<li><a href="../about/mision.php">Misión</a></li>
-						<li><a href="../about/vision.php">Visión</a></li>
-						<li><a href="../about/valores.php">Valores</a></li>
-						<li><a href="../about/historia.php">Historia</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Acerca de F.A.S.T.</a>
-					<ul>
-						<li><a href="../aboutfast/mision.php">Misión</a></li>
-						<li><a href="../aboutfast/vision.php">Visión</a></li>
-						<li><a href="../aboutfast/valores.php">Valores</a></li>
-						<li><a href="../aboutfast/historia.php">Historia</a></li>
-					</ul>
-				</li>
-				<li><a href="../contacto.php">Contacto</a></li>
-				<li><a href="../logOut.php">Log Out</a></li>
-			</ul>
-		</nav>
-		<!-- /Menu -->';	
+			if($strTipoUsuario==1)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>	
+									<li><a href="home.php">USUARIOS</a>
+										<ul>
+											<li><a href="Usuarios/blank.php?TipoUsuario='.md5($strTipoUsuario).'>CREAR USUARIO</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+										</ul>									
+									</li>	
+									<li><a href="home.php">AGREGAR INFORMACION A FAST</a>
+										<ul>
+											<li><a href="home.php">AGREGAR PAIS</a></li>
+											<li><a href="home.php">AGREGAR REGION</a></li>	
+											<li><a href="home.php">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="home.php">AGREGAR EVENTO</a></li>																												
+										</ul>
+									</li>	
+									<li><a href="home.php">MODIFICAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="home.php">MODIFICAR PAIS</a></li>
+											<li><a href="home.php">MODIFICAR REGION</a></li>			
+											<li><a href="home.php">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php">MODIFICAR EVENTO</a></li>																											
+										</ul>
+									</li>									
+									<li><a href="home.php">ELIMINAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="home.php">ELIMINAR PAIS</a></li>
+											<li><a href="home.php">ELIMINAR REGION</a></li>			
+											<li><a href="home.php">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php">ELIMINAR EVENTO</a></li>																											
+										</ul>
+									</li>																																																						
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="sra/index.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';					
+			}
+			else if($strTipoUsuario==2)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>		
+									<li><a href="home.php">USUARIOS</a>
+										<ul>
+											<li><a href="Usuarios/frmCrearUsuario.php">CREAR USUARIO</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>												
+											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>	
+											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																							
+											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+										</ul>									
+									</li>																	
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}
+			else if($strTipoUsuario==3)
+			{							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>										
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CRR</a></li>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">EVALUAR SRA</a></li>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">EVALUAR CSR</a></li>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}
+			else if($strTipoUsuario==4)
+			{
+							echo '	<!-- Menu -->
+							<nav id="menu" >
+								<ul>
+									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									</li>										
+									<li><a href="home.php">CRR</a>
+										<ul>
+											<li><a href="home.php">REPORTES CRR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">SRA</a>
+										<ul>
+											<li><a href="home.php">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php">EVENTOS</a></li>
+												</ul>
+											</li>						
+										</ul>
+									</li>
+									<li><a href="home.php">CSR</a>
+										<ul>
+											<li><a href="home.php">REPORTES CSR</a></li>						
+										</ul>
+									</li>
+									<li><a href="home.php">HISS-CAM</a>
+										<ul>
+											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+										</ul>
+									</li>
+									<li><a href="#">Acerca de nosotros</a>
+										<ul>
+											<li><a href="about/mision.php">Misión</a></li>
+											<li><a href="about/vision.php">Visión</a></li>
+											<li><a href="about/valores.php">Valores</a></li>
+											<li><a href="about/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
+										<ul>
+											<li><a href="aboutfast/mision.php">Misión</a></li>
+											<li><a href="aboutfast/vision.php">Visión</a></li>
+											<li><a href="aboutfast/valores.php">Valores</a></li>
+											<li><a href="aboutfast/historia.php">Historia</a></li>
+										</ul>
+									</li>
+									<li><a href="contacto.php">Contacto</a></li>
+									<li><a href="logOut.php">Log Out</a></li>
+								</ul>
+							</nav>
+							<!-- /Menu -->';	
+
+			}	
 	}
 
 	function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
