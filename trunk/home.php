@@ -70,12 +70,12 @@ $(document).bind("mobileinit", function () {
 				</div>
 			</div><!-- /grid-b -->
 			<div data-role="controlgroup">
-				<a href="reportes.php" data-role="button">Reportes</a>
+				<a href="reportes.php" data-role="button">Reportes <?php echo $strTipoUsuario ?></a>
 				<a href="configuracion.php" data-role="button">Configuraci&oacute;n</a>
 				<a href="historial.php" data-role="button">Historial</a>
 			</div>
 		</div>
-		<?php echo $c_funciones->getMenu(); ?>
+		<?php echo $c_funciones->getMenu($strTipoUsuario); ?>
 	</div>		
 	<?php echo $c_funciones->getFooter(); ?>		
 	<!-- FOOTER -->
