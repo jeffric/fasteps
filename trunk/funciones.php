@@ -607,6 +607,57 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
+		function getListaAmenazas(){
+			//carga en un select, el id y nombre de todas las amenazas
+			try {
+				$result = $this->db->Consultar("amenaza", " * ");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+		function verificarExistenciaAmenaza($variable){
+			//verifica si ya existe una Amenaza con dicho nombre
+			try {
+				$nombreAmenaza = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM AMENAZA WHERE nombre='$nombreAmenaza'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombreAmenaza)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+
+		function insertarAmenaza($nombreAmenaza, $descripcion){
+			//agrega una Amenza al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO AMENAZA (nombre, descripcion) VALUES ('$nombreAmenaza', '$descripcion')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function eliminarAmenaza($amenaza){
+			//elimina una Amenaza del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM AMENAZA WHERE idAMENAZA='$amenaza'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}						
+
 
 /**
 	FUNCIONES PARA PUNTOS DE EVALUACION
