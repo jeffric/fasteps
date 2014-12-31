@@ -247,6 +247,60 @@ function eliminarPtoEvaluacion(){
 	}
 }
 
+//Agregar Amenaza
+if($strMetodo == "agregarAmenaza")
+	agregarAmenaza();
+
+function agregarAmenaza(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$amenaza = $_POST["amenaza"];	
+	$descripcion = $_POST["descripcion"];
+
+
+
+	try {
+		if(validarVacio($amenaza)==false AND validarVacio($descripcion)==false){
+			$bandera=$db_funciones->verificarExistenciaAmenaza($amenaza);
+			if($bandera==true){
+
+				echo "Esta Amenaza ya se encuentra registrada en el sistema";
+			}
+			else{
+				$result = $db_funciones->insertarAmenaza($amenaza, $descripcion);
+
+				echo "Amenaza: ".$amenaza." guardada existosamente";
+
+			}
+		}
+		else{
+			echo "No debes dejar campos vacios";
+		}
+
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Eliminar Amenaza
+if($strMetodo == "eliminarAmenaza")
+	eliminarAmenaza();
+
+function eliminarAmenaza(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$amenaza = $_POST["amenaza"];	
+
+	try {
+
+				$result = $db_funciones->eliminarAmenaza($amenaza);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
 function validarVacio($variable){
 	trim($variable," \t\n\r\0\x0B");
 	if(strcasecmp($variable, "")!=0){	
@@ -256,7 +310,9 @@ function validarVacio($variable){
 		return true;
 
 	}
-}	
+}
+
+
 
 
 ?>

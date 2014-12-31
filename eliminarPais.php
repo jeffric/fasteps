@@ -31,7 +31,7 @@ $c_funciones = new Funciones();
             <img id="loader_gif" src="css/images/ajax-loader.gif" style=" display:none;"/>
             </div>
 
-            <a href="#"  data-role="button" id="botonEliminar" data-theme="b">Eliminiar Pais</a></center> 
+            <a href="#"  data-role="button" id="botonEliminar" data-theme="b">Eliminar Pais</a></center> 
             
 
 		</div>
