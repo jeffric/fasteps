@@ -89,10 +89,13 @@
 									</li>	
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">MODIFICAR PAIS</a></li>
-											<li><a href="home.php" data-ajax="false">MODIFICAR REGION</a></li>			
-											<li><a href="home.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
+											<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
+											<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
+											<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
+											<li><a href="Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
@@ -180,7 +183,18 @@
 											<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
 											<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
-									</li>																										
+									</li>	
+									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
+											<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
+											<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
+											<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
+											<li><a href="Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+										</ul>
+									</li>																																		
 									<li><a href="#">CRR</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
@@ -424,10 +438,13 @@
 									</li>
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">MODIFICAR PAIS</a></li>
-											<li><a href="home.php" data-ajax="false">MODIFICAR REGION</a></li>			
-											<li><a href="home.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="../Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="../Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
+											<li><a href="../Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
+											<li><a href="../Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
+											<li><a href="../Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
+											<li><a href="../Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
@@ -510,7 +527,18 @@
 											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
 											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
-									</li>																									
+									</li>	
+									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
+										<ul>
+											<li><a href="../Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="../Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
+											<li><a href="../Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
+											<li><a href="../Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
+											<li><a href="../Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
+											<li><a href="../Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+										</ul>
+									</li>																																	
 									<li><a href="#">CRR</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
