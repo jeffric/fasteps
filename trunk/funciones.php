@@ -78,13 +78,13 @@
 									</li>	
 									<li><a href="#">AGREGAR INFORMACION A FAST</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">AGREGAR PAIS</a></li>
-											<li><a href="home.php" data-ajax="false">AGREGAR REGION</a></li>	
-											<li><a href="home.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
-											<li><a href="home.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
-											<li><a href="home.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
-											<li><a href="home.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="home.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+											<li><a href="Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
+											<li><a href="Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
+											<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+											<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
+											<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
+											<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
 									</li>	
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
@@ -171,7 +171,16 @@
 											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
 											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>								
-									</li>																	
+									</li>
+									<li><a href="#">AGREGAR INFORMACION A FAST</a>
+										<ul>	
+											<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+											<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
+											<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
+											<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+										</ul>
+									</li>																										
 									<li><a href="#">CRR</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
@@ -403,16 +412,16 @@
 										</ul>									
 									</li>	
 									<li><a href="#">AGREGAR INFORMACION A FAST</a>
-										<ul>											
-											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
-											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
-											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-										</ul>	
-									</li>	
+										<ul>
+											<li><a href="../Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
+											<li><a href="../Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
+											<li><a href="../Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+											<li><a href="../Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
+											<li><a href="../Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
+											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+										</ul>
+									</li>
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">MODIFICAR PAIS</a></li>
@@ -483,16 +492,25 @@
 									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>		
 									<li><a href="#">USUARIOS</a>
-										<ul>
-											<li><a href="Usuarios/frmCrearUsuario.php">CREAR USUARIO</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>												
-											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>	
-											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																							
-											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+										<ul>											
+											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
+											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
-									</li>																	
+									</li>		
+									<li><a href="#">AGREGAR INFORMACION A FAST</a>
+										<ul>	
+											<li><a href="../Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+											<li><a href="../Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
+											<li><a href="../Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
+											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+										</ul>
+									</li>																									
 									<li><a href="#">CRR</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
