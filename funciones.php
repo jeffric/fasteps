@@ -62,91 +62,93 @@
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>	
-									<li><a href="home.php">USUARIOS</a>
-										<ul>
-											<li><a href=Usuarios/blank.php?TipoUsuario='.md5($strTipoUsuario).' data-ajax="false">CREAR USUARIO</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																						
-											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+									<li><a href="#">USUARIOS</a>
+										<ul>											
+											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
+											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
 									</li>	
-									<li><a href="home.php">AGREGAR INFORMACION A FAST</a>
+									<li><a href="#">AGREGAR INFORMACION A FAST</a>
 										<ul>
-											<li><a href="home.php">AGREGAR PAIS</a></li>
-											<li><a href="home.php">AGREGAR REGION</a></li>	
-											<li><a href="home.php">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="home.php">AGREGAR EVENTO</a></li>																												
+											<li><a href="home.php" data-ajax="false">AGREGAR PAIS</a></li>
+											<li><a href="home.php" data-ajax="false">AGREGAR REGION</a></li>	
+											<li><a href="home.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+											<li><a href="home.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
+											<li><a href="home.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
+											<li><a href="home.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="home.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
 									</li>	
-									<li><a href="home.php">MODIFICAR INFORMACION DE FAST</a>
+									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php">MODIFICAR PAIS</a></li>
-											<li><a href="home.php">MODIFICAR REGION</a></li>			
-											<li><a href="home.php">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php">MODIFICAR EVENTO</a></li>																											
+											<li><a href="home.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="home.php" data-ajax="false">MODIFICAR REGION</a></li>			
+											<li><a href="home.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
-									<li><a href="home.php">ELIMINAR INFORMACION DE FAST</a>
+									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php">ELIMINAR PAIS</a></li>
-											<li><a href="home.php">ELIMINAR REGION</a></li>			
-											<li><a href="home.php">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php">ELIMINAR EVENTO</a></li>																											
+											<li><a href="home.php" data-ajax="false">ELIMINAR PAIS</a></li>
+											<li><a href="home.php" data-ajax="false">ELIMINAR REGION</a></li>			
+											<li><a href="home.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>																																																						
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="sra/index.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a></li>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>											
+											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="home.php" data-ajax="false">HOME</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';					
@@ -156,67 +158,61 @@
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>		
-									<li><a href="home.php">USUARIOS</a>
-										<ul>
-											<li><a href="Usuarios/frmCrearUsuario.php">CREAR USUARIO</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>												
-											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>	
-											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																							
-											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
-										</ul>									
+									<li><a href="#">USUARIOS</a>
+										<ul>											
+											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
+											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
+										</ul>								
 									</li>																	
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -226,56 +222,50 @@
 			{							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -286,52 +276,46 @@
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="#">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -398,97 +382,94 @@
 		</head>';
 	}
 
-	function getMenuNivel2(){
+	function getMenuNivel2($strTipoUsuario){
 			if($strTipoUsuario==1)
 			{
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>	
-									<li><a href="home.php">USUARIOS</a>
-										<ul>
-											<li><a href="Usuarios/blank.php?TipoUsuario='.md5($strTipoUsuario).'>CREAR USUARIO</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="home.php">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="home.php">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="home.php">DESASIGNAR USUARIO A EVENTO</a></li>																						
-											<li><a href="home.php">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
+									<li><a href="#">USUARIOS</a>
+										<ul>											
+											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
+											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
 									</li>	
-									<li><a href="home.php">AGREGAR INFORMACION A FAST</a>
-										<ul>
-											<li><a href="home.php">AGREGAR PAIS</a></li>
-											<li><a href="home.php">AGREGAR REGION</a></li>	
-											<li><a href="home.php">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="home.php">AGREGAR EVENTO</a></li>																												
-										</ul>
+									<li><a href="#">AGREGAR INFORMACION A FAST</a>
+										<ul>											
+											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
+											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
+											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
+											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
+											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
+										</ul>	
 									</li>	
-									<li><a href="home.php">MODIFICAR INFORMACION DE FAST</a>
+									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php">MODIFICAR PAIS</a></li>
-											<li><a href="home.php">MODIFICAR REGION</a></li>			
-											<li><a href="home.php">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php">MODIFICAR EVENTO</a></li>																											
+											<li><a href="home.php" data-ajax="false">MODIFICAR PAIS</a></li>
+											<li><a href="home.php" data-ajax="false">MODIFICAR REGION</a></li>			
+											<li><a href="home.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
-									<li><a href="home.php">ELIMINAR INFORMACION DE FAST</a>
+									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="home.php">ELIMINAR PAIS</a></li>
-											<li><a href="home.php">ELIMINAR REGION</a></li>			
-											<li><a href="home.php">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="home.php">ELIMINAR EVENTO</a></li>																											
+											<li><a href="home.php" data-ajax="false">ELIMINAR PAIS</a></li>
+											<li><a href="home.php" data-ajax="false">ELIMINAR REGION</a></li>			
+											<li><a href="home.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="home.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>																																																						
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="sra/index.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';					
@@ -498,10 +479,10 @@
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>		
-									<li><a href="home.php">USUARIOS</a>
+									<li><a href="#">USUARIOS</a>
 										<ul>
 											<li><a href="Usuarios/frmCrearUsuario.php">CREAR USUARIO</a></li>
 											<li><a href="home.php">ASIGNAR USUARIO A PAIS</a></li>												
@@ -512,53 +493,47 @@
 											<li><a href="home.php">ELIMINAR USUARIO </a></li>					
 										</ul>									
 									</li>																	
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -568,56 +543,50 @@
 			{							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CRR</a></li>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">EVALUAR SRA</a></li>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">EVALUAR CSR</a></li>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -628,52 +597,46 @@
 							echo '	<!-- Menu -->
 							<nav id="menu" >
 								<ul>
-									<li><a href="home.php"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php">MOFIFICAR MI INFORMACION</a>
+									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
+									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
-									<li><a href="home.php">CRR</a>
+									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php">REPORTES CRR</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">SRA</a>
+									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php">REPORTES SRA</a>
+											<li><a href="#" >REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php">EVENTOS</a></li>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
 									</li>
-									<li><a href="home.php">CSR</a>
+									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php">REPORTES CSR</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
-									<li><a href="home.php">HISS-CAM</a>
+									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php">REPORTES HISS-CAM</a></li>						
+											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">Acerca de nosotros</a>
 										<ul>
-											<li><a href="about/mision.php">Misión</a></li>
-											<li><a href="about/vision.php">Visión</a></li>
-											<li><a href="about/valores.php">Valores</a></li>
-											<li><a href="about/historia.php">Historia</a></li>
+											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
-										<ul>
-											<li><a href="aboutfast/mision.php">Misión</a></li>
-											<li><a href="aboutfast/vision.php">Visión</a></li>
-											<li><a href="aboutfast/valores.php">Valores</a></li>
-											<li><a href="aboutfast/historia.php">Historia</a></li>
-										</ul>
 									</li>
-									<li><a href="contacto.php">Contacto</a></li>
-									<li><a href="logOut.php">Log Out</a></li>
+									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
