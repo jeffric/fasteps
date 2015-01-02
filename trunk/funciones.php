@@ -541,8 +541,8 @@
 									</li>	
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+											<li><a href="../Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>																																										
 									<li><a href="#">CRR</a>
