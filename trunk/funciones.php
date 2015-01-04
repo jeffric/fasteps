@@ -63,7 +63,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>	
 									<li><a href="#">USUARIOS</a>
 										<ul>											
@@ -165,7 +165,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>		
 									<li><a href="#">USUARIOS</a>
 										<ul>											
@@ -250,7 +250,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
 									<li><a href="#">CRR</a>
 										<ul>
@@ -304,7 +304,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
 									<li><a href="#">CRR</a>
 										<ul>
@@ -416,7 +416,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="#" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>	
 									<li><a href="#">USUARIOS</a>
 										<ul>											
@@ -461,7 +461,6 @@
 											<li><a href="../Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
 											<li><a href="../Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>																											
-										</ul>
 									</li>																																																						
 									<li><a href="#">CRR</a>
 										<ul>
@@ -514,7 +513,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>		
 									<li><a href="#">USUARIOS</a>
 										<ul>											
@@ -596,7 +595,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
 									<li><a href="#">CRR</a>
 										<ul>
@@ -650,7 +649,7 @@
 							<nav id="menu" >
 								<ul>
 									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="home.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
+									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
 									</li>										
 									<li><a href="#">CRR</a>
 										<ul>
@@ -824,6 +823,16 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
+		function getTipoUsuarios2(){
+			//devuelve el nombre de un pais especifico
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idTIPO_USUARIO, nombretipo FROM TIPO_USUARIO WHERE idTIPO_USUARIO!='1'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
 		function InsertarUsuario($strNombreUsuario, $strApellidoUsuario, $strCorreoUsuario, $strPassword, $intTipoUsuario, $strPaisUsuario){
 			//validaciones 
 			
@@ -908,6 +917,16 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		function getListaPaisesAsignados($idUsuarioLogeado, $idTipoUsuario){
+			//devuelve el nombre de un pais especifico
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE idPAIS='$idPais'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		function getNombrePais($idPais){
 			//devuelve el nombre de un pais especifico
