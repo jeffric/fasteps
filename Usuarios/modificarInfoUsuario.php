@@ -10,7 +10,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Creación de usuarios", 
+<?php echo $c_funciones->getHeaderNivel2("Modificar Infor Usuario", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -18,12 +18,12 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
 <body>
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Creación de usuarios"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificación"); ?>
 		<div class="content">
-			<p><strong>CREACIÓN DE USUARIOS</strong><br />
+			<p><strong>MODIFICACIÓN INFORMACION USUARIO</strong><br />
 			</div>
-
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
 		</div>
-		<?php echo $c_funciones->getMenu($strTipoUsuario); ?>			
+		<?php echo $c_funciones->getFooterNivel2(); ?>			
 	</body>
 	</html>

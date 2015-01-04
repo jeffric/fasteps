@@ -22,8 +22,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 		<div class="content">
 			<p><strong>DESASIGNAR USUARIO-PAIS</strong><br />
 			</div>
-
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
 		</div>
-		<?php echo $c_funciones->getMenu($strTipoUsuario); ?>			
+		<?php echo $c_funciones->getFooterNivel2(); ?>		
 	</body>
 	</html>
