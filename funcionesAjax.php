@@ -62,6 +62,44 @@ function CrearUsuario(){
 	}
 }
 
+//crear usuario
+if($strMetodo == "asignarUsuarioP")
+	asignarUsuarioP();
+
+function asignarUsuarioP(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$strUsuario = $_POST["AjxPUser"];
+	$strPais = $_POST["AjxPPais"];
+
+	if($strUsuario == -2){
+		echo "Usuario invalido";
+
+	}
+	else{
+	$bandera=$db_funciones->verificarExistenciaAsignacion($strUsuario, $strPais);
+		if($bandera==1){
+		$bandera2=$db_funciones->asignarUsuario($strPais, $strUsuario);
+		if($bandera2==1){
+
+			echo "Usuario Asignado Exitosamente";
+		}
+		else{
+
+			echo "Hubo un Error en la Asignacion";
+		}
+		}
+		else{
+echo "El usuario ya se encuentra asignado a este pais";
+		}
+	}
+
+
+}
+
+
+
+
 //get puntos de evaluacion por pais
 if($strMetodo == "getPtosEval")
 	getPuntosEvaluacionxPais();

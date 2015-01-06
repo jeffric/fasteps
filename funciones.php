@@ -812,7 +812,29 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		/**
 		FUNCIONES PARA USUARIOS
 		*/
-		
+	
+		function getListaUsuarios($idUsuarioLogeado){
+			//devuelve la lista de usuarios menos el logueado
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idUSUARIO, correo FROM USUARIO WHERE idUSUARIO !='$idUsuarioLogeado'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function getListaUsuarios2($idUsuarioLogeado){
+			//devuelve la lista de usuarios reporteros y consultores de pais menos el logueado
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idUsuario, correo FROM usuario WHERE idUsuario IN(
+SELECT fk_idUSUARIO FROM asignacion_usuario_pais WHERE fk_idPAIS IN(
+SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLogeado') AND fk_idUSUARIO != '$idUsuarioLogeado' AND fk_idTIPO_USUARIO NOT IN (1,2));");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
 		function getTipoUsuarios(){
 			//tablas,campos,restricciones,agrupacion, ordenamiento
 			try {
@@ -824,13 +846,46 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 
 		function getTipoUsuarios2(){
-			//devuelve el nombre de un pais especifico
+			//devuelve el tipo de usuario que no son super administradores ni administradores de pais
 			try {
-				$result = $this->db->ExecutePersonalizado("SELECT idTIPO_USUARIO, nombretipo FROM TIPO_USUARIO WHERE idTIPO_USUARIO!='1'");
+				$result = $this->db->ExecutePersonalizado("SELECT idTIPO_USUARIO, nombretipo FROM TIPO_USUARIO WHERE idTIPO_USUARIO NOT IN (1,2)");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
+		}
+
+		function getIdUsuario($strUsuario){
+			//devuelve el id del usuario
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idUSUARIO FROM USUARIO WHERE CORREO='$strUsuario'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					$idUsuario=$row[0];				
+				}				
+				return $idUsuario;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function asignarUsuario($idPais,$strUsuario){
+			try {
+
+				$strTablaPais = " asignacion_usuario_pais ";
+				$strCamposPais = " fk_idPAIS,fk_idUSUARIO ";
+				$strValoresPais = $idPais. "," . $strUsuario. " ";
+				$result = $this->db->Insertar($strTablaPais, $strCamposPais, $strValoresPais);
+				if($result){
+					return 1;
+				}else{
+					return -2;
+				}				
+
+			} catch (Exception $e) {
+				//no se pudo realizar la insercion
+				echo 'Error al asignar usuario: ' . $e->getMessage();
+				return;
+			}							
 		}		
 
 		function InsertarUsuario($strNombreUsuario, $strApellidoUsuario, $strCorreoUsuario, $strPassword, $intTipoUsuario, $strPaisUsuario){
@@ -893,6 +948,25 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
+		function verificarExistenciaAsignacion($idUsuario, $idPais){
+			//devuelve la lista de usuarios resporteros y consultores de pais menos el logueado
+			try {
+					$result = $this->db->ExecutePersonalizado("SELECT idASIGNACION_USUARIO_PAIS from asignacion_usuario_pais WHERE fk_idUSUARIO ='$idUsuario' AND fk_idPAIS='$idPais';");
+					if(mysqli_num_rows($result)>0){
+
+						return 0;
+
+					}
+					else{
+						return 1;
+					}
+				
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+
 		/**
 		FUNCIONES PARA PAISES
 		*/
@@ -918,10 +992,10 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}
 
-		function getListaPaisesAsignados($idUsuarioLogeado, $idTipoUsuario){
+		function getListaPaisesAsignados($idUsuarioLogeado){
 			//devuelve el nombre de un pais especifico
 			try {
-				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE idPAIS='$idPais'");
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM PAIS WHERE idPAIS IN (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO='$idUsuarioLogeado')");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
