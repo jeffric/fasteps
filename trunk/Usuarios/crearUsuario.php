@@ -47,10 +47,11 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 								}
 							}
 							else{
-							$result = $c_funciones->getListaPaisesAsignados();					
+							$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+							$result = $c_funciones->getListaPaisesAsignados($idUsuario);
 							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-								}								
+								}							
 							}
 							?>
 						</select>	
