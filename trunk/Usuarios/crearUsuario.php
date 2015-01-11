@@ -37,7 +37,11 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	$(function() {
 		$("nav#menu").mmenu();
 	});
+$(document).bind("mobileinit", function () {
 
+	$.mobile.ajaxEnabled = false;
+
+});
 
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
 <body>

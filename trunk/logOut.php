@@ -1,5 +1,4 @@
 <?php 
-
 // Iniciamos sesión 
 session_start(); 
 // Borramos la variable

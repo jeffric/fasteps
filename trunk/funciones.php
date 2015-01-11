@@ -371,6 +371,12 @@
 
 			<!-- Scripts -->
 			<script src="js/jquery-2.1.1.js"></script>
+			<script>
+  $(document).on("mobileinit", function () {
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
+  });
+</script>
 			<script src="js/jquery.mobile-1.4.4.min.js"></script>
 
 			<!-- libreria para alertas -->
@@ -712,6 +718,12 @@
 
 		<!-- Scripts -->
 		<script src="../js/jquery-2.1.1.js"></script>
+<script>
+  $(document).on("mobileinit", function () {
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
+  });
+</script>		
 		<script src="../js/jquery.mobile-1.4.4.min.js"></script>
 
 		<!-- libreria para alertas -->
@@ -745,6 +757,7 @@
 		<script type="text/javascript">
 			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+
 			}
 		</script>
 
@@ -953,7 +966,7 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				$idInsertado = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);				
 				//se inserta el pais con el usuario  en la tabla asignacion_usuario_pais				
 				$strTablaPais = " asignacion_usuario_pais ";
-				$strCamposPais = " fk_idPAIS,fk_idUSUARIO ";
+				$strCamposPais = "fk_idPAIS, fk_idUSUARIO";
 				$strValoresPais = $strPaisUsuario . "," . $idInsertado . " ";
 				$result2 = $this->db->Insertar($strTablaPais, $strCamposPais, $strValoresPais);
 				if($result2){
@@ -963,7 +976,7 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				}
 			} catch (Exception $e) {
 				//no se pudo realizar la insercion
-				echo 'Error al insertar el nuevo usuario: ' . $e->getMessage();
+				echo 'Error al insertar el nuevo usuario';
 				return;
 			}
 		}
