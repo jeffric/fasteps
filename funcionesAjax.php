@@ -62,7 +62,7 @@ function CrearUsuario(){
 	}
 }
 
-//crear usuario
+//asignar usuario pais
 if($strMetodo == "asignarUsuarioP")
 	asignarUsuarioP();
 
@@ -97,6 +97,85 @@ echo "El usuario ya se encuentra asignado a este pais";
 
 }
 
+//buscar paises asignados de usuario a desasignar
+if($strMetodo == "buscarPaisesAsignados")
+	buscarPaisesAsignados();
+
+function buscarPaisesAsignados(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$strUsuario = $_POST["usuario"];
+
+	if($strUsuario == -2){
+
+	$cadena ='<label for="txtPais" >Paises Asignados</label> <select>';
+
+	$cadena=$cadena.'<option value="-2">Debe elejir un usuario valido</option></select name="lstPais" id="lstPais">'; 
+	}
+	else{
+		$result = $db_funciones->getListaPaisesAsignados($strUsuario);
+		$cadena ='<label for="txtPais" >Paises Asignados</label> <select name="lstPais" id="lstPais">';
+
+		
+		while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+		$cadena=$cadena.'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+		}
+		$cadena=$cadena.'</select>';  
+
+	}
+
+
+		echo $cadena;
+
+
+}
+
+
+//desasignar usuario pais
+if($strMetodo == "desasignarUsuarioP")
+	desasignarUsuarioP();
+
+function desasignarUsuarioP(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$strUsuario = $_POST["AjxPUser"];
+	$strPais = $_POST["AjxPPais"];
+
+
+	$result=$db_funciones->contarPaisesAsignados($strUsuario);
+	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+		if($row[0]==1){
+			echo "eliminar";
+			}
+			else{
+
+				$result = $db_funciones->desasignarUsuarioP($strUsuario, $strPais);
+				echo "desasignar";
+
+			}
+		}
+
+
+
+
+
+}
+
+
+//eliminar usuario 
+if($strMetodo == "eliminarUsuario")
+	eliminarUsuario();
+
+function eliminarUsuario(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$strUsuario = $_POST["AjxPUser"];
+
+
+	$result=$db_funciones->eliminarUsuario($strUsuario);
+
+
+}
 
 
 
