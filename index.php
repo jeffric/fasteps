@@ -52,7 +52,7 @@ $c_funciones = new Funciones();
 							?>
 						</select>	
 					</div>
-					<input type="submit" name="login" data-transition="slidefade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" value="Login" />
+					<input type="submit" name="login" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" value="Login" />
 				</form>
 				<?php 
 
@@ -61,13 +61,14 @@ $c_funciones = new Funciones();
 						echo '<script type="text/javascript">								
 						$(function(){
 							setTimeout(function() {
-								mostrarMensaje("Error","Debe iniciar sesion.","warning");
-							}, 100);});</script>';
+								swal("Error","Debe iniciar sesion.","warning");
+							}, 100);});
+						</script>';
 }else{
 	echo '<script type="text/javascript">								
 	$(function(){
 		setTimeout(function() {
-			mostrarMensaje("Error en login","El password, usuario o tipo de usuario son incorrectos.","error");
+			swal("Error en login","El password, usuario o tipo de usuario son incorrectos.","error");
 		}, 100);});</script>';
 }					
 }
