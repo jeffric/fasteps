@@ -4,6 +4,28 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+	$strUsuario = $_POST["username"];
+	$strPassword = $_POST["password"];
+	$strTipoUsuario = $_POST["slcTipoUsuarios"];
+	
+	if($c_funciones->ValidarLogin($strUsuario, $strPassword, $strTipoUsuario)){
+		//el id se setea en la consulta de la validacion del login
+		$_SESSION["Usuario"] = $strUsuario;
+		$_SESSION["TipoUsuario"] = $strTipoUsuario;		
+	}else{		
+		header("Location: ../index.php?errLog=true");
+	}
+}else{	
+	if(!isset($_SESSION["idUsuario"])){
+		if($_SESSION["idUsuario"] == ""){
+			header("Location: ../index.php?errLog=true02");
+			return;
+		}
+	}
+}
+
 $strUsuario=$_SESSION["Usuario"];
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 
@@ -15,6 +37,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	$(function() {
 		$("nav#menu").mmenu();
 	});
+
+
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
 <body>
 

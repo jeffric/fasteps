@@ -502,7 +502,7 @@
 									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
 									</li>
 									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';					
@@ -584,7 +584,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
 									</li>
 									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -637,7 +637,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 									</li>
 									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -687,7 +687,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 									</li>
 									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -886,7 +886,27 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error al asignar usuario: ' . $e->getMessage();
 				return;
 			}							
-		}		
+		}
+
+		function desasignarUsuarioP($idUsuario, $idPais){
+			//desasigna el usuario al pais especifico
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM asignacion_usuario_pais WHERE fk_idPAIS = '$idPais' AND fk_idUSUARIO = '$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function eliminarUsuario($idUsuario){
+			//elmimina el usuario del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM USUARIO WHERE idUsuario = '$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}					
 
 		function InsertarUsuario($strNombreUsuario, $strApellidoUsuario, $strCorreoUsuario, $strPassword, $intTipoUsuario, $strPaisUsuario){
 			//validaciones 
@@ -992,10 +1012,20 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			}
 		}
 
-		function getListaPaisesAsignados($idUsuarioLogeado){
-			//devuelve el nombre de un pais especifico
+		function getListaPaisesAsignados($idUsuario){
+			//devuelve la lista de los paises en los cuales un usuario esta asignado
 			try {
-				$result = $this->db->ExecutePersonalizado("SELECT * FROM PAIS WHERE idPAIS IN (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO='$idUsuarioLogeado')");
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM PAIS WHERE idPAIS IN (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO='$idUsuario')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function contarPaisesAsignados($idUsuario){
+			//cuenta a cuentos paises aun esta asignado el usuario
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT COUNT(idPAIS) FROM PAIS WHERE idPAIS IN (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO='$idUsuario')");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
@@ -1316,6 +1346,25 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 		$strTabla = " nivel_riesgo ";
 		$strCampos = " * ";
 		$strRestricciones = "";		
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
+
+/**
+	FUNCIONES PARA EVENTOS
+*/	
+	function CrearEvento(){
+			$strTabla = " EVENTO ";
+			$strCampos = " nombre, localidad, descripcion,fecha_evento";
+		$strRestricciones = "";		
+			$fecha = explode("/",$strFecha);
+			$NuevaFecha = $fecha[2] . "-" . $fecha[1] . "-" . $fecha[0];
+			$strValores = " " . $intIdUsuario . ", '" . $NuevaFecha . "', '" . $strElaboradoPor . "' ";
+
 		try {
 			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
 			return $result;
