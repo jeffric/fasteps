@@ -118,11 +118,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>											
+												</ul>	
+											</li>										
 											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -208,6 +209,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>											
 											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -261,6 +268,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>											
 											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -313,6 +326,12 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>										
 											<li><a href="#">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -477,6 +496,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>											
 											<li><a href="#">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -559,6 +584,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>											
 											<li><a href="#">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -612,6 +643,12 @@
 									<li><a href="#">SRA</a>
 										<ul>
 											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>											
 											<li><a href="#">REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
@@ -664,6 +701,12 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
+											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+												<ul>
+												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												</ul>	
+											</li>										
 											<li><a href="#" >REPORTES SRA</a>
 												<ul>
 												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
