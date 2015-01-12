@@ -83,7 +83,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
 			                });
 
-						swal("Eliminado!", "Your imaginary file has been deleted.", "success");  
+						swal("Eliminado!", "El usuario ha sido elminado exitosamente", "success");  
 
 					} 
 					else{     swal("Cancelado", "La acción ha sido cancelada", "error");   
