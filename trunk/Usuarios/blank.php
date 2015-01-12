@@ -7,6 +7,8 @@ $c_funciones = new Funciones();
 $strUsuario=$_SESSION["Usuario"];
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 
+$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,8 +24,9 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 		<div class="content">
 			<p><strong>CREACIÓN DE USUARIOS</strong><br />
 			</div>
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 
 		</div>
-		<?php echo $c_funciones->getMenu($strTipoUsuario); ?>			
+		<?php echo $c_funciones->getFooterNivel2(); ?>	
 	</body>
 	</html>
