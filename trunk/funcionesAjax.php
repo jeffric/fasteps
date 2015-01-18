@@ -286,12 +286,12 @@ function agregarPtoEvaluacion(){
 		$bandera=$db_funciones->verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais);
 				if($bandera==true){
 
-					echo "Este Punto de Evaluación ya se encuentra registrado en el sistema";
+					echo 'Ya existe un Punto con el mismo nombre dentro del sistema';
 				}
 				else{
 				$result = $db_funciones->insertarPtoEvaluacion($nombrePtoEvaluacion, $latitud, $longitud, $descripcion, $idPais );
 
-				echo "Punto de Evaluación: ".$nombrePtoEvaluacion." guardado existosamente";
+				echo "Punto: ".$nombrePtoEvaluacion." guardado existosamente";
 
 				}
 		}
@@ -391,7 +391,7 @@ function agregarAmenaza(){
 			}
 		}
 		else{
-			echo "No debes dejar campos vacios";
+			echo "No debes dejar campos vacios!";
 		}
 
 		
@@ -428,6 +428,194 @@ function validarVacio($variable){
 
 	}
 }
+
+//Obtener informacion de usuario
+if($strMetodo == "obtenerInfoUsuario")
+	obtenerInfoUsuario();
+
+function obtenerInfoUsuario(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idUsuario = $_POST["AjxPUser"];
+	try {
+			$result = $db_funciones->getInfoUsuario($idUsuario);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					$cadena=$row[0].','.$row[1].','.$row[2].','.$row[3].','.$row[4].','.$row[5];				
+				}				
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+
+}
+
+//Obtener informacion de un pais
+if($strMetodo == "obtenerInfoPais")
+	obtenerInfoPais();
+
+function obtenerInfoPais(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idPais = $_POST["AjxPais"];
+	$idRegion;
+	$cadena="";
+	try {
+			$result = $db_funciones->getInfoPais($idPais);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					$idRegion=$row[2];
+					$cadena=$row[0].','.$row[1].','.$row[2];				
+				}
+
+			$result = $db_funciones->getInfoRegion($idRegion);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					$cadena=$cadena.','.$row[0].','.$row[1];				
+				}								
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+
+}
+
+//Obtener informacion de una region
+if($strMetodo == "obtenerInfoRegion")
+	obtenerInfoRegion();
+
+function obtenerInfoRegion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idRegion = $_POST["AjxRegion"];
+	$cadena="";
+	try {
+			$result = $db_funciones->getInfoRegion($idRegion);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+
+					$cadena=$row[0].','.$row[1];				
+				}						
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Obtener informacion de una amenaza
+if($strMetodo == "obtenerInfoAmenaza")
+	obtenerInfoAmenaza();
+
+function obtenerInfoAmenaza(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idAmenaza = $_POST["AjxAmenaza"];
+	$cadena="";
+	try {
+			$result = $db_funciones->getAmenazas($idAmenaza);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+
+					$cadena=$row[0].','.$row[1].','.$row[2];				
+				}						
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Obtener informacion de un plan de prevencion
+if($strMetodo == "obtenerInfoPrevencion")
+	obtenerInfoPrevencion();
+
+function obtenerInfoPrevencion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idPrevencion = $_POST["AjxPrevencion"];
+	$cadena="";
+	try {
+			$result = $db_funciones->getInfoPrevencion($idPrevencion);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+
+					$cadena=$row[0].','.$row[1].','.$row[2];				
+				}						
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Obtener informacion de un plan de mitigacion
+if($strMetodo == "obtenerInfoMitigacion")
+	obtenerInfoMitigacion();
+
+function obtenerInfoMitigacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idMitigacion = $_POST["AjxMitigacion"];
+	$cadena="";
+	try {
+			$result = $db_funciones->getInfoMitigacion($idMitigacion);
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+
+					$cadena=$row[0].','.$row[1].','.$row[2];				
+				}						
+				echo $cadena;			
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//eliminar Evento 
+if($strMetodo == "eliminarEvento")
+	eliminarEvento();
+
+function eliminarEvento(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$idEvento = $_POST["AjxEvento"];
+
+
+	$result=$db_funciones->eliminarEvento($idEvento);
+
+
+}
+
+//eliminar Plan de Prevencion 
+if($strMetodo == "eliminarPlanPrevencion")
+	eliminarPlanPrevencion();
+
+function eliminarPlanPrevencion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$idPlan = $_POST["AjxPlan"];
+
+
+	$result=$db_funciones->eliminarPlanPrevencion($idPlan);
+
+
+}
+
+//eliminar Plan de Mitigacion 
+if($strMetodo == "eliminarPlanMitigacion")
+	eliminarPlanMitigacion();
+
+function eliminarPlanMitigacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();	
+	$idPlan = $_POST["AjxPlan"];
+
+
+	$result=$db_funciones->eliminarPlanMitigacion($idPlan);
+
+
+}
+
+
 
 
 
