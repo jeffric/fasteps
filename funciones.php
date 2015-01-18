@@ -69,9 +69,7 @@
 										<ul>											
 											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
 											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																						
 											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
 											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
@@ -94,8 +92,8 @@
 											<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
 											<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
 											<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
-											<li><a href="Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
@@ -103,10 +101,10 @@
 											<li><a href="Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
 											<li><a href="Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
 											<li><a href="Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
-											<li><a href="Eliminar/eliminarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
-											<li><a href="Eliminar/eliminarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
-											<li><a href="Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+											<li><a href="Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
+											<li><a href="Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
+											<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>																																																						
 									<li><a href="#">CRR</a>
@@ -172,9 +170,7 @@
 										<ul>											
 											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
 											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																						
 											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
 											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>								
@@ -190,14 +186,14 @@
 									</li>	
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>	
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
 										<ul>	
-											<li><a href="Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+											<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>
 									<li><a href="#">CRR</a>
@@ -245,7 +241,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="home.php" data-ajax="false">HOME</a></li>
 									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -304,7 +300,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="home.php" data-ajax="false">HOME</a></li>
 									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -360,7 +356,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="home.php" data-ajax="false">HOME</a></li>
 									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -447,9 +443,7 @@
 										<ul>											
 											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
 											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																			
 											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
 											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
@@ -472,8 +466,8 @@
 											<li><a href="../Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
 											<li><a href="../Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
 											<li><a href="../Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
-											<li><a href="../Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="../Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>									
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
@@ -481,10 +475,10 @@
 											<li><a href="../Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
 											<li><a href="../Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
 											<li><a href="../Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
-											<li><a href="../Eliminar/eliminarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
-											<li><a href="../Eliminar/eliminarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
-											<li><a href="../Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+											<li><a href="../Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
+											<li><a href="../Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
+											<li><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>																											
 									</li>																																																						
 									<li><a href="#">CRR</a>
@@ -532,7 +526,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="../home.php" data-ajax="false">HOME</a></li>
 									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -550,17 +544,15 @@
 										<ul>											
 											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
 											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>
-											<li><a href="../Usuarios/asignarUsuarioE.php" data-ajax="false">ASIGNAR USUARIO A EVENTO</a></li>		
-											<li><a href="../Usuarios/desasignarUsuarioE.php" data-ajax="false">DESASIGNAR USUARIO A EVENTO</a></li>																						
+											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																			
 											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
 											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
 										</ul>									
 									</li>		
 									<li><a href="#">AGREGAR INFORMACION A FAST</a>
 										<ul>	
-											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+											<li><a href="../Agregar/buscarPaisPto.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="../Agregar/buscarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
 									</li>	
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
@@ -571,8 +563,8 @@
 									</li>	
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="../Eliminar/eliminarPtoEvaluacion.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Eliminar/eliminarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+											<li><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
 										</ul>
 									</li>																																										
 									<li><a href="#">CRR</a>
@@ -620,7 +612,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="../home.php" data-ajax="false">HOME</a></li>
 									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -679,7 +671,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="../home.php" data-ajax="false">HOME</a></li>
 									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -735,7 +727,7 @@
 									</li>
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 									</li>
-									<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
+									<li><a href="../home.php" data-ajax="false">HOME</a></li>
 									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
 								</ul>
 							</nav>
@@ -924,6 +916,16 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			}
 		}	
 
+		function getInfoUsuario($idUsuario){
+			//devuelve toda la informacion del usuario
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM USUARIO WHERE idUsuario='$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
 		function asignarUsuario($idPais,$strUsuario){
 			try {
 
@@ -1106,10 +1108,10 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 					if(strcasecmp($row[0],$nombrePais)==0){
 
-						echo true;
+						return true;
 					}
 					else{
-						echo false;
+						return false;
 					}
 
 				}
@@ -1137,7 +1139,17 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}				
+		}	
+
+		function getInfoPais($idPais){
+			//devuelve el nombre de un pais especifico
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM PAIS WHERE idPAIS='$idPais'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}					
 
 		/**
 		FUNCIONES PARA REGIONES
@@ -1171,6 +1183,18 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		function getInfoRegion($idRegion){
+			//devuelve toda la informacion de una region especifica
+			try {
+
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM REGION WHERE idREGION='$idRegion'");
+				return $result;
+
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		function insertarRegion($nombreRegion){
 			//agrega una nueva region al sistema
@@ -1233,6 +1257,16 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			}
 
 		}
+
+		function getPtoEvaluacion($idPtoEvaluacion){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT idPUNTO_EVALUACION, Nombre, Latitud, Longitud, Descripcion FROM PUNTO_EVALUACION WHERE idPUNTO_EVALUACION = $idPtoEvaluacion");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}		
 
 		function eliminarPtoEvaluacion($ptoEvaluacion){
 			//elimina un Punto de Evaluacion del sistema
@@ -1428,6 +1462,167 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			echo 'Error: ' .$e->getMessage();
 		}
 	}
+
+		function getListaEventos(){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM EVENTO");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}	
+
+		function getInfoEvento($idEvento){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM EVENTO WHERE idEVENTO= '$idEvento'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}		
+
+		function verificarExistenciaEvento($variable){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$nombreEvento=trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM EVENTO WHERE nombre='$nombreEvento'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					if(strcasecmp($row[0],$nombreEvento)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+		function eliminarEvento($idEvento){
+			//elimina una Amenaza del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM EVENTO WHERE idEVENTO='$idEvento'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}			
+
+	/**
+	FUNCIONES PARA PLAN DE MITIGACION
+	 */		
+	
+			function verificarExistenciaMitigacion($variable){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$nombreMitigacion=trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM MITIGACION WHERE nombre='$nombreMitigacion'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					if(strcasecmp($row[0],$nombreMitigacion)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function getListaMitigaciones(){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM MITIGACION");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+
+		function getInfoMitigacion($idMitigacion){
+			// devuelve toda la informacion relacionada con un Plan de Mitigacion especifico
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM MITIGACION WHERE idMITIGACION='$idMitigacion'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+		function eliminarPlanMitigacion($idMitigacion){
+			//elimina un Plan de mitigacion especifico  del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM MITIGACION WHERE idMITIGACION='$idMitigacion'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}							
+	
+	/**
+	FUNCIONES PARA PLAN DE PREVENCION
+	 */	
+		function verificarExistenciaPrevencion($variable){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$nombrePrevencion=trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PREVENCION WHERE nombre='$nombrePrevencion'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					if(strcasecmp($row[0],$nombrePrevencion)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function getListaPrevenciones(){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM PREVENCION");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}	
+
+
+		function getInfoPrevencion($idPrevencion){
+			//devuelve informacion relacionada con un Plan de Prevencion especifico
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM PREVENCION WHERE idPrevencion='$idPrevencion'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+		function eliminarPlanPrevencion($idPrevencion){
+			//elimina una Amenaza del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM PREVENCION WHERE idPrevencion='$idPrevencion'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}								
 
 	} // FIN DE CLASE
 	?>
