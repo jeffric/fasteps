@@ -7,6 +7,8 @@ $c_funciones = new Funciones();
 $strUsuario=$_SESSION["Usuario"];
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 
+$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	$(function() {
 		$("nav#menu").mmenu();
 	});
-</script>'); ?>
+</script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); 
+?>
           <script type="text/javascript">
 
               var map,
@@ -36,8 +39,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
               function updateMarkerPosition(latLng) {
 
-                   $("#textLatitud").val(latLng.lat());
-                   $("#textLongitud").val(latLng.lng());
+                   $("#txtLatitud").val(latLng.lat());
+                   $("#txtLongitud").val(latLng.lng());
               }   
 
               function iniciarMapa(lat, lon){
@@ -56,6 +59,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
                   animation: google.maps.Animation.DROP,
                   map: map,
                   title: "Posicion Actual",
+                  icon: '../css/images/PtoEvaluacion.png',
                   draggable: true
                   });
 
@@ -104,25 +108,41 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	        <p><strong>Seleccione el Pais, al cual pertenecerá dicho Punto de Evaluación</strong><br /> 
             <select name="selectPais" id="selectPais">     
 				<?php 				
-				$result = $c_funciones->getListaPaises();					
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-				}					
+        if($strTipoUsuario==1){
+      				$result = $c_funciones->getListaPaises();					
+      				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+      				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+      				}					
+         }
+        else{
+            $result = $c_funciones->getListaPaisesAsignados($idUsuario);          
+            while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+            echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+            }
+        }         
 				?>
             </select> 
+            
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">            
+            <label for="Nombre">Nombre Punto De Evaluación:</label> 
+            <input type="text" name="Nombre" id="txtNombre" style="font-weight:Bold; font-size:20;"> 
+            </div>
 
-            <label for="nombrePuntoDeEvaluacion">Nombre Punto De Evaluación:</label> 
-            <input type="text" name="namePuntoDeEvaluacion" id="textPtoDeEval" style="font-weight:Bold; font-size:20;"> 
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+            <label for="Descripcion">Descripcion:</label> 
+            <input type="text" name="Descripcion" id="txtDescripcion" style="font-weight:Bold; font-size:20;"> 
+            </div>
 
-            <label for="descripcionPuntoDeEvaluacion">Descripcion:</label> 
-            <input type="text" name="nameDescripcion" id="textDescripcion" style="font-weight:Bold; font-size:20;"> 
-
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
             <label for="name">Latitud:</label> 
-            <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+            <input type="text" name="latitud" id="txtLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+            </div>
 
-            <label for="direccion">Longitud:</label> 
-            <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
-			      
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+            <label for="longitud">Longitud:</label> 
+            <input type="text" name="longitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+			      </div>
+
             <div id="ajax_loader">
             <img id="loader_gif" src="../css/images/ajax-loader.gif" style=" display:none;"/>
             </div> 
@@ -147,30 +167,49 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
             
             $('#botonAgregar').click(function(){
                 
-                $.ajax({
+                  validar();
+
+            });
+
+            function validar(){
+              var nombre = $('#txtNombre').val();
+              var descripcion = $('#txtDescripcion').val();
+              var latitud = $('#txtLatitud').val();
+              var longitud = $('#txtLongitud').val();
+
+              if(nombre.indexOf(' ') >=0 || nombre == ""){
+                swal("","No debes dejar campos vacios","warning");          
+              }
+              if(descripcion.indexOf(' ') >=0 || descripcion == ""){
+                swal("","No debes dejar campos vacios","warning");          
+              }
+              if(latitud.indexOf(' ') >=0 || latitud == ""){
+                swal("","No debes dejar campos vacios","warning");          
+              }
+              if(longitud.indexOf(' ') >=0 || longitud == ""){
+                swal("","No debes dejar campos vacios","warning");          
+              }                            
+
+            }
+           /*     $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
+                  url: "../funcionesAjax.php",
                   data: {nombreMetodo: "agregarPtoEvaluacion", nombrePtoEvaluacion: $('#textPtoDeEval').val(), latitud:$('#textLatitud').val(), longitud:$('#textLongitud').val(), descripcion:$('#textDescripcion').val(), pais:$('#selectPais').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
-                    $('#loader_gif').fadeIn("slow");
+
 
                   },
                   dataType: "html",
                   success: function(msg){
                      swal(msg);
-                    $("#loader_gif").fadeOut("slow");
-                    $('#textPtoDeEval').val(''); 
-                    $('#textDescripcion').val(''); 
+
 
 
                   }              
 
 
-                });
-
-
-            });
+                });*/            
                     
         });
     </script>

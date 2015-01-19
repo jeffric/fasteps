@@ -22,14 +22,18 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Regiones"); ?>
 		<div class="content">
 			<p><strong>Ingrese la información requerida:</strong><br />	
-			<label for="name">Nombre de Región:</label>
+
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+            <label for="name">Nombre de Región:</label>
+            <input type="text" name="nameNombreRegion" id="textNombreRegion"  style="text-align:center; font-weight:Bold; color:black; font-size:20;"> 
+            </div>
 
             <div id="ajax_loader" align="center">
             <img id="loader_gif" src="../css/images/ajax-loader.gif" style=" display:none;"/>
             </div>			
 
-            <input type="text" name="nameNombreRegion" id="textNombreRegion"  style="text-align:center; font-weight:Bold; color:black; font-size:20;"> 
-			<a href="#"  data-role="button" data-theme="b" id="botonAgregar" >Agregar Región</a>
+
+			       <a href="#"  data-role="button" data-theme="b" id="botonAgregar" >Agregar Región</a>
                 
 
 		</div>
@@ -45,7 +49,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
                 $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
+                  url: "../funcionesAjax.php",
                   data: {nombreMetodo: "agregarRegion", region:$('#textNombreRegion').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
