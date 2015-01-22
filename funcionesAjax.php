@@ -272,11 +272,11 @@ if($strMetodo == "agregarPtoEvaluacion")
 function agregarPtoEvaluacion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePtoEvaluacion = $_POST["nombrePtoEvaluacion"];	
-	$latitud = $_POST["latitud"];	
-	$longitud = $_POST["longitud"];	
-	$descripcion = $_POST["descripcion"];	
-	$idPais = $_POST["pais"];
+	$nombrePtoEvaluacion = $_POST["AjxNombre"];	
+	$latitud = $_POST["AjxLatitud"];	
+	$longitud = $_POST["AjxLongitud"];	
+	$descripcion = $_POST["AjxDescripcion"];	
+	$idPais = $_POST["AjxPais"];
 
 
 
@@ -286,7 +286,7 @@ function agregarPtoEvaluacion(){
 		$bandera=$db_funciones->verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais);
 				if($bandera==true){
 
-					echo 'Ya existe un Punto con el mismo nombre dentro del sistema';
+					echo 'Ya existe un Punto con el mismo nombre en este Pais, dentro del sistema';
 				}
 				else{
 				$result = $db_funciones->insertarPtoEvaluacion($nombrePtoEvaluacion, $latitud, $longitud, $descripcion, $idPais );
@@ -612,12 +612,332 @@ function eliminarPlanMitigacion(){
 
 	$result=$db_funciones->eliminarPlanMitigacion($idPlan);
 
+}
 
+//Agregar Evento
+if($strMetodo == "agregarEvento")
+	agregarEvento();
+
+function agregarEvento(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombreEvento = $_POST["AjxNombre"];
+	$localidad = $_POST['AjxLocalidad'];
+	$descripcion = $_POST["AjxDescripcion"];
+	$latitud = $_POST["AjxLatitud"];
+	$longitud = $_POST["AjxLongitud"];		
+	$fecha = $_POST["AjxFecha"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaEvento($nombreEvento);
+				if($bandera==true){
+
+					echo 'Ya existe un Evento con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->insertarEvento($nombreEvento, $localidad, $descripcion, $latitud, $longitud, $fecha);
+
+				echo "Evento: ".$nombreEvento." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Agregar Plan de Mitigacion
+if($strMetodo == "agregarPlanMitigacion")
+	agregarPlanMitigacion();
+
+function agregarPlanMitigacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePlan = $_POST["AjxNombre"];
+	$descripcion = $_POST["AjxDescripcion"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPlanMitigacion($nombrePlan);
+				if($bandera==true){
+
+					echo 'Ya existe un Plan con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->insertarPlanMitigacion($nombrePlan, $descripcion);
+
+				echo "Plan: ".$nombrePlan." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Agregar Plan de Prevencion
+if($strMetodo == "agregarPlanPrevencion")
+	agregarPlanPrevencion();
+
+function agregarPlanPrevencion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePlan = $_POST["AjxNombre"];
+	$descripcion = $_POST["AjxDescripcion"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPlanPrevencion($nombrePlan);
+				if($bandera==true){
+
+					echo 'Ya existe un Plan con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->insertarPlanPrevencion($nombrePlan, $descripcion);
+
+				echo "Plan: ".$nombrePlan." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Modificar Amenaza
+if($strMetodo == "modificarAmenaza")
+	modificarAmenaza();
+
+function modificarAmenaza(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombreAmenaza = $_POST["AjxNombre"];
+	$descripcion = $_POST["AjxDescripcion"];
+	$idAmenaza = $_POST["AjxAmenaza"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaAmenazaUpdate($nombreAmenaza, $idAmenaza);
+				if($bandera==true){
+
+					echo 'Ya existe una Amenaza con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarAmenaza($nombreAmenaza, $descripcion, $idAmenaza);
+
+				echo "Amenaza: ".$nombreAmenaza." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Modificar Pais
+if($strMetodo == "modificarPais")
+	modificarPais();
+
+function modificarPais(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePais = $_POST["AjxNombre"];
+	$idPais = $_POST["AjxPais"];
+	$idRegion = $_POST["AjxRegion"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPaisUpdate($nombrePais, $idPais);
+				if($bandera==true){
+
+					echo 'Ya existe una Pais con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarPais($nombrePais, $idRegion, $idPais);
+
+				echo "Pais: ".$nombrePais." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Modificar Region
+if($strMetodo == "modificarRegion")
+	modificarRegion();
+
+function modificarRegion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombreRegion = $_POST["AjxNombre"];
+	$idRegion = $_POST["AjxRegion"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaRegionUpdate($nombreRegion, $idRegion);
+				if($bandera==true){
+
+					echo 'Ya existe una Region con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarRegion($nombreRegion, $idRegion);
+
+				echo "Region: ".$nombreRegion." actualizada existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Modificar Plan de Mitigacion
+if($strMetodo == "modificarPlanMitigacion")
+	modificarPlanMitigacion();
+
+function modificarPlanMitigacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePlan = $_POST["AjxNombre"];
+	$descripcion = $_POST['AjxDescripcion'];
+	$idPlan = $_POST["AjxPlan"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPlanMitigacionUpdate($nombrePlan, $idPlan);
+				if($bandera==true){
+
+					echo 'Ya existe un Plan con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarPlanMitigacion($nombrePlan, $descripcion, $idPlan);
+
+				echo "Plan: ".$nombrePlan." actualizado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
 }
 
 
 
+//Modificar Plan de Prevencion
+if($strMetodo == "modificarPlanPrevencion")
+	modificarPlanPrevencion();
 
+function modificarPlanPrevencion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePlan = $_POST["AjxNombre"];
+	$descripcion = $_POST['AjxDescripcion'];
+	$idPlan = $_POST["AjxPlan"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPlanPrevencionUpdate($nombrePlan, $idPlan);
+				if($bandera==true){
+
+					echo 'Ya existe un Plan con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarPlanPrevencion($nombrePlan, $descripcion, $idPlan);
+
+				echo "Plan: ".$nombrePlan." actualizado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+//Modificar Evento
+if($strMetodo == "modificarEvento")
+	modificarEvento();
+
+function modificarEvento(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombreEvento = $_POST["AjxNombre"];
+	$descripcion = $_POST['AjxDescripcion'];
+	$idEvento = $_POST["AjxEvento"];
+	$localidad = $_POST["AjxLocalidad"];	
+	$fecha = $_POST["AjxFecha"];
+	$latitud = $_POST["AjxLatitud"];	
+	$longitud = $_POST["AjxLongitud"];	
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaEventoUpdate($nombreEvento, $idEvento);
+				if($bandera==true){
+
+					echo 'Ya existe un Evento con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarEvento($nombreEvento, $descripcion, $localidad, $latitud, $longitud, $fecha, $idEvento);
+
+				echo "Evento: ".$nombreEvento." actualizado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+
+//Modificar Pto Evaluacion
+if($strMetodo == "modificarPtoEvaluacion")
+	modificarPtoEvaluacion();
+
+function modificarPtoEvaluacion(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombrePto = $_POST["AjxNombre"];
+	$descripcion = $_POST['AjxDescripcion'];
+	$idPto = $_POST["AjxPto"];
+	$idPais = $_POST["AjxPais"];
+	$latitud = $_POST["AjxLatitud"];	
+	$longitud = $_POST["AjxLongitud"];	
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaPtoEvaluacionUpdate($nombrePto, $idPais, $idPto);
+				if($bandera==true){
+
+					echo 'Ya existe un Punto con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarPtoEvaluacion($nombrePto, $descripcion, $latitud, $longitud, $idPais, $idPto);
+
+				echo "Punto: ".$nombrePto." actualizado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
 
 
 ?>
