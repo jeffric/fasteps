@@ -24,8 +24,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 			<p><strong>Ingrese la información requerida:</strong><br />	
 
             <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-            <label for="name">Nombre de Región:</label>
-            <input type="text" name="nameNombreRegion" id="textNombreRegion"  style="text-align:center; font-weight:Bold; color:black; font-size:20;"> 
+            <label for="nombre">Nombre de Región:</label>
+            <input type="text" name="nombre" id="txtNombre"  style="font-weight:Bold; color:black; font-size:20;"> 
             </div>
 
             <div id="ajax_loader" align="center">
@@ -47,29 +47,37 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
             $('#botonAgregar').click(function(){
 
-                $.ajax({
-                  type: "POST",
-                  url: "../funcionesAjax.php",
-                  data: {nombreMetodo: "agregarRegion", region:$('#textNombreRegion').val()},
-                  contentType: "application/x-www-form-urlencoded",
-                  beforeSend: function(){
-                  $('#loader_gif').fadeIn("slow");
-
-                  },
-                  dataType: "html",
-                  success: function(msg){
-                  	swal(msg);
-                    $('#textNombreRegion').val('');  
-                    $("#loader_gif").fadeOut("slow");                 
-
-                  }              
-
-
-                });
-
-
-
+              validar();
        	  });
+
+
+          function validar(){
+              var nombre = $('#txtNombre').val();
+              if(nombre == ""){
+                swal("!","No debes dejar campos vacios","warning");          
+              }
+              else{
+                    $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "agregarRegion", region:$('#txtNombre').val()},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          swal(msg);
+                          $('#txtNombre').val('');  
+                          $("#loader_gif").fadeOut("slow");                 
+
+                      }              
+
+                    });
+                }    
+
+          }          
 
             });
      </script>	

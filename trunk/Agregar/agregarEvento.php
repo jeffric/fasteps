@@ -38,8 +38,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
               function updateMarkerPosition(latLng) {
 
-                   $("#textLatitud").val(latLng.lat());
-                   $("#textLongitud").val(latLng.lng());
+                   $("#txtLatitud").val(latLng.lat());
+                   $("#txtLongitud").val(latLng.lng());
               }   
 
               function iniciarMapa(lat, lon){
@@ -114,28 +114,23 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
 						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 							<label for="txtDescripcion" >Descripción del Evento</label>						
-							<textarea cols="40" rows="8" name="txtDescripcion" id="txtDexcripcion"></textarea>
+							<input  name="txtDescripcion" id="txtDescripcion" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 						</div>
 						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
 							<label for="txtFecha">Fecha</label>
-							<input type="date" data-clear-btn="false" id="txtfecha" value="">	
-						</div>
-
-
-                    
+							<input type="date"  id="txtFecha">	
+						</div>                    
 					</div>
-
-			
 
 			<p><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
 	        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0;">                
 	        </div>
 
-            <label for="name">Latitud:</label> 
-            <input type="text" name="namelatitud" id="textLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+            <label for="txtLatitud">Latitud:</label> 
+            <input type="text" name="namelatitud" id="txtLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
 
-            <label for="direccion">Longitud:</label> 
-            <input type="text" name="namelongitud" id="textLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+            <label for="txtLongitud">Longitud:</label> 
+            <input type="text" name="namelongitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
 
 
 
@@ -146,6 +141,66 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 		<?php echo $c_funciones->getFooterNivel2(); ?>		
 		<!-- FOOTER -->					
 	</body>
+  <script type="text/javascript">
 
+       $(function(){
+
+        $("#botonAgregar").click(function(){
+          validar();
+        });
+
+        function validar(){
+          var nombre = $('#txtNombre').val();
+          var localidad = $('#txtLocalidad').val();
+          var descripcion = $('#txtDescripcion').val();
+          var latitud = $('#txtLatitud').val();
+          var longitud = $('#txtLongitud').val();
+          var fecha = $('#txtFecha').val();
+
+            if(nombre == ""){
+              swal("","No debes dejar campos vacios1","warning");          
+            }
+            else if(localidad.indexOf(' ') >=0 || localidad == ""){
+              swal("","No debes dejar campos vacios","warning");          
+            }                  
+            else if(descripcion == ""){
+              swal("","No debes dejar campos vacios","warning"); 
+            }
+            else if(latitud.indexOf(' ') >=0 || latitud == ""){
+              swal("","No debes dejar campos vacios","warning");          
+            }         
+            else if(longitud.indexOf(' ') >=0 || longitud == ""){
+              swal("","No debes dejar campos vacios","warning");          
+            }                       
+            else{
+
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "agregarEvento", AjxNombre: nombre, AjxLocalidad: localidad, AjxDescripcion: descripcion, AjxFecha: fecha, AjxLatitud: $('#txtLatitud').val(), AjxLongitud:$('#txtLongitud').val()},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          $("#loader_gif").fadeOut("slow");         
+                          swal(msg);                                  
+
+                        }              
+
+
+                      });
+
+
+            }
+
+        }
+
+
+        });
+
+  </script>
 
 	</html>
