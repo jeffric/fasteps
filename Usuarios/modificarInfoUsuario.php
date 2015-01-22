@@ -99,7 +99,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 	</body>
 	<script type="text/javascript">
 	$(function(){
-		//clic para crear usuarios
+		
 		$("#lstUsuario").change(function(){
 			CargarInfo();
 		});
@@ -134,7 +134,6 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
                     	$('#txtNombre').val(recoge[1]);
 						$('#txtApellido').val(recoge[2]);
 						$('#txtCorreo').val(recoge[3]);
-
 						$("#slcTipoUsuarios").val(recoge[5]);
 						$('#slcTipoUsuarios').selectmenu('refresh');
 
