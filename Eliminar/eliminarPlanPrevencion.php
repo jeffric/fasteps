@@ -10,31 +10,34 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Master page", 
+<?php echo $c_funciones->getHeaderNivel2("Eliminar Prevención", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
 	});
 </script>'); ?>
+    <?php
+          $idPlan = $_GET['idPlan'];
+         
+    ?>
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Regiones"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Prevenciones"); ?>
 		<div class="content">
-			<p><strong>Seleccione la Región que desea eliminar del sistema</strong><br />			
-            <select name="selectRegion" id="selectRegion">     
+			<p>Confirme la eliminacion del Plan: "
 				<?php 				
-				$result = $c_funciones->getListaRegiones();					
+				$result = $c_funciones->getInfoPrevencion($idPlan);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-				}					
-				?>
-            </select> 
+				echo'<strong>'.$row[1] .'</strong>';
+				}				
+				?>	
+				"
+			<br />			
 
-            <div id="ajax_loader">
-            <img id="loader_gif" src="../css/images/ajax-loader.gif" style=" display:none;"/>
-            </div>
-            <a href="#"  data-role="button" id="botonEliminar" data-theme="b">Eliminar Region</a></center> 
+
+
+            <a href="#"  data-role="button" id="botonEliminar" data-theme="b">Eliminar Prevención</a></center> 
             
 
 		</div>
@@ -49,7 +52,12 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
             $('#botonEliminar').click(function(){
                 
 
-swal({   title: "Confirmas que deseas eliminar "+$('#selectRegion option:selected').text()+" ?",   
+swal({   title: "Confirmas que deseas eliminar  <?php 				
+				$result = $c_funciones->getInfoPrevencion($idPlan);					
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				echo $row[1];
+				}				
+				?> ?",   
 	text: "Esta accion es irreversible, y provocará que toda la informacion relacionada tambien sea eliminada",   
 	type: "warning",   
 	showCancelButton: true,   
@@ -63,24 +71,22 @@ swal({   title: "Confirmas que deseas eliminar "+$('#selectRegion option:selecte
 		if (isConfirm) {     
 			                $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
-                  data: {nombreMetodo: "eliminarRegion", region: $('#selectRegion').val()},
+                  url: "../funcionesAjax.php",
+                  data: {nombreMetodo: "eliminarPlanPrevencion", AjxPlan: <?php echo $idPlan; ?>},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
-                    $('#loader_gif').fadeIn("slow");
 
                   },
                   dataType: "html",
                   success: function(msg){
-                    $("#loader_gif").fadeOut("slow");
-                    window.location.assign("eliminarRegion.php")
+                    window.location.assign("../Eliminar/buscarPlanPrevencion.php")
 
 
                   }              
 
 
                 });
-			swal("Deleted!", "La region se ha eliminado exitosamente.", "success");   
+			swal("Deleted!", "Prevención eliminada exitosamente.", "success");   
 		} else {     
 			swal("Cancelado", "La acción ha sido cancelada", "error");   
 		} });

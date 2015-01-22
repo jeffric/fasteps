@@ -10,7 +10,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Eliminar Amenaza", 
+<?php echo $c_funciones->getHeaderNivel2("Eliminar Amenazas", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -64,7 +64,7 @@ swal({   title: "Confirmas que deseas eliminar "+$('#selectAmenaza option:select
 		if (isConfirm) {     
 			                $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
+                  url: "../funcionesAjax.php",
                   data: {nombreMetodo: "eliminarAmenaza", amenaza: $('#selectAmenaza').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){

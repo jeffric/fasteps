@@ -10,7 +10,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Master page", 
+<?php echo $c_funciones->getHeaderNivel2("Eliminar Reegión", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -63,7 +63,7 @@ swal({   title: "Confirmas que deseas eliminar "+$('#selectRegion option:selecte
 		if (isConfirm) {     
 			                $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
+                  url: "../funcionesAjax.php",
                   data: {nombreMetodo: "eliminarRegion", region: $('#selectRegion').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
