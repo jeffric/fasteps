@@ -26,12 +26,12 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	<div id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
 		<div class="content">
-			<p><strong>Seleccione el Punto de Evaluación que desea modificar</strong><br />		
+			<p><strong>Seleccione el Punto de Evaluación que desea evaluar CSR</strong><br />		
 			<ul data-role="listview" data-filter="true" data-ajax="false">
 				<?php 				
 				$result = $c_funciones->getListaPtosEvaluacion($idPais);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<li><a href=../Modificar/modificarPtoEvaluacion.php?idPtoEvaluacion='.$row[0] .'&idPais='.$idPais.' data-ajax="false">' . $row[1] . '</a></li> ';
+				echo'<li><a href=../Csr/realizarEvaluacion.php?idPtoEvaluacion='.$row[0] .'&idPais='.$idPais.' data-ajax="false">' . $row[1] . '</a></li> ';
 				}					
 				?>
 					
