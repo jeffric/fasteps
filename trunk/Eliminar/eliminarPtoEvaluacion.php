@@ -10,7 +10,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Master page", 
+<?php echo $c_funciones->getHeaderNivel2("Eliminar Punto de Evaluación", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -23,7 +23,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Punto Evaluación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Puntos de Evaluación"); ?>
 		<div class="content">
 			<p><strong>Seleccione el Punto de Evaluación que desea eliminar del sistema</strong><br />	
             <select name="selectPtoEvaluacion" id="selectPtoEvaluacion">     
@@ -69,7 +69,7 @@ swal({   title: "Confirmas que deseas eliminar "+$('#selectPtoEvaluacion option:
 			      
 			      $.ajax({
                   type: "POST",
-                  url: "funcionesAjax.php",
+                  url: "../funcionesAjax.php",
                   data: {nombreMetodo: "eliminarPtoEvaluacion", ptoEvaluacion: $('#selectPtoEvaluacion').val()},
                   contentType: "application/x-www-form-urlencoded",
                   beforeSend: function(){
@@ -79,7 +79,7 @@ swal({   title: "Confirmas que deseas eliminar "+$('#selectPtoEvaluacion option:
                   dataType: "html",
                   success: function(msg){
                     $("#loader_gif").fadeOut("slow");
-                    window.location.assign("buscarPtosEvaluacion.php")
+                    window.location.assign("../Eliminar/buscarPtoEvaluacion.php")
 
 
                   }              
