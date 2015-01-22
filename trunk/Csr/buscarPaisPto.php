@@ -23,20 +23,20 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 	<div id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
 		<div class="content">
-			<p><strong>Seleccione el país, del cual desea modificar el Punto de Evaluación</strong><br />		
+			<p><strong>Seleccione el país, del cual desea realizar CSR del Punto de Evaluación</strong><br />		
 			<ul data-role="listview" data-filter="true" data-ajax="false">
 				<?php 	
 
 				if($strTipoUsuario==1){			
 						$result = $c_funciones->getListaPaises();					
 						while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-						echo'<li><a href=../Modificar/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
+						echo'<li><a href=../Csr/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
 						}	
 				}
 				else{
 						$result = $c_funciones->getListaPaisesAsignados($idUsuario);					
 						while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-						echo'<li><a href=../Modificar/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
+						echo'<li><a href=../Csr/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
 						}
 				}				
 				?>
