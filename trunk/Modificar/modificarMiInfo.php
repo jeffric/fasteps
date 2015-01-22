@@ -12,7 +12,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Modificar Infor Usuario", 
+<?php echo $c_funciones->getHeaderNivel2("Modificar Info Usuario", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();

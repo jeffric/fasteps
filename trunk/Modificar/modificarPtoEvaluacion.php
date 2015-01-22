@@ -10,7 +10,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Puntos de Evaluación", 
+<?php echo $c_funciones->getHeaderNivel2(" Modificar Puntos de Evaluación", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -19,12 +19,18 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
     <?php
           $idPais = $_GET['idPais'];
           $idPtoEvaluacion = $_GET['idPtoEvaluacion'];
+
+$result = $c_funciones->getPtoEvaluacion($idPtoEvaluacion);     
+while ($row = mysqli_fetch_array($result, MYSQL_NUM)) { 
+        $latitud = $row[2];
+        $longitud = $row[3];
+}          
          
     ?>
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Ptos de Evaluación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificar"); ?>
 		<div class="content">
 			<p><strong></strong><br />	
 				<?php 				
@@ -46,11 +52,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
                       latLng: pos
                     },
                     function(responses) {
-                        if (responses && responses.length > 0) {
-                            updateMarkerAddress(responses[0].formatted_address);                           
-                        } else {
-                          updateMarkerAddress('Cannot determine address at this location.');
-                        }
+
                     });
                 }
 
@@ -60,6 +62,8 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
                 function updateMarkerPosition(latLng) {
 
+                   $("#txtLatitud").val(latLng.lat());
+                   $("#txtLongitud").val(latLng.lng());
                 }
 
                 function updateMarkerAddress(str) {
@@ -70,49 +74,64 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
                   directionsDisplay = new google.maps.DirectionsRenderer(); 
                   currentPosition = new google.maps.LatLng(lat, lon);
                   map = new google.maps.Map(document.getElementById('map_canvas'), {
-                      zoom: 1,
+                      zoom: 5,
                       center: currentPosition,
                       mapTypeId: google.maps.MapTypeId.ROADMAP
                  });
 
+                  directionsDisplay.setMap(map);
 <?php
 
-$con = mysqli_connect("localhost","root","admin","fastdbvm");
-
-if ($con->connect_errno>0){
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
-$sqlpdas="SELECT idPUNTO_EVALUACION, Nombre, Latitud, Longitud FROM PUNTO_EVALUACION WHERE idPUNTO_EVALUACION = $idPtoEvaluacion";  
-
-if (!$result = $con->query($sqlpdas)) {
-die('There was an error running the query [' . $con->error . ']');
-}
-
-while ($filaidPdas = $result->fetch_assoc()) { 
+$result = $c_funciones->getPtoEvaluacion($idPtoEvaluacion);     
+while ($row = mysqli_fetch_array($result, MYSQL_NUM)) { 
 ?>
+        
+         var pda<?php echo $row[0]; ?>="<?php echo $row[1];?>",
+         lat<?php echo $row[0]; ?>=<?php echo $row[2]; ?>,
+         lon<?php echo $row[0]; ?>=<?php echo $row[3]; ?>,
+         PositionPtoEvaluacion<?php echo $row[0]; ?> = new google.maps.LatLng(lat<?php echo $row[0]; ?>, lon<?php echo $row[0]; ?>);
 
-         var pda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>="<?php echo $filaidPdas['Nombre'];?>",
-         lat<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>=<?php echo $filaidPdas['Latitud']; ?>,
-         lon<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>=<?php echo $filaidPdas['Longitud']; ?>,
-         PositionPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.LatLng(lat<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>, lon<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>);
-
-         var PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.Marker({
-         position: PositionPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>,
+         var PositionMarkerPda<?php echo $row[0]; ?> = new google.maps.Marker({
+         position: PositionPtoEvaluacion<?php echo $row[0]; ?>,
          animation: google.maps.Animation.DROP,
          map: map,
-         title: "<?php echo $filaidPdas['Nombre'];?>",
+         title: "<?php echo $row[1];?>",
+         icon: '../css/images/PtoEvaluacion.png',         
          draggable: true
-         });           
+         });        
 
-         var contenido<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
+                     $("#selectPais").val('<?php echo $idPais; ?>');
+                     $('#selectPais').selectmenu('refresh');
 
-         '<center><a href="lstSelAmenazaSRA.php?PtoDeEval=<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>" data-ajax="false"'+
+                   $("#txtNombre").val('<?php echo $row[1]; ?>');
+                   $("#txtDescripcion").val('<?php echo $row[4]; ?>');
+
+                  // Update current position info.
+                 updateMarkerPosition(PositionPtoEvaluacion<?php echo $row[0]; ?>);
+                 geocodePosition(PositionPtoEvaluacion<?php echo $row[0]; ?>);            
+
+
+                 // Add dragging event listeners.
+                 google.maps.event.addListener(PositionMarkerPda<?php echo $row[0]; ?>, 'dragstart', function() {
+                 });
+  
+                 google.maps.event.addListener(PositionMarkerPda<?php echo $row[0]; ?>, 'drag', function() {
+                 updateMarkerPosition(PositionMarkerPda<?php echo $row[0]; ?>.getPosition());
+                 });
+  
+                 google.maps.event.addListener(PositionMarkerPda<?php echo $row[0]; ?>, 'dragend', function() {
+                 geocodePosition(PositionMarkerPda<?php echo $row[0]; ?>.getPosition());
+                 });  
+
+
+         var contenido<?php echo $row[0]; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
+
+         '<center><a href="lstSelAmenazaSRA.php?PtoDeEval=<?php echo $row[0]; ?>" data-ajax="false"'+
          'data-role="button"'+
          'id="botonGuardar"'+
          '">SRA</a></center>'+
 
-         ' <center><a href="Evaluar.php?PtoDeEval=<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>" data-ajax="false"'+
+         ' <center><a href="Evaluar.php?PtoDeEval=<?php echo $row[0]; ?>" data-ajax="false"'+
          'data-role="button"'+
          'id="botonGuardar"'+
          '">HISS-CAM</a></center>'+
@@ -125,23 +144,21 @@ while ($filaidPdas = $result->fetch_assoc()) {
 
 
 
-         var infowindow<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.InfoWindow({
-         content: '<?php echo $filaidPdas['Nombre'];?>'+contenido<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>
+         var infowindow<?php echo $row[0]; ?> = new google.maps.InfoWindow({
+         content: '<?php echo $row[1];?>'+contenido<?php echo $row[0]; ?>
          });      
 
-         google.maps.event.addListener(PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>, 'click', function() {
-         infowindow<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>.open(map, PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>);
+         google.maps.event.addListener(PositionMarkerPda<?php echo $row[0]; ?>, 'click', function() {
+         infowindow<?php echo $row[0]; ?>.open(map, PositionMarkerPda<?php echo $row[0]; ?>);
          });
 
-<?php } mysqli_close($con);
+<?php } 
 ?>
 
 
+              
 
-                  // Update current position info.
-                  updateMarkerPosition(currentPosition);
-                  geocodePosition(currentPosition);
-                
+              
             }
 
             function locError(error) {
@@ -150,7 +167,7 @@ while ($filaidPdas = $result->fetch_assoc()) {
 
             function locSuccess(position) {
                 // initialize map with current position 
-                iniciarMapa(14.551518299999998, -90.57179589999998);
+                iniciarMapa(<?php echo $latitud?>, <?php echo $longitud?>);
 
             }
             $(document).on("ready", function() {
@@ -161,24 +178,42 @@ while ($filaidPdas = $result->fetch_assoc()) {
 
 
         </script>
-
-                <div id="map_canvas" style="height:500px; border:10px solid #a0a0a0;">                
+                <center>
+                <div id="map_canvas" style="height:450px; width:100%; border:6px solid #a0a0a0;">                
                 </div> 
+                </center>
 
 
             <div data-role="content">                        
                 <div id="infoPanel">
-                    <div id="markerStatus">
-                    </div>
-                    <div id="info">                    
-                    </div>
-                    <div id="address">                                      
-                    </div>
+            <div class="ui-body ui-body-a ui-corner-all">
 
-<div id="ajax_loader"><img id="loader_gif" src="../css/themes/default/images/ajax-loader.gif" style=" display:none;"/>
-</div> 
-                        <div id="Resultado">
-                        </div>     
+            <select name="selectPais" id="selectPais">     
+                <?php               
+                $result = $c_funciones->getListaPaises();                   
+                while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+                echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+                }                   
+                ?>
+            </select>                 
+
+                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+
+                <label for="txtNombre">Nombre Punto De Evaluación:</label> 
+                <input type="text" name="txtNombre" id="txtNombre" style="font-weight:Bold; font-size:20;"> 
+
+                <label for="txtDescripcion">Descripcion:</label> 
+                <input type="text" name="txtDescripcion" id="txtDescripcion" style="font-weight:Bold; font-size:20;"> 
+
+                <label for="name">Latitud:</label> 
+                <input type="text" name="namelatitud" id="txtLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+
+                <label for="direccion">Longitud:</label> 
+                <input type="text" name="namelongitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;">                                
+
+                </div>
+                <a href="#"  data-role="button" id="botonGuardar" data-theme="b">Guardar Cambios</a>
+            </div>  
                                              
                 </div>
             </div>                
@@ -188,4 +223,56 @@ while ($filaidPdas = $result->fetch_assoc()) {
 		<?php echo $c_funciones->getFooterNivel2(); ?>    		
 		<!-- FOOTER -->
 	</body>
+  <script type="text/javascript">
+        $(function(){
+
+        $("#botonGuardar").click(function(){
+          validar();
+        });
+
+        function validar(){
+          var nombre = $('#txtNombre').val();
+          var descripcion = $('#txtDescripcion').val();
+          var latitud = $('#txtLatitud').val();
+          var longitud = $('#txtLongitud').val();
+
+            if(nombre == ""){
+              swal("","No debes dejar campos vacios1","warning");          
+            }                 
+            else if(latitud.indexOf(' ') >=0 || latitud == ""){
+              swal("","No debes dejar campos vacios5","warning");          
+            }         
+            else if(longitud.indexOf(' ') >=0 || longitud == ""){
+              swal("","No debes dejar campos vacios6","warning");          
+            }                       
+            else{
+
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "modificarPtoEvaluacion", AjxNombre: nombre, AjxDescripcion: descripcion, AjxLatitud: $('#txtLatitud').val(), AjxLongitud:$('#txtLongitud').val(), AjxPto: <?php echo $idPtoEvaluacion; ?>, AjxPais: <?php echo $idPais?>},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          $("#loader_gif").fadeOut("slow");         
+                          swal(msg);                                  
+
+                        }              
+
+
+                      });
+
+
+            }
+
+        }            
+
+
+        });
+  
+  </script>    
 	</html>
