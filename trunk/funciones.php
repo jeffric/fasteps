@@ -551,14 +551,14 @@
 									</li>		
 									<li><a href="#">AGREGAR INFORMACION A FAST</a>
 										<ul>	
-											<li><a href="../Agregar/buscarPaisPto.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="../Agregar/buscarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
+											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
 										</ul>
 									</li>	
 									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
 										<ul>
-											<li><a href="../Modificar/modificarPtoEvaluacion.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Modificar/modificarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+											<li><a href="../Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+											<li><a href="../Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
 										</ul>
 									</li>	
 									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
@@ -1119,12 +1119,32 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}	
-			
+		
+
+		function verificarExistenciaPaisUpdate($variable, $idPais){
+			//verifica si ya existe una Amenaza con dicho nombre
+			try {
+				$nombrePais = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PAIS WHERE nombre='$nombrePais'  AND idPAIS !='$idPais'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePais)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}				
 
 		function insertarPais($nombrePais, $idRegion){
 			//agrega un nuevo pais al sistema
 			try {
-				$result = $this->db->ExecutePersonalizado("INSERT INTO PAIS (nombre, fk_idREGION) VALUES('$nombrePais', $idRegion)");
+				$result = $this->db->ExecutePersonalizado("INSERT INTO PAIS (nombre, fk_idREGION) VALUES('$nombrePais', '$idRegion')");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
@@ -1149,7 +1169,19 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}					
+		}		
+
+		function modificarPais($nombrePais, $idRegion, $idPais){
+			//modifica un pais en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE PAIS SET nombre='$nombrePais', fk_idREGION='$idRegion' WHERE idPAIS='$idPais'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+
 
 		/**
 		FUNCIONES PARA REGIONES
@@ -1215,6 +1247,37 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		function verificarExistenciaRegionUpdate($variable, $idRegion){
+			//verifica si ya existe una Amenaza con dicho nombre
+			try {
+				$nombreRegion = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM REGION WHERE nombre='$nombreRegion'  AND idREGION !='$idRegion'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombreRegion)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+
+		function modificarRegion($nombreRegion, $idRegion){
+			//modifica un pais en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE REGION SET nombre='$nombreRegion' WHERE idREGION='$idRegion'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}					
 		/**
 		 FUNCIONES PARA PUNTOS DE EVALUACION
 		 */
@@ -1237,6 +1300,26 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		function verificarExistenciaPtoEvaluacionUpdate($variable, $idPais, $idPtoEvaluacion){
+			//verifica si ya existe un Punto de Evaluacion con dicho nombre
+			try {
+				$nombrePtoEvaluacion = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre, PAIS_idPAIS FROM PUNTO_EVALUACION WHERE nombre='$nombrePtoEvaluacion' AND PAIS_idPAIS='$idPais' AND idPUNTO_EVALUACION != '$idPtoEvaluacion' ");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePtoEvaluacion)==0 AND strcasecmp($row[1],$idPais)==0 ){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		function insertarPtoEvaluacion($nombrePtoEvaluacion, $latitud, $longitud, $descripcion, $idPais){
 			//agrega un  Punto de Evaluacion al sistema
@@ -1276,7 +1359,17 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}						
+		}			
+
+		function modificarPtoEvaluacion($nombrePtoEvaluacion, $descripcion, $latitud, $longitud, $idPais, $idPtoEvaluacion){
+			//modifica un Punto de Evaluacion en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE PUNTO_EVALUACION SET nombre='$nombrePtoEvaluacion', descripcion='$descripcion', latitud='$latitud', longitud='$longitud', PAIS_idPAIS='$idPais' WHERE idPUNTO_EVALUACION='$idPtoEvaluacion'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}					
 
 		/**
 		FUNCIONES PARA AMENAZAS
@@ -1328,6 +1421,35 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			}
 		}
 
+		function verificarExistenciaAmenazaUpdate($variable, $idAmenaza){
+			//verifica si ya existe una Amenaza con dicho nombre
+			try {
+				$nombreAmenaza = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM AMENAZA WHERE nombre='$nombreAmenaza'  AND idAMENAZA !='$idAmenaza'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombreAmenaza)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+		function eliminarAmenaza($amenaza){
+			//elimina una Amenaza del sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("DELETE FROM AMENAZA WHERE idAMENAZA='$amenaza'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
 
 		function insertarAmenaza($nombreAmenaza, $descripcion){
 			//agrega una Amenza al sistema
@@ -1339,15 +1461,15 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			}
 		}
 
-		function eliminarAmenaza($amenaza){
-			//elimina una Amenaza del sistema
+		function modificarAmenaza($nombreAmenaza, $descripcion, $idAmenaza){
+			//modifica una amenaza en el sistema
 			try {
-				$result = $this->db->ExecutePersonalizado("DELETE FROM AMENAZA WHERE idAMENAZA='$amenaza'");
+				$result = $this->db->ExecutePersonalizado("UPDATE AMENAZA SET nombre='$nombreAmenaza', descripcion='$descripcion' WHERE idAMENAZA='$idAmenaza'");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}						
+		}									
 
 
 /**
@@ -1501,7 +1623,28 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}		
+		}	
+
+
+		function verificarExistenciaEventoUpdate($variable, $idEvento){
+			//verifica si ya existe un pais con dicho nombre
+			try {
+				$nombreEvento=trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM EVENTO WHERE nombre='$nombreEvento' AND idEVENTO !='$idEvento'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					if(strcasecmp($row[0],$nombreEvento)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}			
 
 		function eliminarEvento($idEvento){
 			//elimina una Amenaza del sistema
@@ -1511,13 +1654,34 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}			
+		}	
+
+
+		function insertarEvento($nombreEvento, $localidad, $descripcion, $latitud, $longitud, $fecha){
+			//agrega un nuevo evento al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO EVENTO (nombre, localidad, descripcion, latitud, longitud, fecha_evento) VALUES('$nombreEvento', '$localidad', '$descripcion', '$latitud', '$longitud', '$fecha')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function modificarEvento($nombreEvento, $descripcion, $localidad, $latitud, $longitud, $fecha, $idEvento){
+			//modifica una evento en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE EVENTO SET nombre='$nombreEvento', descripcion='$descripcion', localidad='$localidad', latitud='$latitud', longitud='$longitud', fecha_evento='$fecha' WHERE idEVENTO='$idEvento'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}								
 
 	/**
 	FUNCIONES PARA PLAN DE MITIGACION
 	 */		
 	
-			function verificarExistenciaMitigacion($variable){
+			function verificarExistenciaPlanMitigacion($variable){
 			//verifica si ya existe un pais con dicho nombre
 			try {
 				$nombreMitigacion=trim($variable," \t\n\r\0\x0B");
@@ -1536,6 +1700,26 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}	
+
+		function verificarExistenciaPlanMitigacionUpdate($variable, $idPlan){
+			//verifica si ya existe un Plan  con dicho nombre
+			try {
+				$nombrePlan = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM MITIGACION WHERE nombre='$nombrePlan'  AND idMITIGACION !='$idPlan'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePlan)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		function getListaMitigaciones(){
 			try{
@@ -1567,12 +1751,32 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}							
+		}		
+
+		function insertarPlanMitigacion($nombreMitigacion, $descripcion){
+			//agrega un nuevo plan de Mitigacion al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO MITIGACION (nombre, descripcion) VALUES('$nombreMitigacion', '$descripcion')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}	
+
+		function modificarPlanMitigacion($nombrePlan, $descripcion, $idPlan){
+			//modifica una amenaza en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE MITIGACION SET nombre='$nombrePlan', descripcion='$descripcion' WHERE idMITIGACION='$idPlan'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}										
 	
 	/**
 	FUNCIONES PARA PLAN DE PREVENCION
 	 */	
-		function verificarExistenciaPrevencion($variable){
+		function verificarExistenciaPlanPrevencion($variable){
 			//verifica si ya existe un pais con dicho nombre
 			try {
 				$nombrePrevencion=trim($variable," \t\n\r\0\x0B");
@@ -1591,6 +1795,26 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 				echo 'Error: ' .$e->getMessage();
 			}
 		}
+
+		function verificarExistenciaPlanPrevencionUpdate($variable, $idPlan){
+			//verifica si ya existe un Plan  con dicho nombre
+			try {
+				$nombrePlan = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PREVENCION WHERE nombre='$nombrePlan'  AND idPREVENCION !='$idPlan'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$nombrePlan)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		function getListaPrevenciones(){
 			try{
@@ -1622,7 +1846,28 @@ SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO = '$idUsuarioLo
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}								
+		}
+
+		function insertarPlanPrevencion($nombrePrevencion, $descripcion){
+			//agrega un nuevo plan de Prevencion al sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("INSERT INTO PREVENCION (nombre, descripcion) VALUES('$nombrePrevencion', '$descripcion')");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+
+		function modificarPlanPrevenciond($nombrePlan, $descripcion, $idPlan){
+			//modifica una amenaza en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE PREVENCION SET nombre='$nombrePlan', descripcion='$descripcion' WHERE idPREVENCION='$idPlan'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}													
 
 	} // FIN DE CLASE
 	?>
