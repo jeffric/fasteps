@@ -172,44 +172,48 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
             });
 
             function validar(){
+
               var nombre = $('#txtNombre').val();
               var descripcion = $('#txtDescripcion').val();
               var latitud = $('#txtLatitud').val();
               var longitud = $('#txtLongitud').val();
 
-              if(nombre.indexOf(' ') >=0 || nombre == ""){
-                swal("","No debes dejar campos vacios","warning");          
+              if(nombre == ""){
+                swal("!","No debes dejar campos vacios","warning");          
               }
-              if(descripcion.indexOf(' ') >=0 || descripcion == ""){
-                swal("","No debes dejar campos vacios","warning");          
+              else if(descripcion == ""){
+                swal("!","No debes dejar campos vacios","warning");          
               }
-              if(latitud.indexOf(' ') >=0 || latitud == ""){
-                swal("","No debes dejar campos vacios","warning");          
+              else if(latitud.indexOf(' ') >=0 || latitud == ""){
+                swal("!","No debes dejar campos vacios","warning");          
               }
-              if(longitud.indexOf(' ') >=0 || longitud == ""){
-                swal("","No debes dejar campos vacios","warning");          
-              }                            
+              else if(longitud.indexOf(' ') >=0 || longitud == ""){
+                swal("!","No debes dejar campos vacios","warning");          
+              }
+              else{
 
-            }
-           /*     $.ajax({
-                  type: "POST",
-                  url: "../funcionesAjax.php",
-                  data: {nombreMetodo: "agregarPtoEvaluacion", nombrePtoEvaluacion: $('#textPtoDeEval').val(), latitud:$('#textLatitud').val(), longitud:$('#textLongitud').val(), descripcion:$('#textDescripcion').val(), pais:$('#selectPais').val()},
-                  contentType: "application/x-www-form-urlencoded",
-                  beforeSend: function(){
-
-
-                  },
-                  dataType: "html",
-                  success: function(msg){
-                     swal(msg);
+                 $.ajax({
+                    type: "POST",
+                    url: "../funcionesAjax.php",
+                    data: {nombreMetodo: "agregarPtoEvaluacion", AjxNombre: nombre, AjxLatitud:latitud, AjxLongitud:longitud, AjxDescripcion:descripcion, AjxPais:$('#selectPais').val()},
+                    contentType: "application/x-www-form-urlencoded",
+                    beforeSend: function(){
 
 
+                    },
+                    dataType: "html",
+                    success: function(msg){
+                       swal(msg);
 
-                  }              
 
 
-                });*/            
+                    }              
+
+
+                  });       
+              }                                        
+
+            }        
                     
         });
     </script>

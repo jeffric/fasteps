@@ -46,12 +46,12 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 			
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 			<label >Nombre de la Amenaza:</label> 
-      <input type="text"  id="textNombreAmenaza"  style="text-align:center; font-weight:Bold; color:black; font-size:20;">         
+      <input type="text"  id="txtNombre"  style="font-weight:Bold; color:black; font-size:20;">         
 	    </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 			<label >Descripción de la Amenaza:</label> 
-      <input type="text"  id="textDescripcion"  style="text-align:center; font-weight:Bold; color:black; font-size:20;">         
+      <input type="text"  id="txtDescripcion"  style="font-weight:Bold; color:black; font-size:20;">         
 	    </div>
 
             <div id="ajax_loader" align="center">
@@ -71,31 +71,43 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
        $(document).ready(function(){
 
             $('#botonAgregar').click(function(){
+                validar();
+            });
 
-                $.ajax({
-                  type: "POST",
-                  url: "../funcionesAjax.php",
-                  data: {nombreMetodo: "agregarAmenaza", amenaza:$('#textNombreAmenaza').val(), descripcion:$('#textDescripcion').val()},
-                  contentType: "application/x-www-form-urlencoded",
-                  beforeSend: function(){
-                  $('#loader_gif').fadeIn("slow");
+              function validar(){
+                var nombre = $('#txtNombre').val();
+                var descripcion = $('#txtDescripcion').val();
 
-                  },
-                  dataType: "html",
-                  success: function(msg){
-                  	swal(msg);
-                    $('#textNombreAmenaza').val('');  
-                    $('#textDescripcion').val('');
-                    $("#loader_gif").fadeOut("slow");                 
+                if(nombre == ""){
+                  swal("","No debes dejar campos vacios","warning");          
+                }
+                else if(descripcion == ""){
+                  swal("","No debes dejar campos vacios","warning");          
+                }
+                else{
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "agregarAmenaza", amenaza:$('#txtNombre').val(), descripcion:$('#txtDescripcion').val()},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
 
-                  }              
+                        },
+                        dataType: "html",
+                        success: function(msg){                        
+                          swal(msg);
+                          $('#txtNombre').val('');  
+                          $('#txtDescripcion').val('');                            
+                          $("#loader_gif").fadeOut("slow");                 
+
+                        }              
 
 
-                });
+                      });
+                }
 
-
-
-       	  });
+              }              
 
             });
      </script>

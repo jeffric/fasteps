@@ -58,11 +58,34 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 					var nombre = $('#txtNombre').val();
 					var descripcion = $('#txtDescripcion').val();
 
-					if(nombre.indexOf(' ') >=0 || nombre == ""){
+					if(nombre == ""){
 						swal("","No debes dejar campos vacios","warning");					
 					}
-					if(descripcion.indexOf(' ') >=0 || descripcion == ""){
+					else if(descripcion == ""){
 						swal("","No debes dejar campos vacios","warning");					
+					}
+					else{
+
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "agregarPlanMitigacion", AjxNombre: nombre, AjxDescripcion: descripcion},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          $("#loader_gif").fadeOut("slow");         
+                          swal(msg);                     
+                          $('#txtNombre').val(''); 
+                          $('#txtDescripcion').val('');            
+
+                        }              
+
+
+                      });						
 					}
 
 				}
