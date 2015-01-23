@@ -132,7 +132,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
@@ -221,7 +221,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
@@ -280,7 +280,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
@@ -506,7 +506,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
@@ -592,7 +592,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
@@ -651,7 +651,7 @@
 									</li>
 									<li><a href="#">CSR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
+											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
