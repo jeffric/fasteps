@@ -12,7 +12,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Creación de usuarios", 
+<?php echo $c_funciones->getHeaderNivel2("Evaluacion CSR", 
 	'<script type="text/javascript">
 	$(function() {
 		$("nav#menu").mmenu();
@@ -20,10 +20,23 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
 <body>
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Creación de usuarios"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
 		<div class="content">
-			<p><strong>CREACIÓN DE USUARIOS</strong><br />
-			</div>
+			<p><strong>EVALUACIÓN CSR</strong><br />
+		<fieldset data-role="controlgroup">
+	    <label>
+	        <input type="checkbox" name="checkbox1"> Cumple con requerimiento de seguridad 1?
+	    </label>	
+	    
+	    <label>
+	        <input type="checkbox" name="checkbox2">Cumple con requerimiento de seguridad 2?
+	    </label>	
+
+	    <label>
+	        <input type="checkbox" name="checkbox3">Cumple con requerimiento de seguridad 3?
+	    </label>
+		</fieldset>
+		</div>
 		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 
 		</div>
