@@ -10,7 +10,8 @@
 
 */
 
-
+	session_start();
+	ob_start();
 	$strMetodo = "";
 
 //recuperacion del parametro que lleva el nombre del metodo.
@@ -77,20 +78,20 @@ function asignarUsuarioP(){
 
 	}
 	else{
-	$bandera=$db_funciones->verificarExistenciaAsignacion($strUsuario, $strPais);
+		$bandera=$db_funciones->verificarExistenciaAsignacion($strUsuario, $strPais);
 		if($bandera==1){
-		$bandera2=$db_funciones->asignarUsuario($strPais, $strUsuario);
-		if($bandera2==1){
+			$bandera2=$db_funciones->asignarUsuario($strPais, $strUsuario);
+			if($bandera2==1){
 
-			echo "Usuario Asignado Exitosamente";
+				echo "Usuario Asignado Exitosamente";
+			}
+			else{
+
+				echo "Hubo un Error en la Asignacion";
+			}
 		}
 		else{
-
-			echo "Hubo un Error en la Asignacion";
-		}
-		}
-		else{
-echo "El usuario ya se encuentra asignado a este pais";
+			echo "El usuario ya se encuentra asignado a este pais";
 		}
 	}
 
@@ -108,9 +109,9 @@ function buscarPaisesAsignados(){
 
 	if($strUsuario == -2){
 
-	$cadena ='<label for="txtPais" >Paises Asignados</label> <select>';
+		$cadena ='<label for="txtPais" >Paises Asignados</label> <select>';
 
-	$cadena=$cadena.'<option value="-2">Debe elejir un usuario valido</option></select name="lstPais" id="lstPais">'; 
+		$cadena=$cadena.'<option value="-2">Debe elejir un usuario valido</option></select name="lstPais" id="lstPais">'; 
 	}
 	else{
 		$result = $db_funciones->getListaPaisesAsignados($strUsuario);
@@ -118,14 +119,14 @@ function buscarPaisesAsignados(){
 
 		
 		while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-		$cadena=$cadena.'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+			$cadena=$cadena.'<option value="'. $row[0] . '">' . $row[1] . '</option>';
 		}
 		$cadena=$cadena.'</select>';  
 
 	}
 
 
-		echo $cadena;
+	echo $cadena;
 
 
 }
@@ -146,14 +147,14 @@ function desasignarUsuarioP(){
 	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 		if($row[0]==1){
 			echo "eliminar";
-			}
-			else{
-
-				$result = $db_funciones->desasignarUsuarioP($strUsuario, $strPais);
-				echo "desasignar";
-
-			}
 		}
+		else{
+
+			$result = $db_funciones->desasignarUsuarioP($strUsuario, $strPais);
+			echo "desasignar";
+
+		}
+	}
 
 
 
@@ -184,7 +185,7 @@ if($strMetodo == "getPtosEval")
 	getPuntosEvaluacionxPais();
 
 function getPuntosEvaluacionxPais(){
-	$strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluación</option>";
+	$strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluaci&oacute;n</option>";
 	$intIdPais = $_POST["AjxPPais"];
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
@@ -283,8 +284,8 @@ function agregarPtoEvaluacion(){
 
 	try {
 		if(validarVacio($nombrePtoEvaluacion)==false AND validarVacio($descripcion)==false){
-		$bandera=$db_funciones->verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais);
-				if($bandera==true){
+			$bandera=$db_funciones->verificarExistenciaPtoEvaluacion($nombrePtoEvaluacion, $idPais);
+			if($bandera==true){
 
 					echo 'Ya existe un Punto con el mismo nombre en este Pais, dentro del sistema';
 				}
@@ -293,10 +294,10 @@ function agregarPtoEvaluacion(){
 
 				echo "Punto: ".$nombrePtoEvaluacion." guardado existosamente";
 
-				}
+			}
 		}
 		else{
-				echo "No debes dejar campos vacios";
+			echo "No debes dejar campos vacios";
 		}
 
 		
@@ -319,7 +320,7 @@ function eliminarRegion(){
 
 	try {
 
-				$result = $db_funciones->eliminarRegion($region);
+		$result = $db_funciones->eliminarRegion($region);
 		
 	} catch (Exception $e) {
 		echo $e->getMessage();
@@ -339,7 +340,7 @@ function eliminarPais(){
 
 	try {
 
-				$result = $db_funciones->eliminarPais($pais);
+		$result = $db_funciones->eliminarPais($pais);
 		
 	} catch (Exception $e) {
 		echo $e->getMessage();
@@ -357,7 +358,7 @@ function eliminarPtoEvaluacion(){
 
 	try {
 
-				$result = $db_funciones->eliminarPtoEvaluacion($ptoEvaluacion);
+		$result = $db_funciones->eliminarPtoEvaluacion($ptoEvaluacion);
 		
 	} catch (Exception $e) {
 		echo $e->getMessage();
@@ -411,7 +412,7 @@ function eliminarAmenaza(){
 
 	try {
 
-				$result = $db_funciones->eliminarAmenaza($amenaza);
+		$result = $db_funciones->eliminarAmenaza($amenaza);
 		
 	} catch (Exception $e) {
 		echo $e->getMessage();
@@ -447,7 +448,346 @@ function obtenerInfoUsuario(){
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}
+	}
+//evaluacion de amenazas SRA
+//EvalSRA
+if($strMetodo == "EvalSRA")
+	EvaluarSRA();
+function EvaluarSRA(){
+	$strJsonEval = $_POST["jsonSRA"];
+	$strJsonPaso1 = $_POST["jsonPaso1"];
+	//seteamos la variable de sesion para el paso 1
+	$_SESSION["JsonPaso1SRA"] = $strJsonPaso1;
+	$strCadenaEvaluados = "";
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
 
+
+
+	$arrJsonEval;
+	$idEval = "";
+	$error = "";
+	
+	$blnPrimeraVez = true;
+
+	if($strJsonEval != "" && $strJsonEval != null){		
+		$arrJsonEval = json_decode($strJsonEval);
+		//obtenemos la informacion de evaluacion (idEvaluacion)
+		$arrInfo = $arrJsonEval->InfoEval;
+
+		$arrEval = $arrJsonEval->Eval;
+
+		foreach($arrInfo as $json){
+			$idEval = $json->IdEvaluacion;
+			break;
+		}
+
+		foreach($arrEval as $json){
+			//{"IdAmenaza": idAmenaza, "Impacto": impacto, "Probabilidad": probabilidad, "NivelDeRiesgo" : nivelDeRiesgo }
+			$idAmenaza = $json->IdAmenaza;
+			$impacto = $json->Impacto;
+			$probabilidad = $json->Probabilidad;
+			$nivelRiesgo = $json->NivelDeRiesgo;
+
+			//Se inserta la evaluacion de cada amenaza, con el id de la evaluacion acarreado					
+			//($strTabla, $strCampos, $strValores)					
+			$result = $db_funciones->InsertarEvalAmenazas($idAmenaza, $impacto, $probabilidad, $idEval, $nivelRiesgo);
+			if($result == -1){
+				$error .= "No se pudo insertar la evaluacion de la amenaza: " . $idContenido . "<br>";
+			}
+
+			if($blnPrimeraVez){
+				$strCadenaEvaluados = $result;
+				$blnPrimeraVez = false;
+			}else{
+				$strCadenaEvaluados .= "," . $result;
+			}
+		}
+		if($error == ""){
+			echo $strCadenaEvaluados;
+		}else{
+			echo "-1|" . $strCadenaEvaluados . "|" . $error;
+		}
+	}else{
+		Echo '-1||Error: No se han podido evaluar las amenazas. ';
+	}
+}
+
+
+if($strMetodo == "setPaso2")
+	SetPaso2SRA();
+function SetPaso2SRA(){
+
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+
+	$jsonPaso2 = $_POST["jsonSRAPaso2"];
+	$jsonPaso1 = $_SESSION["JsonPaso1SRA"];
+	$idEvalSra = $_SESSION["idEvalSraActual"];
+
+	$NombreUsuarioCreador = "";
+	$CorreoUsuarioCreador = "";
+//$NombreUsuarioCreador = $row[1] . " " . $row[2];
+//$CorreoUsuarioCreador = $row[3];
+
+//variables de la evaluacion
+	$idUsuarioEvaluador = "";
+	$idPtoEval = "";
+	$idEvento = "";
+	$tipoObjeto = -1; //1 punto de evaluacion, 2 evento
+	$nombreObjeto = "";
+	$FechaEval = "";
+	$Creador = "";
+
+
+//punto/evento de evaluacion
+	$nombrePtoEventoEval = "";
+	//info de la evaluacion
+
+	$resultEval = $db_funciones->getEval($idEvalSra);
+	while ($row = mysqli_fetch_array($resultEval, MYSQL_NUM)){
+		$idUsuarioEvaluador = $row[1];
+		if(is_null($row[2])){
+			$idPtoEval = "";
+		}else{
+			$idPtoEval = $row[2];
+		}
+		if(is_null($row[3])){
+			$idEvento = "";
+		}else{
+			$idEvento = $row[3];
+		}		
+		$FechaEval = $row[4];
+		$Creador = $row[5];
+		break;
+	}
+
+	//info del usuario evaluador
+	$resultUsuarioEval = $db_funciones->ConsultarUsuario($idUsuarioEvaluador);
+	while ($row = mysqli_fetch_array($resultUsuarioEval, MYSQL_NUM)){
+		$NombreUsuarioCreador = $row[1] . " " . $row[2];
+		$CorreoUsuarioCreador = $row[3];
+		break;
+	}
+
+	//consultamos punto de evaluacion o evento segun sea el caso
+	if($idPtoEval == ""){
+		//Es un evento
+		$tipoObjeto = 2;
+		$resultPtoEval = $db_funciones->ConsultarEvento($idEvento);
+		while ($row = mysqli_fetch_array($resultPtoEval, MYSQL_NUM)){
+			$nombrePtoEventoEval = "Evento: " . $row[1];
+			$nombreObjeto = $row[1];
+			break;
+		}
+	}else{
+		//Es un punto de evaluacion
+		$tipoObjeto = 1;
+		$resultPtoEval = $db_funciones->ConsultarPuntoEvaluacion($idPtoEval);
+		while ($row = mysqli_fetch_array($resultPtoEval, MYSQL_NUM)){
+			$nombrePtoEventoEval = "Punto de evaluaci&oacute;n: " . $row[1];
+			$nombreObjeto = $row[1];
+			break;
+		}
+	}
+
+	//parseo del json del paso 2 para sacar el nivel de riesgo y armar la tabla 2
+	$strNivelRiesgoPaso2 = "";
+	$strIdNivelRiesgoPaso2 = "";
+	$strDescripcionPaso2 = "";
+	$arrJsonPaso2 = json_decode($jsonPaso2);
+		//obtenemos la informacion de evaluacion (idEvaluacion)
+	$arrInfoPaso2 = $arrJsonPaso2->InfoEval;
+
+	$arrEvalPaso2 = $arrJsonPaso2->Eval;
+
+	foreach($arrInfoPaso2 as $itemJsonInfo){
+		$strNivelRiesgoPaso2 = $itemJsonInfo->idNivelRiesgo;
+		$strIdNivelRiesgoPaso2 = $itemJsonInfo->strNivelRiesgo;
+		$strDescripcionPaso2 = $itemJsonInfo->Descripcion;
+		break;
+	}
+
+	//Tabla 1 (encabezado con la info de la evaluacion)
+
+	$strHtmlTabla1 = '<table style="width:100%" class="tg">';
+	$strHtmlTabla1 .= '	<tr>';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= 'Nivel de riesgo';
+	$strHtmlTabla1 .= '		</td>';	
+	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= $strIdNivelRiesgoPaso2;
+	$strHtmlTabla1 .= '		</td>';	
+	$strHtmlTabla1 .= '	</tr>';
+	$strHtmlTabla1 .= '<tr>';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= 'Punto/Evento de evaluaci&oacute;n';
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= $nombrePtoEventoEval;
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '	</tr>';
+	$strHtmlTabla1 .= '<tr>';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= 'Fecha';
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$arrFechaEval = explode('-',$FechaEval);
+	$strHtmlTabla1 .= "$arrFechaEval[2]/$arrFechaEval[1]/$arrFechaEval[0]";
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '	</tr>';
+	$strHtmlTabla1 .= '<tr>';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= 'Evaluador';
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= $NombreUsuarioCreador . " - " . $CorreoUsuarioCreador . "<br>" . $Creador ;
+	$strHtmlTabla1 .= '		</td>';
+	$strHtmlTabla1 .= '	</tr>';
+	$strHtmlTabla1 .= '</table>';
+
+
+	//construccion de la tabla # 2, Evaluacion automatica
+	$strHtmlTabla2 = '';
+	$strHtmlTabla2 .= '<table style="width:100%;" class="tg">';
+	$strHtmlTabla2 .= '	<tr>';
+	$strHtmlTabla2 .= '		<th class="tg-hgcj" colspan="4">Reporte Autom&aacute;tico</th>';
+	$strHtmlTabla2 .= '	</tr>';
+	$strHtmlTabla2 .= '	<tr>';
+	$strHtmlTabla2 .= '		<td class="tg-mnb8">Amenaza</td>';
+	$strHtmlTabla2 .= '		<td class="tg-mnb8">Impacto</td>';
+	$strHtmlTabla2 .= '		<td class="tg-mnb8">Probabilidad</td>';
+	$strHtmlTabla2 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
+	$strHtmlTabla2 .= '	</tr>';
+	
+	$arrJsonPaso1 = json_decode($jsonPaso1);		
+	$arrEvalPaso1 = $arrJsonPaso1->Eval;
+
+	foreach($arrEvalPaso1 as $itemJsonEval){
+		$strHtmlTabla2 .= '	<tr>';
+		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strAmenaza . '</td>';
+		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strImpacto . '</td>';
+		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strProbabilidad .'</td>';
+		$strHtmlTabla2 .= '<td class="' . getCssNivelRiesgo($itemJsonEval->NivelDeRiesgo) . '">' . $itemJsonEval->strNivelDeRiesgo . '</td>';
+		$strHtmlTabla2 .= '</tr>';			
+	}
+
+	$strHtmlTabla2 .= '</table>';
+
+
+
+	//Armado de la tabla #3, con planes de prevencion y mitigacion
+	$strHtmlTabla3 = '';
+	$strHtmlTabla3 .= '<table class="tg">';
+	$strHtmlTabla3 .= '	<tr>';
+	$strHtmlTabla3 .= '		<th class="tg-hgcj" colspan="6">Reporte Operativo</th>';
+	$strHtmlTabla3 .= '	</tr>';
+	$strHtmlTabla3 .= '	<tr>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Amenaza</td>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Impacto</td>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Probabilidad</td>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Planes de prevenci&oacute;n</td>';
+	$strHtmlTabla3 .= '		<td class="tg-mnb8">Planes de mitigaci&oacute;n</td>';
+	$strHtmlTabla3 .= '	</tr>';	
+	foreach ($arrEvalPaso2 as $iteJsonEval) {
+		$strHtmlTabla3 .= '<tr>';
+		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strIdAmenaza . '</td>';
+		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strImpacto . '</td>';
+		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strProbabilidad . '</td>';
+		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strNivelDeRiesgo . '</td>';
+		$strHtmlTabla3 .= '		<td class="tg-031e">';
+		$strHtmlTabla3 .= '			<table>';
+		$arrPrevenciones = $iteJsonEval->Prevenciones;
+		foreach ($arrPrevenciones as $itemPrevencion) {
+			$strHtmlTabla3 .= '<tr>';
+			$strHtmlTabla3 .= '		<td title="' . $itemPrevencion->descripcion . '">' . $itemPrevencion->nombre . '</td>';
+			$strHtmlTabla3 .= '</tr>';
+		}
+		$strHtmlTabla3 .= '			</table>';
+		$strHtmlTabla3 .= '		</td">';
+		$strHtmlTabla3 .= '		<td class="tg-031e">';
+		$strHtmlTabla3 .= '			<table>';
+		$arrMitigaciones = $iteJsonEval->Mitigaciones;
+		foreach ($arrMitigaciones as $itemMitigacion) {
+			$strHtmlTabla3 .= '<tr>';
+			$strHtmlTabla3 .= '		<td title="' . $itemMitigacion->descripcion . '">' . $itemMitigacion->nombre . '</td>';
+			$strHtmlTabla3 .= '</tr>';
+		}
+		$strHtmlTabla3 .= '			</table>';
+		$strHtmlTabla3 .= '		</td">';
+		$strHtmlTabla3 .= '	</tr">';		
+	}
+	$strHtmlTabla3 .= '</table">';
+
+	//armado de la tabla #4, descripcion operativa del usuario
+
+	$strHtmlTabla4 = '';
+	$strHtmlTabla4 .= '<table class="tg">';
+	$strHtmlTabla4 .= '	<tr>';
+	$strHtmlTabla4 .= '		<th class="tg-hgcj" colspan="6">Reporte Operativo</th>';
+	$strHtmlTabla4 .= '	</tr>';
+	$strHtmlTabla4 .= '	<tr>';
+	$strHtmlTabla4 .= '		<td class="tg-e3zv" colspan="6"><p>' . $strDescripcionPaso2 . '</p></td>';
+	$strHtmlTabla4 .= '	</tr>';
+	$strHtmlTabla4 .= '</table>';	
+
+	//Armado de la tabla principal que contiene a todas las demas tablas
+	$strHtmlTablaGeneral = "";
+	$strHtmlTablaGeneral .= ' <table id="movie-table-custom" class="movie-list table-stripe">';
+	$strHtmlTablaGeneral .= '	<tr>';
+	$strHtmlTablaGeneral .= '		<td>';
+	$strHtmlTablaGeneral .= $strHtmlTabla1;
+	$strHtmlTablaGeneral .= '		</td>';
+	$strHtmlTablaGeneral .= '	</tr>';
+	$strHtmlTablaGeneral .= '	<tr>';
+	$strHtmlTablaGeneral .= '		<td>';
+	$strHtmlTablaGeneral .= $strHtmlTabla2;
+	$strHtmlTablaGeneral .= '		</td>';
+	$strHtmlTablaGeneral .= '	</tr>';
+	$strHtmlTablaGeneral .= '	<tr>';
+	$strHtmlTablaGeneral .= '		<td>';
+	$strHtmlTablaGeneral .= $strHtmlTabla3;
+	$strHtmlTablaGeneral .= '		</td>';
+	$strHtmlTablaGeneral .= '	</tr>';
+	$strHtmlTablaGeneral .= '	<tr>';
+	$strHtmlTablaGeneral .= '		<td>';
+	$strHtmlTablaGeneral .= $strHtmlTabla4;
+	$strHtmlTablaGeneral .= '		</td>';
+	$strHtmlTablaGeneral .= '	</tr>';
+	$strHtmlTablaGeneral .= '</table>';
+		// echo $strHtmlTablaGeneral;
+	//insertamos el reporte
+	$idReporte = $db_funciones->insertarReporteSra($FechaEval, 
+		$strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto);
+	echo $idReporte;
+
+
+}
+
+function getCssNivelRiesgo($idNivelRiesgo){
+	switch($idNivelRiesgo){
+		case 1:
+				//insignificante
+		return "tg-8o5d";
+		case 2:
+				//bajo
+		return "tg-v88f";
+		case 3:
+				//medio
+		return "tg-3ope";
+		case 4:
+				//alto
+		return "tg-yg2k";
+		case 5:
+				//critico
+		return "tg-lkh4";
+		case 6:
+				//nulo
+		return "tg-lkh3";
+		default:
+		return "";
+	}
 }
 
 //Obtener informacion de un pais

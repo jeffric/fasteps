@@ -13,9 +13,9 @@ $c_funciones = new Funciones();
 	});
 $(document).bind("mobileinit", function () {
 
-            $.mobile.ajaxEnabled = false;
+	$.mobile.ajaxEnabled = false;
 
-      });
+});
 </script>'); ?>
 <body>
 
@@ -23,9 +23,9 @@ $(document).bind("mobileinit", function () {
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Home"); ?>
 		<div class="content">
 			<p><strong>CONTENIDO ACA</strong><br />				
-		</div>
+			</div>
 			<?php echo $c_funciones->getMenuNivel2(); ?>
-	</div>		
+		</div>		
 		<?php echo $c_funciones->getFooterNivel2(); ?>		
 		<!-- FOOTER -->
 	</body>
