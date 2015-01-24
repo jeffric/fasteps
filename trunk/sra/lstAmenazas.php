@@ -247,7 +247,7 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 </div>	
 </form>
 </div>
-<?php echo $c_funciones->getMenuNivel2(); ?>
+<?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
 </div>		
 
 <?php echo $c_funciones->getFooterNivel2(); ?>		

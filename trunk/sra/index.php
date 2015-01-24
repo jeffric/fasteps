@@ -3,6 +3,13 @@ session_start();
 ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
+try {
+	unset($_SESSION['arrAmenazasSRAActual']);
+	unset($_SESSION["idEvalSraActual"]);
+	unset($_SESSION["JsonPaso1SRA"]);
+} catch (Exception $e) {
+	
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +29,14 @@ $(document).bind("mobileinit", function () {
 <link src="../css/jquery-ui.css" rel="stylesheet">	
 <link src="../css/jquery-ui.theme.css" rel="stylesheet">	
 <script src="../css/jquery-ui.js"></script>
+
+<script>
+$( document ).bind( "mobileinit", function() {
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
+  $.mobile.changePage.defaults.changeHash = false;
+});
+</script>
 '); ?>
 <body>
 
@@ -62,7 +77,7 @@ $(document).bind("mobileinit", function () {
 				</div>
 			</form>			
 		</div>
-		<?php echo $c_funciones->getMenuNivel2(); ?>
+		<?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
 	</div>		
 	<?php echo $c_funciones->getFooterNivel2(); ?>		
 	<!-- FOOTER -->
