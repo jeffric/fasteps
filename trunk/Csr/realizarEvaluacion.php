@@ -9,6 +9,19 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
 $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
+/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$idUsuario = $_SESSION["idUsuario"];
+	$idPais = $_POST["lstPais"];
+	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
+	$FechaElaboracion = $_POST["txtFecha"];
+	$strElaboradoPor = $_POST["txtCreador"];
+
+	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
+	$_SESSION["idEvalSraActual"] = $idEvaluacion;
+}*/
+
+$idPtoEvaluacion = $_GET['idPtoEvaluacion'];
+
 ?>
 <!DOCTYPE html>
 <html>
