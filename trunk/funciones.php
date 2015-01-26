@@ -2038,11 +2038,18 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 	}
 
-	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $TipoObjeto, $NombreObjeto){
+	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $TipoObjeto, $NombreObjeto, $idPuntoEval){
 		try {
 				$strTabla = " resultado_sra ";
-				$strCampos = "  FechaCreacion, htmlReporte, Usuario, fk_NIVEL_RIESGO, TipoObjeto, NombreTipoObjeto ";
-				$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "' ";
+				$strCampos = "";
+				$strValores = "";
+				if($idPuntoEval == ""){
+					$strCampos = "  FechaCreacion, htmlReporte, Usuario, fk_NIVEL_RIESGO, TipoObjeto, NombreTipoObjeto ";
+					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "' ";
+				}else{
+					$strCampos = "  FechaCreacion, htmlReporte, Usuario, fk_NIVEL_RIESGO, TipoObjeto, NombreTipoObjeto, idPUNTO_EVALUACION ";
+					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . " ";
+				}
 				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
 				if($result > 0){

@@ -759,7 +759,7 @@ function SetPaso2SRA(){
 		// echo $strHtmlTablaGeneral;
 	//insertamos el reporte
 	$idReporte = $db_funciones->insertarReporteSra($FechaEval, 
-		$strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto);
+		$strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval);
 	echo $idReporte;
 
 
