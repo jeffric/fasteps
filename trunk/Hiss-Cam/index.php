@@ -181,7 +181,7 @@ tr:nth-child(even) {
 		<div style="text-align: center;">
 			<h1 style="font-size: 4em; color: #4C4C4C;" >Evaluación Hiss-Cam</h1>
 		</div>
-			<table id="tablaGeneral" >
+			<table id="tablaGeneral"  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 				<thead></thead>
 				<tbody>
 					<!-- encabezado de la evaluacion -->
@@ -243,7 +243,7 @@ tr:nth-child(even) {
 					</tr>
 					<!-- parte hiss -->
 					<tr>
-						<table style=" width: 100%">
+						<table style=" width: 100%"  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead class="cabeceraNormal">
 								<td colspan="2">Principio</td>
 								<td>Respuesta</td>
@@ -510,7 +510,7 @@ tr:nth-child(even) {
 
 					<!-- parte cam -->
 					<tr>
-						<table >
+						<table border  data-mode="reflow" style="border:solid 1px; width:100%" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead class="cabeceraNormal">
 								<td colspan="2">Proceso</td>
 								<td>Respuesta</td>
@@ -584,7 +584,7 @@ tr:nth-child(even) {
 
 					<!-- parte de recomendacion -->
 					<tr>
-						<table width="100%" border>
+						<table width="100%" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead>
 								<th colspan="2"  class="cabeceraNormal">
 									<div class="ui-radio ui-mini">
@@ -621,7 +621,7 @@ tr:nth-child(even) {
 
 					<!-- parte de referencia -->
 					<tr>
-						<table style="width:100%;" border>
+						<table style="width:100%;" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead>
 								<th colspan="2"  class="cabeceraNormal">									
 									<h3>Referencia</h3>
@@ -654,7 +654,7 @@ tr:nth-child(even) {
 
 					<!-- parte decision final y base -->
 					<tr>
-						<table style="width:100%;" border>
+						<table style="width:100%;" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead class="cabeceraNormal">
 								<th colspan="2">									
 									<h3>Decisión final y base</h3>
@@ -697,7 +697,7 @@ tr:nth-child(even) {
 
 					<!-- parte plan de accion  -->
 					<tr>
-						<table style="width:100%;" border>
+						<table style="width:100%;" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead>
 								<td>
 									<h3>
@@ -720,7 +720,7 @@ tr:nth-child(even) {
 
 					<!-- parte de anexo -->
 					<tr>
-						<table style="width:100%;" border>
+						<table style="width:100%;" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
 							<thead>
 								<td>
 									<h3>
