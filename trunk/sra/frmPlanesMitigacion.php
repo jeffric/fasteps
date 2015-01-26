@@ -472,7 +472,7 @@ echo "<script type='text/javascript'>" . $strJs . "</script>";
 }
 
 function evaluar(){
-	alert(JSON.stringify(getEvalJson()));
+	//alert(JSON.stringify(getEvalJson()));
 	var objJsonSra = getEvalJson();	
 			//EvaluarSRA()
 			$.ajax({
