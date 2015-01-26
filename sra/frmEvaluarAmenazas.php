@@ -609,7 +609,7 @@ function confirmar(){
 }
 
 function evaluar(){
-	alert(JSON.stringify(getEvalJson()));
+	//alert(JSON.stringify(getEvalJson()));
 	var objJsonSra = getEvalJson();
 	var blnSubmit = false;
 	$("#hdIdsSRA").val(JSON.stringify(objJsonSra));	
