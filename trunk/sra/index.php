@@ -3,6 +3,7 @@ session_start();
 ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
+$strTipoUsuario=$_SESSION["TipoUsuario"];
 try {
 	unset($_SESSION['arrAmenazasSRAActual']);
 	unset($_SESSION["idEvalSraActual"]);
@@ -37,7 +38,11 @@ $( document ).bind( "mobileinit", function() {
   $.mobile.changePage.defaults.changeHash = false;
 });
 </script>
-'); ?>
+
+</script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+'); 
+
+?>
 <body>
 
 	<div id="page">
@@ -50,11 +55,19 @@ $( document ).bind( "mobileinit", function() {
 						<select name="lstPais" id="lstPais">
 							<option value="-2">Elegir un país</option>
 							<?php 				
-						$result = $c_funciones->getListaPaises($_SESSION["idUsuario"]);
-						//	$result = $c_funciones->getListaPaises(19);
-							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-							}					
+								if($strTipoUsuario==1){	
+									$result = $c_funciones->getListaPaises();
+									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+									}							
+								}
+								else{
+										$result = $c_funciones->getListaPaisesAsignados($idUsuario);
+										while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+											echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+										}
+								}
+																
 							?>
 						</select>
 					</div>
