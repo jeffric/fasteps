@@ -185,6 +185,7 @@ if($strMetodo == "getPtosEval")
 	getPuntosEvaluacionxPais();
 
 function getPuntosEvaluacionxPais(){
+	$strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluacion</option>";
 	$strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluaci&oacute;n</option>";
 	$intIdPais = $_POST["AjxPPais"];
 	include_once "funciones.php";
