@@ -12,6 +12,13 @@ $c_funciones = new Funciones();
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 	<script src="js/jquery-2.1.1.js"></script>
+<script>
+  $(document).on("mobileinit", function () {
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
+  });
+</script>	
+
 				<script>
 $( document ).bind( "mobileinit", function() {
   $.mobile.hashListeningEnabled = false;
@@ -19,6 +26,7 @@ $( document ).bind( "mobileinit", function() {
   $.mobile.changePage.defaults.changeHash = false;
 });
 </script>
+
 
 	<script src="js/jquery.mobile-1.4.4.min.js"></script>
 	<!-- libreria para alertas -->
