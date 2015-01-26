@@ -1962,7 +1962,43 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}													
+		}		
+
+/**
+ FUNCIONES PARA REQUERIMIENTOS MINIMOS DE SEGURIDAD
+ */
+		function getRequerimientosMinimosCategoria($idCategoria, $idNivelRiesgo){
+			//devuelve los requerimientos minimos para una Categoria de Requerimientos y Nivel de Riesgo especifico
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT idPREGUNTA_CSR, pregunta, requerimiento_minimo FROM PREGUNTA_CSR WHERE fk_idCATEGORIA_CSR='$idCategoria' AND fk_idNIVEL_RIESGO='$idNivelRiesgo'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+		function getRequerimientoMinimo($idRequerimiento){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT pregunta FROM PREGUNTA_CSR WHERE idPREGUNTA_CSR ='$idRequerimiento'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
+
+		function getCantidadRequerimientosMinimosCategoria($idCategoria, $idNivelRiesgo){
+			//devuelve los requerimientos minimos para una Categoria de Requerimientos y Nivel de Riesgo especifico
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT COUNT(*) FROM PREGUNTA_CSR WHERE fk_idCATEGORIA_CSR='$idCategoria' AND fk_idNIVEL_RIESGO='$idNivelRiesgo'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}		
+
 
 	function getPlanesPrevencion(){
 		$strTabla = " Prevencion ";
