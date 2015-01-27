@@ -2080,10 +2080,10 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$strCampos = "";
 				$strValores = "";
 				if($idPuntoEval == ""){
-					$strCampos = "  FechaCreacion, htmlReporte, Usuario, fk_NIVEL_RIESGO, TipoObjeto, NombreTipoObjeto ";
+					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto ";
 					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "' ";
 				}else{
-					$strCampos = "  FechaCreacion, htmlReporte, Usuario, fk_NIVEL_RIESGO, TipoObjeto, NombreTipoObjeto, idPUNTO_EVALUACION ";
+					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION ";
 					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . " ";
 				}
 				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
