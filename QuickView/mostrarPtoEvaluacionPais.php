@@ -101,25 +101,17 @@ while ($filaidPdas = $result->fetch_assoc()) {
          animation: google.maps.Animation.DROP,
          map: map,
          title: "<?php echo $filaidPdas['Nombre'];?>",
+         icon: '../css/images/PtoEvaluacion.png',
          draggable: true
          });           
 
          var contenido<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
 
-         '<center><a href="lstSelAmenazaSRA.php?PtoDeEval=<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>" data-ajax="false"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">SRA</a></center>'+
+         ''+
 
-         ' <center><a href="Evaluar.php?PtoDeEval=<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>" data-ajax="false"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">HISS-CAM</a></center>'+
+         ' '+
 
-         ' <center><a href="#"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">CSR</a></center>'+
+         ''+
          '</div>';
 
 
