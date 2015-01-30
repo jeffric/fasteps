@@ -62,6 +62,29 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 	<script type="text/javascript">
 	$(function(){
 
+                $.ajax({
+                  type: "POST",
+                  url: "../funcionesAjax.php",
+                  data: {nombreMetodo: "obtenerInfoUsuario", AjxPUser: <?php echo $idUsuario?>},
+                  contentType: "application/x-www-form-urlencoded",
+                  beforeSend: function(){
+
+                  },
+                  dataType: "html",
+                  success: function(msg){
+                  	 var recoge=msg.split(",");
+
+                    	$('#txtNombre').val(recoge[1]);
+						$('#txtApellido').val(recoge[2]);
+						$('#txtCorreo').val(recoge[3]);
+						
+						  
+
+                  }              
+
+
+                });			
+
 		$("#botonGuardar").click(function(){
 			Validar();
 		});
@@ -88,6 +111,25 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			else{
 
 				//va a insertar
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "modificarMiInfo", AjxNombre: $('#txtNombre').val(), AjxApellido:$('#txtApellido').val() , AjxCorreo: $('#txtCorreo').val(), AjxPassword:$('#txtPassword').val(), AjxUsuario:<?php echo $idUsuario?>},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          $("#loader_gif").fadeOut("slow");         
+                          swal(msg);                                  
+
+                        }              
+
+
+                      });
+
 			}									
 
 		}
