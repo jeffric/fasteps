@@ -30,13 +30,13 @@
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ">
 				<thead>
 					<tr>
-						<th >Pregunta</th>
+						<!-- <th >Pregunta</th> -->
 						<th >Riesgo</th>
-						<th >Impacto</th>
-						<th >Probabilidad</th>
-						<th >Nivel de Riesgo</th>
 						<th >Planes de prevención</th>
 						<th >Planes de mitigación</th>
+						<th >Impacto</th>
+						<th >Probabilidad</th>
+						<th >Nivel de Riesgo</th>						
 					</tr>
 				</thead>
 				<tbody>
@@ -70,8 +70,44 @@
 							$nameNivelRiesgo = "rdbP_NivelDeRiesgo" . $contadorC;
 
 							$strHtml .= '<tr idAmenaza="' . $strIdAmenaza . '" strAmenaza="' . $strNombreAmenaza . '">';
-							$strHtml .= '<th><b class="ui-table-cell-label">Pregunta</b>' . $contadorA . ' - ' . $strNombreAmenaza . '</th>';
+							//$strHtml .= '<th><b class="ui-table-cell-label">Pregunta</b>' . $contadorA . ' - ' . $strNombreAmenaza . '</th>';
 							$strHtml .= '<td><b class="ui-table-cell-label">Riesgo</b>' . $strNombreAmenaza . '</td>';
+
+							$strHtml .= '<td>';
+							$strHtml .= '	<table>';
+							$strHtml .= '<tr>';
+							//planes de prevencion
+							$strHtml .= '<td>';
+							$strHtml .= '<select data-role="none" multiple="multiple" id="prevsel-' . $contadorA . '" class="planprev" name="prevsel-' . $contadorA . '[]">';
+							$resultPrev = $c_funciones->getPlanesPrevencion();
+							while($row = mysqli_fetch_array($resultPrev, MYSQL_NUM)){
+								$strHtml .=  '<option value="' . $row[0] . '" title="' . $row[2] . '" >' . $row[1] . '</option>';
+							}
+							$strHtml .= '</td>';
+								
+							$strHtml .= '</td>';
+							$strHtml .= '</tr>';
+							$strHtml .= '	</table>';
+							$strHtml .= '</td>';
+
+
+							//planes de mitigacion 
+							$strHtml .= '<td>';
+							$strHtml .= '	<table>';
+							$strHtml .= '<tr>';							
+							$strHtml .= '<td>';
+							$strHtml .= '<select data-role="none" multiple="multiple" id="mitsel-' . $contadorA . '" class="planmit" name="mitsel-' . $contadorA . '[]">';
+								$resultMit = $c_funciones->getPlanesMitigacion();
+								while($row = mysqli_fetch_array($resultMit, MYSQL_NUM)){
+									$strHtml .=  '<option value="' . $row[0] . '" title="' . $row[2] . '" >' . $row[1] . '</option>';
+								}
+							$strHtml .= '</td>';
+								
+							$strHtml .= '</td>';
+							$strHtml .= '</tr>';
+							$strHtml .= '	</table>';
+							$strHtml .= '</td>';
+
 							$strHtml .= '<td><b class="ui-table-cell-label">Impacto</b>';
 							$strHtml .= '	<table class="tblImpacto">';
 							$strHtml .= '		<tr>';
@@ -162,40 +198,7 @@
 							$strHtml .= '		</tr>';
 							$strHtml .= '	</table>';
 							$strHtml .= '</td>';
-							$strHtml .= '<td>';
-							$strHtml .= '	<table>';
-							$strHtml .= '<tr>';
-							//planes de prevencion
-							$strHtml .= '<td>';
-							$strHtml .= '<select data-role="none" multiple="multiple" id="prevsel-' . $contadorA . '" class="planprev" name="prevsel-' . $contadorA . '[]">';
-							$resultPrev = $c_funciones->getPlanesPrevencion();
-							while($row = mysqli_fetch_array($resultPrev, MYSQL_NUM)){
-								$strHtml .=  '<option value="' . $row[0] . '" title="' . $row[2] . '" >' . $row[1] . '</option>';
-							}
-							$strHtml .= '</td>';
-								
-							$strHtml .= '</td>';
-							$strHtml .= '</tr>';
-							$strHtml .= '	</table>';
-							$strHtml .= '</td>';
-
-
-							//planes de mitigacion 
-							$strHtml .= '<td>';
-							$strHtml .= '	<table>';
-							$strHtml .= '<tr>';							
-							$strHtml .= '<td>';
-							$strHtml .= '<select data-role="none" multiple="multiple" id="mitsel-' . $contadorA . '" class="planmit" name="mitsel-' . $contadorA . '[]">';
-								$resultMit = $c_funciones->getPlanesMitigacion();
-								while($row = mysqli_fetch_array($resultMit, MYSQL_NUM)){
-									$strHtml .=  '<option value="' . $row[0] . '" title="' . $row[2] . '" >' . $row[1] . '</option>';
-								}
-							$strHtml .= '</td>';
-								
-							$strHtml .= '</td>';
-							$strHtml .= '</tr>';
-							$strHtml .= '	</table>';
-							$strHtml .= '</td>';
+							
 							$strHtml .= '</tr>';
 
 

@@ -33,6 +33,7 @@ $(document).bind("mobileinit", function () {
 .tg .{background-color:#f38630;color:#ffffff}
 .tg .tg-cxkv{background-color:#ffffff}
 
+
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
@@ -46,7 +47,14 @@ $(document).bind("mobileinit", function () {
 .tg .tg-yg2k{background-color:#fe0000;color:#ffffff;text-align:center}
 .tg .tg-v88f{background-color:#f8ff00}
 
-
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-e3zv{font-weight:bold}
+.tg .tg-bghc{font-weight:bold;background-color:#32cb00;text-align:center}
+.tg .tg-f062{font-weight:bold;background-color:#f38630;text-align:center}
+.tg .tg-hgcj{font-weight:bold;text-align:center}
+.tg .tg-1ea8{font-weight:bold;background-color:#963400;text-align:center}
 
 /* Add alternating row stripes */
 	.table-stripe tbody tr:nth-child(odd) td,

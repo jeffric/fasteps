@@ -611,7 +611,7 @@ function SetPaso2SRA(){
 
 	//Tabla 1 (encabezado con la info de la evaluacion)
 
-	$strHtmlTabla1 = '<table style="width:100%" class="tg">';
+	$strHtmlTabla1 = '<table class="tg" style="undefined;table-layout: fixed; width: 100%;">';
 	$strHtmlTabla1 .= '	<tr>';
 	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
 	$strHtmlTabla1 .= 'Nivel de riesgo';
@@ -649,29 +649,101 @@ function SetPaso2SRA(){
 
 
 	//construccion de la tabla # 2, Evaluacion automatica
+	/*
+<table class="tg" style="undefined;table-layout: fixed; width: 989px">
+<colgroup>
+<col style="width: 112px">
+<col style="width: 129px">
+<col style="width: 530px">
+<col style="width: 109px">
+<col style="width: 109px">
+</colgroup>
+  <tr>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+  </tr>
+  <tr>
+    <td class="tg-hgcj">Amenaza 1</td>
+    <td class="tg-f062">CRITICO<br></td>
+    <td class="tg-031e">Maecenas luctus nec ante nec vulputate. Integer et euismod arcu. Curabitur volutpat mauris ac magna tincidunt, vel egestas dui tempus. Curabitur tristique turpis egestas justo dapibus volutpat. Nullam ac sollicitudin odio. Aliquam vulputate mauris vehicula tellus viverra lobortis ac in risus. Donec volutpat neque nec rutrum molestie.Fusce viverra consequat ipsum, nec tempor magna pellentesque sit amet. Morbi ex ligula, molestie et risus non, varius cursus erat. Phasellus volutpat tortor enim, id convallis ligula pharetra et. Praesent eu dolor non mi efficitur commodo. Mauris semper sem et bibendum posuere. Duis vulputate nec risus vitae ultrices. Donec mollis euismod nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;Mauris faucibus, nisl vel consequat ullamcorper, diam ex mollis nibh, imperdiet porttitor enim eros ut dui. Curabitur nisl leo, ultricies ac finibus ac, vestibulum id nibh. Suspendisse potenti. Donec sodales ipsum in neque mollis scelerisque. Ut molestie non erat nec feugiat. Nunc ut aliquam nunc. Aenean dictum tempor neque, ut convallis ante accumsan quis. Suspendisse vulputate nisl sed velit viverra pulvinar. Donec non dui magna. Fusce ultricies porta massa ac venenatis. Etiam fermentum luctus cursus. Donec ut orci vel erat dignissim aliquam quis sit amet lorem. Maecenas semper sagittis ipsum sed suscipit. Pellentesque cursus interdum malesuada. Aenean pharetra, metus lobortis tincidunt maximus, erat nunc semper metus, sed suscipit mauris ante vitae sem. Vestibulum nec accumsan lorem.</td>
+    <td class="tg-f062">ALTO</td>
+    <td class="tg-bghc">ACEPTABLE</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Amenaza 2</td>
+    <td class="tg-f062">MEDIO</td>
+    <td class="tg-031e">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel interdum orci. Fusce auctor hendrerit enim, vitae sollicitudin orci lobortis sit amet. Sed dictum tellus quis dolor mattis, et euismod ante vestibulum. Cras at odio tellus. Nulla imperdiet odio et pretium congue. Ut eget pretium dolor. Praesent egestas consectetur risus, ac accumsan quam fringilla sed. Suspendisse potenti. Maecenas et sem justo. Cras id varius neque, a aliquam tortor. Suspendisse in ex et ligula malesuada laoreet. Vivamus at mi nec sem pretium rhoncus. Donec ac lorem id sapien hendrerit iaculis id a tortor. Curabitur feugiat, massa nec cursus molestie, sapien nulla laoreet mauris, ut ultrices lacus velit et leo. Pellentesque laoreet, urna ac hendrerit volutpat, ipsum elit lacinia urna, sit amet tristique tortor arcu eu mi.Morbi ut mi erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu bibendum est. Morbi quis finibus eros, at elementum tellus. Vivamus a dignissim odio. Integer placerat quam lectus, nec consequat magna egestas a. Donec a leo euismod, mattis purus in, convallis magna. Donec sollicitudin elementum ex sed eleifend.Pellentesque accumsan velit ac erat porta, quis fringilla lacus consectetur. Donec eros magna, feugiat ac euismod a, dignissim nec orci. Sed eros ante, suscipit ac magna a, feugiat mattis mi. Pellentesque ultricies, ipsum quis consectetur cursus, erat enim accumsan urna, nec rhoncus ex elit ut nibh. Ut a justo ligula. Mauris ultricies porta diam vitae iaculis. Pellentesque placerat dui id mi lacinia rhoncus. Cras dignissim faucibus tristique. Vivamus leo risus, mattis ullamcorper lacinia ut, viverra vitae odio. Donec id augue magna. Etiam non tellus sagittis, dictum turpis in, varius velit. Mauris tempus rhoncus lacus, quis interdum urna facilisis quis.</td>
+    <td class="tg-f062">Medio</td>
+    <td class="tg-1ea8">INACEPTABLE</td>
+  </tr>
+</table>
+*/
 	$strHtmlTabla2 = '';
-	$strHtmlTabla2 .= '<table style="width:100%;" class="tg">';
-	$strHtmlTabla2 .= '	<tr>';
-	$strHtmlTabla2 .= '		<th class="tg-hgcj" colspan="4">Reporte Autom&aacute;tico</th>';
-	$strHtmlTabla2 .= '	</tr>';
-	$strHtmlTabla2 .= '	<tr>';
-	$strHtmlTabla2 .= '		<td class="tg-mnb8">Amenaza</td>';
-	$strHtmlTabla2 .= '		<td class="tg-mnb8">Impacto</td>';
-	$strHtmlTabla2 .= '		<td class="tg-mnb8">Probabilidad</td>';
-	$strHtmlTabla2 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
-	$strHtmlTabla2 .= '	</tr>';
+	$strHtmlTabla2 .= '<table class="tg" style="undefined;table-layout: fixed; width: 100%">';
+	// $strHtmlTabla2 .= '	<tr>';
+	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Amenaza</td>';
+	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Impacto</td>';
+	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Probabilidad</td>';
+	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
+	// $strHtmlTabla2 .= '	</tr>';
 	
+	//niveles de riego del paso 1
+	$arrNivelesRP1 = array();
+	//plan mitigacion prevencion
+	$arrPMP = array();
+	//niveles de riesgo del paso 2
+	$arrNivelRP2 = array();
+	//amenazas
+	$arrAmenaza = array();
+	//array es aceptable o inaceptable
+	$arrAceptable = array();
+
 	$arrJsonPaso1 = json_decode($jsonPaso1);		
 	$arrEvalPaso1 = $arrJsonPaso1->Eval;
 
 	foreach($arrEvalPaso1 as $itemJsonEval){
-		$strHtmlTabla2 .= '	<tr>';
-		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strAmenaza . '</td>';
-		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strImpacto . '</td>';
-		$strHtmlTabla2 .= '<td class="tg-s6z2">' . $itemJsonEval->strProbabilidad .'</td>';
-		$strHtmlTabla2 .= '<td class="' . getCssNivelRiesgo($itemJsonEval->NivelDeRiesgo) . '">' . $itemJsonEval->strNivelDeRiesgo . '</td>';
-		$strHtmlTabla2 .= '</tr>';			
+		array_push($arrAmenaza, $itemJsonEval->strAmenaza);
+		array_push($arrNivelesRP1, $itemJsonEval->strNivelDeRiesgo);
+	}	
+	foreach ($arrEvalPaso2 as $iteJsonEval) {		
+		$strPlanMit = "";
+		$strPlanPrev = "";
+		array_push($arrNivelRP2, $iteJsonEval->strNivelDeRiesgo);
+		$arrPrevenciones = $iteJsonEval->Prevenciones;
+		foreach ($arrPrevenciones as $itemPrevencion) {
+			$strPlanPrev .= $itemPrevencion->nombre . ": " . $itemPrevencion->descripcion . "<br>";			
+		}		
+		$arrMitigaciones = $iteJsonEval->Mitigaciones;
+		foreach ($arrMitigaciones as $itemMitigacion) {
+			$strPlanMit .= $itemMitigacion->nombre . ": " . $itemMitigacion->descripcion . "<br>";			
+		}
+
+		array_push($arrPMP, $strPlanPrev . " <br> " . $strPlanMit);
 	}
+
+	/*
+<tr>
+    <td class="tg-hgcj">Amenaza 1</td>
+    <td class="tg-f062">CRITICO<br></td>
+    <td class="tg-031e">Maecenas luctus nec ante nec vulputate. Integer et euismod arcu. Curabitur volutpat mauris ac magna tincidunt, vel egestas dui tempus. Curabitur tristique turpis egestas justo dapibus volutpat. Nullam ac sollicitudin odio. Aliquam vulputate mauris vehicula tellus viverra lobortis ac in risus. Donec volutpat neque nec rutrum molestie.Fusce viverra consequat ipsum, nec tempor magna pellentesque sit amet. Morbi ex ligula, molestie et risus non, varius cursus erat. Phasellus volutpat tortor enim, id convallis ligula pharetra et. Praesent eu dolor non mi efficitur commodo. Mauris semper sem et bibendum posuere. Duis vulputate nec risus vitae ultrices. Donec mollis euismod nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;Mauris faucibus, nisl vel consequat ullamcorper, diam ex mollis nibh, imperdiet porttitor enim eros ut dui. Curabitur nisl leo, ultricies ac finibus ac, vestibulum id nibh. Suspendisse potenti. Donec sodales ipsum in neque mollis scelerisque. Ut molestie non erat nec feugiat. Nunc ut aliquam nunc. Aenean dictum tempor neque, ut convallis ante accumsan quis. Suspendisse vulputate nisl sed velit viverra pulvinar. Donec non dui magna. Fusce ultricies porta massa ac venenatis. Etiam fermentum luctus cursus. Donec ut orci vel erat dignissim aliquam quis sit amet lorem. Maecenas semper sagittis ipsum sed suscipit. Pellentesque cursus interdum malesuada. Aenean pharetra, metus lobortis tincidunt maximus, erat nunc semper metus, sed suscipit mauris ante vitae sem. Vestibulum nec accumsan lorem.</td>
+    <td class="tg-f062">ALTO</td>
+    <td class="tg-bghc">ACEPTABLE</td>
+  </tr>
+	*/
+  $contAm = 0;
+  foreach ($arrAmenaza as $amenaza) {
+  	$strHtmlTabla2 .= '<tr>';
+  	$strHtmlTabla2 .= '<td style="width:15%;" class="tg-hgcj">' . $amenaza . '</td>';
+  	$strHtmlTabla2 .= '<td style="width:15%;" class="tg-f062">' . $arrNivelesRP1[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td style="width:40%; word-wrap: break-word;background-image:url(../img/rarrow.png); background-size: 100% 100%; background-position:right 0px; background-repeat:no-repeat;" class="tg-031e">' . $arrPMP[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td class="tg-f062">' . $arrNivelRP2[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td class="tg-bghc">ACEPTABLE</td>';
+  	$strHtmlTabla2 .= '</tr>';
+  	$contAm = $contAm + 1;
+  }
 
 	$strHtmlTabla2 .= '</table>';
 
@@ -679,47 +751,9 @@ function SetPaso2SRA(){
 
 	//Armado de la tabla #3, con planes de prevencion y mitigacion
 	$strHtmlTabla3 = '';
-	$strHtmlTabla3 .= '<table class="tg">';
-	$strHtmlTabla3 .= '	<tr>';
-	$strHtmlTabla3 .= '		<th class="tg-hgcj" colspan="6">Reporte Operativo</th>';
-	$strHtmlTabla3 .= '	</tr>';
-	$strHtmlTabla3 .= '	<tr>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Amenaza</td>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Impacto</td>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Probabilidad</td>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Planes de prevenci&oacute;n</td>';
-	$strHtmlTabla3 .= '		<td class="tg-mnb8">Planes de mitigaci&oacute;n</td>';
-	$strHtmlTabla3 .= '	</tr>';	
-	foreach ($arrEvalPaso2 as $iteJsonEval) {
-		$strHtmlTabla3 .= '<tr>';
-		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strIdAmenaza . '</td>';
-		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strImpacto . '</td>';
-		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strProbabilidad . '</td>';
-		$strHtmlTabla3 .= '		<td class="tg-s6z2">' . $iteJsonEval->strNivelDeRiesgo . '</td>';
-		$strHtmlTabla3 .= '		<td class="tg-031e">';
-		$strHtmlTabla3 .= '			<table>';
-		$arrPrevenciones = $iteJsonEval->Prevenciones;
-		foreach ($arrPrevenciones as $itemPrevencion) {
-			$strHtmlTabla3 .= '<tr>';
-			$strHtmlTabla3 .= '		<td title="' . $itemPrevencion->descripcion . '">' . $itemPrevencion->nombre . '</td>';
-			$strHtmlTabla3 .= '</tr>';
-		}
-		$strHtmlTabla3 .= '			</table>';
-		$strHtmlTabla3 .= '		</td">';
-		$strHtmlTabla3 .= '		<td class="tg-031e">';
-		$strHtmlTabla3 .= '			<table>';
-		$arrMitigaciones = $iteJsonEval->Mitigaciones;
-		foreach ($arrMitigaciones as $itemMitigacion) {
-			$strHtmlTabla3 .= '<tr>';
-			$strHtmlTabla3 .= '		<td title="' . $itemMitigacion->descripcion . '">' . $itemMitigacion->nombre . '</td>';
-			$strHtmlTabla3 .= '</tr>';
-		}
-		$strHtmlTabla3 .= '			</table>';
-		$strHtmlTabla3 .= '		</td">';
-		$strHtmlTabla3 .= '	</tr">';		
-	}
-	$strHtmlTabla3 .= '</table">';
+
+	//array planes mitigacion prevencion	
+	
 
 	//armado de la tabla #4, descripcion operativa del usuario
 
@@ -735,7 +769,7 @@ function SetPaso2SRA(){
 
 	//Armado de la tabla principal que contiene a todas las demas tablas
 	$strHtmlTablaGeneral = "";
-	$strHtmlTablaGeneral .= ' <table id="movie-table-custom" class="movie-list table-stripe">';
+	$strHtmlTablaGeneral .= ' <table>';
 	$strHtmlTablaGeneral .= '	<tr>';
 	$strHtmlTablaGeneral .= '		<td>';
 	$strHtmlTablaGeneral .= $strHtmlTabla1;
@@ -746,11 +780,11 @@ function SetPaso2SRA(){
 	$strHtmlTablaGeneral .= $strHtmlTabla2;
 	$strHtmlTablaGeneral .= '		</td>';
 	$strHtmlTablaGeneral .= '	</tr>';
-	$strHtmlTablaGeneral .= '	<tr>';
-	$strHtmlTablaGeneral .= '		<td>';
-	$strHtmlTablaGeneral .= $strHtmlTabla3;
-	$strHtmlTablaGeneral .= '		</td>';
-	$strHtmlTablaGeneral .= '	</tr>';
+	// $strHtmlTablaGeneral .= '	<tr>';
+	// $strHtmlTablaGeneral .= '		<td>';
+	// $strHtmlTablaGeneral .= $strHtmlTabla3;
+	// $strHtmlTablaGeneral .= '		</td>';
+	// $strHtmlTablaGeneral .= '	</tr>';
 	$strHtmlTablaGeneral .= '	<tr>';
 	$strHtmlTablaGeneral .= '		<td>';
 	$strHtmlTablaGeneral .= $strHtmlTabla4;
@@ -762,8 +796,6 @@ function SetPaso2SRA(){
 	$idReporte = $db_funciones->insertarReporteSra($FechaEval, 
 		$strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval);
 	echo $idReporte;
-
-
 }
 
 function getCssNivelRiesgo($idNivelRiesgo){
