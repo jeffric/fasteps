@@ -4,8 +4,14 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
+
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
+
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
 
 ?>
 <!DOCTYPE html>
@@ -26,15 +32,34 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 	<div id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
 		<div class="content">
+		<form action="realizarEvaluacion.php" method="POST" data-ajax="false" >
 			<p><strong>Seleccione el Punto de Evaluación que desea evaluar CSR</strong><br />		
-			<ul data-role="listview" data-filter="true" data-ajax="false">
-				<?php 				
-				$result = $c_funciones->getListaPtosEvaluacion($idPais);					
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<li><a href=../Csr/realizarEvaluacion.php?idPtoEvaluacion='.$row[0] .'&idPais='.$idPais.' data-ajax="false">' . $row[1] . '</a></li> ';
-				}					
-				?>
-					
+
+						<select name="lstPuntos" id="lstPuntos">
+							<?php 				
+
+									$result = $c_funciones->getListaPtosEvaluacion($idPais);
+									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+									}																						
+							?>
+						</select>	
+						<select name="lstNivelRiesgo" id="lstNivelRiesgo">
+							<?php 				
+
+									$result = $c_funciones->getNivelRiesgo();
+									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+									}																						
+							?>
+						</select>										
+
+		<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+		<input type="submit" id="botonEvaluar" data-theme="a" name="submit" value="Iniciar Evaluación" class="ui-btn-hidden" aria-disabled="false"/>
+		</div>	
+	</form>
+
+
 		</div>
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
 	</div>		
