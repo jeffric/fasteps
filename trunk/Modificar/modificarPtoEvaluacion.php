@@ -4,6 +4,11 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
+    if($_SESSION["Usuario"] == ""){
+      header("Location: ../index.php");
+      return;
+    }
+
 $strUsuario=$_SESSION["Usuario"];
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 
@@ -126,20 +131,7 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
 
          var contenido<?php echo $row[0]; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
 
-         '<center><a href="lstSelAmenazaSRA.php?PtoDeEval=<?php echo $row[0]; ?>" data-ajax="false"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">SRA</a></center>'+
-
-         ' <center><a href="Evaluar.php?PtoDeEval=<?php echo $row[0]; ?>" data-ajax="false"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">HISS-CAM</a></center>'+
-
-         ' <center><a href="#"'+
-         'data-role="button"'+
-         'id="botonGuardar"'+
-         '">CSR</a></center>'+
+         ''+
          '</div>';
 
 

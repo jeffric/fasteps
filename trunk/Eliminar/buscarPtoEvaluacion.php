@@ -9,7 +9,7 @@ $c_funciones = new Funciones();
 			header("Location: ../index.php");
 			return;
 		}
-		
+
 $strUsuario=$_SESSION["Usuario"];
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 

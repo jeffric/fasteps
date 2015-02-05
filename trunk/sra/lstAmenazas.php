@@ -4,7 +4,11 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
-
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
+		
 //recogemos datos de la pagina anterior: Pais, Punto de evaluacion, fecha, y elaborado por.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$idUsuario = $_SESSION["idUsuario"];

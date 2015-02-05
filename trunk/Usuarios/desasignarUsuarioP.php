@@ -4,10 +4,15 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
 
-$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
+		
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
+		$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
 ?>
 <!DOCTYPE html>

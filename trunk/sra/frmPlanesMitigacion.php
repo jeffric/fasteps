@@ -5,7 +5,10 @@
 	$c_funciones = new Funciones();	
 //$result = $c_funciones->ConsultarNivelesDeRiesgo()
 
-
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -270,7 +273,7 @@ echo "<script type='text/javascript'>" . $strJs . "</script>";
 </table>
 </div>
 <div data-role="fieldcontain">
-	<label for="NRiesgoOperador">Nivel de riesgo:</label>
+	<label for="NRiesgoOperador">Riesgo Residual:</label>
 	<?php 
 	$resultNivelR = $c_funciones->ConsultarNivelesDeRiesgo(); 
 	echo '<select id="NRiesgoOperador" name="NRiesgoOperador">';

@@ -1312,5 +1312,68 @@ function modificarPtoEvaluacion(){
 	}
 }
 
+//Modificar Amenaza
+if($strMetodo == "modificarMiInfo")
+	modificarMiInfo();
+
+function modificarMiInfo(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombre = $_POST["AjxNombre"];
+	$apellido = $_POST["AjxApellido"];
+	$correo = $_POST["AjxCorreo"];
+	$pass = $_POST["AjxPassword"];
+	$idUsuario = $_POST["AjxUsuario"];
+
+	try {
+
+		$bandera=$db_funciones->verificarExistenciaUsuarioUpdate($correo, $idUsuario);
+				if($bandera==true){
+
+					echo 'Ya existe una Usuario con el mismo nombre dentro del sistema';
+
+				}
+				else{
+				$result = $db_funciones->modificarUsuario($nombre, $apellido, $correo, $pass, $idUsuario);
+
+				echo "Usuario: ".$correo." guardado existosamente";
+
+				}
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+//Auth
+if($strMetodo == "Auth")
+	Login();
+
+function Login(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$usuario = $_POST["usu"];
+	$pass = $_POST['pass'];
+	$tipo = $_POST["tipo"];
+
+
+	try{
+
+	if($db_funciones->ValidarLogin($usuario, $pass, $tipo)){
+		//el id se setea en la consulta de la validacion del login
+
+		$_SESSION["Usuario"] = $usuario;
+		$_SESSION["TipoUsuario"] = $tipo;		
+		echo true;
+	}else{
+
+		echo false;
+	}
+		
+	}catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
 
 ?>
