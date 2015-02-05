@@ -59,104 +59,105 @@
 		function getMenu($strTipoUsuario){
 			if($strTipoUsuario==1)
 			{
-							echo '	<!-- Menu -->
-							<nav id="menu" >
+				echo '	
+				<!-- Menu -->
+				<nav id="menu" >
+						<ul>
+							<li><a href="#" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+							<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a></li>	
+							<li><a href="#">USUARIOS</a>				
+								<ul>											
+									<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>					
+									<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>
+									<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>									
+									<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
+									<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
+								</ul>									
+							</li>	
+							<li><a href="#">AGREGAR INFORMACION A FAST</a>
 								<ul>
-									<li><a href="#" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>	
-									<li><a href="#">USUARIOS</a>
-										<ul>											
-											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
-											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																						
-											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-										</ul>									
-									</li>	
-									<li><a href="#">AGREGAR INFORMACION A FAST</a>
-										<ul>
-											<li><a href="Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
-											<li><a href="Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
-											<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
-											<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLAN DE MITIGACION</a></li>
-											<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLAN DE PREVENCION</a></li>
-											<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
-										</ul>
-									</li>	
-									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
-											<li><a href="Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
-											<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
-											<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
-											<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
-											<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
-										</ul>
-									</li>									
-									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
-											<li><a href="Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
-											<li><a href="Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
-											<li><a href="Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
-											<li><a href="Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
-											<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
-										</ul>
-									</li>																																																						
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>										
-											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
+									<li><a href="Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
+									<li><a href="Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
+									<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
+									<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLAN DE MITIGACION</a></li>
+									<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLAN DE PREVENCION</a></li>
+									<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
+									<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>					
+								</ul>
+							</li>	
+							<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
+								<ul>
+									<li><a href="Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
+									<li><a href="Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
+									<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
+									<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
+									<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
+									<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
+									<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
+								</ul>
+							</li>									
+							<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
+								<ul>
+									<li><a href="Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
+									<li><a href="Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
+									<li><a href="Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
+									<li><a href="Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
+									<li><a href="Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
+									<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
+									<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
+								</ul>
+							</li>																																																						
+							<li><a href="#">CRR</a>
+								<ul>
+									<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
+									<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
+								</ul>
+							</li>
+							<li><a href="#">SRA</a>
+								<ul>
+									<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+									<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">QUICK VIEW</a>
+								<ul>
+									<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+									<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+								</ul>	
+							</li>										
+							<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
+								<ul>
+									<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+									<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+								</ul>
+							</li>						
+								</ul>
+							</li>
+							<li><a href="#">CSR</a>
+								<ul>
+									<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
+									<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
+								</ul>
+							</li>
+							<li><a href="#">HISS-CAM</a>
+								<ul>
+									<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+									<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
+								</ul>
+							</li>
 									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
-									</li>
+								<ul>
+									<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
+									<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
+									<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
+									<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
+							</li>
 									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
-							<!-- /Menu -->';					
+							<!-- /Menu -->
+';					
 			}
 			else if($strTipoUsuario==2)
 			{
@@ -198,23 +199,23 @@
 									</li>
 									<li><a href="#">CRR</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
+											<li><a href="#" data-ajax="false">EVALUAR CRR</a></li>
+											<li><a href="#" data-ajax="false">REPORTES CRR</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="#" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>											
-											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
+											<li><a href="#" data-ajax="false">REPORTES SRA</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
+												<li><a href="#" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="#" data-ajax="false">EVENTOS</a></li>
 												</ul>
 											</li>						
 										</ul>
@@ -222,12 +223,12 @@
 									<li><a href="#">CSR</a>
 										<ul>
 											<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
+											<li><a href="#" data-ajax="false">REPORTES CSR</a></li>						
 										</ul>
 									</li>
 									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
@@ -242,7 +243,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
 									</li>
 									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -280,7 +281,7 @@
 											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
 											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>											
@@ -300,7 +301,7 @@
 									</li>
 									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
@@ -315,7 +316,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 									</li>
 									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</li>						
 						</ul>
@@ -343,7 +344,7 @@
 					<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 					</li>
 					<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-					<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+					<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 				</ul>
 			</nav>
 			<!-- /Menu -->';	
@@ -378,7 +379,7 @@
 										<ul>
 											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>										
@@ -411,7 +412,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 									</li>
 									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</li>						
 						</ul>
@@ -437,7 +438,7 @@
 					<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 					</li>
 					<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-					<li><a href="logOut.php" data-ajax="false">Log Out</a></li>
+					<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 				</ul>
 			</nav>
 			<!-- /Menu -->';	
@@ -448,65 +449,59 @@
 
 	function getHeader($tituloPagina = "", $CodigoDentroDeHeader = ""){
 		echo '<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
 		<title>' . $tituloPagina . '</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   		
 
-		<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0 user-scalable=yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<!-- Estilos -->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 
 		<!-- Estilos para menu -->
 		<link type="text/css" rel="stylesheet" href="css/menu/demo.css" />
-
 		<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" />
 
 		<!-- scripts para mapas -->
-		<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script> -->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
 
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.1.js"></script>
-		<script>
-			$(document).on("mobileinit", function () {
-				$.mobile.hashListeningEnabled = false;
-				$.mobile.pushStateEnabled = false;
-			});
-</script>
-<script src="js/jquery.mobile-1.4.4.min.js"></script>
+		<script src="js/jquery.mobile-1.4.4.min.js"></script>
 
-<!-- libreria para alertas -->
-<script src="js/sweet-alert.js"></script>
-<link rel="stylesheet" href="css/sweet-alert.css">
+		<!-- libreria para alertas -->
+		<script src="js/sweet-alert.js"></script>
+		<link rel="stylesheet" href="css/sweet-alert.css">
 
 
-<!-- Scripts para menu -->
-<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
-<!-- for the fixed header -->
-<style type="text/css">
-	.header,
-	.footer
-	{
-		position: fixed;
-		width: 100%;
-		z-index: 100;
+		<!-- Scripts para menu -->
+		<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
 
-		box-sizing: border-box;
-	}
-	.footer
-	{
-		bottom: 0;
-	}
-</style>
-' . $CodigoDentroDeHeader . 
+		<!-- for the fixed header -->
+		<style type="text/css">
+			.header,
+			.footer
+			{
+				position: fixed;
+				width: 100%;
+				z-index: 100;
+
+				box-sizing: border-box;
+			}
+			.footer
+			{
+				bottom: 0;
+			}
+		</style>
+		' . $CodigoDentroDeHeader . 
 
 
-'
+		'
 
-<script type="text/javascript">
-	function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
-		swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
-	}
-</script>
+		<script type="text/javascript">
+			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+			}
+		</script>
 </head>';
 }
 
@@ -569,10 +564,10 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>											
@@ -592,7 +587,7 @@
 									</li>
 									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
@@ -607,7 +602,7 @@
 									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
 									</li>
 									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';					
@@ -655,10 +650,10 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>											
@@ -678,7 +673,7 @@
 									</li>
 									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
@@ -693,7 +688,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
 									</li>
 									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -714,10 +709,10 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
+											<li><a href="#" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>											
@@ -737,7 +732,7 @@
 									</li>
 									<li><a href="#">HISS-CAM</a>
 										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
+											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
 											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
 										</ul>
 									</li>
@@ -752,7 +747,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
 									</li>
 									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -773,9 +768,9 @@
 									</li>
 									<li><a href="#">SRA</a>
 										<ul>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
+											<li><a href="#" data-ajax="false">QUICK VIEW</a>
 												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
+												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
 												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
 												</ul>	
 											</li>										
@@ -808,7 +803,7 @@
 									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
 									</li>
 									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false">Log Out</a></li>
+									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
 								</ul>
 							</nav>
 							<!-- /Menu -->';	
@@ -847,7 +842,7 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 
 
 <!-- scripts para mapas -->
-<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script> -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
 
 <!-- Scripts para menu -->
 <script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>
@@ -881,15 +876,17 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 }
 
 function getHeaderPage($TituloDePagina = ""){
-	echo '<div class="header" >
-	<a href="#menu"></a>
-	<div style="text-align:center; ">
-		' . $TituloDePagina . '
-	</div>
-	<div style="position: absolute; right:0; top: 0; z-index:-2;">
+	echo '
+	<div class="header" >
+		<a href="#menu"></a>
+		<div style="text-align:center; ">
+		'. $TituloDePagina .'
+		</div>
+		<div style="position: absolute; right:0; top: 0; z-index:-2;">
 		<img src="img/logo-fit.png" alt="logo" width="100px" />
+		</div>
 	</div>
-</div>';
+	';
 }
 
 function getHeaderPageNivel2($TituloDePagina = ""){
@@ -908,12 +905,13 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		Funcion para construir el footer de cada pagina.
 	 */
 		function getFooter(){
-			echo '	<div class="footer FixedBottom"  style="z-index: 100;">
-			<span>Visi&oacute;n Mundial Guatemala,';
-				echo date("Y"); 
-				echo '			<img src="img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
+			echo '	
+		<div class="footer FixedBottom"  style="z-index: 100;">
+			<span>Visión Mundial Guatemala,';
+			echo date("Y"); 
+			echo ' <img src="img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
 			</span>
-		</div><!-- /footer -->
+		</div> <!-- /footer -->
 
 		<script type="text/javascript">
 			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
@@ -1124,6 +1122,36 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 		}		
 
+		function verificarExistenciaUsuarioUpdate($variable, $idUsuario){
+			//verifica si ya existe una Amenaza con dicho nombre
+			try {
+				$correo = trim($variable," \t\n\r\0\x0B");
+				$result = $this->db->ExecutePersonalizado("SELECT correo FROM USUARIO WHERE correo='$correo'  AND idUSUARIO !='$idUsuario'");
+				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								if(strcasecmp($row[0],$correo)==0){
+
+						return true;
+					}
+					else{
+						return false;
+					}
+
+				}
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function modificarUsuario($nombre, $apellido, $correo, $pass, $idUsuario){
+			//modifica una amenaza en el sistema
+			try {
+				$password = $this->getMD5($pass);
+				$result = $this->db->ExecutePersonalizado("UPDATE USUARIO SET nombre='$nombre', apellido='$apellido', correo='$correo', password='$password' WHERE idUSUARIO='$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
 
 		/**
 		FUNCIONES PARA PAISES
@@ -1420,6 +1448,16 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		 	}
 
 		 }
+
+		 function getListaPuntosEvaluacionConSRAPais($idPais){
+		 	try{
+		 		$result = $this->db->ExecutePersonalizado("SELECT idPUNTO_EVALUACION, NombreTipoObjeto, fk_NIVEL_RIESGO FROM RESULTADO_SRA WHERE idPUNTO_EVALUACION IN (SELECT idPUNTO_EVALUACION FROM PUNTO_EVALUACION WHERE PAIS_idPAIS='$idPais') ORDER BY FechaCreacion ASC LIMIT 1;");
+		 		return $result;
+		 	}catch(Exception $e){
+		 		echo 'Error: ' .$e->getMessage();
+		 	}
+
+		 }		 
 
 		function getPtoEvaluacion($idPtoEvaluacion){
 			try{
@@ -1954,7 +1992,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 
 
-		function modificarPlanPrevenciond($nombrePlan, $descripcion, $idPlan){
+		function modificarPlanPrevencion($nombrePlan, $descripcion, $idPlan){
 			//modifica una amenaza en el sistema
 			try {
 				$result = $this->db->ExecutePersonalizado("UPDATE PREVENCION SET nombre='$nombrePlan', descripcion='$descripcion' WHERE idPREVENCION='$idPlan'");
@@ -1993,6 +2031,20 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			try{
 				$result = $this->db->ExecutePersonalizado("SELECT COUNT(*) FROM PREGUNTA_CSR WHERE fk_idCATEGORIA_CSR='$idCategoria' AND fk_idNIVEL_RIESGO='$idNivelRiesgo'");
 				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}		
+
+		function getCantidadRequerimientos($idNivelRiesgo){
+			//devuelve los requerimientos minimos para un Nivel de Riesgo especifico
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT COUNT(*) FROM PREGUNTA_CSR WHERE fk_idNIVEL_RIESGO='$idNivelRiesgo'");
+				$row = mysqli_fetch_array($result, MYSQL_NUM);
+				return $row[0];
+
+				
 			}catch(Exception $e){
 				echo 'Error: ' .$e->getMessage();
 			}
@@ -2112,5 +2164,17 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 	}
 
+	/**
+	FUNCIONES PARA RIESGOS
+	 */
+		function getNivelRiesgo(){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT * FROM NIVEL_RIESGO");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}
 	} // FIN DE CLASE
 	?>

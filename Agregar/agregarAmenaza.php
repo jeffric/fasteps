@@ -4,6 +4,12 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
+
+    if($_SESSION["Usuario"] == ""){
+      header("Location: ../index.php");
+      return;
+    }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
   $strUsuario = $_POST["username"];
   $strPassword = $_POST["password"];
@@ -78,10 +84,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
                 var nombre = $('#txtNombre').val();
                 var descripcion = $('#txtDescripcion').val();
 
-                if(nombre == ""){
-                  swal("","No debes dejar campos vacios","warning");          
-                }
-                else if(descripcion == ""){
+                if(nombre.trim() == ""){
                   swal("","No debes dejar campos vacios","warning");          
                 }
                 else{

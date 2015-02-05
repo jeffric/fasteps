@@ -4,6 +4,11 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
+
 try {
 	unset($_SESSION['arrAmenazasSRAActual']);
 	unset($_SESSION["idEvalSraActual"]);

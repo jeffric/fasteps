@@ -3,6 +3,12 @@ session_start();
 ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
+
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
+		
 $strTipoUsuario=$_SESSION["TipoUsuario"];
 try {
 	unset($_SESSION['arrAmenazasSRAActual']);

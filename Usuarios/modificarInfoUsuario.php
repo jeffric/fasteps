@@ -4,10 +4,14 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
+		if($_SESSION["Usuario"] == ""){
+			header("Location: ../index.php");
+			return;
+		}
 
-$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
+		$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
 ?>
 <!DOCTYPE html>
@@ -176,7 +180,28 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			}
 			else{
 
+
 				//va a insertar
+                      $.ajax({
+                        type: "POST",
+                        url: "../funcionesAjax.php",
+                        data: {nombreMetodo: "modificarInfoUsuario", AjxNombre: nombre, AjxDescripcion: descripcion, AjxLatitud: $('#txtLatitud').val(), AjxLongitud:$('#txtLongitud').val()},
+                        contentType: "application/x-www-form-urlencoded",
+                        beforeSend: function(){
+                        $('#loader_gif').fadeIn("slow");
+
+                        },
+                        dataType: "html",
+                        success: function(msg){
+                          $("#loader_gif").fadeOut("slow");         
+                          swal(msg);                                  
+
+                        }              
+
+
+                      });
+
+
 			}									
 
 		}
