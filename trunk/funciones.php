@@ -26,11 +26,13 @@
 
 		function __construct(){
 		//$serverName, $port, $db_name, $username, $password
-			$serverName = "localhost";
+			// $serverName = "localhost";
+			$serverName = "creativesolitcom.ipagemysql.com";
 			$port = "3306";
 			$db_name = "fastdbvm";
 			// $username = "vm_user_fast";
-			$username = "root";
+			// $username = "root";
+			$username = "vmadmin";
 			$password = "admin";
 			// $password = "u$3r_*F@$t";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
@@ -2551,7 +2553,9 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 	function ConsultarEvento($idEvento){
 		$strTabla = " evento ";
 		$strCampos = " * ";
-		$strRestricciones = " idEVENTO = " . $idEvento . " ";
+		if($idEvento != -1){
+			$strRestricciones = " idEVENTO = " . $idEvento . " ";
+		}	
 		try {
 			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
 			return $result;
@@ -2560,18 +2564,13 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 	}
 
-	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $TipoObjeto, $NombreObjeto, $idPuntoEval){
+	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $TipoObjeto, $NombreObjeto, $idPuntoEval, $descripcion){
 		try {
 				$strTabla = " resultado_sra ";
 				$strCampos = "";
 				$strValores = "";
-				if($idPuntoEval == ""){
-					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto ";
-					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "' ";
-				}else{
-					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION ";
-					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . " ";
-				}
+					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION, descripcion_evaluacion ";
+					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . ", '" . $descripcion . "' ";				
 				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
 				if($result > 0){
@@ -2623,6 +2622,43 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 
 		}	
+
+
+/**
+ FUNCIONES PARA CORREO ELECTRÓNICO 
+ Esta funcion recibe uno o una lista de destinatarios a entregar el correo
+ un asunto, el mensaje 
+ */
+ function EnviarCorreo($destinatarios, $Asunto, $mensaje){
+ 	try {
+ 		$headers = "De: visionmundial@vm.com\r\n";
+ 		// $headers .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n"; 		
+ 		$headers .= "MIME-Version: 1.0\r\n";
+ 		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+ 		$mensaje = "<html><head></head><body>" . $mensaje . "</body></html>";
+ 		$arrDestinatarios = explode(",",$destinatarios);
+
+ 		foreach ($arrDestinatarios as $Correo) {
+ 			mail($Correo, $Asunto, $mensaje, $headers);	
+ 		} 		
+ 		//echo str_replace("<","-",$mensaje);
+ 	} catch (Exception $e) {
+ 		echo "Ha ocurrido un error y no se ha podido enviar el correo.";
+ 	}
+ }
+
+
+ function getHtmlReporteSRA($idReporte){
+ 	try {
+ 		$result = $this->db->ExecutePersonalizado("SELECT html_reporte FROM `resultado_sra` WHERE idRESULTADO_SRA = " . $idReporte . " ");
+ 		return $result;
+ 	} catch (Exception $e) {
+ 		echo 'Error: ' .$e->getMessage();
+ 	}
+ }
+
+
+
 
 	} // FIN DE CLASE
 	?>
