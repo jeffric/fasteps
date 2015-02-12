@@ -60,389 +60,548 @@
 			if($strTipoUsuario==1)
 			{
 				echo '	
-				<!-- Menu -->
-				<nav id="menu" >
-						<ul>
-							<li><a href="#" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
-							<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a></li>	
-							<li><a href="#">USUARIOS</a>				
-								<ul>											
-									<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>					
-									<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>
-									<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>									
-									<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-									<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-								</ul>									
-							</li>	
-							<li><a href="#">AGREGAR INFORMACION A FAST</a>
-								<ul>
-									<li><a href="Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
-									<li><a href="Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
-									<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
-									<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLAN DE MITIGACION</a></li>
-									<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLAN DE PREVENCION</a></li>
-									<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-									<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>					
-								</ul>
-							</li>	
-							<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
-								<ul>
-									<li><a href="Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
-									<li><a href="Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
-									<li><a href="Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
-									<li><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
-									<li><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
-									<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-									<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
-								</ul>
-							</li>									
-							<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
-								<ul>
-									<li><a href="Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
-									<li><a href="Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
-									<li><a href="Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
-									<li><a href="Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
-									<li><a href="Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
-									<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-									<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
-								</ul>
-							</li>																																																						
-							<li><a href="#">CRR</a>
-								<ul>
-									<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-									<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-								</ul>
-							</li>
-							<li><a href="#">SRA</a>
-								<ul>
-									<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-									<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">QUICK VIEW</a>
-								<ul>
-									<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-									<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-								</ul>	
-							</li>										
-							<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
-								<ul>
-									<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-									<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-								</ul>
-							</li>						
-								</ul>
-							</li>
-							<li><a href="#">CSR</a>
-								<ul>
-									<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-									<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-								</ul>
-							</li>
-							<li><a href="#">HISS-CAM</a>
-								<ul>
-									<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-									<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-								</ul>
-							</li>
-									<li><a href="#">Acerca de nosotros</a>
-								<ul>
-									<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-									<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-									<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-									<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
-							</li>
-									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>USUARIOS</h3>
+						<ul data-role="listview">											
+							<li data-icon="user" data-theme="a"><a href="Usuarios/index.php" data-ajax="false">Crear Usuario</a></li>					
+							<li data-icon="user" data-theme="a"><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">Asignar Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">Desasignar Usuario</a></li>									
+							<li data-icon="user" data-theme="a"><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">Modificar Info Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="Usuarios/eliminarUsuario.php" data-ajax="false">Eliminar Usuario </a></li>					
+						</ul>				
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/busarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>AGREGAR INFO A FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarRegion.php" data-ajax="false">Región</a></li>	
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>
+								<li data-icon="location" data-theme="a"><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">Punto de Evaluación</a></li>	
+								<li data-icon="calendar" data-theme="a"><a href="Agregar/agregarEvento.php" data-ajax="false">Evento</a></li>												
+							</ul>
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MODIFICAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="edit" data-theme="a"><a href="Modificar/modificarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="edit" data-theme="a"><a href="Modificar/modificarRegion.php" data-ajax="false">Región</a></li>	
+								<li data-icon="edit" data-theme="a"><a href="Modificar/modificarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="edit" data-theme="a"><a href="Modificar/modificarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>	
+								<li data-icon="edit" data-theme="a"><a href="Modificar/modificarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>	
+								<li data-icon="location" data-theme="a"><a href="Modificar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Modificar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3 >ELIMINAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="delete" data-theme="a"><a href="Eliminar/eliminarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="delete" data-theme="a"><a href="Eliminar/eliminarRegion.php" data-ajax="false">Región</a></li>
+								<li data-icon="delete" data-theme="a"><a href="Eliminar/eliminarAmenaza.php" data-ajax="false">Amenaza</a></li>	
+								<li data-icon="delete" data-theme="a"><a href="Eliminar/buscarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>	
+								<li data-icon="delete" data-theme="a"><a href="Eliminar/buscarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>	
+								<li data-icon="location" data-theme="a"><a href="Eliminar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Eliminar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
 ';					
 			}
 			else if($strTipoUsuario==2)
 			{
-							echo '	<!-- Menu -->
-							<nav id="menu" >
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>		
-									<li><a href="#">USUARIOS</a>
-										<ul>											
-											<li><a href="Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
-											<li><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																						
-											<li><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-										</ul>								
-									</li>
-									<li><a href="#">AGREGAR INFORMACION A FAST</a>
-										<ul>	
-											<li><a href="Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
-											<li><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
-											<li><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
-											<li><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
-										</ul>
-									</li>	
-									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
-										</ul>
-									</li>	
-									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
-										<ul>	
-											<li><a href="Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
-										</ul>
-									</li>
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="#" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="#" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="#" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>											
-											<li><a href="#" data-ajax="false">REPORTES SRA</a>
-												<ul>
-												<li><a href="#" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="#" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="#" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
-									</li>
-									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->';	
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>USUARIOS</h3>
+						<ul data-role="listview">											
+							<li data-icon="user" data-theme="a"><a href="Usuarios/index.php" data-ajax="false">Crear Usuario</a></li>					
+							<li data-icon="user" data-theme="a"><a href="Usuarios/asignarUsuarioP.php" data-ajax="false">Asignar Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="Usuarios/desasignarUsuarioP.php" data-ajax="false">Desasignar Usuario</a></li>									
+							<li data-icon="user" data-theme="a"><a href="Usuarios/modificarInfoUsuario.php" data-ajax="false">Modificar Info Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="Usuarios/eliminarUsuario.php" data-ajax="false">Eliminar Usuario </a></li>					
+						</ul>				
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>AGREGAR INFO A FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>
+								<li data-icon="location" data-theme="a"><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">Punto de Evaluación</a></li>	
+								<li data-icon="calendar" data-theme="a"><a href="Agregar/agregarEvento.php" data-ajax="false">Evento</a></li>												
+							</ul>
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MODIFICAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Modificar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Modificar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3 >ELIMINAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Eliminar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Eliminar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';
 
 			}
 			else if($strTipoUsuario==3)
-				{							echo '	<!-- Menu -->
-			<nav id="menu" >
-				<ul>
-					<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-					<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-					</li>										
-					<li><a href="#">CRR</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-							<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
+				{							
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
 						</ul>
-					</li>
-					<li><a href="#">SRA</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
-							<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>										
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>											
-											<li><a href="home.php" data-ajax="false">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
-									</li>
-									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</li>						
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="vision.php">Visión</a></li>
 						</ul>
-					</li>
-					<li><a href="#">CSR</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">EVALUAR CSR</a></li>
-							<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="developers.php">Developers</a></li>
 						</ul>
-					</li>
-					<li><a href="#">HISS-CAM</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-							<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">Acerca de nosotros</a>
-						<ul>
-							<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-							<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-							<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-							<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
-					</li>
-					<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-					<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-				</ul>
-			</nav>
-			<!-- /Menu -->';	
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';	
 
 		}
 		else if($strTipoUsuario==4)
 		{
-			echo '	<!-- Menu -->
-			<nav id="menu" >
-				<ul>
-					<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-					<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-					</li>										
-					<li><a href="#">CRR</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">SRA</a>
-						<ul>
-							<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>										
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="sra/index.php" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>										
-											<li><a href="#">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
-									</li>
-									<li><a href="home.php" data-ajax="false">HOME</a></li>
-									<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</li>						
-						</ul>
-					</li>
-					<li><a href="#">CSR</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">HISS-CAM</a>
-						<ul>
-							<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-						</ul>
-					</li>
-					<li><a href="#">Acerca de nosotros</a>
-						<ul>
-							<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-							<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-							<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-							<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
-					</li>
-					<li><a href="contacto.php" data-ajax="false">Contacto</a></li>
-					<li><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-				</ul>
-			</nav>
-			<!-- /Menu -->';	
+	
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
 
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';
 		}
 	}
 
@@ -457,26 +616,23 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 
-		<!-- Estilos para menu -->
+		<!-- Estilos para menu  
 		<link type="text/css" rel="stylesheet" href="css/menu/demo.css" />
-		<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" />
-
-		<!-- scripts para mapas -->
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
+		<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" /> -->
 
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.1.js"></script>
 		<script src="js/jquery.mobile-1.4.4.min.js"></script>
 
-		<!-- libreria para alertas -->
+		<!-- libreria para alertas 
 		<script src="js/sweet-alert.js"></script>
-		<link rel="stylesheet" href="css/sweet-alert.css">
+		<link rel="stylesheet" href="css/sweet-alert.css">-->
 
 
-		<!-- Scripts para menu -->
-		<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script>
+		<!-- Scripts para menu 
+		<script type="text/javascript" src="js/menu/jquery.mmenu.min.all.js"></script> -->
 
-		<!-- for the fixed header -->
+		<!-- for the fixed header 
 		<style type="text/css">
 			.header,
 			.footer
@@ -491,325 +647,568 @@
 			{
 				bottom: 0;
 			}
-		</style>
+		</style>-->
 		' . $CodigoDentroDeHeader . 
 
 
 		'
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
 			}
-		</script>
+		</script>-->
 </head>';
 }
 
 	function getMenuNivel2($strTipoUsuario){
 			if($strTipoUsuario==1)
 			{
-							echo '	<!-- Menu -->
-							<nav id="menu" >
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>	
-									<li><a href="#">USUARIOS</a>
-										<ul>											
-											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
-											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																			
-											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-										</ul>									
-									</li>	
-									<li><a href="#">AGREGAR INFORMACION A FAST</a>
-										<ul>
-											<li><a href="../Agregar/agregarPais.php" data-ajax="false">AGREGAR PAIS</a></li>
-											<li><a href="../Agregar/agregarRegion.php" data-ajax="false">AGREGAR REGION</a></li>	
-											<li><a href="../Agregar/agregarAmenaza.php" data-ajax="false">AGREGAR AMENAZAS</a></li>
-											<li><a href="../Agregar/agregarPlanMitigacion.php" data-ajax="false">AGREGAR PLANES DE MITIGACION</a></li>
-											<li><a href="../Agregar/agregarPlanPrevencion.php" data-ajax="false">AGREGAR PLANES DE PREVENCION</a></li>
-											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
-										</ul>
-									</li>
-									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="../Modificar/modificarPais.php" data-ajax="false">MODIFICAR PAIS</a></li>
-											<li><a href="../Modificar/modificarRegion.php" data-ajax="false">MODIFICAR REGION</a></li>	
-											<li><a href="../Modificar/modificarAmenaza.php" data-ajax="false">MODIFICAR AMENAZA</a></li>
-											<li><a href="../Modificar/modificarPlanMitigacion.php" data-ajax="false">MODIFICAR PLAN DE MITIGACION</a></li>	
-											<li><a href="../Modificar/modificarPlanPrevencion.php" data-ajax="false">MODIFICAR PLAN PREVENCION</a></li>	
-											<li><a href="../Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
-										</ul>
-									</li>									
-									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="../Eliminar/eliminarPais.php" data-ajax="false">ELIMINAR PAIS</a></li>
-											<li><a href="../Eliminar/eliminarRegion.php" data-ajax="false">ELIMINAR REGION</a></li>
-											<li><a href="../Eliminar/eliminarAmenaza.php" data-ajax="false">ELIMINAR AMENAZA</a></li>	
-											<li><a href="../Eliminar/buscarPlanMitigacion.php" data-ajax="false">ELIMINAR PLAN DE MITIGACION</a></li>	
-											<li><a href="../Eliminar/buscarPlanPrevencion.php" data-ajax="false">ELIMINAR PLAN DE PREVENCION</a></li>	
-											<li><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
-										</ul>																											
-									</li>																																																						
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="#" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>											
-											<li><a href="#">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. Menu Super Admin</a>
-									</li>
-									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->';					
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>USUARIOS</h3>
+						<ul data-role="listview">											
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/index.php" data-ajax="false">Crear Usuario</a></li>					
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">Asignar Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">Desasignar Usuario</a></li>									
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">Modificar Info Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">Eliminar Usuario </a></li>					
+						</ul>				
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>AGREGAR INFO A FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarRegion.php" data-ajax="false">Región</a></li>	
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">Punto de Evaluación</a></li>	
+								<li data-icon="calendar" data-theme="a"><a href="../Agregar/agregarEvento.php" data-ajax="false">Evento</a></li>												
+							</ul>
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MODIFICAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarRegion.php" data-ajax="false">Región</a></li>	
+								<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>	
+								<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>	
+								<li data-icon="location" data-theme="a"><a href="../Modificar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Modificar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3 >ELIMINAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="delete" data-theme="a"><a href="../Eliminar/eliminarPais.php" data-ajax="false">País</a></li>
+								<li data-icon="delete" data-theme="a"><a href="../Eliminar/eliminarRegion.php" data-ajax="false">Región</a></li>
+								<li data-icon="delete" data-theme="a"><a href="../Eliminar/eliminarAmenaza.php" data-ajax="false">Amenaza</a></li>	
+								<li data-icon="delete" data-theme="a"><a href="../Eliminar/buscarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>	
+								<li data-icon="delete" data-theme="a"><a href="../Eliminar/buscarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>	
+								<li data-icon="location" data-theme="a"><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Eliminar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="../mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="../vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="../developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';					
 			}
 			else if($strTipoUsuario==2)
 			{
-							echo '	<!-- Menu -->
-							<nav id="menu" >
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>		
-									<li><a href="#">USUARIOS</a>
-										<ul>											
-											<li><a href="../Usuarios/crearUsuario.php" data-ajax="false">CREAR USUARIO</a></li>																						
-											<li><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">ASIGNAR USUARIO A PAIS</a></li>	
-											<li><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">DESASIGNAR USUARIO A PAIS</a></li>																			
-											<li><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">MODIFICAR INFORMACION USUARIO</a></li>
-											<li><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">ELIMINAR USUARIO </a></li>					
-										</ul>									
-									</li>		
-									<li><a href="#">AGREGAR INFORMACION A FAST</a>
-										<ul>	
-											<li><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">AGREGAR PUNTO DE EVALUACION</a></li>	
-											<li><a href="../Agregar/agregarEvento.php" data-ajax="false">AGREGAR EVENTO</a></li>																												
-										</ul>
-									</li>	
-									<li><a href="#">MODIFICAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="../Modificar/buscarPaisPto.php" data-ajax="false">MODIFICAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Modificar/buscarEvento.php" data-ajax="false">MODIFICAR EVENTO</a></li>																											
-										</ul>
-									</li>	
-									<li><a href="#">ELIMINAR INFORMACION DE FAST</a>
-										<ul>
-											<li><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">ELIMINAR PUNTO DE EVALUACION</a></li>
-											<li><a href="../Eliminar/buscarEvento.php" data-ajax="false">ELIMINAR EVENTO</a></li>																											
-										</ul>
-									</li>																																										
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="#" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>											
-											<li><a href="#">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Admin Pais</a>
-									</li>
-									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->';	
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>USUARIOS</h3>
+						<ul data-role="listview">											
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/index.php" data-ajax="false">Crear Usuario</a></li>					
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/asignarUsuarioP.php" data-ajax="false">Asignar Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/desasignarUsuarioP.php" data-ajax="false">Desasignar Usuario</a></li>									
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/modificarInfoUsuario.php" data-ajax="false">Modificar Info Usuario</a></li>
+							<li data-icon="user" data-theme="a"><a href="../Usuarios/eliminarUsuario.php" data-ajax="false">Eliminar Usuario </a></li>					
+						</ul>				
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>AGREGAR INFO A FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>
+								<li data-icon="action" data-theme="a"><a href="../Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Agregar/agregarPtoEvaluacion.php" data-ajax="false">Punto de Evaluación</a></li>	
+								<li data-icon="calendar" data-theme="a"><a href="../Agregar/agregarEvento.php" data-ajax="false">Evento</a></li>												
+							</ul>
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MODIFICAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Modificar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Modificar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3 >ELIMINAR INFO DE FAST</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Eliminar/buscarPaisPto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Eliminar/buscarEvento.php" data-ajax="false">Evento</a></li>																											
+							</ul>				
+			    	</div>
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="../mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="../vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="../developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';
 
 			}
 			else if($strTipoUsuario==3)
-			{							echo '	<!-- Menu -->
-							<nav id="menu" >
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>										
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">EVALUAR CRR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="../sra/index.php" data-ajax="false">EVALUAR SRA</a></li>
-											<li><a href="#" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>											
-											<li><a href="#">REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="../Csr/buscarPaisPto.php" data-ajax="false">EVALUAR CSR</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="../Hiss-Cam/index.php" data-ajax="false">EVALUAR HISS-CAM</a></li>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Reportero</a>
-									</li>
-									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->';	
+				{							
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
 
-			}
-			else if($strTipoUsuario==4)
-			{
-							echo '	<!-- Menu -->
-							<nav id="menu" >
-								<ul>
-									<li><a href="#"><center>F.A.S.T. MENU</center></a></li>
-									<li><a href="../Modificar/modificarMiInfo.php" data-ajax="false">MODIFICAR MI INFORMACION</a>
-									</li>										
-									<li><a href="#">CRR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES CRR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">SRA</a>
-										<ul>
-											<li><a href="#" data-ajax="false">QUICK VIEW</a>
-												<ul>
-												<li><a href="../QuickView/buscarPtosEvaluacion.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>	
-											</li>										
-											<li><a href="#" >REPORTES SRA</a>
-												<ul>
-												<li><a href="home.php" data-ajax="false">PUNTOS DE EVALUACION</a></li>
-												<li><a href="home.php" data-ajax="false">EVENTOS</a></li>
-												</ul>
-											</li>						
-										</ul>
-									</li>
-									<li><a href="#">CSR</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES CSR</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">HISS-CAM</a>
-										<ul>
-											<li><a href="home.php" data-ajax="false">REPORTES HISS-CAM</a></li>						
-										</ul>
-									</li>
-									<li><a href="#">Acerca de nosotros</a>
-										<ul>
-											<li><a href="about/mision.php" data-ajax="false">Misión</a></li>
-											<li><a href="about/vision.php" data-ajax="false">Visión</a></li>
-											<li><a href="about/valores.php" data-ajax="false">Valores</a></li>
-											<li><a href="about/historia.php" data-ajax="false">Historia</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Acerca de F.A.S.T. menu Consultor</a>
-									</li>
-									<li><a href="../home.php" data-ajax="false">HOME</a></li>
-									<li><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
-								</ul>
-							</nav>
-							<!-- /Menu -->';	
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
 
-}	
-}
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>EVALUAR</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="../mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="../vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="../developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';	
+
+		}
+		else if($strTipoUsuario==4)
+		{
+	
+				echo '	
+		  <!-- Menu  -->
+		  <div data-role="panel" id="Menu" data-theme="b">
+		    	<ul data-role="listview">
+			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>MI INFORMACIÓN</h3>
+						<ul data-role="listview">
+							<li data-icon="edit" data-theme="a"><a href="../Modificar/modificarMiInfo.php" data-ajax="false">Modificar mi Información</a></li>	
+						</ul>
+					</div>		    	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CRR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="alert" data-theme="a"><a href="../Crr/buscarReportePaisCrr.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/buscarReportePtoCrr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/buscarReporteEventoCrr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>SRA</h3>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../sra/buscarReportePtoSra.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/buscarReporteEventoSra.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>				    	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>CSR</h3>
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Csr/buscarReportePtoCsr.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Csr/buscarReporteEventoCsr.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>	
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>HISS-CAM</h3>	
+				    	<div data-role="collapsible" data-inset="true">
+						<h3>REPORTES</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+							</ul>	
+				    	</div>					
+			    	</div>	
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3>QUICK VIEW</h3>
+							<ul data-role="listview">
+								<li data-icon="location" data-theme="a"><a href="../QuickView/index.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../QuickView/buscarEvento.php" data-ajax="false">Evento</a></li>
+							</ul>					
+			    	</div>			    		    		    		    	
+
+			    	<ul data-role="listview">
+			    	<li data-icon="back" data-theme="a"><a href="../logOut.php" data-ajax="false" rel="external">Log Out</a></li>
+			    	</ul>		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About WORLD VISION</a></h3>
+						<ul data-role="listview">
+							<li data-icon="star" data-theme="a"><a href="../mision.php">Misión</a></li>
+							<li data-icon="star" data-theme="a"><a href="../vision.php">Visión</a></li>
+						</ul>
+			    	</div>			    		
+
+			    	<div data-role="collapsible" data-inset="true">
+					<h3><a>About FAST</a></h3>
+						<ul data-role="listview">
+							<li data-icon="info" data-theme="a"><a href="../developers.php">Developers</a></li>
+						</ul>
+			    	</div>		    	    			    	
+
+		    	</ul>		    	
+		  </div>
+		  <!-- /Menu -->
+';
+		}
+	}
 
 function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	echo '<head>
@@ -821,8 +1220,8 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	<!-- Estilos -->
 	<link rel="stylesheet" href="../css/jquery.mobile-1.4.4.min.css" />
 
-	<!-- Estilos para menu -->
-	<link type="text/css" rel="stylesheet" href="../css/menu/demo.css" />
+	<!-- Estilos para menu 
+	<link type="text/css" rel="stylesheet" href="../css/menu/demo.css" /> -->
 
 	<link type="text/css" rel="stylesheet" href="../css/menu/jquery.mmenu.all.css" />
 
@@ -841,12 +1240,9 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 <link rel="stylesheet" href="../css/sweet-alert.css">
 
 
-<!-- scripts para mapas -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
-
-<!-- Scripts para menu -->
-<script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>
-<!-- for the fixed header -->
+<!-- Scripts para menu 
+<script type="text/javascript" src="../js/menu/jquery.mmenu.min.all.js"></script>-->
+<!-- for the fixed header 
 <style type="text/css">
 	.header,
 	.footer
@@ -860,7 +1256,7 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	{
 		bottom: 0;
 	}
-</style>
+</style>-->
 ' . $CodigoDentroDeHeader . '
 
 
@@ -877,28 +1273,34 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 
 function getHeaderPage($TituloDePagina = ""){
 	echo '
-	<div class="header" >
-		<a href="#menu"></a>
+	<!-- headerPage -->
+	<div data-role="header" data-position="fixed"  >	
+	<a href="#Menu" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
 		<div style="text-align:center; ">
-		'. $TituloDePagina .'
+		<br><font size="5">'. $TituloDePagina .'</font>
 		</div>
-		<div style="position: absolute; right:0; top: 0; z-index:-2;">
+		<div style="position: absolute; right:0; top: 0; ">
 		<img src="img/logo-fit.png" alt="logo" width="100px" />
-		</div>
+		</div>	
 	</div>
+	<!-- /headerPage -->
 	';
 }
 
 function getHeaderPageNivel2($TituloDePagina = ""){
-	echo '<div class="header">
-	<a href="#menu"></a>
-	<div style="text-align:center; ">
-		' . $TituloDePagina . '
-	</div>
-	<div style="position: absolute; right:0; top: 0; z-index:-2;">
+	echo '
+	<!-- headerPage -->
+	<div data-role="header" data-position="fixed"  >	
+	<a href="#Menu" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
+		<div style="text-align:center; ">
+		<br><font size="5">'. $TituloDePagina .'</font>
+		</div>
+		<div style="position: absolute; right:0; top: 0; ">
 		<img src="../img/logo-fit.png" alt="logo" width="100px" />
+		</div>	
 	</div>
-</div>';
+	<!-- /headerPage -->
+	';
 }
 
 	/**
@@ -906,32 +1308,41 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 	 */
 		function getFooter(){
 			echo '	
-		<div class="footer FixedBottom"  style="z-index: 100;">
-			<span>Visión Mundial Guatemala,';
-			echo date("Y"); 
-			echo ' <img src="img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
-			</span>
-		</div> <!-- /footer -->
+			<!-- footer -->
+		  	<div data-role="footer" data-position="fixed" >
+			<h1>Visión Mundial Guatemala,2015 </h1>
+				<div style="position: absolute; right:0; top: 0; ">
+				<img src="img/logo-fit.png" style="width:85px; height:20px; margin-top:1px;"/>		
+				</div>			
+			</div> 
+			<!-- /footer -->
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
 			}
-		</script>
+		</script>-->
 		';
 
 	}
 
 	function getFooterNivel2(){
-		echo '	<div class="footer FixedBottom"  style="z-index: 100;">
-		<span>Visi&oacute;n Mundial Guatemala,';
-			echo date("Y"); 
-			echo '			<img src="../img/logo-fit.png" style="width:76px; height:25px; margin-top:5px;"/>
-		</span>
-	</div><!-- /footer -->
+			echo '	
+			<!-- footer -->
+		  	<div data-role="footer" data-position="fixed" >
+			<h1>Visión Mundial Guatemala,2015 </h1>
+				<div style="position: absolute; right:0; top: 0; ">
+				<img src="../img/logo-fit.png" style="width:85px; height:20px; margin-top:1px;"/>		
+				</div>			
+			</div> 
+		 	<!-- /footer -->
 
-	
-	';
+		<!-- <script type="text/javascript">
+			function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
+				swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
+			}
+		</script>-->
+		';
 
 }
 
@@ -1151,7 +1562,18 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}		
+		}
+
+		function modificarInfoUsuario($nombre, $apellido, $pass, $idUsuario){
+			//modifica una amenaza en el sistema
+			try {
+				$password = $this->getMD5($pass);
+				$result = $this->db->ExecutePersonalizado("UPDATE USUARIO SET nombre='$nombre', apellido='$apellido', password='$password' WHERE idUSUARIO='$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}				
 
 		/**
 		FUNCIONES PARA PAISES
@@ -1487,7 +1909,19 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
 			}
-		}					
+		}	
+
+		function getPtosPais($idPais){
+			//modifica un Punto de Evaluacion en el sistema
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idPUNTO_EVALUACION, Nombre, Latitud, Longitud FROM PUNTO_EVALUACION WHERE PAIS_idPais = $idPais");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}		
+
+
 
 		/**
 		FUNCIONES PARA AMENAZAS
@@ -1626,8 +2060,8 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		try {
 			$strTabla = " evaluacion ";
 			$strCampos = " fk_idUSUARIO, Fecha, Creador";
-			$parts = explode('/', $strFecha);
-			$date  = "$parts[2]-$parts[0]-$parts[1]";
+			//$parts = explode('/', $strFecha);
+			$date  = $strFecha;//"$parts[2]-$parts[0]-$parts[1]";
 			// $fecha = explode("/",$strFecha);
 			// $NuevaFecha = $fecha[2] . "-" . $fecha[1] . "-" . $fecha[0];
 			$strValores = " " . $intIdUsuario . ", '" . $date . "', '" . $strElaboradoPor . "' ";
@@ -2176,5 +2610,19 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			}
 
 		}
+
+	/**
+	FUNCIONES PARA CRR
+	 */		
+		function getCrr($idPuntoEvaluacion){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT nivel_riesgo FROM RESULTADO_CRR WHERE fk_idPUNTO_EVALUACION ='$idPuntoEvaluacion'limit 1;");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}	
+
 	} // FIN DE CLASE
 	?>
