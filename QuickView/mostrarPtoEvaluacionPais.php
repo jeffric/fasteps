@@ -15,21 +15,24 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Puntos de Evaluación", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
+  <!-- scripts para mapas -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
+
+  '); ?>
     <?php
           $idPais = $_GET['idPais'];
          
     ?>
 <body>
-
-	<div id="page">
+<div  data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Ptos de Evaluación"); ?>
-		<div class="content">
-			<p><strong></strong><br />	
+		<div role="main" class="ui-content">
+			<p align="center"><br />	
 				<?php 				
 				$result = $c_funciones->getNombrePais($idPais);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
@@ -80,36 +83,58 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
 <?php
 
-$con = mysqli_connect("localhost","root","admin","fastdbvm");
+$result=$c_funciones->getPtosPais($idPais);
 
-if ($con->connect_errno>0){
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
-$sqlpdas="SELECT idPUNTO_EVALUACION, Nombre, Latitud, Longitud FROM PUNTO_EVALUACION WHERE PAIS_idPais = $idPais";  
-
-if (!$result = $con->query($sqlpdas)) {
-die('There was an error running the query [' . $con->error . ']');
-}
-
-while ($filaidPdas = $result->fetch_assoc()) { 
+while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) { 
 ?>
 
-         var pda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>="<?php echo $filaidPdas['Nombre'];?>",
-         lat<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>=<?php echo $filaidPdas['Latitud']; ?>,
-         lon<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>=<?php echo $filaidPdas['Longitud']; ?>,
-         PositionPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.LatLng(lat<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>, lon<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>);
+         var pda<?php echo $filaidPdas[0]; ?>="<?php echo $filaidPdas[1];?>",
+         lat<?php echo $filaidPdas[0]; ?>=<?php echo $filaidPdas[2]; ?>,
+         lon<?php echo $filaidPdas[0]; ?>=<?php echo $filaidPdas[3]; ?>,
+         PositionPda<?php echo $filaidPdas[0]; ?> = new google.maps.LatLng(lat<?php echo $filaidPdas[0]; ?>, lon<?php echo $filaidPdas[0]; ?>);
 
-         var PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.Marker({
-         position: PositionPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>,
+         var PositionMarkerPda<?php echo $filaidPdas[0]; ?> = new google.maps.Marker({
+         position: PositionPda<?php echo $filaidPdas[0]; ?>,
          animation: google.maps.Animation.DROP,
          map: map,
-         title: "<?php echo $filaidPdas['Nombre'];?>",
-         icon: '../css/images/PtoEvaluacion.png',
-         draggable: true
+         title: "<?php echo $filaidPdas[1];?>",
+         icon: <?php 
+                $result1=$c_funciones->getCrr($filaidPdas[0]);
+                if(mysqli_num_rows($result1)>0){
+
+                while ($row1 = mysqli_fetch_array($result1, MYSQL_NUM)){
+                    $nivelCrr = $row1[0];   
+
+                    }                    
+                        if($nivelCrr ==1){
+
+                            echo '"../css/images/gris.png"';
+                        }
+                        else if($nivelCrr ==2){
+
+                            echo '"../css/images/amarillo.png"';
+                        }
+                        else if($nivelCrr ==3){
+                            echo '"../css/images/naranja.png"';
+
+                        }
+                        else if($nivelCrr ==4){
+                            echo '"../css/images/rojo.png"';
+
+                        }
+
+                } 
+                else{
+                    echo '"../css/images/verde.png"';
+                }  
+
+
+                    
+         ?> ,
+         draggable: false
          });           
 
-         var contenido<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
+         var contenido<?php echo $filaidPdas[0]; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
 
          ''+
 
@@ -120,15 +145,15 @@ while ($filaidPdas = $result->fetch_assoc()) {
 
 
 
-         var infowindow<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?> = new google.maps.InfoWindow({
-         content: '<?php echo $filaidPdas['Nombre'];?>'+contenido<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>
+         var infowindow<?php echo $filaidPdas[0]; ?> = new google.maps.InfoWindow({
+         content: '<?php echo $filaidPdas[1];?>'+contenido<?php echo $filaidPdas[0]; ?>
          });      
 
-         google.maps.event.addListener(PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>, 'click', function() {
-         infowindow<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>.open(map, PositionMarkerPda<?php echo $filaidPdas['idPUNTO_EVALUACION']; ?>);
+         google.maps.event.addListener(PositionMarkerPda<?php echo $filaidPdas[0]; ?>, 'click', function() {
+         infowindow<?php echo $filaidPdas[0]; ?>.open(map, PositionMarkerPda<?php echo $filaidPdas[0]; ?>);
          });
 
-<?php } mysqli_close($con);
+<?php } 
 ?>
 
 
@@ -157,30 +182,16 @@ while ($filaidPdas = $result->fetch_assoc()) {
 
         </script>
 
-                <div id="map_canvas" style="height:500px; border:10px solid #a0a0a0;">                
+        <div class="ui-body ui-body-a ui-corner-all">
+                <div id="map_canvas" style="height:500px;">                
                 </div> 
-
-
-            <div data-role="content">                        
-                <div id="infoPanel">
-                    <div id="markerStatus">
-                    </div>
-                    <div id="info">                    
-                    </div>
-                    <div id="address">                                      
-                    </div>
-
-<div id="ajax_loader"><img id="loader_gif" src="../css/themes/default/images/ajax-loader.gif" style=" display:none;"/>
-</div> 
-                        <div id="Resultado">
-                        </div>     
-                                             
-                </div>
-            </div>                
-		</div>
+        </div>
+    </div>  
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
+        <?php echo $c_funciones->getFooterNivel2(); ?>      
+
+
+ </div>   	
+
 	</body>
 	</html>
