@@ -22,12 +22,12 @@ try {
 <html>
 <?php echo $c_funciones->getHeaderNivel2("SRA - Inicio", 
 	'
-
+<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
 </script>
-<link src="../css/jquery-ui.structure.css" rel="stylesheet">	
-<link src="../css/jquery-ui.css" rel="stylesheet">	
-<link src="../css/jquery-ui.theme.css" rel="stylesheet">	
-<script src="../css/jquery-ui.js"></script>
 
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 '); 
@@ -67,7 +67,7 @@ try {
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtFecha" >Fecha</label>
-						<input type="text" name="txtFecha" id="txtFecha" value="" data-role="date" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">					
+						<input type="date" name="txtFecha" id="txtFecha">					
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtCreador" >Elaborado por</label>
