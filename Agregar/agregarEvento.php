@@ -17,11 +17,15 @@ $c_funciones = new Funciones();
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Agregar Eventos", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
+	'<style>
+    .panel-content {
+      padding: 1em;
+    }
+  </style>
+  <!-- scripts para mapas -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
+
+  '); ?>
 
 
             <script type="text/javascript">
@@ -103,50 +107,77 @@ $c_funciones = new Funciones();
 
          </script>
 <body>
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Agregar"); ?>
-		<div class="content">
-			<p><strong>AGREGAR EVENTO</strong><br />
+		<div role="main" class="ui-content">
+			<p align="center"><strong>AGREGAR EVENTO</strong><br />
 					<div class="ui-body ui-body-a ui-corner-all">
 
-						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-							<label for="txtNombre" >Nombre del Evento</label>
-							<input type="text" name="txtNombre" id="txtNombre" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-						</div>
-						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-							<label for="txtLocalidad" >Localidad (Lugar donde se realizará el evento)</label>
-							<input type="text" name="txtLocalidad" id="txtLocalidad" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-						</div>			
+      						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+      							<label for="txtNombre" >Nombre del Evento</label>
+      							<input type="text" name="txtNombre" id="txtNombre" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+      						</div>
+      						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+      							<label for="txtLocalidad" >Localidad (Lugar donde se realizará el evento)</label>
+      							<input type="text" name="txtLocalidad" id="txtLocalidad" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+      						</div>			
 
-						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-							<label for="txtDescripcion" >Descripción del Evento</label>						
-							<input  name="txtDescripcion" id="txtDescripcion" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-						</div>
-						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
-							<label for="txtFecha">Fecha</label>
-							<input type="date"  id="txtFecha">	
-						</div>                    
-					</div>
+      						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+      							<label for="txtDescripcion" >Descripción del Evento</label>						
+      							<input  name="txtDescripcion" id="txtDescripcion" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+      						</div>
+      						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
+      							<label for="txtFecha">Fecha</label>
+      							<input type="date"  id="txtFecha">	
+      						</div>                    
 
-			<p><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
-	        <div id="mapCanvas" class="content" style="height:375px; border:10px solid #a0a0a0;">                
-	        </div>
+                  <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+        			     <p align="center"><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
+        	        <div id="mapCanvas" class="content" style="height:375px;">                
+        	        </div>
+                </div>
 
-            <label for="txtLatitud">Latitud:</label> 
-            <input type="text" name="namelatitud" id="txtLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+                  <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                    <label for="txtLatitud">Latitud:</label> 
+                    <input type="text" name="namelatitud" id="txtLatitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+                  </div>
 
-            <label for="txtLongitud">Longitud:</label> 
-            <input type="text" name="namelongitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
-
-
-
-		<a href=""  data-role="button" id="botonAgregar" data-theme="b">Agregar Evento</a></center> 
+                  <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                    <label for="txtLongitud">Longitud:</label> 
+                    <input type="text" name="namelongitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;"> 
+                  </div>
+                    		<a href=""  data-role="button" id="botonAgregar">Agregar Evento</a></center> 
+            </div>
 		</div>
-		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-		</div>
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->					
-	</body>
+    		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
+        <?php echo $c_funciones->getFooterNivel2(); ?>                
+</div>
+
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeWarning" align="center"></p>
+      <center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+      <br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageMensaje" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensaje" align="center"></p>
+      <center><img src="../img/mensaje.png" style="width:55%; height:55%; margin-top:1px;" /> 
+      <br>           
+            <a href="../Agregar/agregarEvento.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+</body>
   <script type="text/javascript">
 
        $(function(){
@@ -156,28 +187,49 @@ $c_funciones = new Funciones();
         });
 
         function validar(){
-          var nombre = $('#txtNombre').val();
-          var localidad = $('#txtLocalidad').val();
-          var descripcion = $('#txtDescripcion').val();
-          var latitud = $('#txtLatitud').val();
-          var longitud = $('#txtLongitud').val();
-          var fecha = $('#txtFecha').val();
+          var nombre = $('#txtNombre').val().trim();
+          var localidad = $('#txtLocalidad').val().trim();
+          var descripcion = $('#txtDescripcion').val().trim();
+          var latitud = $('#txtLatitud').val().trim();
+          var longitud = $('#txtLongitud').val().trim();
+          var fecha = $('#txtFecha').val().trim();
 
             if(nombre == ""){
-              swal("","No debes dejar campos vacios1","warning");          
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;          
             }
-            else if(localidad.indexOf(' ') >=0 || localidad == ""){
-              swal("","No debes dejar campos vacios","warning");          
+            else if(localidad.trim() >=0 || localidad == ""){
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;     
             }                  
-            else if(descripcion == ""){
-              swal("","No debes dejar campos vacios","warning"); 
+            else if(descripcion.trim() == ""){
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;  
             }
             else if(latitud.indexOf(' ') >=0 || latitud == ""){
-              swal("","No debes dejar campos vacios","warning");          
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;                     
             }         
             else if(longitud.indexOf(' ') >=0 || longitud == ""){
-              swal("","No debes dejar campos vacios","warning");          
-            }                       
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;                        
+            }       
+            else if(fecha.trim() == ""){
+
+                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;                        
+            }                            
             else{
 
                       $.ajax({
@@ -191,8 +243,11 @@ $c_funciones = new Funciones();
                         },
                         dataType: "html",
                         success: function(msg){
-                          $("#loader_gif").fadeOut("slow");         
-                          swal(msg);                                  
+                          $("#loader_gif").fadeOut("slow");  
+
+                          $("#mensaje").text(msg);    
+                          $.mobile.changePage('#pageMensaje', 'pop', true, true);
+                          return false;                                 
 
                         }              
 
