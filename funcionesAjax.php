@@ -611,37 +611,37 @@ function SetPaso2SRA(){
 
 	//Tabla 1 (encabezado con la info de la evaluacion)
 
-	$strHtmlTabla1 = '<table class="tg" style="undefined;table-layout: fixed; width: 100%;">';
+	$strHtmlTabla1 = '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#aaa;table-layout: fixed; width: 100%;">';
 	$strHtmlTabla1 .= '	<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Nivel de riesgo';
 	$strHtmlTabla1 .= '		</td>';	
-	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
 	$strHtmlTabla1 .= $strIdNivelRiesgoPaso2;
 	$strHtmlTabla1 .= '		</td>';	
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Punto/Evento de evaluaci&oacute;n';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
 	$strHtmlTabla1 .= $nombrePtoEventoEval;
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Fecha';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
 	$arrFechaEval = explode('-',$FechaEval);
 	$strHtmlTabla1 .= "$arrFechaEval[2]/$arrFechaEval[1]/$arrFechaEval[0]";
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8">';
+	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Evaluador';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e">';
+	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
 	$strHtmlTabla1 .= $NombreUsuarioCreador . " - " . $CorreoUsuarioCreador . "<br>" . $Creador ;
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
@@ -736,11 +736,11 @@ function SetPaso2SRA(){
   $contAm = 0;
   foreach ($arrAmenaza as $amenaza) {
   	$strHtmlTabla2 .= '<tr>';
-  	$strHtmlTabla2 .= '<td style="width:15%;" class="tg-hgcj">' . $amenaza . '</td>';
-  	$strHtmlTabla2 .= '<td style="width:15%;" class="tg-f062">' . $arrNivelesRP1[$contAm] . '</td>';
-  	$strHtmlTabla2 .= '<td style="width:40%; word-wrap: break-word;background-image:url(../img/rarrow.png); background-size: 100% 100%; background-position:right 0px; background-repeat:no-repeat;" class="tg-031e">' . $arrPMP[$contAm] . '</td>';
-  	$strHtmlTabla2 .= '<td class="tg-f062">' . $arrNivelRP2[$contAm] . '</td>';
-  	$strHtmlTabla2 .= '<td class="tg-bghc">ACEPTABLE</td>';
+  	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-hgcj" style="font-weight:bold;text-align:center">' . $amenaza . '</td>';
+  	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-f062">' . $arrNivelesRP1[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td style="width:40%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff; word-wrap: break-word;background-image:url(../img/rarrow.png); background-size: 100% 100%; background-position:right 0px; background-repeat:no-repeat;" class="tg-031e">' . $arrPMP[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td colspan="2" class="tg-f062" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;text-align:center">' . $arrNivelRP2[$contAm] . '</td>';
+  	//$strHtmlTabla2 .= '<td class="tg-bghc" style="font-weight:bold;background-color:#32cb00;text-align:center">ACEPTABLE</td>';
   	$strHtmlTabla2 .= '</tr>';
   	$contAm = $contAm + 1;
   }
@@ -758,12 +758,12 @@ function SetPaso2SRA(){
 	//armado de la tabla #4, descripcion operativa del usuario
 
 	$strHtmlTabla4 = '';
-	$strHtmlTabla4 .= '<table class="tg">';
+	$strHtmlTabla4 .= '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#ccc;">';
 	$strHtmlTabla4 .= '	<tr>';
-	$strHtmlTabla4 .= '		<th class="tg-hgcj" colspan="6">Reporte Operativo</th>';
+	$strHtmlTabla4 .= '		<th class="tg-hgcj" style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;" colspan="6">Reporte Operativo</th>';
 	$strHtmlTabla4 .= '	</tr>';
 	$strHtmlTabla4 .= '	<tr>';
-	$strHtmlTabla4 .= '		<td class="tg-e3zv" colspan="6"><p>' . $strDescripcionPaso2 . '</p></td>';
+	$strHtmlTabla4 .= '		<td class="tg-e3zv" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;text-align:center" colspan="6"><p>' . $strDescripcionPaso2 . '</p></td>';
 	$strHtmlTabla4 .= '	</tr>';
 	$strHtmlTabla4 .= '</table>';	
 
@@ -793,8 +793,13 @@ function SetPaso2SRA(){
 	$strHtmlTablaGeneral .= '</table>';
 		// echo $strHtmlTablaGeneral;
 	//insertamos el reporte
-	$idReporte = $db_funciones->insertarReporteSra($FechaEval, 
-		$strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval);
+    if($idPtoEval == ""){
+        $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
+        $strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto, $idEvento,$strDescripcionPaso2);
+    }else{
+        $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
+        $strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval,$strDescripcionPaso2);
+    }	
 	echo $idReporte;
 }
 
@@ -1396,7 +1401,49 @@ function modificarInfoUsuario(){
 		echo $e->getMessage();
 	}
 }
+if($strMetodo == "SendEMail")
+SendNewMail();
 
+function SendNewMail(){
+$headers = "De: adminVM@vm.com \r\n";
+        // $headers .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";        
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$Correos = $_POST["mails"];
+	$Estilos = $_POST['estilos'];
+	$idReporte = $_POST["idRepo"];
+    $strHtml = "";
+	try {
+        $result = $db_funciones->getHtmlReporteSRA($idReporte);
+    while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+        $strHtml = $row[0];
+        break;
+    }
 
+    // $strHtml = $strHtml.replace("<html>", "");
+    // $strHtml = "<html> <style>" . $Estilos . "</style> " . $strHtml;
 
+    $db_funciones->EnviarCorreo($Correos, "Reporte SRA - Visión Mundial", $strHtml);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+}
+
+//get eventos por pais
+if($strMetodo == "getEventos")
+    getPuntosEvaluacionxPais();
+
+function getEventos(){    
+    $strHtml = "<option value='-2' selected='selected'>Elegir un punto de evaluaci&oacute;n</option>";    
+    include_once "funciones.php";
+    $db_funciones = new Funciones();
+    $result = $db_funciones->ConsultarEvento(-1);
+    while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+        $strHtml .= "<option value='" . $row[0] . "'>" . $row[1] . "</option>";     
+    }
+    echo $strHtml;
+}
 ?>

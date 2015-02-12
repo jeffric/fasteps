@@ -4,20 +4,31 @@ ob_start();
 include_once "../funciones.php";
 $c_funciones = new Funciones();
 
+$esPuntoEvaluacion = false;
 		if($_SESSION["Usuario"] == ""){
 			header("Location: ../index.php");
 			return;
 		}
 		
 //recogemos datos de la pagina anterior: Pais, Punto de evaluacion, fecha, y elaborado por.
+		$idPuntoEvaluacion = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$idUsuario = $_SESSION["idUsuario"];
 	$idPais = $_POST["lstPais"];
-	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
+	if(isset($_POST["lstPuntoEvaluacion"])){
+		$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
+		$esPuntoEvaluacion = true;
+	}else{
+		$esPuntoEvaluacion = false;
+	}
 	$FechaElaboracion = $_POST["txtFecha"];
 	$strElaboradoPor = $_POST["txtCreador"];
 
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
+	if($esPuntoEvaluacion){
+		$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
+	}else{
+		$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, -1, $idPais);	
+	}
 	$_SESSION["idEvalSraActual"] = $idEvaluacion;
 }
 
