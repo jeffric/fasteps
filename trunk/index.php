@@ -28,7 +28,7 @@ $c_funciones = new Funciones();
 		</div>
 
 		<div style="text-align: center; padding-top: 10px;">
-				<img src="img/big-logo.jpg" alt="image" style=" width:50%;"/>
+				<img src="img/logoVM.jpg" alt="image" style=" width:50%;"/>
 		</div>
 
 		<div data-role="content">
@@ -61,7 +61,7 @@ $c_funciones = new Funciones();
 				<!-- </form> -->	
 		</div><!-- /content -->
 
-		<div data-role="footer">
+		<div data-role="footer" data-position="fixed">
 			<h4>
 				Visión Mundial Guatemala, <?php echo date("Y"); ?> <img src="img/logo-fit.png" style="width:76px; height:25px; padding-left:10px;"/>
 			</h4>
@@ -80,9 +80,6 @@ $c_funciones = new Funciones();
     </div>	
 
 <script type="text/javascript">
-	/*function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
-		swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
-	}*/
 
 
     $("#btnLogin").click(function(){
@@ -95,16 +92,12 @@ $c_funciones = new Funciones();
             if (respuesta == true) {
 
             	window.location.href = 'home.php'; 
-               // $.mobile.changePage("home.php");
             }
             else{
                 $.mobile.changePage('#pageError', 'pop', true, true);
             }
         });
   	
-
-		//$.mobile.pageContainer.pagecontainer("change", "#pageError", { transition: 'pop', role: "dialog" });
-
     });
 
 
