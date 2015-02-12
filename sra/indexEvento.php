@@ -21,40 +21,22 @@ try {
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("SRA - Inicio", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-$(document).bind("mobileinit", function () {
-
-	$.mobile.ajaxEnabled = false;
-
-});
-
-</script>
-<link src="../css/jquery-ui.structure.css" rel="stylesheet">	
-<link src="../css/jquery-ui.css" rel="stylesheet">	
-<link src="../css/jquery-ui.theme.css" rel="stylesheet">	
-<script src="../css/jquery-ui.js"></script>
-
-<script>
-$( document ).bind( "mobileinit", function() {
-  $.mobile.hashListeningEnabled = false;
-  $.mobile.pushStateEnabled = false;
-  $.mobile.changePage.defaults.changeHash = false;
-});
-</script>
-
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 '); 
 
 ?>
 <body>
 
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. SRA"); ?>
-		<div class="content">
+		<div role="main" class="ui-content">
 			<form action="lstAmenazas.php" method="POST" data-ajax="false">
+				
 				<div class="ui-body ui-body-a ui-corner-all">
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="lstPais" >Eventos</label>
@@ -81,15 +63,21 @@ $( document ).bind( "mobileinit", function() {
 						<label for="txtCreador" >Elaborado por</label>
 						<input type="text" name="txtCreador" id="txtCreador" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+					<input type="submit" id="btnCrearEval" data-theme="a" name="btnCrearEval" value="Crear evaluación" class="ui-btn-hidden" aria-disabled="false"/>
+					</div>
 				</div>
-				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-				<input type="submit" id="btnCrearEval" data-theme="a" name="btnCrearEval" value="Crear evaluación" class="ui-btn-hidden" aria-disabled="false"/>
-				</div>
-			</form>			
-		</div>
+
+				
+			</form>		
+		</div>		
+		
+
 		<?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
-	</div>		
 	<?php echo $c_funciones->getFooterNivel2(); ?>		
+
+
+	</div>		
 	<!-- FOOTER -->
 
 	<script type="text/javascript">
