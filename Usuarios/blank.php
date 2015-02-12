@@ -13,20 +13,26 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Creación de usuarios", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
+	'  <style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>'); ?>
 <body>
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Creación de usuarios"); ?>
-		<div class="content">
-			<p><strong>CREACIÓN DE USUARIOS</strong><br />
-			</div>
-		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
+		<div role="main" class="ui-content">
+			<p align="center"><strong>BLANK</strong><br />
+				<div class="ui-body ui-body-a ui-corner-all">
 
+					CONTENIDO
+					
+				</div>
 		</div>
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
-	</body>
-	</html>
+</div>
+</body>
+<script>
+</script>
+</html>
