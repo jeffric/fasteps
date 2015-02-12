@@ -16,19 +16,18 @@ $c_funciones = new Funciones();
 ?>
 <!DOCTYPE html>
 <?php echo $c_funciones->getHeaderNivel2("Creación de usuarios", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-	</script> 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); 
+	'<style>
+	  	.panel-content {
+	    	padding: 1em;
+	  	}
+ 	</style>'); 
 ?>
 <body>
-	<div id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Usuarios"); ?>
-			<div class="content">
-					<p><strong>CREACIÓN DE USUARIOS</strong><br />
-					<div class="ui-body ui-body-a ui-corner-all">
+<div data-role="page" id="page">
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Usuarios"); ?>
+		<div role="main" class="ui-content">
+					<p align="center"><strong>CREACIÓN DE USUARIOS</strong><br />
+				<div class="ui-body ui-body-a ui-corner-all">
 
 							<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 								<label for="txtNombre" >Nombre(s) de usuario</label>
@@ -52,20 +51,20 @@ $c_funciones = new Funciones();
 									if($strTipoUsuario==1){			
 											$result = $c_funciones->getListaPaises();					
 											while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-													echo'<option value="'. $row[0] . '">' . $row[1] . '</option>
-													';
+												echo'
+													<option value="'. $row[0] . '">' . $row[1] . '</option>';
 											}
 									}
 									else{
 											$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 											$result = $c_funciones->getListaPaisesAsignados($idUsuario);
 											while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-													echo'<option value="'. $row[0] . '">' . $row[1] . '</option>
-													';
+													echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
 											}							
 									}
 ?>
-								</select>	
+							
+							</select>	
 							</div>
 
 							<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -75,18 +74,19 @@ $c_funciones = new Funciones();
 									if($strTipoUsuario==1){		
 											$result = $c_funciones->getTipoUsuarios();					
 											while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-													echo'<option value="'. $row[0] . '">' . $row[1] . '</option>
-													';
+													echo'
+													<option value="'. $row[0] . '">' . $row[1] . '</option>';
 											}
 									}		
 									else{
 											$result = $c_funciones->getTipoUsuarios2();
 											while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-													echo'<option value="'. $row[0] . '">' . $row[1] . '</option>
-													';
+													echo'
+													<option value="'. $row[0] . '">' . $row[1] . '</option>';
 											}							
 									}			
 ?>
+								
 								</select>	
 							</div>
 
@@ -104,19 +104,37 @@ $c_funciones = new Funciones();
 								<p id="respuesta"></p>
 							</div>
 
-							<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-								<button id="btnCrearUsuario"  name="submit" value="submit-value"  aria-disabled="false">Agregar usuario</button>
-							</div>							
-					</div>					
-					<!-- nombre, apellido, correo, password -->					
+							<button id="btnCrearUsuario"  name="submit" value="submit-value"  aria-disabled="false">Agregar usuario</button>
+	
 
-			</div>
-	<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
-
-
-	<?php echo $c_funciones->getFooterNivel2(); ?>	
-	<!-- FOOTER -->							
-	</div>
+				</div>								
+			
+		</div>
+			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
+			<?php echo $c_funciones->getFooterNivel2(); ?>					
+</div>
+<div id="pageMensaje" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Error</h1>
+            <article data-role="content">
+            <p id="mensaje"></p>
+			<center><img src="../img/error.png" style="width:55%; height:55%; margin-top:1px;" />   
+			<br>        
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center> 
+           </article>
+</div>	
+<div id="pageExito" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeExito"></p>
+			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>
+            <a href="../Usuarios/index.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
+           </article>
+</div>
 
 				
 <script type="text/javascript">
@@ -147,35 +165,46 @@ $c_funciones = new Funciones();
 			strPais = $("#lstPais option:selected").val();
 
 			if(strNmUsr == ""){
-				//$.mobile.changePage('#pageMensaje', 'pop', true, true);
-				//swal("Error", "No debe dejar el nombre vacío.", "error");	
-	
+				
+				$("#mensaje").text("No debe dejar el campo nombre vacío.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
 				return false;
 			}
 
 			if(strApllUsr == ""){
-				swal("Error", "No debe dejar el apellido vacío.", "error");			
+
+				$("#mensaje").text("No debe dejar el campo apellido vacío.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
 				return false;
 			}
 
 			if(strCorrUsr == ""){
-				swal("Error", "No debe dejar el correo vacío.", "error");
-				return false;
+
+				$("#mensaje").text("No debe dejar el campo correo vacío.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
+				return false;				
 			}
 
 			if(strPssUsr == ""){
-				swal("Error", "No debe dejar el password vacío.", "error");
-				return false;
+
+				$("#mensaje").text("No debe dejar el campo password vacío.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
+				return false;					
 			}
 
 			if(strCnfPssUsr == ""){
-				swal("Error", "No debe dejar la confirmación de password vacío.", "error");			
-				return false;
+
+				$("#mensaje").text("No debe dejar la confirmación de password vacío.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
+				return false;					
 			}
 
 			if(strPssUsr != strCnfPssUsr){
-				swal("Error", "Los passwords no coinciden.", "error");			
-				return false;
+
+				$("#mensaje").text("Los passwords no coinciden.");
+				$.mobile.changePage('#pageMensaje', 'pop', true, true);
+				return false;					
+
 			}
 
 
@@ -198,7 +227,8 @@ $c_funciones = new Funciones();
 					success: function (datos) {
 
 							$("#respuesta").text("");					
-							swal(datos);
+							$("#mensajeExito").text(datos);
+							$.mobile.changePage('#pageExito', 'pop', true, true);
 
 					},
 					error: function (objeto, error, objeto2) {
