@@ -21,15 +21,7 @@ try {
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("SRA - Inicio", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-$(document).bind("mobileinit", function () {
-
-	$.mobile.ajaxEnabled = false;
-
-});
+	'
 
 </script>
 <link src="../css/jquery-ui.structure.css" rel="stylesheet">	
@@ -37,23 +29,14 @@ $(document).bind("mobileinit", function () {
 <link src="../css/jquery-ui.theme.css" rel="stylesheet">	
 <script src="../css/jquery-ui.js"></script>
 
-<script>
-$( document ).bind( "mobileinit", function() {
-  $.mobile.hashListeningEnabled = false;
-  $.mobile.pushStateEnabled = false;
-  $.mobile.changePage.defaults.changeHash = false;
-});
-</script>
-
 </script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 '); 
 
 ?>
 <body>
-
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. SRA"); ?>
-		<div class="content">
+		<div role="main" class="ui-content">
 			<form action="lstAmenazas.php" method="POST" data-ajax="false">
 				<div class="ui-body ui-body-a ui-corner-all">
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -97,9 +80,10 @@ $( document ).bind( "mobileinit", function() {
 			</form>			
 		</div>
 		<?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
-	</div>		
 	<?php echo $c_funciones->getFooterNivel2(); ?>		
-	<!-- FOOTER -->
+
+	</div>		
+
 
 	<script type="text/javascript">
 	//txtFecha
