@@ -16,24 +16,22 @@ $c_funciones = new Funciones();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 
-$idPuntoEvaluacion=$_POST["lstPuntos"];
+$idEvento=$_POST["lstEventos"];
 $idNivelRiesgo=$_POST["lstNivelRiesgo"];
 $cantidadRequerimientos=$c_funciones->getCantidadRequerimientos($idNivelRiesgo);
 
-$_SESSION["idPuntoEvaluacion"] =$idPuntoEvaluacion;
+$_SESSION["idEvento"] =$idEvento;
 $_SESSION["idNivelRiesgo"] = $idNivelRiesgo;
 $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
-
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
-	$_SESSION["idEvalCsrActual"] = $idEvaluacion;
 
 
 	}
 	else{
-			header("Location: ../Csr/buscarPtoEvaluacion.php");
+			header("Location: ../Csr/buscarEvento.php");
 			return;
 
 	}
+
 
 
 /*$idUsuario = $c_funciones->getIdUsuario($strUsuario);

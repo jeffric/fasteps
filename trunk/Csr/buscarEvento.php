@@ -31,20 +31,20 @@ $c_funciones = new Funciones();
 <div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
 		<div role="main" class="ui-content">
-		<form action="realizarEvaluacion.php" method="POST" data-ajax="false" >
-			<p align="center"><strong>Seleccione el Punto de Evaluación que desea evaluar CSR</strong><br />		
+		<form action="realizarEvaluacionEvento.php" method="POST" data-ajax="false" >
+			<p align="center"><strong>Seleccione el Evento que desea evaluar CSR</strong><br />		
 				<div class="ui-body ui-body-a ui-corner-all">
-						<select name="lstPuntos" id="lstPuntos">
+						<select name="lstEventos" id="lsteEventos">
 							<?php 				
 
-									$result = $c_funciones->getListaPtosEvaluacion($idPais);
+									$result = $c_funciones->getListaEventos();
 									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 										echo'
 										<option value="'. $row[0] . '">' . $row[1] . '</option>';
 									}																						
 							?>
 						</select>	
-			<p align="center"><strong>Seleccione el nivel de riesgo para ese punto CSR</strong><br />						
+			<p align="center"><strong>Seleccione el nivel de riesgo para ese Evento</strong><br />						
 						<select name="lstNivelRiesgo" id="lstNivelRiesgo">
 							<?php 				
 
