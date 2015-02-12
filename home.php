@@ -17,69 +17,51 @@ $c_funciones = new Funciones();
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeader("Home", 
-	'<script type="text/javascript">
-			$(function() {
-				$("nav#menu").mmenu();
-			});
-		</script>'); 
+	'  <style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>'); 
 
 ?>
 
 <body>
 
-<div id="page">
-	<?php $c_funciones->getHeaderPage("F.A.S.T. Home"); ?>
-	<div class="content">
-			<div class="ui-grid-c ui-responsive">
+<div data-role="page" id="home">
+		 <?php $c_funciones->getHeaderPage("F.A.S.T. Home"); ?>
 
-						<div class="ui-block-a" style="text-align: center;">
-								<a href="crr/crr.php">
-								<img src="img/crr-logo.png" alt="crr-section">
-								<h2>CRR</h2>
-								</a>
-						</div>
-						<div class="ui-block-b" style="text-align: center;">
-								<a href="sra/index.php" data-ajax="false">
-								<img src="img/sra-logo.png" style="width:62%;" alt="sra-section">
-								<h2>SRA</h2>
-								</a>
-						</div>
-						<div class="ui-block-c" style="text-align: center;">
-								<a href="#">
-								<img src="img/hiss-logo.png" style="width:63%;" alt="crr-section">
-								<h2>HISS CAM</h2>
-								</a>					
-						</div>
-						<div class="ui-block-d" style="text-align: center;">
-								<a href="#">
-								<img src="img/csr-logo.png" style="width:62%;" alt="crr-section">
-								<h2>CSR</h2>
-								</a>
-						</div>
-			</div><!-- /grid-b -->
-			<div >
-					<a href="reportes.php" data-role="button">Reportes</a>
-					<a href="configuracion.php" data-role="button">Configuración</a>
-					<a href="historial.php" data-role="button">Historial</a>
-			</div>
+		  <div role="main" class="ui-content">
 
-	</div>
+				
+				<center><img src="img/logo-fast.jpg" style="width:50%; height:50%; margin-top:1px;" /></center>
+				<a href="reportes.php" data-role="button">Reportes</a>
+				<a href="configuracion.php" data-role="button">Configuración</a> 
+				<a href="#pageError" data-role="button" id="botonAgregar" data-rel="dialog">Historial</a>
+																					  	
+		    
+		  </div>
+		 <?php echo $c_funciones->getMenu($strTipoUsuario); ?>
+		 <?php echo $c_funciones->getFooter(); ?>	
+</div>
 
-		<?php echo $c_funciones->getMenu($strTipoUsuario); ?>
+<div id="pageError" data-role="page" data-theme="b" >
+    <header data-role="header">
+        <h1>Error</h1>
+            <article data-role="content">
+            <p>Usuario, contraseña o tipo de usuario no validos</p>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+           </article>
+</div>	 
 
-	
-		<?php echo $c_funciones->getFooter(); ?>		
-		<!-- FOOTER -->		
-		
-</div>	
+	<script>
+       $(document).ready(function(){
 
-	
-<script>
+            $('#btn').click(function(){
 
+            	alert("hola");
+       	  });
 
-
-</script>
-
-	
+       	  });
+	</script>
 </body>
 </html>
