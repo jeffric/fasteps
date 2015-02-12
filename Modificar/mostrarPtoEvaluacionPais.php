@@ -26,11 +26,10 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
          
     ?>
 <body>
-
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Ptos de Evaluación"); ?>
-		<div class="content">
-			<p><strong></strong><br />	
+		<div role="main" class="ui-content">
+			<p align="center"><strong></strong><br />	
 				<?php 				
 				$result = $c_funciones->getNombrePais($idPais);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){

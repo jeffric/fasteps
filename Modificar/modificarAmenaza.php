@@ -16,28 +16,30 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Modificar Amenaza", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>'); ?>
 <body>
-
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenazas"); ?>
-		<div class="content">
-			<p><strong>Seleccione la amenaza desea modificar </strong><br />	
+		<div role="main" class="ui-content">
+			<p align="center"><strong>Seleccione la amenaza desea modificar </strong><br />	
 			<div class="ui-body ui-body-a ui-corner-all">
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">					
-            <select name="selectAmenaza" id="selectAmenaza">   
-            <option value="-2">Elegir una amenaza</option>  
-				<?php 				
-				$result = $c_funciones->getListaAmenazas();					
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-				}					
-				?>
-            </select> 
+	            <select name="selectAmenaza" id="selectAmenaza">   
+	            <option value="-2">Elegir una amenaza</option>  
+<?php 				
+					$result = $c_funciones->getListaAmenazas();					
+					while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+					echo'
+					<option value="'. $row[0] . '">' . $row[1] . '</option>';
+					}					
+?>
+	            
+
+	            </select> 
             </div>	
 
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -50,19 +52,42 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 				<input type="text" name="txtDescripcion" id="txtDescripcion" value=""  class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 			</div> 
 
-
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-				<a href="#"  data-role="button" id="botonGuardar" data-theme="b">Guardar Cambios</a></center> 
+				<a href="#"  data-role="button" id="botonGuardar" >Guardar Cambios</a>
 			</div> 			
 
 		</div>
+	</div>	
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
-	</body>
+		<?php echo $c_funciones->getFooterNivel2(); ?>				
+</div>	
 
-	<script type="text/javascript">
+<div id="pageMensaje" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensaje" align="center"></p>
+      <center><img src="../img/mensaje.png" style="width:55%; height:55%; margin-top:1px;" /> 
+      <br>           
+            <a href="../Modificar/modificarRegion.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeWarning" align="center"></p>
+      <center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+      <br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+</body>
+<script type="text/javascript">
 
 	$(function(){
 		
@@ -74,9 +99,12 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
 						strAmenaza = $("#selectAmenaza option:selected").val();
 						if(strAmenaza==-2){
-							swal("!","Debes elegir una amenaza válida","warning");
-			                $('#txtNombre').val("");
-			                $('#txtDescripcion').val("");
+				                $('#txtNombre').val("");
+				                $('#txtDescripcion').val("");
+			                  $("#mensajeWarning").text("Debes elegir una amenaza válida");    
+			                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+			                  return false;  							
+
 						}
 						else
 						{
@@ -106,14 +134,29 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 				});
 
 	           function validar(){
-		              var nombre = $('#txtNombre').val();
-		              var descripcion = $('#txtDescripcion').val();
-		              var idAmenaza = $("#selectAmenaza option:selected").val();
-		              if(nombre == ""){
-		                swal("!","No debes dejar campos vacios","warning");          
+		              var nombre = $('#txtNombre').val().trim();
+		              var descripcion = $('#txtDescripcion').val().trim();
+		              var idAmenaza = $("#selectAmenaza option:selected").val().trim();
+						strAmenaza = $("#selectAmenaza option:selected").val();
+						if(strAmenaza==-2){
+				              $('#txtNombre').val("");
+				              $('#txtDescripcion').val("");
+			                  $("#mensajeWarning").text("Debes elegir una amenaza válida");    
+			                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+			                  return false;  							
+
+						}
+		              else if(nombre == ""){
+ 
+		                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+		                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+		                  return false;  		                       
 		              }
 		              else if(descripcion == ""){
-						swal("!","No debes dejar campos vacios","warning");
+
+		                  $("#mensajeWarning").text("No debes dejar campos vacios");    
+		                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+		                  return false;  						
 		              }
 		              else{
 		                    $.ajax({
@@ -130,8 +173,11 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 		                          swal(msg);
 		                          $('#txtNombre').val('');  
 		                          $('#txtDescripcion').val('');  
-		                          $("#loader_gif").fadeOut("slow");  
-		                                    
+		                          $("#loader_gif").fadeOut("slow");
+
+				                  $("#mensaje").text(msg);    
+				                  $.mobile.changePage('#pageMensaje', 'pop', true, true);
+				                  return false;		                                    
 
 		                      }              
 

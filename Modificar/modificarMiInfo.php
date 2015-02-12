@@ -18,18 +18,17 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Modificar Info Usuario", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-
-</script> <script src="../js/jquery-validate.js"></script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'); ?>
+	'  <style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>'); ?>
 <body>
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificación"); ?>
-		<div class="content">
+		<div role="main" class="ui-content">
 
-			<p><strong>MODIFICACIÓN INFORMACION USUARIO</strong><br />
+			<p align="center"><strong>MODIFICACIÓN INFORMACION USUARIO</strong><br />
 			<div class="ui-body ui-body-a ui-corner-all">
 
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -41,8 +40,8 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						<input type="text" name="txtApellido" id="txtApellido" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtCorreo" title="Este será el campo con el que se ingresará en el login de la aplicación.">Correo de usuario/Usuario</label>
-						<input type="text" name="txtCorreo" id="txtCorreo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+						<label for="txtCorreo">Correo de usuario/Usuario</label>
+						<input disabled="true" type="text" name="txtCorreo" id="txtCorreo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>	
 													
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -61,9 +60,32 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			</div>
 		</div>
 		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
-		</div>
-		<?php echo $c_funciones->getFooterNivel2(); ?>			
-	</body>
+		<?php echo $c_funciones->getFooterNivel2(); ?>					
+</div>
+
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensaje" align="center"></p>
+			<center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>
+            <a href="../Modificar/modificarMiInfo.php" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageExito" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeExito" align="center"></p>
+			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" /></center>
+            <a href="../Modificar/modificarMiInfo.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+           </article>
+</div>
+
+</body>
 	<script type="text/javascript">
 	$(function(){
 
@@ -95,55 +117,58 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 		});
 
 		function Validar(){
-			if($('#txtNombre').val() == ""){
-				swal("", "Debes ingresar el nombre de usuario", "warning");
-			}
-			else if($('#txtApellido').val() == ""){
-				swal("", "Debes ingresar el apellido de usuario", "warning");
-			}
-			else if($('#txtCorreo').val() == ""){
-				swal("", "Debes ingresar el correo/usuario", "warning");
-			}	
-			else if($('#txtPassword').val() == ""){
-				swal("", "Debes ingresar password de usuario", "warning");
-			}			
-			else if($('#txtConfPassword').val() == ""){
-				swal("", "Debes ingresar la confirmacion de password de usuario", "warning")
-			}	
-			else if($('#txtPassword').val() != $('#txtConfPassword').val()){
-				swal("", "Los Password No coinciden", "warning");
-			}
-			else{
+				if($('#txtNombre').val().trim() == ""){
 
-				//va a insertar
-                      $.ajax({
-                        type: "POST",
-                        url: "../funcionesAjax.php",
-                        data: {nombreMetodo: "modificarMiInfo", AjxNombre: $('#txtNombre').val(), AjxApellido:$('#txtApellido').val() , AjxCorreo: $('#txtCorreo').val(), AjxPassword:$('#txtPassword').val(), AjxUsuario:<?php echo $idUsuario?>},
-                        contentType: "application/x-www-form-urlencoded",
-                        beforeSend: function(){
-                        $('#loader_gif').fadeIn("slow");
+						$("#mensaje").text("Debes ingresar el nombre de usuario");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;					
+				}
+				else if($('#txtApellido').val().trim() == ""){
 
-                        },
-                        dataType: "html",
-                        success: function(msg){
-                          $("#loader_gif").fadeOut("slow");         
-                          swal(msg);                                  
+						$("#mensaje").text("Debes ingresar el apellido de usuario");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;					
+				}	
+				else if($('#txtPassword').val().trim() == ""){
 
-                        }              
+						$("#mensaje").text("Debes ingresar password de usuario");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;					
+				}			
+				else if($('#txtConfPassword').val().trim() == ""){
 
+						$("#mensaje").text("Debes ingresar la confirmacion de password de usuario");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;						
+				}	
+				else if($('#txtPassword').val().trim() != $('#txtConfPassword').val().trim()){
 
-                      });
+						$("#mensaje").text("Los Password No coinciden");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;					
+				}
+				else{
+						//va a insertar
+		                      $.ajax({
+			                        type: "POST",
+			                        url: "../funcionesAjax.php",
+			                        data: {nombreMetodo: "modificarMiInfo", AjxNombre: $('#txtNombre').val(), AjxApellido:$('#txtApellido').val() , AjxCorreo: $('#txtCorreo').val(), AjxPassword:$('#txtPassword').val(), AjxUsuario:<?php echo $idUsuario?>},
+			                        contentType: "application/x-www-form-urlencoded",
+			                        beforeSend: function(){
+			                        $('#loader_gif').fadeIn("slow");
 
-			}									
+			                        },
+			                        dataType: "html",
+			                        success: function(msg){
+			                          $("#loader_gif").fadeOut("slow");         
+									  $("#mensajeExito").text(msg);
+									  $.mobile.changePage('#pageExito', 'pop', true, true);
+									  return false;			                                                            
 
+			                        }              
+		                      });
+				}									
 		}
-
-
-
-
-
-
 
 	});
 

@@ -16,11 +16,15 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2(" Modificar Puntos de Evaluación", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
+  <!-- scripts para mapas -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBY7goEfXlTGN5O4NfL03gzRtTyZoyZMmw&sensor=true&language=en"></script>
+
+  '); ?>
     <?php
           $idPais = $_GET['idPais'];
           $idPtoEvaluacion = $_GET['idPtoEvaluacion'];
@@ -33,11 +37,10 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
          
     ?>
 <body>
-
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificar"); ?>
-		<div class="content">
-			<p><strong></strong><br />	
+		<div role="main" class="ui-content">
+			<p align="center"><strong></strong><br />	
 				<?php 				
 				$result = $c_funciones->getNombrePais($idPais);					
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
@@ -171,7 +174,7 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
 
         </script>
                 <center>
-                <div id="map_canvas" style="height:450px; width:100%; border:6px solid #a0a0a0;">                
+                <div id="map_canvas" style="height:450px; width:100%; ">                
                 </div> 
                 </center>
 
@@ -179,14 +182,15 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
             <div data-role="content">                        
                 <div id="infoPanel">
             <div class="ui-body ui-body-a ui-corner-all">
-
-            <select name="selectPais" id="selectPais">     
+              <label for="selectPais">País del punto de evaluación:</label> 
+              <select name="selectPais" id="selectPais">     
                 <?php               
                 $result = $c_funciones->getListaPaises();                   
                 while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-                echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
+                echo'
+                <option value="'. $row[0] . '">' . $row[1] . '</option>';
                 }                   
-                ?>
+ ?>
             </select>                 
 
                 <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
@@ -204,16 +208,40 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
                 <input type="text" name="namelongitud" id="txtLongitud" disabled="true" style="font-weight:Bold; color:red; font-size:20; text-align:center;">                                
 
                 </div>
-                <a href="#"  data-role="button" id="botonGuardar" data-theme="b">Guardar Cambios</a>
+                <a href="#"  data-role="button" id="botonGuardar">Guardar Cambios</a>
             </div>  
                                              
                 </div>
             </div>                
 		</div>
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>    		
-		<!-- FOOTER -->
+    <?php echo $c_funciones->getFooterNivel2(); ?>              
+	</div>	
+
+  <div id="pageMensaje" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensaje" align="center"></p>
+      <center><img src="../img/mensaje.png" style="width:55%; height:55%; margin-top:1px;" /> 
+      <br>           
+            <a href="../Modificar/buscarPaisPto.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeWarning" align="center"></p>
+      <center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+      <br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
+
 	</body>
   <script type="text/javascript">
         $(function(){
@@ -223,19 +251,28 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
         });
 
         function validar(){
-          var nombre = $('#txtNombre').val();
-          var descripcion = $('#txtDescripcion').val();
-          var latitud = $('#txtLatitud').val();
-          var longitud = $('#txtLongitud').val();
+          var nombre = $('#txtNombre').val().trim();
+          var descripcion = $('#txtDescripcion').val().trim();
+          var latitud = $('#txtLatitud').val().trim();
+          var longitud = $('#txtLongitud').val().trim();
 
             if(nombre == ""){
-              swal("","No debes dejar campos vacios1","warning");          
+
+                        $("#mensajeWarning").text("No debes dejar campos vacios");    
+                        $.mobile.changePage('#pageWarning', 'pop', true, true);
+                        return false;            
             }                 
             else if(latitud.indexOf(' ') >=0 || latitud == ""){
-              swal("","No debes dejar campos vacios5","warning");          
+
+                        $("#mensajeWarning").text("No debes dejar campos vacios");    
+                        $.mobile.changePage('#pageWarning', 'pop', true, true);
+                        return false;        
             }         
             else if(longitud.indexOf(' ') >=0 || longitud == ""){
-              swal("","No debes dejar campos vacios6","warning");          
+
+                        $("#mensajeWarning").text("No debes dejar campos vacios");    
+                        $.mobile.changePage('#pageWarning', 'pop', true, true);
+                        return false;         
             }                       
             else{
 
@@ -251,7 +288,9 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
                         dataType: "html",
                         success: function(msg){
                           $("#loader_gif").fadeOut("slow");         
-                          swal(msg);                                  
+                          $("#mensaje").text(msg);    
+                          $.mobile.changePage('#pageMensaje', 'pop', true, true);
+                          return false;                                                          
 
                         }              
 
