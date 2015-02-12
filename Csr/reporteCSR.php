@@ -17,11 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$arrSelect= $_POST['select'];	
 	$_SESSION["arrSelect"] =$arrSelect;
+	$idNivelRiesgo =$_SESSION["idNivelRiesgo"];
 
 	}
 	else{
-			$arrSelect=$_SESSION["arrSelect"];
-
+			header("Location: ../Csr/buscarEvento.php");
+			return;
 
 	}
 
@@ -44,11 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Evaluacion CSR", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style>
 
@@ -168,21 +170,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 '); ?>
 <body>
-	<div id="page" >
+<div data-role="page" id="page" >
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
-		<div class="content">
-			<p><strong>REPORTE CSR</strong><br />
+		<div role="main" class="ui-content">
+			<p align="center"><strong>REPORTE CSR</strong><br />
+				<p align="center"><?php 
+					if($idNivelRiesgo==1){
+						echo "Nivel de riesgo: Insignificante";
+
+					}
+					else if($idNivelRiesgo==2){
+						echo "Nivel de Riesgo: Bajo";
+
+					}
+					else if($idNivelRiesgo==3){
+						echo "Nivel de Riesgo: Medio";
+
+					}
+					else if($idNivelRiesgo==4){
+						echo "Nivel de Riesgo: Alto";
+
+					}
+
+
+
+				?></p>
+			<div class="ui-body ui-body-a ui-corner-all">
 <?php
 
-$contadorNoAplicable=0;
-$contadorNoIniciado=0;
-$contadorIniciado=0;
-$contadorCompletado=0;
+		$contadorNoAplicable=0;
+		$contadorNoIniciado=0;
+		$contadorIniciado=0;
+		$contadorCompletado=0;
 
-$cadenaNoAplicable="";
-$cadenaNoIniciado="";
-$cadenaIniciado="";
-$cadenaCompletado="";
+		$cadenaNoAplicable="";
+		$cadenaNoIniciado="";
+		$cadenaIniciado="";
+		$cadenaCompletado="";
 
 	if(($arrSelect)){
 						if(!empty($arrSelect)) {
@@ -190,19 +214,23 @@ $contador=0;
 								foreach($arrSelect as $option){
 										if($option == '1'){
 											$contadorNoAplicable = $contadorNoAplicable+1;
-											$cadenaNoAplicable=$cadenaNoAplicable."<br>".$_POST['requerimientos'.$contador];
+											$cadenaNoAplicable=$cadenaNoAplicable."
+											<br>".$_POST['requerimientos'.$contador];
 										}
 										else if($option == '2'){
 											$contadorNoIniciado = $contadorNoIniciado+1;
-											$cadenaNoIniciado=$cadenaNoIniciado."<br>".$_POST['requerimientos'.$contador];											
+											$cadenaNoIniciado=$cadenaNoIniciado."
+											<br>".$_POST['requerimientos'.$contador];											
 										}
 										else if($option == '3'){
 											$contadorIniciado = $contadorIniciado+1;
-											$cadenaIniciado=$cadenaIniciado."<br>".$_POST['requerimientos'.$contador];											
+											$cadenaIniciado=$cadenaIniciado."
+											<br>".$_POST['requerimientos'.$contador];											
 										}
 										else{
 											$contadorCompletado = $contadorCompletado+1;
-											$cadenaCompletado=$cadenaCompletado."<br>".$_POST['requerimientos'.$contador];											
+											$cadenaCompletado=$cadenaCompletado."
+											<br>".$_POST['requerimientos'.$contador];											
 										}
 
 										$contador=$contador+1;
@@ -222,11 +250,11 @@ $contador=0;
 									echo "<table data-role='table'id='movie-table-custom' data-mode='reflow' class='movie-list table-stripe'>";
 								    echo "<thead>";
 								    echo "		<tr>";
-								    echo "            <th>No APlica</th>";
-								    echo "            <th>No Iniciados</th>";
-								    echo "            	<th>Iniciados</th>";
-								    echo "            <th>Completados</th>";
-								    echo "            <th>% Cumpliento</th>";
+								    echo "            <th>% No APlica</th>";
+								    echo "            <th>% No Iniciados</th>";
+								    echo "            	<th>% Iniciados</th>";
+								    echo "            <th>% Completados</th>";
+								    echo "            <th>% Cumplimiento</th>";
 								    echo "        </tr>";
 								    echo "    </thead>";
 
@@ -234,22 +262,22 @@ $contador=0;
 									echo "<tr>";
 
 									echo "<td>";
-									echo $NA;
+									echo $NA."%";
 									echo "<br>";
 									echo "</td>";
 
 									echo "<td>";
-									echo $NOIN;
+									echo $NOIN."%";
 									echo "<br>";
 									echo "</td>";
 
 									echo "<td>";
-									echo $IN;
+									echo $IN."%";
 									echo "<br>";
 									echo "</td>";
 
 									echo "<td>"; 
-									echo $COM;
+									echo $COM."%";
 									echo "<br>";
 									echo "</td>";
 
@@ -260,7 +288,7 @@ $contador=0;
 
 									}
 									else{
-									echo number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
+									echo number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '')."%";
 
 									}
 									echo "<br>";
@@ -308,12 +336,13 @@ $contador=0;
 
 
 ?>
-	
-		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
-
-		</div>
+	</div>
+	</div>	
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
-	</body>
+</div>		
+				
+</body>
 	<script type="text/javascript">
 
        $(document).ready(function(){
