@@ -10,8 +10,8 @@ $c_funciones = new Funciones();
 			return;
 		}
 
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
 
 $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
@@ -19,37 +19,42 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Buscar Punto de Evaluación", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+    .panel-content {
+      padding: 1em;
+    }
+  </style>'); ?>
 <body>
-
-	<div id="page">
+<div  data-role ="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
-		<div class="content">
-			<p><strong>Seleccione el país, del cual desea modificar el Punto de Evaluación</strong><br />		
-			<ul data-role="listview" data-filter="true" data-ajax="false">
-				<?php 				
-				if($strTipoUsuario==1){			
-						$result = $c_funciones->getListaPaises();					
-						while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-						echo'<li><a href=../Modificar/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
-						}	
-				}
-				else{
-						$result = $c_funciones->getListaPaisesAsignados($idUsuario);					
-						while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-						echo'<li><a href=../Modificar/buscarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
-						}
-				}					
-				?>
-					
+		<div role="main" class="ui-content">
+				<div class="ui-body ui-body-a ui-corner-all">
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">			
+							<p align="center"><strong>Seleccione el país, del cual desea modificar el Punto de Evaluación</strong><br />		
+							<ul data-role="listview" data-filter="true" data-ajax="false">
+<?php 				
+								if($strTipoUsuario==1){			
+										$result = $c_funciones->getListaPaises();					
+										while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo'
+										<li><a href=../Eliminar/eliminarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
+										}	
+								}
+								else{
+										$result = $c_funciones->getListaPaisesAsignados($idUsuario);					
+										while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo'
+										<li><a href=../Eliminar/eliminarPtoEvaluacion.php?idPais='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
+										}
+								}					
+?>
+							</ul>
+					</div>
+				</div>								
 		</div>
-			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
+		<?php echo $c_funciones->getFooterNivel2(); ?>			
 	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
-	</body>
-	</html>
+
+</body>
+</html>

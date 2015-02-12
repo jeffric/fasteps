@@ -10,91 +10,119 @@ $c_funciones = new Funciones();
 			return;
 		}
 		
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
 
 ?>
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Eliminar País", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+    .panel-content {
+      padding: 1em;
+    }
+  </style>'); ?>
 <body>
 
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Paises"); ?>
-		<div class="content">
-			<p><strong>Seleccione el Pais que desea eliminar del sistema</strong><br />			
-            <select name="selectPais" id="selectPais">     
-				<?php 				
-				$result = $c_funciones->getListaPaises();					
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<option value="'. $row[0] . '">' . $row[1] . '</option>';
-				}					
-				?>
-            </select> 
+		<div role="main" class="ui-content">
+			<p align="center"><strong>Seleccione el Pais que desea eliminar del sistema</strong><br />			
+				<div class="ui-body ui-body-a ui-corner-all">
+			            <select name="selectPais" id="selectPais">     
+<?php 				
+							$result = $c_funciones->getListaPaises();					
+							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+								echo'
+								<option value="'. $row[0] . '">' . $row[1] . '</option>';
+							}					
+?>
+			            </select> 
 
-            <div id="ajax_loader">
-            <img id="loader_gif" src="../css/images/ajax-loader.gif" style=" display:none;"/>
-            </div>
-
-            <a href="#"  data-role="button" id="botonEliminar" data-theme="b">Eliminar Pais</a></center> 
-            
+			            <div align="center" id="ajax_loader">
+			            <img id="loader_gif" src="../css/images/ajax-loader.gif" style=" display:none;"/>
+			            </div>
+			            <a href="#"  data-role="button" id="botonEliminar">Eliminar Pais</a>
+		        </div>    
+		            
 
 		</div>
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
-	</body>
-	<script>
+			<?php echo $c_funciones->getFooterNivel2(); ?>		
+
+</div>
+
+<div id="pagePregunta" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajePregunta" align="center">Éste País será eliminado, toda información relacionada a el, tambien será eliminada del sistema.</p>
+			<center>
+			<img src="../img/interrogacion.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>
+            <a href="#" data-role="button" id="botonConfirmar" data-rel="back">Confirmar</a>
+            <a href="#" data-role="button" id="botonCancelar" data-rel="back">Cancelar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageEliminado" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeEliminado" align="center">El País fue eliminado exitosamente</p>
+			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" />
+            <a href="../Eliminar/eliminarPais.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
+           </article>
+</div>
+
+<div id="pageCancelado" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeExito" align="center">La acción ha sido Cancelada</p>
+			<center>
+			<img src="../img/error.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
+</body>
+<script>
        $(document).ready(function(){
             
             $('#botonEliminar').click(function(){
-                
 
-swal({   title: "Confirmas que deseas eliminar "+$('#selectPais option:selected').text()+" ?",   
-	text: "Esto provocará que la informacion relacionada tambien sea eliminada",   
-	type: "warning",   
-	showCancelButton: true,   
-	confirmButtonColor: "#DD6B55",   
-	confirmButtonText: "Sí, deseo eliminarlo",   
-	cancelButtonText: "No, cancelar",   
-	closeOnConfirm: false,   
-	closeOnCancel: false }, 
-
-	function(isConfirm){   
-		if (isConfirm) {     
-			                $.ajax({
-                  type: "POST",
-                  url: "../funcionesAjax.php",
-                  data: {nombreMetodo: "eliminarPais", pais: $('#selectPais').val()},
-                  contentType: "application/x-www-form-urlencoded",
-                  beforeSend: function(){
-                    $('#loader_gif').fadeIn("slow");
-
-                  },
-                  dataType: "html",
-                  success: function(msg){
-                    $("#loader_gif").fadeOut("slow");
-                    window.location.assign("eliminarPais.php")
-
-
-                  }              
-
-
-                });
-			swal("Deleted!", "El pais se ha eliminado exitosamente.", "success");   
-		} else {     
-			swal("Cancelado", "La acción ha sido cancelada", "error");   
-		} });
-
-
-
+            	$.mobile.changePage('#pagePregunta', 'pop', true, true);
             });
+
+			$("#botonConfirmar").click(function(){
+			      $.ajax({
+			                  type: "POST",
+			                  url: "../funcionesAjax.php",
+			                  data: {nombreMetodo: "eliminarPais", pais: $('#selectPais').val()},
+			                  contentType: "application/x-www-form-urlencoded",
+			                  beforeSend: function(){
+			                    $('#loader_gif').fadeIn("slow");
+
+			                  },
+			                  dataType: "html",
+			                  success: function(msg){
+			                    $("#loader_gif").fadeOut("slow");
+								$.mobile.changePage('#pageEliminado', 'pop', true, true);
+								return false;
+			                  }              
+                });
+
+			});
+
+			$("#botonCancelar").click(function(){
+								
+				$.mobile.changePage('#pageCancelado', 'pop', true, true);
+				return false;
+			});
                     
         });
     </script>

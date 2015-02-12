@@ -10,37 +10,42 @@ $c_funciones = new Funciones();
 			return;
 		}
 		
-$strUsuario=$_SESSION["Usuario"];
-$strTipoUsuario=$_SESSION["TipoUsuario"];
+		$strUsuario=$_SESSION["Usuario"];
+		$strTipoUsuario=$_SESSION["TipoUsuario"];
 
 ?>
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Buscar Plan Prevención", 
-	'<script type="text/javascript">
-	$(function() {
-		$("nav#menu").mmenu();
-	});
-</script>'); ?>
+	'<style>
+    .panel-content {
+      padding: 1em;
+    }
+  </style>'); ?>
 
 <body>
 
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Prevenciones"); ?>
-		<div class="content">
-			<p><strong>Seleccione el Plan de Prevención que desea eliminar</strong><br />		
-			<ul data-role="listview" data-filter="true" data-ajax="false">
-				<?php 				
-				$result = $c_funciones->getListaPrevenciones();			
-				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-				echo'<li><a href=../Eliminar/eliminarPlanPrevencion.php?idPlan='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li> ';
-				}					
-				?>
+		<div role="main" class="ui-content">
+			<p align="center"><strong>Seleccione el Plan de Prevención que desea eliminar</strong><br />
+			<div class="ui-body ui-body-a ui-corner-all">		
+					<ul data-role="listview" data-filter="true" data-ajax="false">
+<?php 				
+						$result = $c_funciones->getListaPrevenciones();			
+						while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+						echo'
+						<li><a href=../Eliminar/eliminarPlanPrevencion.php?idPlan='.$row[0] .' data-ajax="false">' . $row[1] . '</a></li>';
+						}					
+?>
+
+					</ul>
+			</div>			
 					
 		</div>
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
+			<?php echo $c_funciones->getFooterNivel2(); ?>					
+</div>		
+		
 	</body>
 	</html>
