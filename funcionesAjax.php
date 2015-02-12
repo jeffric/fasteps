@@ -1312,7 +1312,7 @@ function modificarPtoEvaluacion(){
 	}
 }
 
-//Modificar Amenaza
+//Modificar MiInfo
 if($strMetodo == "modificarMiInfo")
 	modificarMiInfo();
 
@@ -1374,6 +1374,29 @@ function Login(){
 		echo $e->getMessage();
 	}
 }
+
+//Modificar InfoUsuario
+if($strMetodo == "modificarInfoUsuario")
+	modificarInfoUsuario();
+
+function modificarInfoUsuario(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$nombre = $_POST["AjxNombre"];
+	$apellido = $_POST["AjxApellido"];
+	$pass = $_POST["AjxPassword"];
+	$idUsuario = $_POST["AjxUsuario"];
+
+	try {
+
+				$result = $db_funciones->modificarInfoUsuario($nombre, $apellido, $pass, $idUsuario);
+				echo "Usuario actualizado existosamente!";
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
 
 
 ?>
