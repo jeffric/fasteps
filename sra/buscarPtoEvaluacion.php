@@ -14,7 +14,7 @@ $c_funciones = new Funciones();
 <?php echo $c_funciones->getHeader("Buscar Punto de Evaluación", 
 	'<script type="text/javascript">
 	$(function() {
-		$("nav#menu").mmenu();
+		////$("nav#menu").mmenu();
 	});
 </script>'); ?>
 <body>

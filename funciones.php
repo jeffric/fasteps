@@ -26,13 +26,13 @@
 
 		function __construct(){
 		//$serverName, $port, $db_name, $username, $password
-			// $serverName = "localhost";
-			$serverName = "creativesolitcom.ipagemysql.com";
+			$serverName = "localhost";
+			// $serverName = "creativesolitcom.ipagemysql.com";
 			$port = "3306";
 			$db_name = "fastdbvm";
 			// $username = "vm_user_fast";
-			// $username = "root";
-			$username = "vmadmin";
+			$username = "root";
+			// $username = "vmadmin";
 			$password = "admin";
 			// $password = "u$3r_*F@$t";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		

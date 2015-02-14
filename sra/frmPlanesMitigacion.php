@@ -15,7 +15,7 @@
 	<?php echo $c_funciones->getHeaderNivel2("Evaluación operativa SRA", 
 		'<script type="text/javascript">
 		$(function() {
-			$("nav#menu").mmenu();
+			////$("nav#menu").mmenu();
 		});
 </script>
 <!-- multi-select plugin -->

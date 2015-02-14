@@ -15,7 +15,7 @@ $c_funciones = new Funciones();
 <?php echo $c_funciones->getHeaderNivel2("Evaluar Amenazas SRA", 
 	'<script type="text/javascript">
 	$(function() {
-		$("nav#menu").mmenu();
+		////$("nav#menu").mmenu();
 	});
 </script>'); ?>
 <body>
