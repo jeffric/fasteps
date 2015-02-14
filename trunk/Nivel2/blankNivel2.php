@@ -9,7 +9,7 @@ $c_funciones = new Funciones();
 <?php echo $c_funciones->getHeaderNivel2("Master page Nivel 2", 
 	'<script type="text/javascript">
 	$(function() {
-		$("nav#menu").mmenu();
+		//$("nav#menu").mmenu();
 	});
 $(document).bind("mobileinit", function () {
 

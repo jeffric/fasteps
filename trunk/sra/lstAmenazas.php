@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php echo $c_funciones->getHeaderNivel2("Amenazas", 
 	'<script type="text/javascript">
 	$(function() {
-		$("nav#menu").mmenu();
+		////$("nav#menu").mmenu();
 	});
 </script>
 

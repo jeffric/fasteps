@@ -23,7 +23,7 @@ try {
 <?php echo $c_funciones->getHeaderNivel2("Reporte SRA", 
 	'<script type="text/javascript">
 	$(function() {
-		$("nav#menu").mmenu();
+		////$("nav#menu").mmenu();
 	});
 $(document).bind("mobileinit", function () {
 
