@@ -2659,6 +2659,133 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 
 
 
+function insertarReporteHissCam($NombreDepartamento, 
+								$FechaReporte, 
+								$Tema, 
+								$PaisRegion, 
+								$EjercitoOtro, 
+								$NivelCompromiso, 
+								$HtmlReporte){
+		try {
+				$strTabla = " hiss_cam_reporte ";
+				$strCampos = "";
+				$strValores = "";
+					$strCampos = "  nombre_departamento, 
+									fecha_reporte, 
+									tema, 
+									pais_region, 
+									ejercito_otro_actor, 
+									nivel_compromiso, 
+									html_reporte ";
+					$strValores = "'" . $NombreDepartamento . "','" . $FechaReporte . "','" . $Tema . "', '" . $PaisRegion . "', '" . $EjercitoOtro . "', '" . $NivelCompromiso . "', '" . $HtmlReporte . "' ";
+				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
+				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
+				if($result > 0){
+					return $result;
+				}else{
+					return -1;
+				}
+			} catch (Exception $e) {
+				//no se pudo realizar la insercion
+				echo 'Error al insertar reporte hisscam: ' . $e->getMessage();
+				return;
+			}
+	}
+
+ function getHtmlReporteHISSCAM($idReporte){
+ 	try {
+ 		$result = $this->db->ExecutePersonalizado("SELECT html_reporte FROM `hiss_cam_reporte` WHERE idHISS_CAM_REPORTE = " . $idReporte . " ");
+ 		return $result;
+ 	} catch (Exception $e) {
+ 		echo 'Error: ' .$e->getMessage();
+ 	}
+ }
+
+ function insertarReporteCRR($UsuarioEvaluador, 
+								$NivelRiesgo, 
+								$TipoObjeto, 
+								$idPunto, 
+								$idEvento, 
+								$idPais, 
+								$HtmlReporte,
+								$Fecha){
+		try {
+				$strTabla = " resultado_crr ";
+				$strCampos = "";
+				$strValores = "";
+				if($idPunto == ""){
+					$idPunto = "NULL";
+				}
+				if($idEvento == ""){
+					$idEvento = "NULL";
+				}
+				if($idPais == ""){
+					$idPais = "NULL";
+				}
+					$strCampos = "  usuario_evaluador, 
+									nivel_riesgo, 
+									tipo_objeto, 
+									fk_idPUNTO_EVALUACION, 
+									fk_idEVENTO, 
+									fk_idPAIS, 
+									resultado_html,
+									fecha ";
+					$strValores = "'" . $UsuarioEvaluador . "','" . $NivelRiesgo . "'," . $TipoObjeto . ", " . $idPunto . ", " . $idEvento . ", " . $idPais . ", '" . $HtmlReporte . "', '" . $Fecha . "' ";
+				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
+				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
+				if($result > 0){
+					return $result;
+				}else{
+					return -1;
+				}
+			} catch (Exception $e) {
+				//no se pudo realizar la insercion
+				echo 'Error al insertar reporte hisscam: ' . $e->getMessage();
+				return;
+			}
+	}
+
+ function getHtmlReporteCRR($idReporte){
+ 	try {
+ 		$result = $this->db->ExecutePersonalizado("SELECT resultado_html FROM `resultado_crr` WHERE idRESULTADO_CRR = " . $idReporte . " ");
+ 		return $result;
+ 	} catch (Exception $e) {
+ 		echo 'Error: ' .$e->getMessage();
+ 	}
+ }
+
+
+ function Bitacora($strUsuario, $strAccion){
+ 	try {
+ 		$this->db->ExecutePersonalizado("INSERT INTO Bitacora( usuario, accion ) VALUES('" . $strUsuario . "','" . $strAccion . "')");
+ 		return 1;
+ 	} catch (Exception $e) {
+ 		return -1;
+ 	}
+ }
+
+ function ConsultarBitacoraHtml(){
+ 	try {
+ 		$strHtml = "";
+ 		$result = $this->db->ExecutePersonalizado("SELECT * FROM bitacora "); 		
+ 		while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+ 			$date=date_create($row[3]);
+ 			$fecha = date_format($date,"d/m/Y h:i:s");
+ 			$strHtml .= '<tr>
+ 			<th>' . $row[1] . '</th>
+ 			<td>' . $row[2] . '</td>
+ 			<td>' . $fecha . '</td>
+ 		</tr>'; 					
+ 	}
+ 	if($strHtml == ""){
+ 		echo '<tr><th>bitacora vacia</th><td></td><td>' . date("d/m/Y H:i:s") . '</td>';
+ 	}else{ 		
+ 		echo $strHtml;
+ 	}
+ } catch (Exception $e) {
+ 	return -1;
+ }
+}
 
 	} // FIN DE CLASE
 	?>
