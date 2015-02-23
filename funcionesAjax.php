@@ -800,6 +800,8 @@ function SetPaso2SRA(){
         $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
         $strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval,$strDescripcionPaso2);
     }	
+			$strusr = $_SESSION["Usuario"];
+			$db_funciones->Bitacora($strusr, 'Creacion de reporte SRA con identificador "' . $idReporte . '"');
 	echo $idReporte;
 }
 
@@ -1368,14 +1370,16 @@ function Login(){
 		//el id se setea en la consulta de la validacion del login
 
 		$_SESSION["Usuario"] = $usuario;
-		$_SESSION["TipoUsuario"] = $tipo;		
+		$_SESSION["TipoUsuario"] = $tipo;
+		$db_funciones->Bitacora($usuario, 'Login de usuario "' . $usuario . '" ');		
 		echo true;
 	}else{
-
+		$db_funciones->Bitacora('Sistema FAST', 'Error de Login. intentado con usuario "' . $usuario . '" ');		
 		echo false;
 	}
 		
-	}catch (Exception $e) {
+	}catch (Exception $e) {		
+		$db_funciones->Bitacora('Sistema FAST', 'Error de Login. intentado con usuario "' . $usuario . '" ');		
 		echo $e->getMessage();
 	}
 }
@@ -1425,7 +1429,7 @@ $headers = "De: adminVM@vm.com \r\n";
     // $strHtml = $strHtml.replace("<html>", "");
     // $strHtml = "<html> <style>" . $Estilos . "</style> " . $strHtml;
 
-    $db_funciones->EnviarCorreo($Correos, "Reporte SRA - Visi�n Mundial", $strHtml);
+    $db_funciones->EnviarCorreo($Correos, "Reporte SRA - Visión Mundial", $strHtml);
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -1446,4 +1450,2031 @@ function getEventos(){
     }
     echo $strHtml;
 }
+
+if($strMetodo == "ReporteHissCam")
+	CrearReporteHissCam();
+function CrearReporteHissCam(){
+
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+
+	$strNombreDepto = $_POST["nombreDepto"];
+	$strFechaReporte =$_POST["FechaReporte"];
+	$strTema =$_POST["Tema"];
+	$strPaisRegion =$_POST["PaisRegion"];
+	$strEjercitoOtro =$_POST["EjercitoOtro"];
+	$strStatusQuo =$_POST["StatusQuo"];
+	$strCambioProp =$_POST["CambioProp"];
+	$strResumenEspec =$_POST["ResumenEspec"];
+	$strRespH1 =$_POST["RespH1"];
+	$strSiNoH1 =$_POST["SiNoH1"];
+	$strBanderaH1 =$_POST["BanderaH1"];
+	$strRespI0 =$_POST["RespI0"];
+	$strSiNoI0 =$_POST["SiNoI0"];
+	$strBanderaI0 =$_POST["BanderaI0"];
+	$strRespI1 =$_POST["RespI1"];
+	$strSiNoI1 =$_POST["SiNoI1"];
+	$strBanderaI1 =$_POST["BanderaI1"];
+	$strRespI2 =$_POST["RespI2"];
+	$strSiNoI2 =$_POST["SiNoI2"];
+	$strBanderaI2 =$_POST["BanderaI2"];
+	$strRespI3 =$_POST["RespI3"];
+	$strSiNoI3 =$_POST["SiNoI3"];
+	$strBanderaI3 =$_POST["BanderaI3"];
+	$strRespI4 =$_POST["RespI4"];
+	$strSiNoI4 =$_POST["SiNoI4"];
+	$strBanderaI4 =$_POST["BanderaI4"];
+	$strRespI5 =$_POST["RespI5"];
+	$strSiNoI5 =$_POST["SiNoI5"];
+	$strBanderaI5 =$_POST["BanderaI5"];
+	$strRespI6 =$_POST["RespI6"];
+	$strSiNoI6 =$_POST["SiNoI6"];
+	$strBanderaI6 =$_POST["BanderaI6"];
+	$strRespI7 =$_POST["RespI7"];
+	$strSiNoI7 =$_POST["SiNoI7"];
+	$strBanderaI7 =$_POST["BanderaI7"];
+	$strRespI8 =$_POST["RespI8"];
+	$strSiNoI8 =$_POST["SiNoI8"];
+	$strBanderaI8 =$_POST["BanderaI8"];
+	$strRespS0_1 =$_POST["RespS0_1"];
+	$strSiNoS0_1 =$_POST["SiNoS0_1"];
+	$strBanderaS0_1 =$_POST["BanderaS0_1"];
+	$strRespS2_0 =$_POST["RespS2_0"];
+	$strSiNoS2_0 =$_POST["SiNoS2_0"];
+	$strBanderaS2_0 =$_POST["BanderaS2_0"];
+	$strRespS2_1 =$_POST["RespS2_1"];
+	$strSiNoS2_1 =$_POST["SiNoS2_1"];
+	$strBanderaS2_1 =$_POST["BanderaS2_1"];
+	$strRespC =$_POST["RespC"];
+	$strSiNoC =$_POST["SiNoC"];
+	$strRespA =$_POST["RespA"];
+	$strSiNoA =$_POST["SiNoA"];
+	$strRespM =$_POST["RespM"];
+	$strSiNoM =$_POST["SiNoM"];
+	$strCompromiso =$_POST["Compromiso"];
+	$strRecomendacion =$_POST["Recomendacion"];
+	$strNombreDepaFinal =$_POST["NombreDepaFinal"];
+	$strFechaRecibo =$_POST["FechaRecibo"];
+	$strDecisionFinal =$_POST["DecisionFinal"];
+	$strAprobadoPor =$_POST["AprobadoPor"];	
+
+	date_default_timezone_set('UTC');
+	$FechaReporteConvertido = date("d/m/Y", strtotime($strFechaReporte));
+	$FechaReciboConvertido = date("d/m/Y", strtotime($strFechaRecibo));
+
+	$BanderaEncoded = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAA6ADUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9FvGXxs8G/D3xZp/h7xHrMWjX19Zy30D3f7uF443RGHmH5d2ZF464qvP+0J8NIIGlk8eeH1QDP/IRiz09N3NeW/tueC9M1Dw74R8Yanb+dY+HdWWHUiOWGnXeLe4Ye6Fopc9vJBr87fjV4Cu/hj481nw5eMXe0l2xy4wJYyMo/wCKkdPevBzHHVsE1KMU4s+44eyPCZ0pwnVcakdbaao+8/F3/BR74e6H4lttK0ax1HxFA8yxSX9uFihXLAZXf8zAZ9MelfVtndR31pBcRHdFMiyKfUEAivwFvpXtVDqzBlORjOeDwa+m9A/bp+LHhPRLGKHWbbUIIYUREvbRW4AAAJXaT09a4qOccutdb9j2MVwfKreOBfw73e/4H6zfWjivyV1L/gpp8YZZDbRjw/bBuPNisH3/AFGZCM/hXt/7Cvxm8d/Gb4xarP4r8S3mq2tppjSJa5WKAO0iKCUUAEgBsZz1NetHMaVScYR3Z8pUyDE0aNStUaSgj79ooor1T5o5z4heD7P4heB9e8M6gm+y1ayms5V74dCuR781+bP7RXhu68W/BfwT4zuhv17QvM8JeIT1b7TauY1dj6tt3c/89BX6kd6+G/2iPD8fhjWPjP4TddmneKNIj8YacCMKLu2Kx3SqPUgQv+debmFFVsNKL6a/cfQZDjJYLMKVSL3dn6PQ/OPV0PklsZ7CtNW8/wAP2bDk7BnHtXQ+EPhL4v8AipLLa+FfD95rMinLNCh2Lj1Y8Z/Gq/ivwLr3w2dtD8S6ZNpOqQctbzAZ2nkEHuD7V8FWpy9lGbXU/dcFiaTxdWkpXbiebXSltSA9DX3b/wAExZEt/ivr8G755dIyB6gSpn/0IV8KXTf8TQEetfSv7GvxGj+Hfxv8PX9w/l2d25sblieNsowMn0DhD+Brvo1FSrUpPufM4rDSxWFxNKG9n+Gp+w9FNRg6hhyDRX6AfiAHtXzP+3J4SiufBmgeLmMkUWhX6wajJAAXOnXQ8i5Az2CuG5/ug19Mdq574geEbTx94J1zw5fIJLXU7OW1dTx95SAfzxUyipKz2KjJxkpReqGeAfBGgeAfDFlpPhyyhs9MjjXy/JAy4I+8W7k9c14v+0b+xto/7QPiC31qbWrrSL6OAQMIo1dHAOQTn69jXVfso+LrvxN8GdMstUcvrnh6WXQNQzwfNtm8sMR/tIEb8a9i/SsamHp1YeznHQ7cPjsRha31ijO0u/qfH3h3/gmL8L7GzP8Aa91q2sXp/wCW/wBo8kD6KoxXN+NP+Ca1hp8b3fgjxBcRXSnctrqIDKcdAHABH619y0c1zzwGHqR5XE7qGeZhh6vtYVNfwOf8CNqjeDdG/tuHyNXW1jW7jznEoUB8Edsg0V0H6UV3RXKrXPEm+eTltcdRRRVEni3w78B6/wCBP2gviDcw2JPgnxJBb6ol15iYj1BR5ckezO4bkCtkDHFe00UUAFFFFABRRRQB/9k=";
+
+	$strHtml = '	
+<div id="Reporte" style="overflow-x: scroll; position: relative;padding: .4em 1em;overflow: hidden;display: block;clear: both;border-width: 1px;border-style: solid;background-color: #fff;border-color: #ddd;color: #333;text-shadow: 0 1px 0 #f3f3f3;background-clip: padding-box;border-radius: .3125em;">
+
+				<div style="text-align: center;">
+					<h1 style="font-size: 4em; color: #4C4C4C;" >Evaluaci&oacute;n <span style="color: orange;">Hiss-Cam</span> </h1>
+				</div>
+				<table id="tablaGeneral"  data-mode="reflow" style="border:solid 1px;border-collapse: collapse;padding: 0;width: 100%;display: table;color: #333;text-shadow: 0 1px 0 #f3f3f3;" >
+					<thead></thead>
+					<tbody>
+						<!-- encabezado de la evaluacion -->
+						<tr>
+							<table data-mode="reflow" style="border:solid 1px;border-collapse: collapse;padding: 0;width: 100%;display: table;border-collapse: separate;border-spacing: 2px;border-color: gray;color: #333;text-shadow: 0 1px 0 #f3f3f3;font-size: 1em;line-height: 1.3;font-family: sans-serif;border-bottom: 1px solid #e6e6e6;border-bottom: 1px solid rgba(0,0,0,.05);">
+								<thead></thead>
+								<tbody>
+									<tr>
+										<th class="cabeceraNormal">Nombre y Departamento</th>
+										<td>
+											<label id="lblNombreYDepto" >' . $strNombreDepto . '</label>
+										</td>
+									</tr>
+									<tr>
+										<th class="cabeceraNormal">Fecha del reporte</th>
+										<td>
+											<label id="txtFechaCreacion">' . $FechaReporteConvertido . '</label>
+										</td>
+									</tr>
+									<tr>
+										<th class="cabeceraNormal">Tema</th>
+										<td>
+											<label id="txtTema">' . $strTema . '</label>
+										</td>
+									</tr>
+									<tr>
+										<th class="cabeceraNormal">Pa&iacute;s/Regi&oacute;n</th>
+										<td>
+											<label id="txtPaisRegion">' . $strPaisRegion . '</label>
+										</td>
+									</tr>
+									<tr>
+										<th class="cabeceraNormal">Ejercito/Otro actor</th>
+										<td>
+											<label id="txtEjercito">' . $strEjercitoOtro . '</label>							
+										</td>
+									</tr>
+									<tr>
+										<th class="subCabecera">Status quo</th>
+										<td>
+											<label id="txtStatusQuo">' . $strStatusQuo . '</label>							
+										</td>
+									</tr>
+									<tr>
+										<th class="subCabecera">Cambio propuesto</th>
+										<td>
+											<label id="txtCambioPropuesto">' . $strCambioProp . '</label>							
+										</td>
+									</tr>
+									<tr >
+										<th class="cabeceraNormal">Resumen especifico</th>
+										<td>
+											<label id="txtResumenEspecifico">' . $strResumenEspec . '</label>							
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<br><br>
+						</tr>
+						<!-- parte hiss -->
+						<tr>
+							<table  data-mode="reflow" style=" width: 100%; border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
+								<thead class="cabeceraNormal">
+									<td colspan="2">Principio</td>
+									<td>Respuesta</td>
+									<td>S/N</td>
+								</thead>
+								<tbody>
+									<!-- Humanitaria imperativa -->
+									<tr>
+										<td style="width:5%;"><h1 style="font-size: 7em; color:orange;">H</h1></td>
+										<td style="width:35%">
+											<p>											
+												<div style="text-align: left;">
+													<h3>umanitaria Imperativa</h3>
+													Es esta acci&oacute;n:<br>
+													>	&iquest;Solamente ocurre en orden de adelantar la imperativa humanitaria para proveer 
+													ayuda a esos en necesidad, de acuerdo con los m&aacute;s altos est&aacute;ndares de entrega de ayuda?  
+												</div>
+											</p>
+										</td>
+										<td style="width:35%">
+											<label id="txtRespuestaH">' . $strRespH1 . '</label>
+										</td>
+										<td style="width:25%">';
+
+										if($strSiNoH1 == 1){
+											$strHtml .= '
+											<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '
+											<label><b>No</b></label>';
+										}
+
+										$strHtml .= '	
+											<br>';
+
+										if($strBanderaH1 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+											$strHtml .= '
+										</td>
+									</tr>
+									<!-- Imparcialidad e independencia -->
+									<tr>
+										<td><h1 style="font-size: 7em; color:orange;">I</h1></td>
+										<td>
+											<p>
+												<div style="text-align: left;">
+													<h3>mparcialidad e Independencia</h3>								
+													Est&aacute; esta acci&oacute;n asegurando que:
+													<br>> 	&iquest;No discriminamos en base a g&eacute;nero, raza, etnicidad, religi&oacute;n, nacionalidad, afiliaci&oacute;n pol&iacute;tica estatus social?
+													<br>>	&iquest;Nuestro alivio es guiado por una evaluaci&oacute;n de necesidades?
+													<br>>	&iquest;prioridad es  dada a los casos m&aacute;s urgentes de angustia?
+												</div>
+											</p>
+										</td>
+										<td>
+											<label  id="txtRespuestaI0">' . $strRespI0 . '</label>
+										</td>
+										<td>';
+
+										if($strSiNoI0 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI0 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='																							
+											</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>
+											<p>											
+												<div style="text-align: left;">
+													>	&iquest;Somos neutrales en la provisi&oacute;n de ayuda (particularmente en el contexto de emergencias complejas)?
+												</div>
+											</p>
+										</td>
+										<td>
+											<label id="txtRespuestaI1">' . $strRespI1 . '</label>
+											</td>
+											<td>';
+
+										if($strSiNoI1 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI1 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='												
+												</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>
+													<p>											
+														<div style="text-align:left;">
+															Est&aacute; esta acci&oacute;n asegurando que: <br>
+															>	&iquest;nuestro compromiso es hacia la imperativa humanitaria y no a la 
+															agenda de gobiernos, grupos pol&iacute;ticos, o fuerzas militares?
+														</div>
+													</p>
+												</td>
+												<td>
+													<label  id="txtRespuestaI2">' . $strRespI2 . '</label>
+												</td>
+												<td>';
+
+										if($strSiNoI2 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI2 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='													
+													</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>
+														<p>											
+															<div style="text-align:left;">
+																>	&iquest;nosotros no actuamos de una manera que entrega nuestra habilidad de advocar? 
+															</div>
+														</p>
+													</td>
+													<td>
+														<label id="txtRespuestaI3">' . $strRespI3 . '</label>
+													</td>
+													<td>';
+
+										if($strSiNoI3 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI3 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+														
+														</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td>
+															<p>											
+																<div style="text-align:left;">
+																	>	&iquest;nosotros no ponemos en peligro la libertad de movimiento del personal humanitario?
+																</div>
+															</p>
+														</td>
+														<td>
+															<label id="txtRespuestaI4">' . $strRespI4 . '</label>
+														</td>
+														<td>';
+
+										if($strSiNoI4 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI4 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='													
+											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<p>											
+													<div style="text-align: left;">
+														>	&iquest;tenemos la libertad de conducir evaluaciones independientes?
+													</div>
+												</p>
+											</td>
+											<td>
+												<label id="txtRespuestaI5">' . $strRespI5 . '</label>
+											</td>
+											<td>';
+
+										if($strSiNoI5 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI5 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='																								
+												</td>
+											</tr>
+										<tr>
+											<td></td>
+											<td>
+												<p>											
+													<div style="text-align: left;">
+														>	&iquest;tenemos la libertad de seleccionar el personal?
+													</div>
+												</p>
+											</td>
+											<td>
+												<label id="txtRespuestaI6">' . $strRespI6 . '</label>
+											</td>
+											<td>';
+
+										if($strSiNoI6 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI6 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+												</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>
+													<p>											
+														<div style="text-align: left;">
+															>	&iquest;tenemos la libertad de identificar beneficiarios en base a necesidades? 
+														</div>
+													</p>
+												</td>
+												<td>
+													<label id="txtRespuestaI7">' . $strRespI7 . '</label>
+												</td>
+												<td>';
+
+										if($strSiNoI7 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI7 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+													</td>
+												</tr>
+													<tr>
+														<td></td>
+														<td>
+															<p>											
+																<div style="text-align: left;">
+																	>	&iquest;tenemos un flujo de informaci&oacute;n libre entre las agencias humanitarias?
+																</div>
+															</p>
+														</td>
+														<td>
+																<label id="txtRespuestaI8">' . $strRespI8 . '</label>
+															</td>
+															<td>';
+
+										if($strSiNoI8 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaI8 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+												
+												</td>
+											</tr>
+											<!-- Seguridad y proteccion -->
+											<tr>
+												<td><h1 style="font-size: 7em; color:orange;">S</h1></td>
+												<td>
+													<p>
+														<div style="text-align: left;">
+															<h3>eguridad y Protecci&oacute;n</h3>								
+															Mediante una r&aacute;pida evaluaci&oacute;n de "No hacer daño" del contexto, est&aacute; esta acci&oacute;n garantizando que podamos prevenir a lo mejor de nuestra capacidad cualquier tipo de consecuencias no deseadas para: <br> 
+															>	&iquest;la seguridad de nuestro personal?<br>
+															>	&iquest;la seguridad de nuestros compañeros locales?<br>
+															>	&iquest;la seguridad de nuestros beneficiarios?<br>
+															>	&iquest;la seguridad de nuestras agencias?<br>
+															>	&iquest;el fomento de conflicto?
+														</div>
+													</p>
+												</td>
+												<td>
+													<label id="txtRespuestaS1">' . $strRespS0_1 . '</label>
+												</td>
+												<td>';
+
+										if($strSiNoS0_1 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaS0_1 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+													</td>
+												</tr>
+												<tr>
+													<td><h1 style="font-size: 7em; color:orange;">S</h1></td>
+													<td>
+														<p>
+															<div style="text-align: left;">
+																<h3>ostenibilidad</h3>								
+																Es esta acci&oacute;n: <br>
+																>	&iquest;tomando en cuenta una perspectiva de plazo m&aacute;s largo que la inmediata?
+															</div>
+														</p>
+													</td>
+													<td>
+														<label id="txtRespuestaS2_0">' . $strRespS2_0 . '</label>
+													</td>
+													<td>';
+
+										if($strSiNoS2_0 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaS2_0 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<p>
+													<div style="text-align: left;">
+														>	&iquest;alineada estrat&eacute;gicamente con el trabajo de VM en la asistencia de comunidades para vencer la pobreza e injusticia?
+													</div>
+												</p>
+											</td>
+											<td>
+														<label id="txtRespuestaS2_1">' . $strRespS2_1 . '</label>
+													</td>
+													<td>';
+
+										if($strSiNoS2_1 == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										if($strBanderaS2_1 == 1){
+											$strHtml .= '<label><img src="' . $BanderaEncoded . '" alt="bandera"/></label>';
+										}else{
+											$strHtml .= '<label></label>';
+										}
+
+										$strHtml .='
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</tr>
+
+										<!-- parte cam -->
+										<tr>
+											<table data-mode="reflow" style="border:solid 1px;width: 100%" class="ui-responsive table-stroke ui-table ui-table-">
+												<thead class="cabeceraNormal">
+													<td colspan="2">Proceso</td>
+													<td>Respuesta</td>
+													<td>S/N</td>
+												</thead>
+												<tbody>
+													<tr>
+														<td style="width: 5%;"><h1 style="font-size: 7em; color:orange;">C</h1></td>
+														<td style="width: 35%;">
+															<p>
+																<div style="text-align: left;">
+																	<h3>onvincente prop&oacute;sito</h3>								
+																	Es esta acci&oacute;n:<br>
+																	>	&iquest;en busca de un prop&oacute;sito importante o convincente? (consideraciones econ&oacute;micas en y de ellos mismos nunca debe constituir esto)
+																	<br>>	&iquest;en busca de un resultado deseado especifico?
+																	<br>>	&iquest;alineado con las miras estrat&eacute;gicas de VM (incluyendo global, regional, nacional)?
+																</div>
+															</p>
+														</td>
+														<td style="width: 35%;">
+															<label id="txtRespuestaC">' . $strRespC . '</label>
+														</td>
+														<td style="width: 25%;">';
+
+										if($strSiNoC == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										$strHtml .='															
+														</td>
+													</tr>
+													<tr>
+														<td><h1 style="font-size: 7em; color:orange;">A</h1></td>
+														<td>
+															<p>											
+																<div style="text-align: left;">
+																	<h3>propiado, adaptado & adecuadamente informado</h3>								
+																	Es esta acci&oacute;n: <br>
+																	>	&iquest;apropiado para su prop&oacute;sito (ej. razonable y por evidencia conectado a la mira anterior)?  
+																	<br>>	&iquest;adaptado al contexto?
+																	<br>>	&iquest;adecuadamente informado por medio de evidencia tal como an&aacute;lisis y evaluaciones de contexto existentes y cualquier informaci&oacute;n nueva disponible?
+																</div>
+															</p>
+														</td>
+														<td>
+															<label  id="txtRespuestaA">' . $strRespA . '</label>
+														</td>
+														<td>';
+
+										if($strSiNoA == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										$strHtml .='
+														</td>
+													</tr>
+													<tr>
+														<td><h1 style="font-size: 7em; color:orange;">M</h1></td>
+														<td>
+															<p>
+																<div style="text-align: left;">
+																	<h3>inimo impacto negativo</h3>								
+																	Es esta acci&oacute;n: <br>
+																	>	&iquest;el &uacute;ltimo recurso en obtener la meta (ej. todos los otros medios han sido agotados)?
+																	<br>>	el menos impactante:<br>
+																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o	&iquest;en la inmediata y largo plazo?<br>
+																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o	&iquest;en accionistas (comunidades, iguales de industria y VM)?
+																</div>
+															</p>
+														</td>
+														<td>
+															<label id="txtRespuestaM">' . $strRespM . '</label>
+														</td>
+														<td>';
+
+										if($strSiNoM == 1){
+											$strHtml .= '<label><b>S&iacute;</b></label>';
+										}else{
+											$strHtml .= '<label><b>No</b></label>';
+										}
+
+										$strHtml .='
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</tr>
+
+										<!-- parte de recomendacion -->
+										<tr>
+											<table width="100%" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
+												<thead>
+													<th colspan="2"  class="cabeceraNormal">
+														<h2><b>' . $strCompromiso . '</b></h2>
+													</th>
+												</thead>
+												<tbody>
+													<tr>									
+														<td style="width:20%">
+															<h3><b>Recomendaci&oacute;n</b></h3>
+														</td>
+														<td>
+															<label id="txtRecomendacion">' . $strRecomendacion . '</textarea>
+														</td>									
+													</tr>
+												</tbody>
+											</table>
+										</tr>
+
+																
+
+										<!-- parte decision final y base -->
+										<tr>
+											<table style="width:100%;" border  data-mode="reflow" style="border:solid 1px;" class="ui-responsive table-stroke ui-table ui-table-">
+												<thead class="cabeceraNormal">
+													<th colspan="2">									
+														<h3>Decisi&oacute;n final y base</h3>
+													</th>
+												</thead>
+												<tbody>
+													<tr>									
+														<td style="width: 35%;">
+															<b>Nombre y departamento</b>
+														</td>
+														<td>
+															<label id="txtNombreyDepaFinal">' . $strNombreDepaFinal . '</label>
+														</td>									
+													</tr>
+													<tr>									
+														<td>
+															<b>Fecha de recibo</b>
+														</td>
+														<td>
+															<label id="txtFechaRecibo">' . $FechaReciboConvertido . '</label>
+														</td>									
+													</tr>
+													<tr>									
+														<td>
+															<b>
+																>	&iquest;Acuerdo con evaluaci&oacute;n?<br>
+																>	&iquest;&aacute;reas de desacuerdo?<br>
+																>	&iquest;El proceso se mueve hacia adelante?<br>
+																>	&iquest;Qu&eacute; grupos han sido alertadas?<br>
+															</b>
+														</td>
+														<td>
+															<label id="txtDecisionFinalUltima">' . $strDecisionFinal . '</label>
+														</td>									
+													</tr>
+													<tr>									
+														<td>
+															<b>
+																Aprobado por
+															</b>
+														</td>
+														<td>
+															<label id="txtAprobadoPor">' . $strAprobadoPor . '</label>
+														</td>									
+													</tr>
+												</tbody>
+											</table>
+										</tr>										
+									</tbody>			
+								</table>
+							</div>
+						</div>';
+
+		$idReporteHissCam = $db_funciones->insertarReporteHissCam($strNombreDepto,$strFechaReporte,$strTema,$strPaisRegion,$strEjercitoOtro,$strCompromiso,$strHtml);
+		$db_funciones->Bitacora($strusr, 'Creacion de reporte HISS-CAM con identificador "' . $idReporte . '"');
+		echo $idReporteHissCam;
+}
+
+if($strMetodo == "SendEMailHissCam")
+SendNewMailHissCam();
+
+function SendNewMailHissCam(){
+$headers = "De: adminVM@vm.com \r\n";
+        // $headers .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";        
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$Correos = $_POST["mails"];
+	$Estilos = $_POST['estilos'];
+	$idReporte = $_POST["idRepo"];
+    $strHtml = "";
+	try {
+        $result = $db_funciones->getHtmlReporteHISSCAM($idReporte);
+    while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+        $strHtml = $row[0];
+        break;
+    }
+
+    // $strHtml = $strHtml.replace("<html>", "");
+    // $strHtml = "<html> <style>" . $Estilos . "</style> " . $strHtml;
+
+    $db_funciones->EnviarCorreo($Correos, "Reporte HISS-CAM - Visión Mundial", $strHtml);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+}
+if($strMetodo == "ReporteCRR")
+CrearReporteCRR();
+
+function CrearReporteCRR(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+
+	$strHtml = "";
+
+	$strTipoObjeto = $_POST["PjxTipoObjeto"];
+	$strFecha = $_POST["PjxFecha"];
+	$strElaboradoPor = $_POST["PjxElaboradoPor"];
+	$strIdPais = $_POST["PjxIdPais"];
+	$strIdEvento = $_POST["PjxIdEvento"];	
+	$strIdPunto = $_POST["PjxIdPunto"];	
+	$strPais = $_POST["PjxPais"];
+	$strEvento = $_POST["PjxEvento"];
+	$strPunto = $_POST["PjxPunto"];
+	$strTot1 = $_POST["PjxTot1"];
+	$strTot2 = $_POST["PjxTot2"];
+	$strTot3 = $_POST["PjxTot3"];
+	$strTot4 = $_POST["PjxTot4"];
+	$strTot5 = $_POST["PjxTot5"];
+	$strTot6 = $_POST["PjxTot6"];
+	$strTot7 = $_POST["PjxTot7"];
+	$strTotal = $_POST["PjxTot"];
+	$strExp1 = $_POST["PjxExp1"];
+	$strExp2 = $_POST["PjxExp2"];
+	$strExp3 = $_POST["PjxExp3"];
+	$strExp4 = $_POST["PjxExp4"];
+	$strExp5 = $_POST["PjxExp5"];
+	$strExp6 = $_POST["PjxExp6"];
+	$strExp7 = $_POST["PjxExp7"];
+	$strFila1 = $_POST["PxjFila1"];
+	$strFila2 = $_POST["PxjFila2"];
+	$strFila3 = $_POST["PxjFila3"];
+	$strFila4 = $_POST["PxjFila4"];
+	$strFila5 = $_POST["PxjFila5"];
+	$strFila6 = $_POST["PxjFila6"];
+	$strFila7 = $_POST["PxjFila7"];
+
+	$dcmNivelRiesgo = floatval($strTotal);
+	$strNivelRiesgo = "";
+	$strRiesgo = "";
+
+	if($dcmNivelRiesgo >= 1 && $dcmNivelRiesgo <= 1.79){
+		$strNivelRiesgo = '<td bgcolor="#00FF00">INSIGNIFICANTE</td>';
+		$strRiesgo = "INSIGNIFICANTE";
+	}else if($dcmNivelRiesgo > 1.79 && $dcmNivelRiesgo <= 2.59){
+		$strNivelRiesgo = '<td bgcolor="#E8E118">BAJO</td>';
+		$strRiesgo = "BAJO";
+	}else if($dcmNivelRiesgo > 2.59 && $dcmNivelRiesgo <= 3.39){
+		$strNivelRiesgo = '<td bgcolor="#E88018">MEDIO</td>';
+		$strRiesgo = "MEDIO";
+	}else if($dcmNivelRiesgo > 3.39 && $dcmNivelRiesgo <= 4.19){
+		$strNivelRiesgo = '<td bgcolor="#E81818">ALTO</td>';
+		$strRiesgo = "ALTO";
+	}else if($dcmNivelRiesgo > 4.19 && $dcmNivelRiesgo <= 5){
+		$strNivelRiesgo = '<td bgcolor="#000000" style="color: white;"">CR&Iacute;TICO</td>';
+		$strRiesgo = "CRITICO";
+	}else{
+		$strNivelRiesgo = "<td></td>";
+	}
+
+	$strHtml .= '
+	<table border="1" cellpadding="2" data-mode="reflow" style="border:solid 1px;border-collapse: collapse;padding: 0;width: 100%;display: table;color: #333;text-shadow: 0 1px 0 #f3f3f3;border-color:orange">
+	<tbody>
+		<tr>
+			';
+			if($strTipoObjeto == "0"){
+				$strHtml .= "<td><label>Pa&iacute;s</label></td>
+			<td>
+			" . $strPais . "
+			</td>";
+			}else if($strTipoObjeto == "1"){
+				$strHtml .= "<td><label>Evento</label></td>
+				<td>
+					" . $strEvento . "
+				</td>";
+			}else{
+				$strHtml .= "<td><label>Punto de evaluaci&oacute;n</label></td>
+				<td>
+					" . $strPunto . "
+				</td>";
+			}
+		$strHtml .= '						
+		</tr>
+		<tr>
+			<td>Fecha de elaboraci&oacute;n</td>
+			<td>' . date("d/m/Y", strtotime($strFecha)) . '</td>
+		</tr>
+		<tr>
+			<td>Elaborador por</td>
+			<td>' . $strElaboradoPor . '</td>
+		</tr>
+	</tbody>
+	</table>
+	<table border="1" cellpadding="2" data-mode="reflow" style="border:solid 1px;border-collapse: collapse;padding: 0;width: 100%;display: table;color: #333;text-shadow: 0 1px 0 #f3f3f3;border-color:orange">
+					<tbody>
+						<tr>
+							<td colspan="2">Foco</td>
+							<td colspan="2">Rating</td>
+							<td colspan="4">Descripci&oacute;n del contexto</td>
+							<td colspan="2">Opci&oacute;n</td>
+							<td>Rating</td>
+						</tr>
+
+						<!-- tabla 1 Social y politica -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.15</b></div>								
+								<div>Social &amp; Pol&iacute;tica</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									Pa&iacute;ses o provincias que son estables y libres de desordenes pol&iacute;ticos, econ&oacute;micos y civiles. Hay insignificante violencia religiosa, de sectores, racial/tribu y pol&iacute;tica. 
+								</label>
+							</td>';
+							if($strFila1 == "tb1_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb1_td0">
+									<div class="ui-radio ui-mini" id="tb1_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb1_td0">
+									<div class="ui-radio ui-mini" id="tb1_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Pa&iacute;ses o provincias que son generalmente estables, pero pueden haber tiempos de inestabilidad pol&iacute;tica & econ&oacute;mica y desorden civil. Pueden haber instancias aisladas de violencia religiosa, de sectores, racial/tribu y pol&iacute;tica. 
+								</label>
+							</td>
+							';
+							if($strFila1 == "tb1_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb1_td1">
+									<div class="ui-radio ui-mini" id="tb1_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb1_td1">
+									<div class="ui-radio ui-mini" id="tb1_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Pa&iacute;ses y provincias que experimentan inestabilidad pol&iacute;tica & econ&oacute;mica y desorden civil; hay debilidades significativas en los sistemas y capacidades de Gobierno. Puede haber  un numero de incidentes que involucren violencia religiosa, de sector, racial/tribu y pol&iacute;tica y la situaci&oacute;n puede ser muy vol&aacute;til. 
+								</label>
+							</td>
+							';
+							if($strFila1 == "tb1_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb1_td2">
+									<div class="ui-radio ui-mini" id="tb1_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb1_td2">
+									<div class="ui-radio ui-mini" id="tb1_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Pa&iacute;ses o provincias que experimentan inestabilidad pol&iacute;tica & econ&oacute;mica  y desorden civil regularmente. Los sistemas pol&iacute;ticos est&aacute;n inherentemente inestables y pueden colapsar en cualquier momento. Incidentes involucrando violencia religiosa, de sector, racial/tribu, pol&iacute;tica y extremismo son comunes y en algunas ocasiones pueden ser blancos los extranjeros. 
+								</label>
+							</td>
+							';
+							if($strFila1 == "tb1_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb1_td3">
+									<div class="ui-radio ui-mini" id="tb1_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb1_td3">
+									<div class="ui-radio ui-mini" id="tb1_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Pa&iacute;s o provincias que son estados fallidos; instituciones pol&iacute;ticas & econ&oacute;micas han colapsado. La violencia por religi&oacute;n, de sector, racial y pol&iacute;tica esta por todos lados y afecta todos los niveles de la sociedad y tiene como blanco directo a extranjeros.  
+								</label>
+							</td>
+							';
+							if($strFila1 == "tb1_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb1_td4">
+									<div class="ui-radio ui-mini" id="tb1_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb1_td4">
+									<div class="ui-radio ui-mini" id="tb1_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp1 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating1">
+									' . $strTot1 . '
+								</label>
+							</td>
+						</tr>
+						
+						<!-- tabla 2 Crimen y seguridad-->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.15</b></div>								
+								<div>Crimen &amp; Seguridad</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									Hay bajos niveles de crimen violento, pero puede haber niveles variantes de cr&iacute;menes menores en &aacute;reas urbanas o &aacute;reas aisladas. Fuerzas de seguridad local son profesionales, previenen & detectan efectivamente el crimen, y son generalmente libres  de corrupci&oacute;n.
+								</label>
+							</td>
+							';
+							if($strFila2 == "tb2_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb2_td0">
+									<div class="ui-radio ui-mini" id="tb2_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb2_td0">
+									<div class="ui-radio ui-mini" id="tb2_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Hay bajos niveles de violencia, pero hay cr&iacute;menes menores expandidos en ares especificas. Hay grupos de crimen organizados presentes, pero generalmente est&aacute;n controladas por las autoridades. Las fuerzas de seguridad local son profesionales, pero pueden haber bajos niveles de corrupci&oacute;n.   
+								</label>
+							</td>
+							';
+							if($strFila2 == "tb2_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb2_td1">
+									<div class="ui-radio ui-mini" id="tb2_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb2_td1">
+									<div class="ui-radio ui-mini" id="tb2_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Hay altos niveles de cr&iacute;menes violentos que  hacen impacto en extranjeros y la poblaci&oacute;n local.
+									Los grupos de crimen organizados son muy activos y controlan un n&uacute;mero de &aacute;reas urbanas. Los fuerzas de seguridad local son eneralmente inadecuadas and puede sufrir de corrupci&oacute;n sistem&aacute;tico. 
+								</label>
+							</td>
+							';
+							if($strFila2 == "tb2_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb2_td2">
+									<div class="ui-radio ui-mini" id="tb2_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb2_td2">
+									<div class="ui-radio ui-mini" id="tb2_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Hay muy altos niveles de cr&iacute;menes violentos que tienen impacto en extranjeros y en la poblaci&oacute;n local. Grupos del crimen organizado son muy fuertes y pueden operar libremente. Las fuerzas de seguridad local son inadecuadas y hay abusos regulares del proceso legal debido a la corrupci&oacute;n. 
+								</label>
+							</td>
+							';
+							if($strFila2 == "tb2_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb2_td3">
+									<div class="ui-radio ui-mini" id="tb2_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb2_td3">
+									<div class="ui-radio ui-mini" id="tb2_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Hay niveles extremos de crimen violento que tiene impacto en extranjeros y en la poblaci&oacute;n local.
+									Grupos de crimen organizado son particularmente fuertes y est&aacute;n en conflicto abierto con fuerzas del gobierno por control. Las fuerzas de seguridad local son m&iacute;nimas o no-existentes y el gobierno no tiene control de la ley & el orden. 
+
+								</label>
+							</td>
+							';
+							if($strFila2 == "tb2_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb2_td4">
+									<div class="ui-radio ui-mini" id="tb2_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb2_td4">
+									<div class="ui-radio ui-mini" id="tb2_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp2 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating2">
+									' . $strTot2 . '
+								</label>
+							</td>
+						</tr>
+
+						<!-- tabla 3 Conflicto -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.15</b></div>								
+								<div>Conflicto</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									No hay conflicto armado actual y hay muy poco riesgo de cualquier conflicto futuro. 
+								</label>
+							</td>
+							';
+							if($strFila3 == "tb3_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb3_td0">
+									<div class="ui-radio ui-mini" id="tb3_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb3_td0">
+									<div class="ui-radio ui-mini" id="tb3_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									No hay conflicto armado actual y un bajo riesgo de conflictos futuros. 
+								</label>
+							</td>
+							';
+							if($strFila3 == "tb3_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb3_td1">
+									<div class="ui-radio ui-mini" id="tb3_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb3_td1">
+									<div class="ui-radio ui-mini" id="tb3_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Puede haber disputas o un bajo nivel de insurgencia operando en el pa&iacute;s, hay un riesgo significativo de que el conflicto incremente. Puede haber una amenaza indirecta al personal de ONG de conflictos localizados.
+								</label>
+							</td>
+							';
+							if($strFila3 == "tb3_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb3_td2">
+									<div class="ui-radio ui-mini" id="tb3_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb3_td2">
+									<div class="ui-radio ui-mini" id="tb3_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Un conflicto  interno  localizado o de frontera a frontero puede estar en progreso. Puede haber guerrilla o grupos insurgentes en control de &aacute;reas especificas del pa&iacute;s. Estos grupos son una seria amenaza para la estabilidad del pa&iacute;s. Algunos actores en el conflicto pueden ver a las ONGI’s como blancos leg&iacute;timos. 
+								</label>
+							</td>
+							';
+							if($strFila3 == "tb3_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb3_td3">
+									<div class="ui-radio ui-mini" id="tb3_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb3_td3">
+									<div class="ui-radio ui-mini" id="tb3_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									El pa&iacute;s o &aacute;rea esta en estado o Guerra. La guerrilla y grupos insurgentes est&aacute;n en control de &aacute;reas significativas del pa&iacute;s y estos grupos son una seria amenaza para la estabilidad del pa&iacute;s. El conflicto no discrimina y la amenaza a ONGI’s es critica.
+
+								</label>
+							</td>
+							';
+							if($strFila3 == "tb3_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb3_td4">
+									<div class="ui-radio ui-mini" id="tb3_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb3_td4">
+									<div class="ui-radio ui-mini" id="tb3_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp3 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating3">
+									' . $strTot3 . '
+								</label>
+							</td>
+						</tr>
+
+						<!-- tabla 4 Terrorismo -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.2</b></div>								
+								<div>Terrorismo</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									La actividad de grupos terroristas (o simpatizantes) es insignificante. 
+								</label>
+							</td>
+							';
+							if($strFila4 == "tb4_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb4_td0">
+									<div class="ui-radio ui-mini" id="tb4_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb4_td0">
+									<div class="ui-radio ui-mini" id="tb4_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Puede haber grupos terroristas presentes, pero tienen capacidades operacionales limitadas y los actos de terrorismo son extremadamente raros. 
+								</label>
+							</td>
+							';
+							if($strFila4 == "tb4_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb4_td1">
+									<div class="ui-radio ui-mini" id="tb4_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb4_td1">
+									<div class="ui-radio ui-mini" id="tb4_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Puede haber grupos terroristas con capacidades de operaci&oacute;n significativas y el pa&iacute;s esta propenso a  que ocurran actos de terrorismo espor&aacute;dicos. 
+								</label>
+							</td>
+							';
+							if($strFila4 == "tb4_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb4_td2">
+									<div class="ui-radio ui-mini" id="tb4_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb4_td2">
+									<div class="ui-radio ui-mini" id="tb4_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Hay grupos terroristas presentes con Fuertes capacidades & alcance operacional; hay una seria amenaza al gobierno y a blancos internacionales. 
+								</label>
+							</td>
+							';
+							if($strFila4 == "tb4_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb4_td3">
+									<div class="ui-radio ui-mini" id="tb4_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb4_td3">
+									<div class="ui-radio ui-mini" id="tb4_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Los grupos terroristas son muy activos con capacidades significativas & alcance operacional; hay una extrema amenaza para el gobierno y blancos internacionales. 
+
+								</label>
+							</td>
+							';
+							if($strFila4 == "tb4_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb4_td4">
+									<div class="ui-radio ui-mini" id="tb4_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb4_td4">
+									<div class="ui-radio ui-mini" id="tb4_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp4 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating4">
+									' . $strTot4 . '
+								</label>
+							</td>
+						</tr>						
+
+						<!-- tabla 5 Secuestro  -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.15</b></div>								
+								<div>Secuestro</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									Hay poco, o ning&uacute;n, riesgo de secuestro o  toma de rehenes. El panorama es estable.  
+								</label>
+							</td>
+							';
+							if($strFila5 == "tb5_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb5_td0">
+									<div class="ui-radio ui-mini" id="tb5_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb5_td0">
+									<div class="ui-radio ui-mini" id="tb5_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Hay bajo riesgo de secuestro y toma de rehenes. 
+								</label>
+							</td>
+							';
+							if($strFila5 == "tb5_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb5_td1">
+									<div class="ui-radio ui-mini" id="tb5_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb5_td1">
+									<div class="ui-radio ui-mini" id="tb5_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Hay un riesgo significativo de secuestro o toma de rehenes en ciertas &aacute;reas. 
+								</label>
+							</td>
+							';
+							if($strFila5 == "tb5_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb5_td2">
+									<div class="ui-radio ui-mini" id="tb5_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb5_td2">
+									<div class="ui-radio ui-mini" id="tb5_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Hay un alto riesgo de secuestro o toma de rehenes en todo el pa&iacute;s y las fuerzas de seguridad pueden ser c&oacute;mplices, o estar directamente involucrados.  
+								</label>
+							</td>
+							';
+							if($strFila5 == "tb5_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb5_td3">
+									<div class="ui-radio ui-mini" id="tb5_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb5_td3">
+									<div class="ui-radio ui-mini" id="tb5_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Hay un serio riesgo de secuestro o toma de rehenes en todo el pa&iacute;s y las fuerzas de seguridad pueden ser c&oacute;mplices o estar directamente involucradas. 
+								</label>
+							</td>
+							';
+							if($strFila5 == "tb5_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb5_td4">
+									<div class="ui-radio ui-mini" id="tb5_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb5_td4">
+									<div class="ui-radio ui-mini" id="tb5_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp5 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating5">
+									' . $strTot5 . '
+								</label>
+							</td>
+						</tr>
+
+						<!-- tabla 6 Espacio Humanitario  -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.10</b></div>								
+								<div>Espacio Humanitario</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									Organizaciones humanitarias pueden operar libremente y entregan una gran gama de programas con apoyo del gobierno y libre de restricciones impuestas por otros actores. 
+								</label>
+							</td>
+							';
+							if($strFila6 == "tb6_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb6_td0">
+									<div class="ui-radio ui-mini" id="tb6_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb6_td0">
+									<div class="ui-radio ui-mini" id="tb6_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Organizaciones humanitarias generalmente pueden operar libremente y entregar una gran gama de programas con algunas restricciones del gobierno u otros actores. 
+								</label>
+							</td>
+							';
+							if($strFila6 == "tb6_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb6_td1">
+									<div class="ui-radio ui-mini" id="tb6_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb6_td1">
+									<div class="ui-radio ui-mini" id="tb6_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Las organizaciones humanitarias est&aacute;n restringidas en algunas &aacute;reas de operaci&oacute;n y puede haber Resistencia a su presencia de secciones de la comunidad. El gobierno u otros actores claves pueden obstruir la operaci&oacute;n de ONGI’s de ciertos pa&iacute;ses.    
+								</label>
+							</td>
+							';
+							if($strFila6 == "tb6_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb6_td2">
+									<div class="ui-radio ui-mini" id="tb6_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb6_td2">
+									<div class="ui-radio ui-mini" id="tb6_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Las operaciones humanitarias est&aacute;n severamente restringidas  y hay hostilidad abierta a la presencia de ONGI’s. Puede haber un blanco directo hacia las ONGI’s por grupos militantes. El gobierno u otros actores pueden obstruir activamente las operaciones de ONGI’s y amenazar con expulsi&oacute;n. 
+								</label>
+							</td>
+							';
+							if($strFila6 == "tb6_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb6_td3">
+									<div class="ui-radio ui-mini" id="tb6_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb6_td3">
+									<div class="ui-radio ui-mini" id="tb6_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Las organizaciones humanitarias  no pueden operar seguramente en el ambiente y las operaciones son generalmente insostenibles.  Hay un blanco directo hacia las ONGI’s por actores en el contexto. El gobierno u otros actores son hostiles para la ONGI’s y las han expulsados de &aacute;reas operacionales. 
+								</label>
+							</td>
+							';
+							if($strFila6 == "tb6_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb6_td4">
+									<div class="ui-radio ui-mini" id="tb6_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb6_td4">
+									<div class="ui-radio ui-mini" id="tb6_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp6 . '</label>
+							</td>
+							<td>
+								<label id="lblTbRating6">
+									' . $strTot6 . '
+								</label>
+							</td>
+						</tr>
+
+						<!-- tabla 7 Infraestructura -->
+
+						<tr>
+							<td colspan="2" rowspan="5" >
+								<div><b>0.10</b></div>								
+								<div>Infraestructura</div>
+							</td>
+							<td colspan="2">1</td>
+							<td colspan="4">
+								<label>
+									Transporte, comunicaci&oacute;n, salud y los servicios esenciales son de muy altos est&aacute;ndares y raramente interrumpidos. 
+								</label>
+							</td>
+							';
+							if($strFila7 == "tb7_td0"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb7_td0">
+									<div class="ui-radio ui-mini" id="tb7_td0">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb7_td0">
+									<div class="ui-radio ui-mini" id="tb7_td0">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">
+								<label>
+									Transporte, comunicaci&oacute;n, salud y los servicios esenciales son de buenos est&aacute;ndares y raramente interrumpidos.
+								</label>
+							</td>
+							';
+							if($strFila7 == "tb7_td1"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb7_td1">
+									<div class="ui-radio ui-mini" id="tb7_td1">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb7_td1">
+									<div class="ui-radio ui-mini" id="tb7_td1">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">3</td>
+							<td colspan="4">
+								<label>
+									Transporte, comunicaci&oacute;n, salud y los servicios esenciales son interrumpidos regularmente y tienen est&aacute;ndares de seguridad cuestionables.   
+								</label>
+							</td>
+							';
+							if($strFila7 == "tb7_td2"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb7_td2">
+									<div class="ui-radio ui-mini" id="tb7_td2">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb7_td2">
+									<div class="ui-radio ui-mini" id="tb7_td2">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>						
+						<tr>
+							<td colspan="2">4</td>
+							<td colspan="4">
+								<label>
+									Transporte, comunicaci&oacute;n, salud y servicios esenciales  son muy pobres; interrupci&oacute;n y fallo es muy com&uacute;n.  
+								</label>
+							</td>
+							';
+							if($strFila7 == "tb7_td3"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb7_td3">
+									<div class="ui-radio ui-mini" id="tb7_td3">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb7_td3">
+									<div class="ui-radio ui-mini" id="tb7_td3">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">5</td>
+							<td colspan="4">
+								<label>
+									Transporte, comunicaci&oacute;n, salud y servicios esenciales son severamente degradados o inexistentes.
+								</label>
+							</td>
+							';
+							if($strFila7 == "tb7_td4"){
+								$strHtml .= '
+								<td colspan="2" bgcolor="#00FF00" id="tb7_td4">
+									<div class="ui-radio ui-mini" id="tb7_td4">
+									</div>
+								</td>
+								';
+							}else{
+								$strHtml .= '
+								<td colspan="2" id="tb7_td4">
+									<div class="ui-radio ui-mini" id="tb7_td4">
+									</div>
+								</td>
+								';
+							}
+							$strHtml .= '
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									Explicaci&oacute;n de indicadores
+								</label>
+							</td>
+							<td colspan="6">
+								<label name="txtTb1Exp" id="txtTb1Exp">' . $strExp7 . '</label>
+							</td>
+							<td>
+								<label id="lblTb1Rating7">
+									' . $strTot7 . '
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<label>
+									
+								</label>
+							</td>							
+							<td colspan="5" style="background-color:orange; text-align:center; color:#e1e1e1;">
+								<label>
+									Calificaci&oacute;n de Riesgo del contexto basado en la herramienta/gu&iacute;a de OCS
+								</label>
+							</td>
+							<td>
+								<label id="lblTbRatingFinal">
+									' . $strTotal . '
+								</label>
+							</td>
+							' . $strNivelRiesgo . '
+						</tr>						
+					</tbody>
+				</table>
+	';
+
+	$idReporteCRR = $db_funciones->insertarReporteCRR($strElaboradoPor,$strRiesgo,$strTipoObjeto, $strIdPunto, $strIdEvento, $strIdPais, $strHtml, $strFecha);
+	$db_funciones->Bitacora($strusr, 'Creacion de reporte CRR con identificador "' . $idReporte . '"');
+	echo $idReporteCRR;
+
+/*
+$strHtml = "";
+
+	$strTipoObjeto = $_POST["PjxTipoObjeto"];
+	$strFecha = $_POST["PjxFecha"];
+	$strElaboradoPor = $_POST["PjxElaboradoPor"];
+	$strIdPais = $_POST["PjxIdPais"];
+	$strIdEvento = $_POST["PjxIdEvento"];	
+	$strIdPunto = $_POST["PjxIdPunto"];	
+	$strPais = $_POST["PjxPais"];
+	$strEvento = $_POST["PjxEvento"];
+	$strPunto = $_POST["PjxPunto"];
+	$strTot1 = $_POST["PjxTot1"];
+	$strTot2 = $_POST["PjxTot2"];
+	$strTot3 = $_POST["PjxTot3"];
+	$strTot4 = $_POST["PjxTot4"];
+	$strTot5 = $_POST["PjxTot5"];
+	$strTot6 = $_POST["PjxTot6"];
+	$strTot7 = $_POST["PjxTot7"];
+	$strTotal = $_POST["PjxTot"];
+	$strExp1 = $_POST["PjxExp1"];
+	$strExp2 = $_POST["PjxExp2"];
+	$strExp3 = $_POST["PjxExp3"];
+	$strExp4 = $_POST["PjxExp4"];
+	$strExp5 = $_POST["PjxExp5"];
+	$strExp6 = $_POST["PjxExp6"];
+	$strExp7 = $_POST["PjxExp7"];
+	$strFila1 = $_POST["PxjFila1"];
+	$strFila2 = $_POST["PxjFila2"];
+	$strFila3 = $_POST["PxjFila3"];
+	$strFila4 = $_POST["PxjFila4"];
+	$strFila5 = $_POST["PxjFila5"];
+	$strFila6 = $_POST["PxjFila6"];
+	$strFila7 = $_POST["PxjFila7"];
+
+	$dcmNivelRiesgo = floatval($strTotal);
+	$strNivelRiesgo = "";
+	$strRiesgo = "";
+
+	if($dcmNivelRiesgo >= 1 && $dcmNivelRiesgo <= 1.79){
+		$strNivelRiesgo = "<td bgcolor='#00FF00'>INSIGNIFICANTE</td>";
+		$strRiesgo = "INSIGNIFICANTE";
+	}else if($dcmNivelRiesgo > 1.79 && $dcmNivelRiesgo <= 2.59){
+		$strNivelRiesgo = "<td bgcolor='#E8E118'>BAJO</td>";
+		$strRiesgo = "BAJO";
+	}else if($dcmNivelRiesgo > 2.59 && $dcmNivelRiesgo <= 3.39){
+		$strNivelRiesgo = "<td bgcolor='#E88018'>MEDIO</td>";
+		$strRiesgo = "MEDIO";
+	}else if($dcmNivelRiesgo > 3.39 && $dcmNivelRiesgo <= 4.19){
+		$strNivelRiesgo = "<td bgcolor='#E81818'>ALTO</td>";
+		$strRiesgo = "ALTO";
+	}else if($dcmNivelRiesgo > 4.19 && $dcmNivelRiesgo <= 5){
+		$strNivelRiesgo = "<td bgcolor='#000000' style='color: white;'>CR&Iacute;TICO</td>";
+		$strRiesgo = "CRITICO";
+	}else{
+		$strNivelRiesgo = "<td></td>";
+	}
+*/
+}
+
+
 ?>
