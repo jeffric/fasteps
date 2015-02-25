@@ -2895,6 +2895,18 @@ function insertarReporteHissCam($NombreDepartamento,
 	 	}
 	 }		  
 
+	function getReporteCrr($idReporteCrr){
+		$strTabla = " resultado_crr ";
+		$strCampos = " * ";
+		$strRestricciones = " idRESULTADO_CRR = " . $idReporteCrr . " ";
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}	 
+
 
 
 	} // FIN DE CLASE
