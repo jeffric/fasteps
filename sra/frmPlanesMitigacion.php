@@ -26,9 +26,9 @@
 ?>
 <body>
 
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Evaluación operativa"); ?>
-		<div class="content">	
+		<div role="main" class="ui-content">	
 		<div style="width:100%; overflow:auto; overflow-y:hidden; -ms-overflow-y: hidden; " >	
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ">
 				<thead>

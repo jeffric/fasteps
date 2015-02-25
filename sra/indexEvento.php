@@ -57,7 +57,7 @@ try {
 					</div> -->
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtFecha" >Fecha</label>
-						<input type="date" name="txtFecha" id="txtFecha" value="" data-role="date" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">					
+						<input type="date" name="txtFecha" id="txtFecha">					
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtCreador" >Elaborado por</label>
