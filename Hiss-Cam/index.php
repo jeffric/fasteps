@@ -873,9 +873,9 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 				success: function (datos) {
 					//$("#modalCargando").modal("hide");
 					if(isNumber(datos)){
-						window.location = "ReporteHissCam.php?idRepo=" + datos;
+						window.location = "ReporteHiss-Cam.php?idRepo=" + datos;
 					}else{
-						window.location = "ReporteHissCam.php?idRepo=0";
+						window.location = "ReporteHiss-Cam.php?idRepo=0";
 					}					
 				},
 				error: function (objeto, error, objeto2) {
