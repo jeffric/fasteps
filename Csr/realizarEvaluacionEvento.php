@@ -18,37 +18,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $idEvento=$_POST["lstEventos"];
 $idNivelRiesgo=$_POST["lstNivelRiesgo"];
+$fecha=$_POST["txtFecha"];
+$_SESSION["fechaCsr"]=$fecha;
+
+
 $cantidadRequerimientos=$c_funciones->getCantidadRequerimientos($idNivelRiesgo);
 
 $_SESSION["idEvento"] =$idEvento;
 $_SESSION["idNivelRiesgo"] = $idNivelRiesgo;
 $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
+$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
-
+$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $fecha, $strUsuario, -1, $idEvento);	
+$_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
 	}
 	else{
 			header("Location: ../Csr/buscarEvento.php");
 			return;
 
 	}
-
-
-
-/*$idUsuario = $c_funciones->getIdUsuario($strUsuario);
-
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$idUsuario = $_SESSION["idUsuario"];
-	$idPais = $_POST["lstPais"];
-	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
-	$FechaElaboracion = $_POST["txtFecha"];
-	$strElaboradoPor = $_POST["txtCreador"];
-
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
-	$_SESSION["idEvalSraActual"] = $idEvaluacion;
-}*/	
-
-
-
 
 
 ?>
@@ -183,7 +171,7 @@ $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
 <div data-role="page" id="page" >
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
 		<div role="main" class="ui-content">
-		<form action="reporteCSR.php" method="POST" data-ajax="false" >
+		<form action="reporteCSREvento.php" method="POST" data-ajax="false" >
 			<div class="ui-body ui-body-a ui-corner-all">
 			<th ><font color="blue" size="5"><b>PROCEDIMIENTOS Y PLANES DE SEGURIDAD</font></th>
 			<table data-role="table"id="movie-table-custom" data-mode="reflow" class="movie-list table-stripe">
