@@ -26,6 +26,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			
 
 			<?php 
+			//comentario
 			if(isset($_GET["idRepo"])){
 				try {
 					$idReporteHiss = $_GET["idRepo"];
