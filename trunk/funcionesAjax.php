@@ -2180,8 +2180,9 @@ function CrearReporteHissCam(){
 							</div>
 						</div>';
 
+$strusr = $_SESSION["Usuario"];
 		$idReporteHissCam = $db_funciones->insertarReporteHissCam($strNombreDepto,$strFechaReporte,$strTema,$strPaisRegion,$strEjercitoOtro,$strCompromiso,$strHtml);
-		$db_funciones->Bitacora($strusr, 'Creacion de reporte HISS-CAM con identificador "' . $idReporte . '"');
+		$db_funciones->Bitacora($strusr, 'Creacion de reporte HISS-CAM con identificador "' . $idReporteHissCam . '"');
 		echo $idReporteHissCam;
 }
 
