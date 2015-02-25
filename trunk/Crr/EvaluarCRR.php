@@ -845,7 +845,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			$.ajax({
 				type: "POST",
 				url: "../funcionesAjax.php",
-				data: {                   
+				data: {        					
 					nombreMetodo: "ReporteCRR",
 					PjxTipoObjeto: tipoObjeto,
 					PjxFecha: Fecha,
@@ -886,6 +886,8 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 					//$("#modalCargando").modal("hide");
 					try {
 						var dat = parseInt(datos);
+						alert(datos);
+
 						window.location = "ReporteCRR.php?idRepo=" + datos;
 					}
 					catch(err) {
