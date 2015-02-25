@@ -36,11 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Amenazas", 
-	'<script type="text/javascript">
-	$(function() {
-		////$("nav#menu").mmenu();
-	});
-</script>
+
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>
+
+	');
+?>
 
 <style>
 
@@ -222,10 +226,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				';
 	}	
 ?>
-<div id="page">
+<div data-role ="page" id="page">
 	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenazas"); ?>
-	<div class="content">	
+	<div role="main" class="ui-content">	
 		<form action="frmEvaluarAmenazas.php" method="POST" data-ajax="false">
+			<div class="ui-body ui-body-a ui-corner-all">
 			<table data-role="table"id="movie-table-custom" data-mode="reflow" class="movie-list table-stripe">
 				<thead>
 					<tr>
@@ -262,11 +267,12 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 </div>	
 </form>
 </div>
+</div>
 <?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
+<?php echo $c_funciones->getFooterNivel2(); ?>		
+
 </div>		
 
-<?php echo $c_funciones->getFooterNivel2(); ?>		
-<!-- FOOTER -->
 
 <script type="text/javascript">
 	$("#btnAgregarAmenazas").click(function(){

@@ -13,16 +13,23 @@ $c_funciones = new Funciones();
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Evaluar Amenazas SRA", 
-	'<script type="text/javascript">
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>'); 
+  ?>
+	<script type="text/javascript">
 	$(function() {
 		////$("nav#menu").mmenu();
 	});
 </script>'); ?>
-<body>
 
-	<div id="page">
+<body>
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Evaluar Amenazas SRA"); ?>
-		<div class="content">			
+		<div role="main" class="ui-content">			
+			<div class="ui-body ui-body-a ui-corner-all">
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
 				<thead>
 					<tr>
@@ -460,10 +467,11 @@ echo "<script type='text/javascript'>" . $strJs . "</script>";
 	<input type="button" id="btnEvaluar" data-theme="a" name="btnEvaluar" onclick="confirmar();" value="Evaluar" class="ui-btn-hidden" aria-disabled="false"/>
 </div>		
 </div>
+</div>
 <?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
-</div>		
 <?php echo $c_funciones->getFooterNivel2(); ?>		
-<!-- FOOTER -->
+
+</div>		
 <script type="text/javascript">
 
 	if (typeof String.prototype.startsWith != 'function') {

@@ -21,23 +21,17 @@ try {
 <!DOCTYPE html>
 <html>
 <?php echo $c_funciones->getHeaderNivel2("Reporte SRA", 
-	'<script type="text/javascript">
-	$(function() {
-		////$("nav#menu").mmenu();
-	});
-$(document).bind("mobileinit", function () {
-
-	$.mobile.ajaxEnabled = false;
-
-});
-</script>
-
-'); ?>
+	'<style>
+  .panel-content {
+    padding: 1em;
+  }
+  </style>');
+?>
 <body>
 
-	<div id="page">
+<div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Home"); ?>
-		<div class="content">
+		<div role="main" class="ui-content">
 			<div id="printReport" class="ui-grid-solo">
 				<?php 
 				$idReporteSra = $_GET["idRepo"];
@@ -62,9 +56,10 @@ $(document).bind("mobileinit", function () {
 			</div>
 		</div>
 		<?php echo $c_funciones->getMenuNivel2($_SESSION["TipoUsuario"]); ?>
-	</div>		
 	<?php echo $c_funciones->getFooterNivel2(); ?>		
-	<!-- FOOTER -->
+		
+	</div>		
+
 
 	<script type="text/javascript">
 	$("#btnCorreo").click(function(){
