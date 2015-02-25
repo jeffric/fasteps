@@ -26,15 +26,14 @@
 
 		function __construct(){
 		//$serverName, $port, $db_name, $username, $password
+
+			// $serverName = "localhost";
 			$serverName = "localhost";
-			// $serverName = "creativesolitcom.ipagemysql.com";
 			$port = "3306";
 			$db_name = "fastdbvm";
-			// $username = "vm_user_fast";
+			// $username = "root";
 			$username = "root";
-			// $username = "vmadmin";
-			$password = "admin";
-			// $password = "u$3r_*F@$t";
+			$password = "M2chus04";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
@@ -65,7 +64,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -110,8 +109,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -236,7 +235,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -281,8 +280,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -396,7 +395,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -430,8 +429,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -519,7 +518,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -545,8 +544,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>				    	
 			    	</div>	
@@ -614,7 +613,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   		
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
 		<!-- Estilos -->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 
@@ -670,7 +669,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="../home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -715,8 +714,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -841,7 +840,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -886,8 +885,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -1001,7 +1000,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -1035,8 +1034,8 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../sra/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../sra/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../sra/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../sra/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -1124,7 +1123,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="#" data-rel="close"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -1556,10 +1555,20 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 
 		function modificarUsuario($nombre, $apellido, $correo, $pass, $idUsuario){
-			//modifica una amenaza en el sistema
 			try {
 				$password = $this->getMD5($pass);
+				$_SESSION["passwordUsuario"] = $pass;	
 				$result = $this->db->ExecutePersonalizado("UPDATE USUARIO SET nombre='$nombre', apellido='$apellido', correo='$correo', password='$password' WHERE idUSUARIO='$idUsuario'");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
+
+		function modificarUsuarioNoPass($nombre, $apellido, $correo, $idUsuario){
+			
+			try {
+				$result = $this->db->ExecutePersonalizado("UPDATE USUARIO SET nombre='$nombre', apellido='$apellido', correo='$correo' WHERE idUSUARIO='$idUsuario'");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
@@ -2096,7 +2105,8 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			$rowcount=mysqli_num_rows($result);
 			// $cont = 0;
 			while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {					
-				$_SESSION["idUsuario"] = $row[0];				
+				$_SESSION["idUsuario"] = $row[0];		
+				$_SESSION["passwordUsuario"] = $strPassword;		
 			}			
 			if($rowcount > 0){
 				return true;
@@ -2172,7 +2182,17 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				echo 'Error: ' .$e->getMessage();
 			}
 
-		}		
+		}	
+
+		function getNombreEvento($idEvento){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM EVENTO WHERE idEVENTO= '$idEvento'");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}			
 
 		function verificarExistenciaEvento($variable){
 			//verifica si ya existe un pais con dicho nombre
@@ -2640,6 +2660,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 
  		foreach ($arrDestinatarios as $Correo) {
  			mail($Correo, $Asunto, $mensaje, $headers);	
+
  		} 		
  		//echo str_replace("<","-",$mensaje);
  	} catch (Exception $e) {
@@ -2657,7 +2678,24 @@ function getHeaderPageNivel2($TituloDePagina = ""){
  	}
  }
 
+/**
+ FUNCIONES PARA CSR
+ */
 
+	function insertarReporteCsr($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $idPuntoEval, $idEvento, $nombreObjeto){
+		try {
+
+				$strSql = "";			
+				$strSql = "INSERT INTO resultado_csr (fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO,  idPUNTO_EVALUACION, idEvento, nombre_objeto ) VALUES('$FechaCreacion', '$htmlReporte', '$Usuario', '$idNivelRiesgo', '$idPuntoEval', '$idEvento', '$nombreObjeto' );";
+					$result = mysqli_query($this->db->link,$strSql) or die(mysql_error());
+					$id = mysqli_insert_id($this->db->link);
+					return $id;
+			} catch (Exception $e) {
+				//no se pudo realizar la insercion
+				echo 'Error al insertar reporte sra: ' . $e->getMessage();
+				return;
+			}
+	}
 
 function insertarReporteHissCam($NombreDepartamento, 
 								$FechaReporte, 
@@ -2691,6 +2729,49 @@ function insertarReporteHissCam($NombreDepartamento,
 				return;
 			}
 	}
+
+	function getReporteCsr($idReporteCsr){
+		$strTabla = " resultado_csr ";
+		$strCampos = " * ";
+		$strRestricciones = " idRESULTADO_CSR = " . $idReporteCsr . " ";
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
+
+	 function getReportesCsrPtos(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT * FROM resultado_csr where idPUNTO_EVALUACION >0;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }	
+
+	 function getReportesCsrEventos(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT * FROM resultado_csr where idEvento >0;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }	 
+
+	 function enviar(){
+						$mensaje = "hooola";
+						if(mail("copoba@gmail.com","Prueba",$mensaje)){
+
+							
+						}
+						else{
+
+							
+						}
+	 }
+	
 
  function getHtmlReporteHISSCAM($idReporte){
  	try {
@@ -2786,6 +2867,35 @@ function insertarReporteHissCam($NombreDepartamento,
  	return -1;
  }
 }
+
+	 function getReportesCrrPais(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, pais where tipo_objeto = 0 AND pais.idPAIS = resultado_crr.fk_idPAIS;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }	
+
+	 function getReportesCrrEvento(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, EVENTO where tipo_objeto = 1 AND evento.idEvento = resultado_crr.fk_idEVENTO;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }		
+
+	 function getReportesCrrPtos(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, punto_evaluacion where tipo_objeto = 2 AND punto_evaluacion.idPunto_Evaluacion = resultado_crr.fk_idPUNTO_EVALUACION;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }		  
+
+
 
 	} // FIN DE CLASE
 	?>
