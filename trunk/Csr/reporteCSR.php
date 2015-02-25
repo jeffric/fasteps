@@ -21,23 +21,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	}
 	else{
-			header("Location: ../Csr/buscarEvento.php");
+			header("Location: ../Csr/index.php");
 			return;
 
 	}
 
-//$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+$idUsuario = $c_funciones->getIdUsuario($strUsuario);
+$idEvaluacion =$_SESSION["idEvaluacionCsrActual"];
+$result=$c_funciones->getPtoEvaluacion($_SESSION["idPuntoEvaluacion"]);
+while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+	$nombrePuntoEvaluacion = $row[1];
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$idUsuario = $_SESSION["idUsuario"];
-	$idPais = $_POST["lstPais"];
-	$idPuntoEvaluacion = $_POST["lstPuntoEvaluacion"];
-	$FechaElaboracion = $_POST["txtFecha"];
-	$strElaboradoPor = $_POST["txtCreador"];
+}
 
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
-	$_SESSION["idEvalSraActual"] = $idEvaluacion;
-}*/
+$reporteHtml="";
 
 
 
@@ -52,120 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<style>
 
-	/* Add alternating row stripes */
-	.table-stripe tbody tr:nth-child(odd) td,
-	.table-stripe tbody tr:nth-child(odd) th {
-		background-color: rgba(0,0,0,0.04);
-	}
-
-	/* These apply across all breakpoints because they are outside of a media query */
-	/* Make the labels light gray all caps across the board */
-	.movie-list thead th,
-	.movie-list tbody th .ui-table-cell-label,
-	.movie-list tbody td .ui-table-cell-label {
-		text-transform: uppercase;
-		
-		color: rgba(0,0,0,0.5);
-		font-weight: bold;
-	}
-	/* White bg, large blue text for rank and title */
-	.movie-list tbody th {
-		font-size: 1.2em;
-		background-color: #fff;
-		color: #77bbff;
-		text-align: center;
-	}
-	/*  Add a bit of extra left padding for the title */
-	.movie-list tbody td.title {
-		padding-left: .8em;
-	}
-	/* Add strokes */
-	.movie-list thead th {
-		border-bottom: 1px solid #d6d6d6; /* non-RGBA fallback */
-		border-bottom: 1px solid rgba(0,0,0,.1);
-	}
-	.movie-list tbody th,
-	.movie-list tbody td {
-		border-bottom: 1px solid #e6e6e6; /* non-RGBA fallback  */
-		border-bottom: 1px solid rgba(0,0,0,.05);
-	}
-	/*  Custom stacked styles for mobile sizes */
-	/*  Use a max-width media query so we dont have to undo these styles */
-	@media (max-width: 40em) {
-		/*  Negate the margin between sections */
-		.movie-list tbody th {
-			margin-top: 0;
-			text-align: left;
-		}
-		/*  White bg, large blue text for rank and title */
-		.movie-list tbody th,
-		.movie-list tbody td.title {
-			display: block;
-			font-size: 1.2em;
-			line-height: 110%;
-			padding: .5em .5em;
-			background-color: #fff;
-			color: #77bbff;
-			-moz-box-shadow: 0 1px 6px rgba(0,0,0,.1);
-			-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.1);
-			box-shadow: 0 1px 6px rgba(0,0,0,.1);
-		}
-		/*  Hide labels for rank and title */
-		.movie-list tbody th .ui-table-cell-label,
-		.movie-list tbody td.title .ui-table-cell-label {
-			display: none;
-		}
-		/*  Position the title next to the rank, pad to the left */
-		.movie-list tbody td.title {
-			margin-top: -2.1em;
-			padding-left: 2.2em;
-			border-bottom: 1px solid rgba(0,0,0,.15);
-		}
-		/*  Make the data bold */
-		.movie-list th,
-		.movie-list td {
-			font-weight: bold;
-		}
-		/* Make the label elements a percentage width */
-		.movie-list td .ui-table-cell-label,
-		.movie-list th .ui-table-cell-label {
-			min-width: 20%;
-		}
-	}
-	/* Media query to show as a standard table at wider widths */
-	@media ( min-width: 40em ) {
-		/* Show the table header rows */
-		.movie-list td,
-		.movie-list th,
-		.movie-list tbody th,
-		.movie-list tbody td,
-		.movie-list thead td,
-		.movie-list thead th {
-			display: table-cell;
-			margin: 0;
-		}
-		/* Hide the labels in each cell */
-		.movie-list td .ui-table-cell-label,
-		.movie-list th .ui-table-cell-label {
-			display: none;
-		}
-	}
-	/* Hack to make IE9 and WP7.5 treat cells like block level elements */
-	/* Applied in a max-width media query up to the table layout breakpoint so we dont need to negate this */
-	@media ( max-width: 40em ) {
-		.movie-list td,
-		.movie-list th {
-			width: 100%;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			float: left;
-			clear: left;
-		}
-	}
-</style>
 
 
 '); ?>
@@ -173,30 +57,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div data-role="page" id="page" >
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
 		<div role="main" class="ui-content">
-			<p align="center"><strong>REPORTE CSR</strong><br />
-				<p align="center"><?php 
+			<div class="ui-body ui-body-a ui-corner-all">
+
+<?php 
+			$reporteHtml= $reporteHtml.'<p align="center"><strong>REPORTE CSR</strong><br />';
+				$reporteHtml= $reporteHtml.'<p align="center">';
+				$reporteHtml= $reporteHtml.'Fecha Reporte: '.$_SESSION["fechaCsr"].'</br><br>';
+
 					if($idNivelRiesgo==1){
-						echo "Nivel de riesgo: Insignificante";
+						$reporteHtml= $reporteHtml.'Punto Evaluación: <b>'.$nombrePuntoEvaluacion.'</b><br>';
+						$reporteHtml= $reporteHtml.'Nivel de riesgo: Insignificante';
 
 					}
 					else if($idNivelRiesgo==2){
-						echo "Nivel de Riesgo: Bajo";
+						$reporteHtml=  $reporteHtml.'Punto Evaluación: <b>'.$nombrePuntoEvaluacion.'</b><br>';
+						$reporteHtml=  $reporteHtml.'Nivel de Riesgo: Bajo';
 
 					}
 					else if($idNivelRiesgo==3){
-						echo "Nivel de Riesgo: Medio";
+						$reporteHtml=  $reporteHtml.'Punto Evaluación: <b>'.$nombrePuntoEvaluacion.'</b><br>';
+						$reporteHtml=  $reporteHtml.'Nivel de Riesgo: Medio';
 
 					}
 					else if($idNivelRiesgo==4){
-						echo "Nivel de Riesgo: Alto";
+						$reporteHtml=  $reporteHtml.'Punto Evaluación: <b>'.$nombrePuntoEvaluacion.'</b><br>';
+						$reporteHtml=  $reporteHtml.'Nivel de Riesgo: Alto';
 
 					}
 
 
 
-				?></p>
-			<div class="ui-body ui-body-a ui-corner-all">
-<?php
+			
+			$reporteHtml=  $reporteHtml.'</p>';
+
 
 		$contadorNoAplicable=0;
 		$contadorNoIniciado=0;
@@ -207,6 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$cadenaNoIniciado="";
 		$cadenaIniciado="";
 		$cadenaCompletado="";
+	
+		$cum=0;
 
 	if(($arrSelect)){
 						if(!empty($arrSelect)) {
@@ -214,23 +109,24 @@ $contador=0;
 								foreach($arrSelect as $option){
 										if($option == '1'){
 											$contadorNoAplicable = $contadorNoAplicable+1;
-											$cadenaNoAplicable=$cadenaNoAplicable."
-											<br>".$_POST['requerimientos'.$contador];
+											$cadenaNoAplicable=$cadenaNoAplicable.'
+											<br>- '.$_POST['requerimientos'.$contador];										
 										}
 										else if($option == '2'){
 											$contadorNoIniciado = $contadorNoIniciado+1;
-											$cadenaNoIniciado=$cadenaNoIniciado."
-											<br>".$_POST['requerimientos'.$contador];											
+											$cadenaNoIniciado=$cadenaNoIniciado.'
+											<br>- '.$_POST['requerimientos'.$contador];
+
 										}
 										else if($option == '3'){
 											$contadorIniciado = $contadorIniciado+1;
-											$cadenaIniciado=$cadenaIniciado."
-											<br>".$_POST['requerimientos'.$contador];											
+											$cadenaIniciado=$cadenaIniciado.'
+											<br>- '.$_POST['requerimientos'.$contador];											
 										}
 										else{
 											$contadorCompletado = $contadorCompletado+1;
-											$cadenaCompletado=$cadenaCompletado."
-											<br>".$_POST['requerimientos'.$contador];											
+											$cadenaCompletado=$cadenaCompletado.'
+											<br>- '.$_POST['requerimientos'.$contador];											
 										}
 
 										$contador=$contador+1;
@@ -247,86 +143,116 @@ $contador=0;
 									$IN = number_format($contadorIniciado, 2, '.', '');
 									$COM = number_format($contadorCompletado, 2, '.', '');	
 
-									echo "<table data-role='table'id='movie-table-custom' data-mode='reflow' class='movie-list table-stripe'>";
-								    echo "<thead>";
-								    echo "		<tr>";
-								    echo "            <th>% No APlica</th>";
-								    echo "            <th>% No Iniciados</th>";
-								    echo "            	<th>% Iniciados</th>";
-								    echo "            <th>% Completados</th>";
-								    echo "            <th>% Cumplimiento</th>";
-								    echo "        </tr>";
-								    echo "    </thead>";
+									$reporteHtml=  $reporteHtml.'<table >';
+								    $reporteHtml=  $reporteHtml.'<thead style="text-align: center;">';
+								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center; background-color: #9CF; font-weight: bold;">';
+								    $reporteHtml=  $reporteHtml.'            <th>% No Aplica</th>';
+								    $reporteHtml=  $reporteHtml.'            <th>% No Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            	<th>% Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th>% Completados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th>% Cumplimiento</th>';
+								    $reporteHtml=  $reporteHtml.'        </tr>';
+								    $reporteHtml=  $reporteHtml.'   </thead>';
 
-									echo "<tbody>";
-									echo "<tr>";
+									$reporteHtml=  $reporteHtml.'<tbody>';
+									$reporteHtml=  $reporteHtml.'<tr>';
 
-									echo "<td>";
-									echo $NA."%";
-									echo "<br>";
-									echo "</td>";
+									$reporteHtml=  $reporteHtml.'<td style="text-align: center;">';
+									$reporteHtml=  $reporteHtml.$NA.'%';
+									$reporteHtml=  $reporteHtml.'<br>';
+									$reporteHtml=  $reporteHtml.'</td>';
 
-									echo "<td>";
-									echo $NOIN."%";
-									echo "<br>";
-									echo "</td>";
+									$reporteHtml=  $reporteHtml.'<td style="text-align: center;">';
+									$reporteHtml=  $reporteHtml.$NOIN.'%';
+									$reporteHtml=  $reporteHtml.'<br>';
+									$reporteHtml=  $reporteHtml.'</td>';
 
-									echo "<td>";
-									echo $IN."%";
-									echo "<br>";
-									echo "</td>";
+									$reporteHtml= $reporteHtml.'<td style="text-align: center;">';
+									$reporteHtml= $reporteHtml.$IN.'%';
+									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.'</td>';
 
-									echo "<td>"; 
-									echo $COM."%";
-									echo "<br>";
-									echo "</td>";
+									$reporteHtml= $reporteHtml.'<td style="text-align: center;">'; 
+									$reporteHtml= $reporteHtml.$COM.'%';
+									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.'</td>';
 
-									echo "<td>"; 
+									$reporteHtml= $reporteHtml.'<td style="text-align: center;">';
 									if($contadorCompletado ==0){
 
-										echo "0";
+										$reporteHtml= $reporteHtml.'0';
 
 									}
 									else{
-									echo number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '')."%";
+										$cum =number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
+									 $reporteHtml= $reporteHtml.number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '').'%';
 
 									}
-									echo "<br>";
-									echo "</td>";	
+									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.'</td>';	
 									
-									echo "</tr>";
+									$reporteHtml= $reporteHtml.'</tr>';
 
-									echo "<tr>";
-									echo "<td>";
-									echo $cadenaNoAplicable;
-									echo "</td>";
+									$reporteHtml= $reporteHtml.'<tr style="background-color: #ddd; font-weight: bold;">';
+									$reporteHtml= $reporteHtml.'<td>';
+									$reporteHtml= $reporteHtml.$cadenaNoAplicable;
+									$reporteHtml= $reporteHtml.'</td>';
 
-									echo "<td>";
-									echo $cadenaNoIniciado;
-									echo "</td>";
+									$reporteHtml= $reporteHtml.'<td>';
+									$reporteHtml= $reporteHtml.$cadenaNoIniciado;
+									$reporteHtml= $reporteHtml.'</td>';
 
-									echo "<td>";
-									echo $cadenaIniciado;
-									echo "</td>";	
+									$reporteHtml= $reporteHtml.'<td>';
+									$reporteHtml= $reporteHtml.$cadenaIniciado;
+									$reporteHtml= $reporteHtml.'</td>';	
 
-									echo "<td>";
-									echo $cadenaCompletado;
-									echo "</td>";																										
-									echo "</tr>";
+									$reporteHtml= $reporteHtml.'<td>';
+									$reporteHtml= $reporteHtml.$cadenaCompletado;
+									$reporteHtml= $reporteHtml.'</td>';	
 
-									echo "</tbody>";
+									$reporteHtml= $reporteHtml.'<td>';
+									$reporteHtml= $reporteHtml.'</td>';	
+
+									$reporteHtml= $reporteHtml.'</tr>';
+
+									$reporteHtml= $reporteHtml.'</tbody>';
 
 
-									echo "</table>";																	
+									$reporteHtml= $reporteHtml.'</table>';	
+
+									$resultado = $c_funciones->insertarReporteCsr($_SESSION["fechaCsr"], $reporteHtml, $strUsuario, $idNivelRiesgo, $_SESSION["idPuntoEvaluacion"], -1, $nombrePuntoEvaluacion );
+
+									if($resultado>0){
+
+											$result=$c_funciones->getReporteCsr($resultado);
+
+																while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+																	$HtmlReporte=$row[2];				
+																}
+																echo $HtmlReporte;	
+											
+									}
+
+										
 
 						}
-	}
+					}
+
+	
 
 
 
 ?>
 	</div>
 	</div>	
+
+			<div data-role="fieldcontain">
+				<label for="txtDescripcion">Lista de correos (correos separados por comas):</label>
+				<textarea cols="40" rows="8" name="txtCorreos" id="txtCorreos" placeholder="Ej: cordonez@vm.com, jp@vm.com, jfuentes@gmail.com, lbarrios@gmail.com..."></textarea>
+			</div>
+			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+				<a id="btnCorreo" data-role="button" href="#" name="btnEvaluar" class="ui-btn-hidden" aria-disabled="false">Enviar por correo</a>
+			</div>	
 		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>	
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
 </div>		
@@ -336,7 +262,12 @@ $contador=0;
 
        $(document).ready(function(){
 
+			$("#btnCorreo").click(function(){
+			      $.ajax({
+           
+                });								
 
+			});
 
 
         });       	

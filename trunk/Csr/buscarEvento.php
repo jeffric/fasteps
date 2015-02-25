@@ -23,10 +23,7 @@ $c_funciones = new Funciones();
   }
   </style>'); ?>
 
-    <?php
-          $idPais = $_GET['idPais'];
-         
-    ?>
+
 <body>
 <div data-role="page" id="page">
 		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
@@ -55,6 +52,11 @@ $c_funciones = new Funciones();
 									}																						
 							?>
 						</select>	
+
+      			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
+      					<label for="txtFecha">Fecha de elaboración</label>
+      					<input type="date" name="txtFecha" id="txtFecha">	
+      			</div> 						
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 				<input type="submit" id="botonEvaluar" data-theme="a" name="submit" value="Iniciar Evaluación" class="ui-btn-hidden" aria-disabled="false"/>
 				</div>							
@@ -65,8 +67,34 @@ $c_funciones = new Funciones();
 
 		</div>
 			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-	</div>		
 		<?php echo $c_funciones->getFooterNivel2(); ?>		
-		<!-- FOOTER -->
+
+	</div>		
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeWarning" align="center"></p>
+      <center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+      <br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>
 	</body>
+	<script>
+		 $(document).ready(function(){
+            $('#botonEvaluar').click(function(){
+
+            	if($("#txtFecha").val().trim()=="")
+            	{
+                   $("#mensajeWarning").text("Debes ingresar una fecha valida");    
+                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+                  return false;   
+
+            	}
+       	  });
+
+		});
+	</script>
 	</html>

@@ -23,10 +23,14 @@ $cantidadRequerimientos=$c_funciones->getCantidadRequerimientos($idNivelRiesgo);
 $_SESSION["idPuntoEvaluacion"] =$idPuntoEvaluacion;
 $_SESSION["idNivelRiesgo"] = $idNivelRiesgo;
 $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
+$fecha=$_POST["txtFecha"];
+$_SESSION["fechaCsr"]=$fecha;
 
-	$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $FechaElaboracion, $strElaboradoPor, $idPuntoEvaluacion);	
-	$_SESSION["idEvalCsrActual"] = $idEvaluacion;
+$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
+
+$idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $fecha, $strUsuario, $idPuntoEvaluacion, -1);	
+$_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
 
 	}
 	else{
@@ -36,7 +40,6 @@ $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
 	}
 
 
-/*$idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$idUsuario = $_SESSION["idUsuario"];

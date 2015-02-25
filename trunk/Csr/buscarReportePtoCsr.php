@@ -30,35 +30,26 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						<table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
 						    <thead>
 						        <tr>
-						            <th data-priority="1">Campo1</th>
-						            <th data-priority="persist">Campo2</th>
-						            <th data-priority="2">Campo3</th>
-						            <th data-priority="3"><abbr title="Rotten Tomato Rating">Campo4</abbr></th>
-						            <th data-priority="4">Campo5</th>
+						            <th data-priority="1">idReporte</th>
+						            <th data-priority="persist">Fecha</th>
+						            <th data-priority="2">Nombre Punto de Evaluación</th>
+						            <th data-priority="3">Creador</th>
 						        </tr>
 						        </thead>
 						        <tbody>
-						            <tr>
-						                <th>1</th>
-						                <td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a></td>
-						                <td>1941</td>
-						                <td>100%</td>
-						                <td>74</td>
-						            </tr>
-						            <tr>
-						                <th>2</th>
-						                <td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a></td>
-						                <td>1942</td>
-						                <td>97%</td>
-						                <td>64</td>
-						            </tr>
-						            <tr>
-						                <th>3</th>
-						                <td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a></td>
-						                <td>1972</td>
-						                <td>97%</td>
-						                <td>87</td>
-						            </tr>
+
+<?php
+								$result = $c_funciones->getReportesCsrPtos();
+									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+										echo '<tr>';
+										echo '<th>'.$row[0].'</th>';
+										echo '<td>'.$row[1].'</td>';
+										echo '<td><a href=mostrarReporteCsr.php?idReporte='.$row[0].' data-ajax="false">'.$row[7].'</a></td>';
+										echo '<td>'.$row[3].'</td>';										
+										echo '</tr>';			
+									}
+?>						        	
+
 						        </tbody>
 						    </table>	
 					
