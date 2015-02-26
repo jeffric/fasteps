@@ -62,20 +62,35 @@ try {
 
 
 	<script type="text/javascript">
-	$("#btnCorreo").click(function(){
-		var correos = $("#txtCorreos").val();
-		var idRep = $("#hdRep").val();
-		var estilo = $("style").text();
+		$("#btnCorreo").click(function(){
+			var correos = $("#txtCorreos").val();
+			var idRep = $("#hdRep").val();
+			var estilo = $("style").text();
+			var today = new Date();
+			var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+		var yyyy = today.getFullYear();
+
+		if(dd<10) {
+			dd='0'+dd
+		} 
+
+		if(mm<10) {
+			mm='0'+mm
+		} 
+
+		today = dd+'/'+mm+'/'+yyyy;					
 		$.ajax({
-				type: "POST",
-				url: "../funcionesAjax.php",
-				data: {                   
-					nombreMetodo: "SendEMail",
-					mails: correos,
-					estilos: "",
-					idRepo : idRep
-				},
-				beforeSend: function () {
+			type: "POST",
+			url: "../funcionesAjax.php",
+			data: {                   
+				nombreMetodo: "sendGMail",
+				mails: correos,							
+				AjxIDReporte : idRep,
+				AjxTipoReporte: 3,
+				Asunto: "Vusi&oacute;n Mundial - Reporte SRA " + today;
+			},
+			beforeSend: function () {
 					//$("#modalCargando").modal("show");                       
 				},
 				success: function (datos) {

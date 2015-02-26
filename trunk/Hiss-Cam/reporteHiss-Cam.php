@@ -69,14 +69,33 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 					var correos = $("#txtCorreos").val();
 					var idRep = $("#hdRep").val();
 					var estilo = $("style").text();
+					var today = new Date();
+					var dd = today.getDate();
+					var mm = today.getMonth()+1; //January is 0!
+					var yyyy = today.getFullYear();
+
+					if(dd<10) {
+						dd='0'+dd
+					} 
+
+					if(mm<10) {
+						mm='0'+mm
+					} 
+
+					today = dd+'/'+mm+'/'+yyyy;					
+					// AjxTipoReporte: tipo de reporte [1: csr, 2: crr, 3: sra, 4: hiss-cam	]
+					// AjxTipoReporte: Id del reporte a enviar
+					// mails: Lista de mails destinatarios, separados por coma.
+					// Asunto: Asunto del correo.	
 					$.ajax({
 						type: "POST",
 						url: "../funcionesAjax.php",
 						data: {                   
-							nombreMetodo: "SendEMailHissCam",
-							mails: correos,
-							estilos: "",
-							idRepo : idRep
+							nombreMetodo: "sendGMail",
+							mails: correos,							
+							AjxIDReporte : idRep,
+							AjxTipoReporte: 4,
+							Asunto: "Vusi&oacute;n Mundial - Reporte Hiss-Cam " + today;
 						},
 						beforeSend: function () {
 					//$("#modalCargando").modal("show");                       

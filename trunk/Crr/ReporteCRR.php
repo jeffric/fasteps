@@ -69,14 +69,29 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 				var correos = $("#txtCorreos").val();
 				var idRep = $("#hdRep").val();
 				var estilo = $("style").text();
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0!
+				var yyyy = today.getFullYear();
+
+				if(dd<10) {
+					dd='0'+dd
+				} 
+
+				if(mm<10) {
+					mm='0'+mm
+				} 
+
+				today = dd+'/'+mm+'/'+yyyy;					
 				$.ajax({
 					type: "POST",
 					url: "../funcionesAjax.php",
 					data: {                   
-						nombreMetodo: "SendEMailHissCam",
-						mails: correos,
-						estilos: "",
-						idRepo : idRep
+						nombreMetodo: "sendGMail",
+						mails: correos,							
+						AjxIDReporte : idRep,
+						AjxTipoReporte: 2,
+						Asunto: "Vusi&oacute;n Mundial - Reporte CRR " + today;
 					},
 					beforeSend: function () {
 					//$("#modalCargando").modal("show");                       

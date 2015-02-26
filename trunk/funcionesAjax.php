@@ -1457,71 +1457,85 @@ if($strMetodo == "sendGMail")
     sendGMail();
 
 function sendGMail(){
+	//Parametros: 
+	// AjxTipoReporte: tipo de reporte [1: csr, 2: crr, 3: sra, 4: hiss-cam	]
+	// AjxIDReporte: Id del reporte a enviar
+	// mails: Lista de mails destinatarios, separados por coma.
+	// Asunto: Asunto del correo.	
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$idReporte=$_POST["AjxIDReporteCsr"];
+	try {
+		$idReporte = "";
+		$destinatarios = "";
+		$Asunto = "";
+		$tipoReporte = -1;
 
-    $result=$db_funciones->getReporteCsr($idReporte);
+	// 1: csr, 2: crr, 3: sra, 4: hiss-cam	
+		if(isset($_POST["AjxTipoReporte"])){
+			$tipoReporte = $_POST["AjxTipoReporte"];
+		}else{
+			echo "No se ha podido enviar su correo.";
+			return;
+		}
 
-	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-		$HtmlReporte=$row[2];				
-	}	
-	 	$headers = "MIME-Version: 1.0\r\n";
- 		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-						if(mail("copoba@gmail.com","Prueba",$HtmlReporte, $headers)){
+		if(isset($_POST["AjxIDReporte"];)){
+			$idReporte=$_POST["AjxIDReporte"];
+		}else{
+			echo "No se ha podido enviar su correo.";
+			return;
+		}
 
-							
-						}
-						else{
+		if(isset($_POST["mails"];)){
+			$destinatarios = $_POST["mails"];
+		}else{
+			echo "No se ha podido enviar su correo.";
+			return;
+		}
 
-							
-						}
-	//$db_funciones->enviar();
+		if(isset($_POST["Asunto"];)){
+			$Asunto = $_POST["Asunto"];
+		}else{
+			echo "No se ha podido enviar su correo.";
+			return;
+		}
 
+		$strHtmlReporte = "";
+		switch ($tipoReporte) {
+			case 1:
+			// CSR
+			$result=$db_funciones->getReporteCsr($idReporte);
+			while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				$strHtmlReporte=$row[2];				
+				break;
+			}
+			break;
+			case 2:
+			// CRR
+			$strHtmlReporte = $db_funciones->getHtmlReporteCRR($idReporte);
+			break;
+			case 3:
+			// SRA
+			$strHtmlReporte = $db_funciones->getHtmlReporteSRA($idReporte);
+			break;
 
-			/*==$to = "copoba@gmail.com";
-			$subject = "Solicitud de Compra";
-			$message = "Se ha creado una Solicitud de Compra para su PDA, se requiere de su aprobacion.";
-			$from = "<postmaster@localhost>";
-			$headers = "From: Vision Mundial Guatemala " . $from;
-			mail($to,$subject,$message,$headers);*/
+			case 4: 
+			//HISS-CAM
+			$strHtmlReporte = $db_funciones->getHtmlReporteHISSCAM($idReporte);
+			break;		
+		}
 
-	/*$asunto ="prueba de reporte";
-	$correo="copoba@gmail.com";
-	$headers= "MIME-Version: 1.0\r\n";
-	$headers.="Content-Type: text/html; charset=utf8\r\n";
-	$headers .= "From: copoba@gmail.com";
-	mail($correo, $asunto, $HtmlReporte, $headers);*/
+		$headers = "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+		$arrDestinatarios = explode(",",$destinatarios);
 
-// ENVIAR CORREO SIN MERCURY DESDE UNA CUENTA DE GMAIL.COM	
-/*	$result=$db_funciones->getReporteCsr($idReporte);
-
-	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-		$HtmlReporte=$row[2];				
-	}
-																	
-			$mail = new PHPMailer(); 
-			$mail->IsSMTP(); 
-			$mail->SMTPAuth = true; 
-			$mail->SMTPSecure = "ssl"; 
-			$mail->Host = "smtp.gmail.com"; 
-			$mail->Port = 465; 
-			$mail->Username = "copoba@gmail.com"; 
-			$mail->Password = "poliritmos";
-
-			$mail->From = "copoba@gmail.com"; 
-			$mail->FromName = "Luis Barrios"; 
-			$mail->Subject = "Asunto del Email"; 
-			$mail->AltBody = "Este es un mensaje de prueba."; 
-			$mail->MsgHTML('<html><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'. $HtmlReporte.'</html>'); 
-			$mail->AddAddress("copoba@gmail.com", "Luis Barrios"); 
-			$mail->IsHTML(true); 
-			if(!$mail->Send()) { 
-			echo "Error: " . $mail->ErrorInfo; 
-			} else { 
-			echo "Mensaje enviado correctamente"; 
-			}	*/
-	}
+		foreach ($arrDestinatarios as $Correo) {
+			mail($Correo, $Asunto, $strHtmlReporte, $headers);
+		} 
+		echo "Su correo se ha enviado exitosamente.";
+	} catch (Exception $e) {
+		echo "No se ha podido enviar su correo.";
+	}							
+}
 
 
 
