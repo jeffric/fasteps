@@ -33,7 +33,7 @@
 			$db_name = "fastdbvm";
 			// $username = "root";
 			$username = "root";
-			$password = "M2chus04";
+			$password = "admin";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
