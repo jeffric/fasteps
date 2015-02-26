@@ -1227,13 +1227,7 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	<link type="text/css" rel="stylesheet" href="../css/menu/jquery.mmenu.all.css" />
 
 	<!-- Scripts -->
-	<script src="../js/jquery-2.1.1.js"></script>
-	<script>
-		$(document).on("mobileinit", function () {
-			$.mobile.hashListeningEnabled = false;
-			$.mobile.pushStateEnabled = false;
-		});
-</script>		
+	<script src="../js/jquery-2.1.1.js"></script>		
 <script src="../js/jquery.mobile-1.4.4.min.js"></script>
 
 <!-- libreria para alertas -->
@@ -1261,11 +1255,11 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 ' . $CodigoDentroDeHeader . '
 
 
-<script type="text/javascript">
+<script>
 	function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 		swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
 
-	}
+	});
 </script>
 
 
@@ -2905,9 +2899,50 @@ function insertarReporteHissCam($NombreDepartamento,
 		} catch (Exception $e) {
 			echo 'Error: ' .$e->getMessage();
 		}
-	}	 
+	}	
 
 
+	function getReportesHissCam(){
+		$strTabla = " hiss_cam_reporte ";
+		$strCampos = " * ";
+		$strRestricciones = "";
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}		 
+
+	function getReporteHissCam($idReporteHiss){
+		$strTabla = " hiss_cam_reporte ";
+		$strCampos = " * ";
+		$strRestricciones = " idHISS_CAM_REPORTE = " . $idReporteHiss . " ";
+		try {
+			$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+			return $result;
+		} catch (Exception $e) {
+			echo 'Error: ' .$e->getMessage();
+		}
+	}
+
+	 function getReportesSraEvento(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_SRA, fecha_creacion, evento.nombre, correo  FROM usuario, resultado_sra, EVENTO where tipo_objeto = 2 AND evento.idEvento = resultado_sra.idPUNTO_EVALUACION AND evento.idEvento = resultado_sra.idPUNTO_EVALUACION and usuario.idUsuario = RESULTADO_SRA.usuario;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }		
+
+	 function getReportesSraPtos(){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_SRA, fecha_creacion, punto_evaluacion.nombre, correo  FROM usuario, resultado_sra, punto_evaluacion where tipo_objeto = 1 AND punto_evaluacion.idPUNTO_EVALUACION = resultado_sra.idPUNTO_EVALUACION and usuario.idUsuario = RESULTADO_SRA.usuario;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }
 
 	} // FIN DE CLASE
 	?>
