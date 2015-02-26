@@ -2754,17 +2754,6 @@ function insertarReporteHissCam($NombreDepartamento,
 	 	}
 	 }	 
 
-	 function enviar(){
-						$mensaje = "hooola";
-						if(mail("copoba@gmail.com","Prueba",$mensaje)){
-
-							
-						}
-						else{
-
-							
-						}
-	 }
 	
 
  function getHtmlReporteHISSCAM($idReporte){
