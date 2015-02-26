@@ -25,7 +25,15 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			<p align="center"><strong>BLANK</strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">
 
-					CONTENIDO
+					<?php
+
+			$to = "copoba@gmail.com";
+			$subject = "Solicitud de Compra";
+			$message = "Se ha creado una Solicitud de Compra para su PDA, se requiere de su aprobacion.";
+			$from = "<postmaster@localhost>";
+			$headers = "From: Vision Mundial Guatemala " . $from;
+			mail($to,$subject,$message,$headers);
+					?>
 					
 				</div>
 		</div>
