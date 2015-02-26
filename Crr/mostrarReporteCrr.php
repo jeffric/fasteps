@@ -13,7 +13,7 @@ $idReporte = $_GET["idReporte"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Reportes CSR", 
+<?php echo $c_funciones->getHeaderNivel2("Reportes CRR", 
 	'  <style>
   .panel-content {
     padding: 1em;
@@ -21,7 +21,7 @@ $idReporte = $_GET["idReporte"];
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CRR"); ?>
 		<div role="main" class="ui-content">
 				<div class="ui-body ui-body-a ui-corner-all">
 
