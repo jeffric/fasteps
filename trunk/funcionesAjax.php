@@ -14,6 +14,7 @@
 	ob_start();
 	$strMetodo = "";
 
+
 //recuperacion del parametro que lleva el nombre del metodo.
 //Este puede venir por post o por get.
 /**
@@ -1330,22 +1331,22 @@ function modificarMiInfo(){
 	$apellido = $_POST["AjxApellido"];
 	$correo = $_POST["AjxCorreo"];
 	$pass = $_POST["AjxPassword"];
+	$passActual = $_POST["AjxPassActual"];
 	$idUsuario = $_POST["AjxUsuario"];
 
 	try {
 
-		$bandera=$db_funciones->verificarExistenciaUsuarioUpdate($correo, $idUsuario);
-				if($bandera==true){
+		if($passActual == $_SESSION["passwordUsuario"]){
+				if(validarVacio($pass)==false){
+						$result = $db_funciones->modificarUsuario($nombre, $apellido, $correo, $pass, $idUsuario);
 
-					echo 'Ya existe una Usuario con el mismo nombre dentro del sistema';
-
+						echo "Usuario: ".$correo." actualizado existosamente";
 				}
 				else{
-				$result = $db_funciones->modificarUsuario($nombre, $apellido, $correo, $pass, $idUsuario);
-
-				echo "Usuario: ".$correo." guardado existosamente";
-
+						$result = $db_funciones->modificarUsuarioNoPass($nombre, $apellido, $correo, $idUsuario);
+						echo "Usuario: ".$correo." actualizado existosamente";			
 				}
+		}		
 		
 	} catch (Exception $e) {
 		echo $e->getMessage();
@@ -1450,6 +1451,79 @@ function getEventos(){
     }
     echo $strHtml;
 }
+
+
+if($strMetodo == "sendGMail")
+    sendGMail();
+
+function sendGMail(){
+	include_once "funciones.php";
+	$db_funciones = new Funciones();
+	$idReporte=$_POST["AjxIDReporteCsr"];
+
+    $result=$db_funciones->getReporteCsr($idReporte);
+
+	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+		$HtmlReporte=$row[2];				
+	}	
+	 	$headers = "MIME-Version: 1.0\r\n";
+ 		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+						if(mail("copoba@gmail.com","Prueba",$HtmlReporte, $headers)){
+
+							
+						}
+						else{
+
+							
+						}
+	//$db_funciones->enviar();
+
+
+			/*==$to = "copoba@gmail.com";
+			$subject = "Solicitud de Compra";
+			$message = "Se ha creado una Solicitud de Compra para su PDA, se requiere de su aprobacion.";
+			$from = "<postmaster@localhost>";
+			$headers = "From: Vision Mundial Guatemala " . $from;
+			mail($to,$subject,$message,$headers);*/
+
+	/*$asunto ="prueba de reporte";
+	$correo="copoba@gmail.com";
+	$headers= "MIME-Version: 1.0\r\n";
+	$headers.="Content-Type: text/html; charset=utf8\r\n";
+	$headers .= "From: copoba@gmail.com";
+	mail($correo, $asunto, $HtmlReporte, $headers);*/
+
+// ENVIAR CORREO SIN MERCURY DESDE UNA CUENTA DE GMAIL.COM	
+/*	$result=$db_funciones->getReporteCsr($idReporte);
+
+	while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+		$HtmlReporte=$row[2];				
+	}
+																	
+			$mail = new PHPMailer(); 
+			$mail->IsSMTP(); 
+			$mail->SMTPAuth = true; 
+			$mail->SMTPSecure = "ssl"; 
+			$mail->Host = "smtp.gmail.com"; 
+			$mail->Port = 465; 
+			$mail->Username = "copoba@gmail.com"; 
+			$mail->Password = "poliritmos";
+
+			$mail->From = "copoba@gmail.com"; 
+			$mail->FromName = "Luis Barrios"; 
+			$mail->Subject = "Asunto del Email"; 
+			$mail->AltBody = "Este es un mensaje de prueba."; 
+			$mail->MsgHTML('<html><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'. $HtmlReporte.'</html>'); 
+			$mail->AddAddress("copoba@gmail.com", "Luis Barrios"); 
+			$mail->IsHTML(true); 
+			if(!$mail->Send()) { 
+			echo "Error: " . $mail->ErrorInfo; 
+			} else { 
+			echo "Mensaje enviado correctamente"; 
+			}	*/
+	}
+
+
 
 if($strMetodo == "ReporteHissCam")
 	CrearReporteHissCam();
@@ -3414,8 +3488,9 @@ function CrearReporteCRR(){
 	';
 
 	$idReporteCRR = $db_funciones->insertarReporteCRR($strElaboradoPor,$strRiesgo,$strTipoObjeto, $strIdPunto, $strIdEvento, $strIdPais, $strHtml, $strFecha);
-	$db_funciones->Bitacora($strusr, 'Creacion de reporte CRR con identificador "' . $idReporte . '"');
+	$db_funciones->Bitacora($_SESSION["Usuario"], 'Creacion de reporte CRR con identificador "' . $idReporteCRR . '"');
 	echo $idReporteCRR;
+	//echo $strElaboradoPor." - ".$strRiesgo." - ".$strTipoObjeto." - ".$strIdPunto." - ".$strIdEvento." - ".$strIdPais." - ".$strHtml." - ".$strFecha;
 
 /*
 $strHtml = "";
@@ -3476,6 +3551,7 @@ $strHtml = "";
 	}
 */
 }
+
 
 
 ?>
