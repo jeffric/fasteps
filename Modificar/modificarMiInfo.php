@@ -32,26 +32,30 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			<div class="ui-body ui-body-a ui-corner-all">
 
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtNombre" >Nombre(s) de usuario</label>
+						<label for="txtNombre" >Nombre(s) de usuario:</label>
 						<input type="text" name="txtNombre" id="txtNombre" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtApellido" >Apellido(s) de usuario</label>
+						<label for="txtApellido" >Apellido(s) de usuario:</label>
 						<input type="text" name="txtApellido" id="txtApellido" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtCorreo">Correo de usuario/Usuario</label>
+						<label for="txtCorreo">Correo de usuario/Usuario:</label>
 						<input disabled="true" type="text" name="txtCorreo" id="txtCorreo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>	
 													
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtPassword">Nuevo Password</label>
+						<label for="txtPassword">Password Nuevo:</label>
 						<input  type="password" name="txtPassword" id="txtPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-						<label for="txtConfPassword">Confirmar Nuevo password</label>
+						<label for="txtConfPassword">Confirmar Password Nuevo:</label>
 						<input type="password" name="txtConfPassword" id="txtConfPassword" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-					</div>	
+					</div>		
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+						<label for="txtPassActual"> Password Actual:</label>
+						<input type="password" name="txtPassActual" id="txtPassActual" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+					</div>										
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<button id="botonGuardar" data-theme="a" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">Guardar Cambios</button>
 					</div>					
@@ -123,36 +127,30 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						$.mobile.changePage('#pageWarning', 'pop', true, true);
 						return false;					
 				}
-				else if($('#txtApellido').val().trim() == ""){
+				if($('#txtApellido').val().trim() == ""){
 
 						$("#mensaje").text("Debes ingresar el apellido de usuario");
 						$.mobile.changePage('#pageWarning', 'pop', true, true);
 						return false;					
-				}	
-				else if($('#txtPassword').val().trim() == ""){
-
-						$("#mensaje").text("Debes ingresar password de usuario");
-						$.mobile.changePage('#pageWarning', 'pop', true, true);
-						return false;					
-				}			
-				else if($('#txtConfPassword').val().trim() == ""){
-
-						$("#mensaje").text("Debes ingresar la confirmacion de password de usuario");
-						$.mobile.changePage('#pageWarning', 'pop', true, true);
-						return false;						
-				}	
+				}				
 				else if($('#txtPassword').val().trim() != $('#txtConfPassword').val().trim()){
 
 						$("#mensaje").text("Los Password No coinciden");
 						$.mobile.changePage('#pageWarning', 'pop', true, true);
 						return false;					
 				}
+				else if($('#txtPassActual').val().trim() == ""){
+
+						$("#mensaje").text("Debes ingresar tu Password Actual para demostrar tu autenticidad");
+						$.mobile.changePage('#pageWarning', 'pop', true, true);
+						return false;						
+				}	
 				else{
 						//va a insertar
 		                      $.ajax({
 			                        type: "POST",
 			                        url: "../funcionesAjax.php",
-			                        data: {nombreMetodo: "modificarMiInfo", AjxNombre: $('#txtNombre').val(), AjxApellido:$('#txtApellido').val() , AjxCorreo: $('#txtCorreo').val(), AjxPassword:$('#txtPassword').val(), AjxUsuario:<?php echo $idUsuario?>},
+			                        data: {nombreMetodo: "modificarMiInfo", AjxNombre: $('#txtNombre').val(), AjxApellido:$('#txtApellido').val() , AjxCorreo: $('#txtCorreo').val(), AjxPassword:$('#txtPassword').val(), AjxUsuario:<?php echo $idUsuario?>, AjxPassActual:$('#txtPassActual').val().trim()},
 			                        contentType: "application/x-www-form-urlencoded",
 			                        beforeSend: function(){
 			                        $('#loader_gif').fadeIn("slow");

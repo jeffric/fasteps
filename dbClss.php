@@ -23,6 +23,7 @@
 		$this->connectionInfo = array("UID"=>$this->username, "PWD"=>$this->password, "Database"=>$this->db_name);		
 		$conexion = mysqli_connect($serverName, $username, $password);
 		$link = $conexion;
+
 		
 		if (!$conexion) { 
 			die('<strong>Ha ocurrido un error al conectar al servidor de base de datos en: ' . $this->serverName . '.</strong> ' . mysqli_error()); 

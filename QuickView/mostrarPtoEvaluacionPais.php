@@ -108,7 +108,7 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
                     }                    
                         if($nivelCrr ==1){
 
-                            echo '"../css/images/gris.png"';
+                            echo '"../css/images/verde.png"';
                         }
                         else if($nivelCrr ==2){
 
@@ -125,7 +125,7 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
 
                 } 
                 else{
-                    echo '"../css/images/verde.png"';
+                    echo '"../css/images/gris.png"';
                 }  
 
 
