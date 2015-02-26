@@ -530,10 +530,11 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 																</table>
 
 															</div>
-														</div>
 														<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
-														<?php echo $c_funciones->getFooterNivel2(); ?>	
-													</div>													
+														<?php echo $c_funciones->getFooterNivel2(); ?>																
+														</div>
+													</div>
+														
 												</body>
 												<script>
 													function getEvalJsonObject(){
@@ -873,9 +874,13 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 				success: function (datos) {
 					//$("#modalCargando").modal("hide");
 					if(isNumber(datos)){
-						window.location = "ReporteHiss-Cam.php?idRepo=" + datos;
+
+						alert(datos);
+						window.location = "reporteHiss-Cam.php?idRepo=" + datos;
+
 					}else{
-						window.location = "ReporteHiss-Cam.php?idRepo=0";
+
+						window.location = "reporteHiss-Cam.php?idRepo=0";
 					}					
 				},
 				error: function (objeto, error, objeto2) {
