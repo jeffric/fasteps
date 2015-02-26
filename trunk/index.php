@@ -2,13 +2,14 @@
 
 include_once "funciones.php";
 $c_funciones = new Funciones();
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/jquery.mobile-1.4.4.min.js"></script>
@@ -48,11 +49,12 @@ $c_funciones = new Funciones();
 								<label for="slcTipoUsuarios" >Tipo de usuario</label>
 								<select name="slcTipoUsuarios" id="slcTipoUsuarios">
 <?php 				
+
 								$result = $c_funciones->getTipoUsuarios();					
 								while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 										echo'
 										<option value="'. $row[0] . '">' . $row[1] . '</option>';
-								}					
+								}				
 ?>								</select>	
 
 						</div>

@@ -34,9 +34,15 @@ $c_funciones = new Funciones();
 
 				
 				<center><img src="img/logo-fast.jpg" style="width:50%; height:50%; margin-top:1px;" /></center>
-				<a href="reportes.php" data-role="button">Reportes</a>
-				<a href="configuracion.php" data-role="button">Configuración</a> 
-				<a href="#pageError" data-role="button" id="botonAgregar" data-rel="dialog">Historial</a>
+
+<?php
+				if($strTipoUsuario ==1){
+
+					echo "<a href='#pageError' data-role='button' id='botonAgregar' data-rel='dialog'>BITACORA DE ACCIONES</a>";
+				}
+?>
+				
+	 						 						 			
 																					  	
 		    
 		  </div>

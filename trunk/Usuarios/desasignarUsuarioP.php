@@ -111,7 +111,7 @@ $c_funciones = new Funciones();
 	            <article data-role="content">
 	            <p id="mensajeExito" align="center">La desasignacion se realizó exitosamente</p>
 				<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" /></center>
-	            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+	            <a href="../Usuarios/desasignarUsuarioP.php" data-role="button" id="btn"  data-ajax="false">Aceptar</a>
 	           </article>
 	</div>		
 
