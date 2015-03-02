@@ -272,17 +272,7 @@ echo "<script type='text/javascript'>" . $strJs . "</script>";
 </tbody>
 </table>
 </div>
-<div data-role="fieldcontain">
-	<label for="NRiesgoOperador">Riesgo Residual:</label>
-	<?php 
-	$resultNivelR = $c_funciones->ConsultarNivelesDeRiesgo(); 
-	echo '<select id="NRiesgoOperador" name="NRiesgoOperador">';
-	while($row = mysqli_fetch_array($resultNivelR, MYSQL_NUM)){
-		echo '<option value="' . $row[0] . '"> ' . $row[1] . '</option>';		
-	}
-	echo '</select>';
-	?>
-</div>
+
 <div data-role="fieldcontain">
 	<label for="txtDescripcion">Descripción:</label>
 	<textarea cols="40" rows="8" name="txtDescripcion" id="txtDescripcion" placeholder="Describe tu evaluación."></textarea>

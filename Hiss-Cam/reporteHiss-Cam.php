@@ -83,10 +83,6 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 					} 
 
 					today = dd+'/'+mm+'/'+yyyy;					
-					// AjxTipoReporte: tipo de reporte [1: csr, 2: crr, 3: sra, 4: hiss-cam	]
-					// AjxTipoReporte: Id del reporte a enviar
-					// mails: Lista de mails destinatarios, separados por coma.
-					// Asunto: Asunto del correo.	
 					$.ajax({
 						type: "POST",
 						url: "../funcionesAjax.php",

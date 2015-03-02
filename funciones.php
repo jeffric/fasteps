@@ -2578,13 +2578,13 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		}
 	}
 
-	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $idNivelRiesgo, $TipoObjeto, $NombreObjeto, $idPuntoEval, $descripcion){
+	function insertarReporteSra($FechaCreacion, $htmlReporte, $Usuario, $TipoObjeto, $NombreObjeto, $idPuntoEval, $descripcion){
 		try {
 				$strTabla = " resultado_sra ";
 				$strCampos = "";
 				$strValores = "";
-					$strCampos = "  fecha_creacion, html_reporte, usuario, fk_NIVEL_RIESGO, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION, descripcion_evaluacion ";
-					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', " . $idNivelRiesgo . ", " . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . ", '" . $descripcion . "' ";				
+					$strCampos = "  fecha_creacion, html_reporte, usuario, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION, descripcion_evaluacion ";
+					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', "  . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . ", '" . $descripcion . "' ";				
 				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
 				if($result > 0){

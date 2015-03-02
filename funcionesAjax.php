@@ -604,8 +604,8 @@ function SetPaso2SRA(){
 	$arrEvalPaso2 = $arrJsonPaso2->Eval;
 
 	foreach($arrInfoPaso2 as $itemJsonInfo){
-		$strNivelRiesgoPaso2 = $itemJsonInfo->idNivelRiesgo;
-		$strIdNivelRiesgoPaso2 = $itemJsonInfo->strNivelRiesgo;
+		//$strNivelRiesgoPaso2 = $itemJsonInfo->idNivelRiesgo;
+		//$strIdNivelRiesgoPaso2 = $itemJsonInfo->strNivelRiesgo;
 		$strDescripcionPaso2 = $itemJsonInfo->Descripcion;
 		break;
 	}
@@ -613,15 +613,15 @@ function SetPaso2SRA(){
 	//Tabla 1 (encabezado con la info de la evaluacion)
 
 	$strHtmlTabla1 = '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#aaa;table-layout: fixed; width: 100%;">';
-	$strHtmlTabla1 .= '	<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
-	$strHtmlTabla1 .= 'Nivel de riesgo';
-	$strHtmlTabla1 .= '		</td>';	
-	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
-	$strHtmlTabla1 .= $strIdNivelRiesgoPaso2;
-	$strHtmlTabla1 .= '		</td>';	
-	$strHtmlTabla1 .= '	</tr>';
-	$strHtmlTabla1 .= '<tr>';
+	// $strHtmlTabla1 .= '	<tr>';
+	// $strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
+	// $strHtmlTabla1 .= 'Nivel de riesgo';
+	// $strHtmlTabla1 .= '		</td>';	
+	// $strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
+	// $strHtmlTabla1 .= $strIdNivelRiesgoPaso2;
+	// $strHtmlTabla1 .= '		</td>';	
+	// $strHtmlTabla1 .= '	</tr>';
+	// $strHtmlTabla1 .= '<tr>';
 	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Punto/Evento de evaluaci&oacute;n';
 	$strHtmlTabla1 .= '		</td>';
@@ -796,10 +796,10 @@ function SetPaso2SRA(){
 	//insertamos el reporte
     if($idPtoEval == ""){
         $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
-        $strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto, $idEvento,$strDescripcionPaso2);
+        $strHtmlTablaGeneral, $idUsuarioEvaluador, $tipoObjeto, $nombreObjeto, $idEvento,$strDescripcionPaso2);
     }else{
         $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
-        $strHtmlTablaGeneral, $idUsuarioEvaluador, $strNivelRiesgoPaso2, $tipoObjeto, $nombreObjeto,$idPtoEval,$strDescripcionPaso2);
+        $strHtmlTablaGeneral, $idUsuarioEvaluador, $tipoObjeto, $nombreObjeto,$idPtoEval,$strDescripcionPaso2);
     }	
 			$strusr = $_SESSION["Usuario"];
 			$db_funciones->Bitacora($strusr, 'Creacion de reporte SRA con identificador "' . $idReporte . '"');
@@ -1478,21 +1478,21 @@ function sendGMail(){
 			return;
 		}
 
-		if(isset($_POST["AjxIDReporte"];)){
+		if(isset($_POST["AjxIDReporte"])){
 			$idReporte=$_POST["AjxIDReporte"];
 		}else{
 			echo "No se ha podido enviar su correo.";
 			return;
 		}
 
-		if(isset($_POST["mails"];)){
+		if(isset($_POST["mails"])){
 			$destinatarios = $_POST["mails"];
 		}else{
 			echo "No se ha podido enviar su correo.";
 			return;
 		}
 
-		if(isset($_POST["Asunto"];)){
+		if(isset($_POST["Asunto"])){
 			$Asunto = $_POST["Asunto"];
 		}else{
 			echo "No se ha podido enviar su correo.";
