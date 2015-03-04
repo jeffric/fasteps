@@ -89,9 +89,9 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						data: {                   
 							nombreMetodo: "sendGMail",
 							mails: correos,							
-							AjxIDReporte : idRep,
+							AjxIDReporte : <?php echo $idReporteHiss; ?>,
 							AjxTipoReporte: 4,
-							Asunto: "Vusi&oacute;n Mundial - Reporte Hiss-Cam " + today;
+							Asunto: "Visión Mundial - Reporte Hiss-Cam"
 						},
 						beforeSend: function () {
 					//$("#modalCargando").modal("show");                       
