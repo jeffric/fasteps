@@ -530,11 +530,11 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 																</table>
 
 															</div>
+														</div>
 														<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 														<?php echo $c_funciones->getFooterNivel2(); ?>																
 														</div>
-													</div>
-														
+
 												</body>
 												<script>
 													function getEvalJsonObject(){
