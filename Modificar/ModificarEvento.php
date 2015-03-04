@@ -175,7 +175,7 @@ $result = $c_funciones->getInfoEvento($idEvento);
             <p id="mensaje" align="center"></p>
       <center><img src="../img/mensaje.png" style="width:55%; height:55%; margin-top:1px;" /> 
       <br>           
-            <a href="../Modificar/modificarRegion.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            <a href="../Modificar/buscarEvento.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
             </center>
            </article>
 </div>

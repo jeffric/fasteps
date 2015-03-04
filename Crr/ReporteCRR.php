@@ -64,6 +64,9 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 				<center><a id="btnCorreo" data-theme="a" href="#" name="btnEvaluar" class="ui-btn-hidden" aria-disabled="false">Enviar por correo</a></center>
 			</div>
 		</div>
+		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
+		<?php echo $c_funciones->getFooterNivel2(); ?>	
+	</div>		
 		<script type="text/javascript">
 			$("#btnCorreo").click(function(){
 				var correos = $("#txtCorreos").val();
@@ -89,9 +92,9 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 					data: {                   
 						nombreMetodo: "sendGMail",
 						mails: correos,							
-						AjxIDReporte : idRep,
+						AjxIDReporte : <?php echo $idReporteCRR ?>,
 						AjxTipoReporte: 2,
-						Asunto: "Vusi&oacute;n Mundial - Reporte CRR " + today;
+						Asunto: "Visión Mundial - Reporte CRR "
 					},
 					beforeSend: function () {
 					//$("#modalCargando").modal("show");                       
@@ -108,9 +111,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 			});
 		</script>
 
-		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
-		<?php echo $c_funciones->getFooterNivel2(); ?>	
-	</div>
+
 
 </body>
 </html>

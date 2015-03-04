@@ -86,9 +86,9 @@ try {
 			data: {                   
 				nombreMetodo: "sendGMail",
 				mails: correos,							
-				AjxIDReporte : idRep,
+				AjxIDReporte : <?php echo $idReporteSra; ?>,
 				AjxTipoReporte: 3,
-				Asunto: "Vusi&oacute;n Mundial - Reporte SRA " + today;
+				Asunto: "Visión Mundial - Reporte SRA "
 			},
 			beforeSend: function () {
 					//$("#modalCargando").modal("show");                       
