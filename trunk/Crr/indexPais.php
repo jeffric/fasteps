@@ -27,10 +27,11 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 				<form action="EvaluarCRR.php" method="POST" data-ajax="false">
 
 					<div class="ui-body ui-body-a ui-corner-all">
+				<p align="center"><strong>Seleccione el Pais que desea evaluar </strong><br />								
+
 						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 							<label for="lstPais" >Pa&iacute;ses</label>
 							<select name="lstPais" id="lstPais">
-								<option value="-2">Elegir un pa&iacute;s</option>
 								<?php
 								if($strTipoUsuario==1){	
 									$result = $c_funciones->getListaPaises();
@@ -71,12 +72,19 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
 	</div>
 	<script type="text/javascript">
+	$(document).ready(function(){
+			var valor = $(this).val();
+			var texto = $("#lstPais option:selected").text();
+			$("#Pais").val(valor);
+			$("#NPais").val(texto);
 		$("#lstPais").change(function(){
 			var valor = $(this).val();
 			var texto = $("#lstPais option:selected").text();
 			$("#Pais").val(valor);
 			$("#NPais").val(texto);
 		});
+
+	});
 	</script>
 </body>	
 </html>

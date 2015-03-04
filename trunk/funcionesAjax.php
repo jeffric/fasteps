@@ -1374,11 +1374,7 @@ function Login(){
 		$_SESSION["TipoUsuario"] = $tipo;
 		$db_funciones->Bitacora($usuario, 'Login de usuario "' . $usuario . '" ');		
 		echo true;
-	}else{
-		$db_funciones->Bitacora('Sistema FAST', 'Error de Login. intentado con usuario "' . $usuario . '" ');		
-		echo false;
-	}
-		
+	}		
 	}catch (Exception $e) {		
 		$db_funciones->Bitacora('Sistema FAST', 'Error de Login. intentado con usuario "' . $usuario . '" ');		
 		echo $e->getMessage();
@@ -1511,16 +1507,28 @@ function sendGMail(){
 			break;
 			case 2:
 			// CRR
-			$strHtmlReporte = $db_funciones->getHtmlReporteCRR($idReporte);
+			$result = $db_funciones->getHtmlReporteCRR($idReporte);
+			while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				$strHtmlReporte=$row[0];				
+				break;
+			}			
 			break;
 			case 3:
 			// SRA
-			$strHtmlReporte = $db_funciones->getHtmlReporteSRA($idReporte);
+			$result = $db_funciones->getHtmlReporteSRA($idReporte);
+			while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				$strHtmlReporte=$row[0];				
+				break;
+			}			
 			break;
 
 			case 4: 
 			//HISS-CAM
-			$strHtmlReporte = $db_funciones->getHtmlReporteHISSCAM($idReporte);
+			$result = $db_funciones->getHtmlReporteHISSCAM($idReporte);
+			while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
+				$strHtmlReporte=$row[0];				
+				break;
+			}			
 			break;		
 		}
 

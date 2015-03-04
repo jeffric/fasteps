@@ -33,7 +33,7 @@
 			$db_name = "fastdbvm";
 			// $username = "root";
 			$username = "root";
-			$password = "admin";
+			$password = "M2chus04";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
@@ -89,9 +89,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -260,9 +260,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -409,9 +409,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -694,9 +694,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="../Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -865,9 +865,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="../Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -1014,9 +1014,9 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="alert" data-theme="a"><a href="../Crr/index.php" data-ajax="false">País</a></li>
-								<li data-icon="location" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Crr/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="alert" data-theme="a"><a href="../Crr/indexPais.php" data-ajax="false">País</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Crr/indexPunto.php" data-ajax="false">Punto de Evaluación</a></li>
+								<li data-icon="calendar" data-theme="a"><a href="../Crr/indexEvento.php" data-ajax="false">Evento</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
@@ -1259,7 +1259,7 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 		swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
 
-	});
+	};
 </script>
 
 
@@ -2629,13 +2629,23 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 	 */		
 		function getCrr($idPuntoEvaluacion){
 			try{
-				$result = $this->db->ExecutePersonalizado("SELECT nivel_riesgo FROM RESULTADO_CRR WHERE fk_idPUNTO_EVALUACION ='$idPuntoEvaluacion'limit 1;");
+				$result = $this->db->ExecutePersonalizado("SELECT nivel_riesgo FROM RESULTADO_CRR WHERE fk_idPUNTO_EVALUACION = '$idPuntoEvaluacion' ORDER BY idRESULTADO_CRR DESC limit 1;");
 				return $result;
 			}catch(Exception $e){
 				echo 'Error: ' .$e->getMessage();
 			}
 
 		}	
+
+		function getCrrEvento($idEvento){
+			try{
+				$result = $this->db->ExecutePersonalizado("SELECT nivel_riesgo FROM RESULTADO_CRR WHERE fk_idEVENTO ='$idEvento' ORDER BY idRESULTADO_CRR DESC limit 1;");
+				return $result;
+			}catch(Exception $e){
+				echo 'Error: ' .$e->getMessage();
+			}
+
+		}		
 
 
 /**
@@ -2932,6 +2942,25 @@ function insertarReporteHissCam($NombreDepartamento,
 	 		echo 'Error: ' .$e->getMessage();
 	 	}
 	 }
+
+	 function getDescripcionSraPto($idPUNTO_EVALUACION){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT descripcion_evaluacion from resultado_sra where tipo_objeto=1 and idPUNTO_EVALUACION='$idPUNTO_EVALUACION' ORDER BY idRESULTADO_SRA DESC LIMIT 1;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }	 
+
+	 function getDescripcionSraEvento($idPUNTO_EVALUACION){
+	 	try {
+	 		$result = $this->db->ExecutePersonalizado("SELECT descripcion_evaluacion from resultado_sra where tipo_objeto=2 and idPUNTO_EVALUACION='$idPUNTO_EVALUACION' ORDER BY idRESULTADO_SRA DESC LIMIT 1;");
+	 		return $result;
+	 	} catch (Exception $e) {
+	 		echo 'Error: ' .$e->getMessage();
+	 	}
+	 }	
+
 
 	} // FIN DE CLASE
 	?>

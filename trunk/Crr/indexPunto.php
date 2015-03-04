@@ -76,11 +76,29 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
 	</div>
+
+<div id="pageWarning" data-role="dialog" data-theme="b" >
+    <header data-role="header">
+        <h1>Mensaje</h1>
+            <article data-role="content">
+            <p id="mensajeWarning" align="center"></p>
+      <center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+      <br>
+            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            </center>
+           </article>
+</div>	
 	<script type="text/javascript">
 		$("#lstPais").change(function(){
 			var idPais = $(this).val();
 			if(idPais == "-2"){
-				alert("Advertencia: Debe elegir un pa&iacute;s");
+						   
+						   $("#mensajeWarning").text("Debes elegir un país valido");    
+		                  $.mobile.changePage('#pageWarning', 'pop', true, true);
+
+				$("#lstPuntoEvaluacion").html("<option value='-2'>Elegir un punto de evaluación</option>");
+				$('#lstPuntoEvaluacion option:eq(0)').prop('selected', true);
+				$('#lstPuntoEvaluacion').selectmenu('refresh');
 				return false;
 			}
 

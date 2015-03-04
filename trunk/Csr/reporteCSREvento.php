@@ -170,13 +170,13 @@ $contador=0;
 									$reporteHtml=  $reporteHtml.'</td>';
 
 									$reporteHtml= $reporteHtml.'<td style="text-align: center;">';
-									//$reporteHtml= $reporteHtml.$IN.'%';
-									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.$IN.'%';
+									//$reporteHtml= $reporteHtml.'<br>';
 									$reporteHtml= $reporteHtml.'</td>';
 
 									$reporteHtml= $reporteHtml.'<td style="text-align: center;">'; 
-									//$reporteHtml= $reporteHtml.$COM.'%';
-									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.$COM.'%';
+									//$reporteHtml= $reporteHtml.'<br>';
 									$reporteHtml= $reporteHtml.'</td>';
 
 									$reporteHtml= $reporteHtml.'<td style="text-align: center;">'; 
@@ -262,10 +262,13 @@ $contador=0;
        $(document).ready(function(){
 
 			$("#btnCorreo").click(function(){
+
+				var correos = $("#txtCorreos").val();
+				alert(<?php echo $resultado; ?>);
 			      $.ajax({
 		                  type: "POST",
 		                  url: "../funcionesAjax.php",
-		                  data: {nombreMetodo: "sendGMail", AjxIDReporteCsr:<?php echo $resultado; ?> },
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"Visión Mundial - Reporte CRR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
 		                  contentType: "application/x-www-form-urlencoded",
 		                  beforeSend: function(){
 		                    $('#loader_gif').fadeIn("slow");

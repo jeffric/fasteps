@@ -32,7 +32,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						        <tr>
 						            <th data-priority="1">idReporte</th>
 						            <th data-priority="persist">Fecha</th>
-						            <th data-priority="2">Nombre Evento</th>
+						            <th data-priority="2">Nombre Punto Evaluación</th>
 						            <th data-priority="3">Creador</th>
 						        </tr>
 						        </thead>

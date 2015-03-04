@@ -263,7 +263,21 @@ $contador=0;
        $(document).ready(function(){
 
 			$("#btnCorreo").click(function(){
+				var correos = $("#txtCorreos").val();
+				alert(<?php echo $resultado; ?>);
 			      $.ajax({
+		                  type: "POST",
+		                  url: "../funcionesAjax.php",
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"Visión Mundial - Reporte CRR Punto de Evaluación", AjxIDReporte:<?php echo $resultado; ?> },
+		                  contentType: "application/x-www-form-urlencoded",
+		                  beforeSend: function(){
+		                    $('#loader_gif').fadeIn("slow");
+
+		                  },
+		                  dataType: "html",
+		                  success: function(msg){
+		                  		alert(msg);
+		                  }  			      	
            
                 });								
 

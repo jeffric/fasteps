@@ -15,7 +15,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html>
-<?php echo $c_funciones->getHeaderNivel2("Modificar Eventos", 
+<?php echo $c_funciones->getHeaderNivel2("Mostrar Eventos", 
 	'<style>
     .panel-content {
       padding: 1em;
@@ -82,17 +82,63 @@ $result = $c_funciones->getInfoEvento($idEvento);
                   animation: google.maps.Animation.DROP,
                   map: map,
                   title: "Posicion Actual",
-                  icon: '../css/images/Evento.png',
+                  icon: <?php
+                              $result1=$c_funciones->getCrrEvento($idEvento);
+                              if(mysqli_num_rows($result1)>0){
+
+                              while ($row1 = mysqli_fetch_array($result1, MYSQL_NUM)){
+                                  $nivelCrr = $row1[0];
+
+                                  } 
+                                    if($nivelCrr =="INSIGNIFICANTE"){
+
+                                        echo '"../css/images/eventoverde.png"';
+                                    }
+                                    else if($nivelCrr =="BAJO"){
+
+                                        echo '"../css/images/eventoamarillo.png"';
+                                    }
+                                    else if($nivelCrr =="MEDIO"){
+                                        echo '"../css/images/eventonaranja.png"';
+
+                                    }
+                                    else if($nivelCrr =="ALTO"){
+                                        echo '"../css/images/eventorojo.png"';
+
+                                    }                                    
+                                    else if($nivelCrr =="CRITICO"){
+                                        echo '"../css/images/eventonegro.png"';
+
+                                    }                                                     
+
+                              } 
+                              else{
+                                  echo '"../css/images/eventogris.png"';
+                              } 
+
+
+                  ?>,
                   draggable: false
                   });
 
                var contenido<?php echo $idEvento; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
+<?php
+                $result2=$c_funciones->getDescripcionSraEvento($idEvento);
+                if(mysqli_num_rows($result2)>0){
 
-               ''+
+                while ($row2 = mysqli_fetch_array($result2, MYSQL_NUM)){
+                    $descripcionLastSra = $row2[0];
+                    echo "'Observaciones:<br>$descripcionLastSra'";
 
-               ' '+
+                    }                    
 
-               ''+
+                } 
+                else{
+                    echo '"Sin SRA"';
+                }
+
+?>
++
                '</div>';
 
                var infowindow<?php echo $idEvento; ?> = new google.maps.InfoWindow({
@@ -163,8 +209,28 @@ $result = $c_funciones->getInfoEvento($idEvento);
     						</div>                
 					</div>	
 
-			<p align="center"><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
         <div class="ui-body ui-body-a ui-corner-all">
+<table>
+    <tr>
+        <th>
+            NIVEL DE CRR
+        <th>
+        </tr>
+        <tr>
+        <td> <img src="../css/images/eventogris.png"> Sin CRR
+        </td>
+        <td> <img src="../css/images/eventoverde.png"> Insignificante  
+        </td>
+        <td> <img src="../css/images/eventoamarillo.png"> Bajo
+        </td>
+        <td> <img src="../css/images/eventonaranja.png"> Medio
+        </td>  
+        <td> <img src="../css/images/eventorojo.png"> Alto
+        </td>    
+        <td> <img src="../css/images/eventonegro.png"> Crítico
+        </td>                                     
+    </tr>
+</table>          
 	        <div id="mapCanvas" class="content" style="height:375px;">                
 	        </div>
 

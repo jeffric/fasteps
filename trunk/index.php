@@ -91,6 +91,7 @@ $c_funciones = new Funciones();
         var tipo = $("#slcTipoUsuarios").val();
         $.post("funcionesAjax.php",{ nombreMetodo:"Auth", usu : usu, pass : pass, tipo: tipo},
         	function(respuesta){
+        	
             if (respuesta == true) {
 
             	window.location.href = 'home.php'; 

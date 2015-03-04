@@ -103,23 +103,28 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
                 if(mysqli_num_rows($result1)>0){
 
                 while ($row1 = mysqli_fetch_array($result1, MYSQL_NUM)){
-                    $nivelCrr = $row1[0];   
+                    $nivelCrr = $row1[0];
 
                     }                    
-                        if($nivelCrr ==1){
+                        if($nivelCrr =="INSIGNIFICANTE"){
 
                             echo '"../css/images/verde.png"';
                         }
-                        else if($nivelCrr ==2){
+                        else if($nivelCrr =="BAJO"){
 
                             echo '"../css/images/amarillo.png"';
                         }
-                        else if($nivelCrr ==3){
+                        else if($nivelCrr =="MEDIO"){
                             echo '"../css/images/naranja.png"';
 
                         }
-                        else if($nivelCrr ==4){
+                        else if($nivelCrr =="ALTO"){
                             echo '"../css/images/rojo.png"';
+
+                        }
+
+                        else if($nivelCrr =="CRITICO"){
+                            echo '"../css/images/negro.png"';
 
                         }
 
@@ -134,13 +139,24 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
          draggable: false
          });           
 
-         var contenido<?php echo $filaidPdas[0]; ?> = '<div " style="width: 150px; height: 150px; border: 1px solid #000;">'+
+         var contenido<?php echo $filaidPdas[0]; ?> = '<div " style="width: 200px; height: 150px; border: 1px solid #000;">'+
+<?php
+                $result2=$c_funciones->getDescripcionSraPto($filaidPdas[0]);
+                if(mysqli_num_rows($result2)>0){
 
-         ''+
+                while ($row2 = mysqli_fetch_array($result2, MYSQL_NUM)){
+                    $descripcionLastSra = $row2[0];
+                    echo "'Observaciones:<br>$descripcionLastSra'";
 
-         ' '+
+                    }                    
 
-         ''+
+                } 
+                else{
+                    echo '"Sin SRA"';
+                }
+
+?>
+        +
          '</div>';
 
 
@@ -181,7 +197,27 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
 
 
         </script>
-
+<table>
+    <tr>
+        <th>
+            NIVEL DE CRR
+        <th>
+        </tr>
+        <tr>
+        <td> <img src="../css/images/gris.png"> Sin CRR
+        </td>
+        <td> <img src="../css/images/verde.png"> Insignificante  
+        </td>
+        <td> <img src="../css/images/amarillo.png"> Bajo
+        </td>
+        <td> <img src="../css/images/naranja.png"> Medio
+        </td>  
+        <td> <img src="../css/images/rojo.png"> Alto
+        </td>       
+        <td> <img src="../css/images/negro.png"> Crítico
+        </td>                                 
+    </tr>
+</table>
         <div class="ui-body ui-body-a ui-corner-all">
                 <div id="map_canvas" style="height:500px;">                
                 </div> 

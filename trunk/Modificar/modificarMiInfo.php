@@ -72,7 +72,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
         <h1>Mensaje</h1>
             <article data-role="content">
             <p id="mensaje" align="center"></p>
-			<center><img src="../img/admiracion.png" style="width:40%; height:40%; margin-top:1px;" />
+			<center><img src="../img/admiracion.png" style="width:30%; height:30%; margin-top:1px;" />
 			<br>
             <a href="../Modificar/modificarMiInfo.php" data-role="button" id="btn" data-rel="back">Aceptar</a>
             </center>
@@ -84,8 +84,10 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
         <h1>Mensaje</h1>
             <article data-role="content">
             <p id="mensajeExito" align="center"></p>
-			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" /></center>
+			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>
             <a href="../Modificar/modificarMiInfo.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
+            </center>
            </article>
 </div>
 
