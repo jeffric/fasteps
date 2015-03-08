@@ -38,7 +38,7 @@ $c_funciones = new Funciones();
 <?php
 				if($strTipoUsuario ==1){
 
-					echo "<a href='#pageError' data-role='button' id='botonAgregar' data-rel='dialog'>BITACORA DE ACCIONES</a>";
+					echo "<a href='Bitacora.php' data-role='button' data-ajax='false' id='botonAgregar' data-rel='dialog'>BITACORA DE ACCIONES</a>";
 				}
 ?>
 				
