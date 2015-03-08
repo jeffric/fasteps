@@ -28,12 +28,21 @@
 		//$serverName, $port, $db_name, $username, $password
 
 			// $serverName = "localhost";
+			// CREDENCIALES VISION MUNDIAL
+			// $serverName = "localhost";
+			// $port = "3306";
+			// $db_name = "fastdbvm";
+			// // $username = "root";
+			// $username = "root";
+			// $password = "M2chus04";
+
+			//CREDENCIALES LOCALES
 			$serverName = "localhost";
 			$port = "3306";
 			$db_name = "fastdbvm";
 			// $username = "root";
 			$username = "root";
-			$password = "M2chus04";
+			$password = "admin";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
@@ -1259,7 +1268,7 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	function mostrarMensaje(TituloMensaje, CuerpoMensaje, TipoMensaje){
 		swal(TituloMensaje, CuerpoMensaje, TipoMensaje);
 
-	};
+	}
 </script>
 
 

@@ -622,7 +622,7 @@ function SetPaso2SRA(){
 	// $strHtmlTabla1 .= '		</td>';	
 	// $strHtmlTabla1 .= '	</tr>';
 	// $strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
+	$strHtmlTabla1 .= '		<tr><td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
 	$strHtmlTabla1 .= 'Punto/Evento de evaluaci&oacute;n';
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
@@ -737,7 +737,7 @@ function SetPaso2SRA(){
   $contAm = 0;
   foreach ($arrAmenaza as $amenaza) {
   	$strHtmlTabla2 .= '<tr>';
-  	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-hgcj" style="font-weight:bold;text-align:center">' . $amenaza . '</td>';
+  	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-hgcj font-weight:bold;text-align:center">' . $amenaza . '</td>';
   	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-f062">' . $arrNivelesRP1[$contAm] . '</td>';
   	$strHtmlTabla2 .= '<td style="width:40%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff; word-wrap: break-word;background-image:url(../img/rarrow.png); background-size: 100% 100%; background-position:right 0px; background-repeat:no-repeat;" class="tg-031e">' . $arrPMP[$contAm] . '</td>';
   	$strHtmlTabla2 .= '<td colspan="2" class="tg-f062" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;text-align:center">' . $arrNivelRP2[$contAm] . '</td>';
