@@ -25,7 +25,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Modificación"); ?>
 		<div role="main" class="ui-content">
 
 			<p align="center"><strong>MODIFICACIÓN INFORMACION USUARIO</strong><br />

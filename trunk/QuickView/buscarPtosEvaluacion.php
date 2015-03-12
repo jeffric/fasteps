@@ -24,7 +24,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST MAPAS"); ?>
 		<div class="content">
 			<p><strong>Selecciones el pais, del cual desea eliminar el Punto de Evaluación</strong><br />		
 			<ul data-role="listview" data-filter="true" data-ajax="false">

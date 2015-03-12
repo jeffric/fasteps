@@ -35,7 +35,7 @@ try {
 ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. SRA"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST SRA"); ?>
 		<div role="main" class="ui-content">
 			<form action="lstAmenazas.php" method="POST" data-ajax="false">
 				<div class="ui-body ui-body-a ui-corner-all">

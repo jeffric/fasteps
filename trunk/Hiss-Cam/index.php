@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </style>'); ?>
 <body>
 	<div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Reporte Hiss-Cam"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Reporte Hiss-Cam"); ?>
 		<div role="main" class="ui-content">			
 			<div id="Reporte" style="overflow-x: scroll;" class="ui-body ui-body-a ui-corner-all">
 

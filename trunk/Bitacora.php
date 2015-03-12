@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </style>'); ?>
 <body>
 	<div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPage("F.A.S.T. Bit&aacute;cora de uso"); ?>
+		<?php $c_funciones->getHeaderPage("FAST Bit&aacute;cora de uso"); ?>
 		<div role="main" class="ui-content">			
 			<div class="ui-body ui-body-a ui-corner-all">
 				<p align="center"><strong>Bit&aacute;cora de uso</strong><br />

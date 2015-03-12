@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </style>'); ?>
 <body>
 	<div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CRR Punto de evaluaci&oacute;n"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CRR Punto de evaluaci&oacute;n"); ?>
 		<div role="main" class="ui-content">			
 			<div class="ui-body ui-body-a ui-corner-all">
 

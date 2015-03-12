@@ -27,7 +27,7 @@
 <body>
 
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Evaluación operativa"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Evaluación operativa"); ?>
 		<div role="main" class="ui-content">	
 		<div style="width:100%; overflow:auto; overflow-y:hidden; -ms-overflow-y: hidden; " >	
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ">
@@ -486,8 +486,8 @@ function evaluar(){
 					if(datos.startsWith("-1")){
 						var arrErr = datos.split("|");						
 					}else{
-						//alert(datos);
-						window.location= "reporteSra.php?idRepo=" + datos;
+						alert(datos);
+						//window.location= "reporteSra.php?idRepo=" + datos;
 					}
 				},
 				error: function (objeto, error, objeto2) {

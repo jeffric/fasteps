@@ -23,7 +23,7 @@ $c_funciones = new Funciones();
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST MAPAS"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Selecciones el pais, del cual desea eliminar el Evento</strong><br />	
 			<div class="ui-body ui-body-a ui-corner-all">	

@@ -21,7 +21,7 @@ $idReporte = $_GET["idReporte"];
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Hiss-Cam"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Hiss-Cam"); ?>
 		<div role="main" class="ui-content">
 				<div class="ui-body ui-body-a ui-corner-all">
 

@@ -21,7 +21,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </style>'); ?>
 <body>
 	<div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Reporte HISS-CAM"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Reporte HISS-CAM"); ?>
 		<div role="main" class="ui-content">
 			
 

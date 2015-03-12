@@ -29,7 +29,7 @@ $c_funciones = new Funciones();
 <body>
 
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Puntos de Evaluación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Puntos de Evaluación"); ?>
 		<div role="main" class="ui-content">
 			<div class="ui-body ui-body-a ui-corner-all">  
 					<p align="center"><strong>Seleccione el Punto de Evaluación que desea eliminar del sistema</strong><br />	

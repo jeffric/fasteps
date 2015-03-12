@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
     ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificar"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Modificar"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong></strong><br />	
 				<?php 				

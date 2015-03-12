@@ -24,7 +24,7 @@ $c_funciones = new Funciones();
     </style>'); ?>
 <body>
 <div data-role="page" id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Eliminación"); ?>
+	<?php $c_funciones->getHeaderPageNivel2("FAST Eliminación"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>ELIMINACIÓN DE USUARIO</strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">
@@ -89,6 +89,7 @@ $c_funciones = new Funciones();
             <article data-role="content">
             <p id="mensajeEliminado" align="center">El usuario fue eliminado exitosamente</p>
 			<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" />
+			<br>				
             <a href="../Usuarios/eliminarUsuario.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
             </center>
            </article>
@@ -102,7 +103,7 @@ $c_funciones = new Funciones();
 			<center>
 			<img src="../img/error.png" style="width:40%; height:40%; margin-top:1px;" />
 			<br>
-            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+            <a href="../Usuarios/eliminarUsuario.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
             </center>
            </article>
 </div>

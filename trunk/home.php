@@ -28,7 +28,7 @@ $c_funciones = new Funciones();
 <body>
 
 <div data-role="page" id="home">
-		 <?php $c_funciones->getHeaderPage("F.A.S.T. Home"); ?>
+		 <?php $c_funciones->getHeaderPage("FAST Home"); ?>
 
 		  <div role="main" class="ui-content">
 

@@ -27,7 +27,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
     ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Ptos de Evaluación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Ptos de Evaluación"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong></strong><br />	
 				<?php 				

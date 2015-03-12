@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
 <body>
 
 <div data-role="page" id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Amenaza"); ?>
+	<?php $c_funciones->getHeaderPageNivel2("FAST Amenaza"); ?>
 		<div role="main" class="ui-content">
 					<p align="center"><strong>Seleccione la Amenaza que desea eliminar del sistema</strong><br />	
 				<div class="ui-body ui-body-a ui-corner-all">		

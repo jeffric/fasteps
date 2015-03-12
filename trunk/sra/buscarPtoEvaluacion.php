@@ -20,7 +20,7 @@ $c_funciones = new Funciones();
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPage("F.A.S.T. MAPAS"); ?>
+		<?php $c_funciones->getHeaderPage("FAST MAPAS"); ?>
 		<div class="content">
 			<p><strong>Selecciones el pais, del cual desea visualizar los Puntos de Evaluación</strong><br />		
 			<ul data-role="listview" data-filter="true" data-ajax="false">

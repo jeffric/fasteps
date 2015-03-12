@@ -27,7 +27,7 @@ $c_funciones = new Funciones();
 
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Evaluar Amenazas SRA"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Evaluar Amenazas SRA"); ?>
 		<div role="main" class="ui-content">			
 			<div class="ui-body ui-body-a ui-corner-all">
 			<table data-role="table" id="sra-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">

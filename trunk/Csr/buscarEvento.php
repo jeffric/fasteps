@@ -26,7 +26,7 @@ $c_funciones = new Funciones();
 
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 		<form action="realizarEvaluacionEvento.php" method="POST" data-ajax="false" >
 			<p align="center"><strong>Seleccione el Evento que desea evaluar CSR</strong><br />		

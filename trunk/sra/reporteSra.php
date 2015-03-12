@@ -30,7 +30,7 @@ try {
 <body>
 
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Home"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Home"); ?>
 		<div role="main" class="ui-content">
 			<div id="printReport" class="ui-grid-solo">
 				<?php 

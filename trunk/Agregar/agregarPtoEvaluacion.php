@@ -110,7 +110,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 <body>
 
 <div data-role="page" id="page" data-role="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST MAPAS"); ?>
 		<div role="main" class="ui-content" >
           			<p align="center"><strong>Click sobre el pin y arrastre para posicionarlo</strong><br />	
                   <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">        

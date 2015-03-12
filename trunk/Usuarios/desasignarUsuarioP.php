@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Desasignación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Desasignación"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>DESASIGNAR USUARIO-PAIS</strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">
@@ -35,7 +35,7 @@ $c_funciones = new Funciones();
 							<option value="-2">Elegir un usuario</option>
 <?php 	
 							if($strTipoUsuario==1){			
-							$result = $c_funciones->getListaUsuarios($idUsuario);					
+							$result = $c_funciones->getListaUsuariosNoSuper($idUsuario);					
 							while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 								echo'
 								<option value="'. $row[0] . '">' . $row[1] . '</option>';
@@ -101,6 +101,7 @@ $c_funciones = new Funciones();
 	            <article data-role="content">
 	            <p id="mensajeEliminado" align="center">El usuario fue eliminado exitosamente</p>
 				<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" /></center>
+				<br>
 	            <a href="../Usuarios/desasignarUsuarioP.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
 	           </article>
 	</div>	
@@ -111,6 +112,7 @@ $c_funciones = new Funciones();
 	            <article data-role="content">
 	            <p id="mensajeExito" align="center">La desasignacion se realizó exitosamente</p>
 				<center><img src="../img/success.png" style="width:40%; height:40%; margin-top:1px;" /></center>
+				<br>
 	            <a href="../Usuarios/desasignarUsuarioP.php" data-role="button" id="btn"  data-ajax="false">Aceptar</a>
 	           </article>
 	</div>		
@@ -123,7 +125,7 @@ $c_funciones = new Funciones();
 				<center>
 				<img src="../img/error.png" style="width:40%; height:40%; margin-top:1px;" />
 				<br>
-	            <a href="#" data-role="button" id="btn" data-rel="back">Aceptar</a>
+	            <a href="../Usuarios/desasignarUsuarioP.php" data-role="button" id="btn" data-ajax="false">Aceptar</a>
 	            </center>
 	           </article>
 	</div>	

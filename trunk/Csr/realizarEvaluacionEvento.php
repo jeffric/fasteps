@@ -169,7 +169,7 @@ $_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
 '); ?>
 <body>
 <div data-role="page" id="page" >
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 		<form action="reporteCSREvento.php" method="POST" data-ajax="false" >
 			<div class="ui-body ui-body-a ui-corner-all">

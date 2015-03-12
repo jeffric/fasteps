@@ -30,7 +30,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
     ?>
 <body>
 <div  data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Ptos de Evaluación"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Ptos de Evaluación"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><br />	
 				<?php 				
@@ -48,7 +48,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
 
   <script type="text/javascript">
                 function geocodePosition(pos) {
-                    geocoder.geocode({
+                   geocoder.geocode({
                       latLng: pos
                     },
                     function(responses) {
@@ -57,7 +57,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
                         } else {
                           updateMarkerAddress('Cannot determine address at this location.');
                         }
-                    });
+                    })
                 }
 
                 function updateMarkerStatus(str) {
