@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 </style>'); ?>
 <body>
 	<div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Evaluaci&oacute;n CRR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Evaluaci&oacute;n CRR"); ?>
 		<div role="main" class="ui-content">			
 			<div class="ui-body ui-body-a ui-corner-all">
 				<table border="1" cellpadding="2" data-mode="reflow" style="border:solid 1px;border-collapse: collapse;padding: 0;width: 100%;display: table;color: #333;text-shadow: 0 1px 0 #f3f3f3;border-color:orange">

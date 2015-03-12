@@ -23,7 +23,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Regiones"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Regiones"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Seleccione la Región que desea modificar</strong><br />	
 

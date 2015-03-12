@@ -26,7 +26,7 @@ $c_funciones = new Funciones();
 <body>
 
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Prevenciones"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Prevenciones"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Seleccione el Plan de Prevención que desea eliminar</strong><br />
 			<div class="ui-body ui-body-a ui-corner-all">		

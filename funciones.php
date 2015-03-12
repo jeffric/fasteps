@@ -42,7 +42,7 @@
 			$db_name = "fastdbvm";
 			// $username = "root";
 			$username = "root";
-			$password = "admin";
+			$password = "M2chus04";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
@@ -73,7 +73,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -154,15 +154,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Hiss-cam</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -244,7 +242,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -325,15 +323,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -404,7 +400,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -474,15 +470,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/index.php" data-ajax="false">Hiss-Cam</a></li>					
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -527,7 +521,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -575,8 +569,7 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -678,7 +671,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="../home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="../home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -759,15 +752,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -849,7 +840,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -930,15 +921,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -1009,7 +998,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -1079,15 +1068,13 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>EVALUAR</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/index.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>	
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -1132,7 +1119,7 @@
 		  <!-- Menu  -->
 		  <div data-role="panel" id="Menu" data-theme="b">
 		    	<ul data-role="listview">
-			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>F.A.S.T. MENU</center></a></li>
+			    	<li data-icon="home"><a href="home.php" data-rel="close" data-ajax="false"><center>FAST MENU</center></a></li>
 
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>MI INFORMACIÓN</h3>
@@ -1180,8 +1167,7 @@
 				    	<div data-role="collapsible" data-inset="true">
 						<h3>REPORTES</h3>
 							<ul data-role="listview">
-								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Punto de Evaluación</a></li>
-								<li data-icon="calendar" data-theme="a"><a href="../Hiss-Cam/buscarReporteEventoHiss.php" data-ajax="false">Evento</a></li>
+								<li data-icon="location" data-theme="a"><a href="../Hiss-Cam/buscarReportePtoHiss.php" data-ajax="false">Hiss-Cam</a></li>
 							</ul>	
 				    	</div>					
 			    	</div>	
@@ -1314,7 +1300,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			echo '	
 			<!-- footer -->
 		  	<div data-role="footer" data-position="fixed" >
-			<h1>Visión Mundial Guatemala,2015 </h1>
+			<h1>World Vision Guatemala,2015 </h1>
 				<div style="position: absolute; right:0; top: 0; ">
 				<img src="img/logo-fit.png" style="width:85px; height:20px; margin-top:1px;"/>		
 				</div>			
@@ -1334,7 +1320,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 			echo '	
 			<!-- footer -->
 		  	<div data-role="footer" data-position="fixed" >
-			<h1>Visión Mundial Guatemala,2015 </h1>
+			<h1>World Vision Guatemala,2015 </h1>
 				<div style="position: absolute; right:0; top: 0; ">
 				<img src="../img/logo-fit.png" style="width:85px; height:20px; margin-top:1px;"/>		
 				</div>			
@@ -1353,6 +1339,16 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 		/**
 		FUNCIONES PARA USUARIOS
 		*/
+
+		function getListaUsuariosNoSuper($idUsuarioLogeado){
+			//devuelve la lista de usuarios menos el logueado
+			try {
+				$result = $this->db->ExecutePersonalizado("SELECT idUSUARIO, correo FROM USUARIO WHERE idUSUARIO !='$idUsuarioLogeado' and fk_idTIPO_USUARIO !=1");
+				return $result;
+			} catch (Exception $e) {
+				echo 'Error: ' .$e->getMessage();
+			}
+		}
 
 		function getListaUsuarios($idUsuarioLogeado){
 			//devuelve la lista de usuarios menos el logueado

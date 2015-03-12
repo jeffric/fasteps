@@ -25,7 +25,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
+	<?php $c_funciones->getHeaderPageNivel2("FAST MAPAS"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Seleccione el país, del cual desea modificar el Punto de Evaluación</strong><br />	
 			<div class="ui-body ui-body-a ui-corner-all">	

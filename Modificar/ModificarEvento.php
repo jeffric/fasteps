@@ -121,7 +121,7 @@ $result = $c_funciones->getInfoEvento($idEvento);
          </script>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificar"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Modificar"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>MODIFICAR EVENTO</strong><br />
 					<div class="ui-body ui-body-a ui-corner-all">

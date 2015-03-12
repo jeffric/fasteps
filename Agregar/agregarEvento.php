@@ -108,7 +108,7 @@ $c_funciones = new Funciones();
          </script>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Agregar"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Agregar"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>AGREGAR EVENTO</strong><br />
 					<div class="ui-body ui-body-a ui-corner-all">

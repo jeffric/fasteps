@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Buscar Reporte SRA"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Buscar Reporte SRA"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Puntos de Evaluación</strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">

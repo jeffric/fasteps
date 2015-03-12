@@ -23,7 +23,7 @@ $strTipoUsuario=$_SESSION["TipoUsuario"];
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Paises"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Paises"); ?>
 		<div role="main" class="ui-content">
 				<p align="center"><strong>Seleccione el Pais que desea modificar </strong><br />	
 				<div class="ui-body ui-body-a ui-corner-all">

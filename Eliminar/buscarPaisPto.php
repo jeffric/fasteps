@@ -26,7 +26,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
   </style>'); ?>
 <body>
 <div  data-role ="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. MAPAS"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST MAPAS"); ?>
 		<div role="main" class="ui-content">
 				<div class="ui-body ui-body-a ui-corner-all">
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">			

@@ -55,7 +55,7 @@ $c_funciones = new Funciones();
 		<div class="header">
 			<a href="#menu"></a>
 			<div style="text-align:center;">
-				F.A.S.T.
+				FAST
 			</div>
 			<div style="position: absolute; right:0; top: 0;">
 				<img src="img/logo-fit.png" alt="logo" width="100px" />
@@ -129,7 +129,7 @@ $c_funciones = new Funciones();
 						<li><a href="about/historia.php">Historia</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Acerca de F.A.S.T.</a>
+				<li><a href="#">Acerca de FAST</a>
 					<ul>
 						<li><a href="aboutfast/mision.php">Misi&oacute;n</a></li>
 						<li><a href="aboutfast/vision.php">Visi&oacute;n</a></li>

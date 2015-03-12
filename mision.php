@@ -20,7 +20,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
   </style>'); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPage("F.A.S.T."); ?>
+		<?php $c_funciones->getHeaderPage("FAST"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong></strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">

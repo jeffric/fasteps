@@ -48,6 +48,7 @@ $reporteHtml="";
   }
   </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
@@ -55,7 +56,7 @@ $reporteHtml="";
 '); ?>
 <body>
 <div data-role="page" id="page" >
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 			<div class="ui-body ui-body-a ui-corner-all">
 
@@ -88,7 +89,7 @@ $reporteHtml="";
 
 
 			
-			$reporteHtml=  $reporteHtml.'</p>';
+
 
 
 		$contadorNoAplicable=0;
@@ -96,10 +97,10 @@ $reporteHtml="";
 		$contadorIniciado=0;
 		$contadorCompletado=0;
 
-		$cadenaNoAplicable="";
-		$cadenaNoIniciado="";
-		$cadenaIniciado="";
-		$cadenaCompletado="";
+		$cadenaNoAplicable='<ol>';
+		$cadenaNoIniciado='<ol>';
+		$cadenaIniciado='<ol>';
+		$cadenaCompletado='<ol>';
 	
 		$cum=0;
 
@@ -110,23 +111,23 @@ $contador=0;
 										if($option == '1'){
 											$contadorNoAplicable = $contadorNoAplicable+1;
 											$cadenaNoAplicable=$cadenaNoAplicable.'
-											<br>- '.$_POST['requerimientos'.$contador];										
+											<li>'.$_POST['requerimientos'.$contador].'</li>';										
 										}
 										else if($option == '2'){
 											$contadorNoIniciado = $contadorNoIniciado+1;
 											$cadenaNoIniciado=$cadenaNoIniciado.'
-											<br>- '.$_POST['requerimientos'.$contador];
+											<li>'.$_POST['requerimientos'.$contador].'</li>';
 
 										}
 										else if($option == '3'){
 											$contadorIniciado = $contadorIniciado+1;
 											$cadenaIniciado=$cadenaIniciado.'
-											<br>- '.$_POST['requerimientos'.$contador];											
+											<li>'.$_POST['requerimientos'.$contador].'</li>';											
 										}
 										else{
 											$contadorCompletado = $contadorCompletado+1;
 											$cadenaCompletado=$cadenaCompletado.'
-											<br>- '.$_POST['requerimientos'.$contador];											
+											<li>'.$_POST['requerimientos'.$contador].'</li>';											
 										}
 
 										$contador=$contador+1;
@@ -142,21 +143,30 @@ $contador=0;
 									$NOIN = number_format($contadorNoIniciado, 2, '.', '');
 									$IN = number_format($contadorIniciado, 2, '.', '');
 									$COM = number_format($contadorCompletado, 2, '.', '');	
+									if($contadorCompletado ==0){
 
-									$reporteHtml=  $reporteHtml.'<table >';
+										$reporteHtml= $reporteHtml.'<br><b>CUMPLIMIENTO: 0%</b>';
+
+									}
+									else{
+										$cum =number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
+									 	$reporteHtml= $reporteHtml.'<br><b>CUMPLIMIENTO:'.number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '').'%</b>';
+
+									}	
+									$reporteHtml=  $reporteHtml.'</p>';									
+									$reporteHtml=  $reporteHtml.'<table data-role="table" class="ui-responsive">';
 								    $reporteHtml=  $reporteHtml.'<thead style="text-align: center;">';
 								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center; background-color: #9CF; font-weight: bold;">';
-								    $reporteHtml=  $reporteHtml.'            <th>% No Aplica</th>';
-								    $reporteHtml=  $reporteHtml.'            <th>% No Iniciados</th>';
-								    $reporteHtml=  $reporteHtml.'            	<th>% Iniciados</th>';
-								    $reporteHtml=  $reporteHtml.'            <th>% Completados</th>';
-								    $reporteHtml=  $reporteHtml.'            <th>% Cumplimiento</th>';
-								    $reporteHtml=  $reporteHtml.'        </tr>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">NO APLICA</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">NO INICIADOS</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">INICIADOS</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">COMPLETADOS</font></th>';							    								    
 								    $reporteHtml=  $reporteHtml.'   </thead>';
 
 									$reporteHtml=  $reporteHtml.'<tbody>';
-									$reporteHtml=  $reporteHtml.'<tr>';
 
+																								
+									$reporteHtml=  $reporteHtml.'<tr>';
 									$reporteHtml=  $reporteHtml.'<td style="text-align: center;">';
 									$reporteHtml=  $reporteHtml.$NA.'%';
 									$reporteHtml=  $reporteHtml.'<br>';
@@ -177,37 +187,24 @@ $contador=0;
 									$reporteHtml= $reporteHtml.'<br>';
 									$reporteHtml= $reporteHtml.'</td>';
 
-									$reporteHtml= $reporteHtml.'<td style="text-align: center;">';
-									if($contadorCompletado ==0){
-
-										$reporteHtml= $reporteHtml.'0';
-
-									}
-									else{
-										$cum =number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
-									 $reporteHtml= $reporteHtml.number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '').'%';
-
-									}
-									$reporteHtml= $reporteHtml.'<br>';
-									$reporteHtml= $reporteHtml.'</td>';	
 									
 									$reporteHtml= $reporteHtml.'</tr>';
 
 									$reporteHtml= $reporteHtml.'<tr style="background-color: #ddd; font-weight: bold;">';
 									$reporteHtml= $reporteHtml.'<td>';
-									$reporteHtml= $reporteHtml.$cadenaNoAplicable;
+									$reporteHtml= $reporteHtml.$cadenaNoAplicable.'</ol>';
 									$reporteHtml= $reporteHtml.'</td>';
 
 									$reporteHtml= $reporteHtml.'<td>';
-									$reporteHtml= $reporteHtml.$cadenaNoIniciado;
+									$reporteHtml= $reporteHtml.$cadenaNoIniciado.'</ol>';
 									$reporteHtml= $reporteHtml.'</td>';
 
 									$reporteHtml= $reporteHtml.'<td>';
-									$reporteHtml= $reporteHtml.$cadenaIniciado;
+									$reporteHtml= $reporteHtml.$cadenaIniciado.'</ol>';
 									$reporteHtml= $reporteHtml.'</td>';	
 
 									$reporteHtml= $reporteHtml.'<td>';
-									$reporteHtml= $reporteHtml.$cadenaCompletado;
+									$reporteHtml= $reporteHtml.$cadenaCompletado.'</ol>';
 									$reporteHtml= $reporteHtml.'</td>';	
 
 									$reporteHtml= $reporteHtml.'<td>';

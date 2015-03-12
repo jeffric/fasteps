@@ -20,7 +20,7 @@ $(document).bind("mobileinit", function () {
 <body>
 
 	<div id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Home"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Home"); ?>
 		<div class="content">
 			<p><strong>CONTENIDO ACA</strong><br />				
 			</div>

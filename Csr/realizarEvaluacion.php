@@ -34,7 +34,7 @@ $_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
 
 	}
 	else{
-			header("Location: ../Csr/buscarPtoEvaluacion.php");
+			header("Location: ../Csr/index.php");
 			return;
 
 	}
@@ -66,6 +66,7 @@ $_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
   }
   </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width"/>
 
 <style>
 
@@ -186,7 +187,7 @@ $_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
 '); ?>
 <body>
 <div data-role="page" id="page" >
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 		<form action="reporteCSR.php" method="POST" data-ajax="false" >
 			<div class="ui-body ui-body-a ui-corner-all">

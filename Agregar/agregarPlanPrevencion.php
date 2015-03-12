@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
 <body>
 
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Prevenciones"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Prevenciones"); ?>
 		<div role="main" class="ui-content">
 			<p align="center"><strong>Ingrese la información solicitada </strong><br />	
 			<div class="ui-body ui-body-a ui-corner-all">
@@ -45,11 +45,10 @@ $c_funciones = new Funciones();
 				<a href="#"  data-role="button" id="botonAgregar">Agregar Plan de Prevención</a>
 			</div> 			
 
-		</div>
-			<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
-		<?php echo $c_funciones->getFooterNivel2(); ?>		
-
+		</div>	
 	</div>	
+				<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>
+		<?php echo $c_funciones->getFooterNivel2(); ?>	
 </div>
 
 <div id="pageMensaje" data-role="dialog" data-theme="b" >

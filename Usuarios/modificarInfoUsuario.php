@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
  ?>
 <body>
 <div data-role="page" id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Modificación"); ?>
+	<?php $c_funciones->getHeaderPageNivel2("FAST Modificación"); ?>
 		<div role="main" class="ui-content">
 
 			<p align="center"><strong>MODIFICACIÓN INFORMACION USUARIO</strong><br />
@@ -61,7 +61,7 @@ $c_funciones = new Funciones();
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="slcTipoUsuarios" >Tipo de usuario</label>			
-						<select name="tipoUsuarios" id="slcTipoUsuarios" >
+						<select name="tipoUsuarios" id="slcTipoUsuarios" disabled="true">
 <?php 		
 							if($strTipoUsuario==1){		
 							$result = $c_funciones->getTipoUsuarios();					
@@ -135,7 +135,11 @@ $c_funciones = new Funciones();
 			if(strUsr == -2){
 
 				$("#mensaje").text("Debes elegir un usuario válido");
+
 				$.mobile.changePage('#pageWarning', 'pop', true, true);
+				$("#txtNombre").val("");
+				$("#txtApellido").val("");
+				$("#txtPassword").val("");
 				return false;				
 
 

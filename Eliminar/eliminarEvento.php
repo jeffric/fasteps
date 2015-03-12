@@ -28,7 +28,7 @@ $c_funciones = new Funciones();
     ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Eventos"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST Eventos"); ?>
 		<div role="main" class="ui-content">
 				<div class="ui-body ui-body-a ui-corner-all">
 					<p align="center">Confirme la eliminacion de Evento: "

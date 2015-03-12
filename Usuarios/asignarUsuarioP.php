@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
 ?>
 <body>
 <div data-role="page" id="page">
-	<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. Asignación"); ?>
+	<?php $c_funciones->getHeaderPageNivel2("FAST Asignación"); ?>
 		<div div role="main" class="ui-content">
 				<p align="center"><strong>ASIGNACIÓN USUARIO-PAIS</strong><br />
 				<div class="ui-body ui-body-a ui-corner-all">
@@ -35,10 +35,11 @@ $c_funciones = new Funciones();
 								<option value="-2">Elegir un usuario</option>
 <?php 	
 								if($strTipoUsuario==1){			
-										$result = $c_funciones->getListaUsuarios($idUsuario);					
+										$result = $c_funciones->getListaUsuariosNoSuper($idUsuario);					
 										while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 												echo'
 												<option value="'. $row[0] . '">' . $row[1] . '</option>';
+											
 										}
 								}
 								else{

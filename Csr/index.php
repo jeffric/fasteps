@@ -22,7 +22,7 @@ $c_funciones = new Funciones();
 	''); ?>
 <body>
 <div data-role="page" id="page">
-		<?php $c_funciones->getHeaderPageNivel2("F.A.S.T. CSR"); ?>
+		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 			<div class="ui-body ui-body-a ui-corner-all">	
 			<p align="center"><strong>Seleccione el País donde se encuentra el Punto de Evaluación a relizar CSR</strong><br />
