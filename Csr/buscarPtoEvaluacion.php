@@ -58,6 +58,7 @@ $c_funciones = new Funciones();
       			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
       					<label for="txtFecha">Fecha de elaboración</label>
       					<input type="date" name="txtFecha" id="txtFecha">	
+      					<input type="text" data-role="date">
       			</div> 						
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 				<input type="submit" id="botonEvaluar" data-theme="a" name="submit" value="Iniciar Evaluación" class="ui-btn-hidden" aria-disabled="false"/>
